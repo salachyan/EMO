@@ -86,14 +86,14 @@ function _update()
     player2.dx = player2.speed
     player2.flip = false -- face sprite to the right
   end
- 
- 	if btn(5) then
-    player.y -= 1
+  
+  if btn(❎) then
+  		player.y -= 1
+		end
+  	
+ 	if btn(🅾️) then
+    player.y += 1
  	end
- 	
- 	--if btn(⬇️) then
-    --player.y -= 1
- 	--end
  	
 
   -- apply gravity
