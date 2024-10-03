@@ -1,11 +1,17 @@
 function _update()
-  --updating stuff with player1
+  --updating animation with player1
   if player1.spz<4.9 then
     player1.spz = player1.spz + .1
   else
     player1.spz = 1
   end
 
+  --update animation with player2
+  if player2.spz<4.9 then
+    player2.spz = player2.spz + .1
+  else
+    player2.spz = 1
+  end
     -- reset player horizontal movement speed
     player1.dx = 0
     player2.dx = 0
