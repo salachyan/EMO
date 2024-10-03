@@ -2,8 +2,11 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 
-#include hello.lua
-
+#include gameloop/hello.lua
+#include gameloop/camera.lua
+#include gameloop/file3.lua
+#include gameloop/collisions.lua
+#include gameloop/update.lua
 
 __gfx__
 000000000000011111100000000001111110000033333333cccccccc54444445cccaaccc44444444cccccccc0000000000000000000000000000000000000000
