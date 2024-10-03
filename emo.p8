@@ -2,9 +2,9 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 
-#include gameloop/hello.lua
+#include gameloop/initialize.lua
 #include gameloop/camera.lua
-#include gameloop/file3.lua
+#include gameloop/draw.lua
 #include gameloop/collisions.lua
 #include gameloop/update.lua
 
