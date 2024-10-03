@@ -4,7 +4,7 @@ function _init()
   -- initialize player properties
   player = {
     x = 2,     -- starting x position
-    y = 105,     -- starting y position
+    y = 80,     -- starting y position
     sp = 1,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 2,     -- width of the sprite in pixels
     h = 2,     -- height of the sprite in pixels
