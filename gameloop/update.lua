@@ -1,14 +1,14 @@
 function _update()
   --updating animation with player1
   if player1.spz<4.9 then
-    player1.spz = player1.spz + .1
+    player1.spz = player1.spz + .08
   else
     player1.spz = 1
   end
 
   --update animation with player2
   if player2.spz<4.9 then
-    player2.spz = player2.spz + .1
+    player2.spz = player2.spz + .05
   else
     player2.spz = 1
   end

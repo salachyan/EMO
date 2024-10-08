@@ -11,7 +11,7 @@ function _init()
     dx = 0,     -- horizontal movement speed
     dy = 0,     -- vertical movement speed (for jumping/falling)
     speed = 1.2,  -- movement speed
-    frames = {32,34,36,38 },
+    frames = {32,34,0,36,38,0 },
     spz = 1,
 --    gravity = 0.3, --  strength
     flip = false, -- direction of the sprite
@@ -32,7 +32,7 @@ function _init()
     dx = 0,     -- horizontal movement speed
     dy = 0,     -- vertical movement speed (for jumping/falling)
     speed = 2,  -- movement speed
-    frames = {40,42,44,46},
+    frames = {40,42,4,44,46,4},
     spz = 1,
 
    -- gravity = 0.3, --  strength
@@ -48,7 +48,7 @@ function _init()
  	box = {
     x = 40,     -- starting x position
     y = 112,     -- starting y position
-    sp = 7,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 211git ,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     --dx = 0,     -- horizontal movement speed
