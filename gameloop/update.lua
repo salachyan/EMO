@@ -27,13 +27,13 @@ function _update()
 
   -- p1 move left
   if btn(⬅️) then
-    player1.dx = -player.speed
+    player1.dx = -player1.speed
     player1.flip = true -- flip sprite to face left
   end
 
   -- move right
   if btn(➡️) then
-    player1.dx = player.speed
+    player1.dx = player1.speed
     player1.flip = false -- face sprite to the right
   end
   
@@ -49,14 +49,16 @@ function _update()
     player2.flip = false -- face sprite to the right
   end
  
- 	--player 1 up press x
+ 	--player 1 jump press x
  	if btn(❎) then
-    player1.y -= player.speed
+    player1.y -= player1.speed
+    player1.landed=false
   end
   
-  --player 2 up press c
+  --player 2 jump press c
   if btn(🅾️) then 
-    player2.y -= player.speed
+    player2.y -= player2.speed
+    player2.landed=false
   end
  	
  	--if collide(box) then
@@ -69,11 +71,18 @@ function _update()
  -- player.dy = player.dy + player.gravity
 
   -- check for ground collision (using flag 0) for a 16x16 region
-  if is_colliding_with_ground(player1.x, player1.y + player1.h) then
+  if is_colliding_with_ground1(player1.x, player1.y + player1.h) then
     player1.dy = 0
     player1.is_on_ground = true
   else
     player1.is_on_ground = false
+  end
+
+  if is_colliding_with_ground2(player2.x, player2.y + player2.h) then
+    player2.dy = 0
+    player2.is_on_ground = true
+  else
+    player2.is_on_ground = false
   end
 
   -- update player position
