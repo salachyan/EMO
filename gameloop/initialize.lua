@@ -13,7 +13,6 @@ function _init()
     speed = 1.2,  -- movement speed
     frames = {32,34,0,36,38,0 },
     spz = 1,
---    gravity = 0.3, --  strength
     flip = false, -- direction of the sprite
     is_on_ground = false, -- player grounded state
     running=false,
@@ -54,7 +53,7 @@ function _init()
     --dy = 0,     -- vertical movement speed (for jumping/falling)
     --speed = 2,  -- movement speed
    -- gravity = 0.3, --  strength
-    flip = false, -- direction of the sprite
+    flip = false -- direction of the sprite
     --is_on_ground = false -- player grounded state
   }
   
