@@ -16,6 +16,11 @@ function _init()
 --    gravity = 0.3, --  strength
     flip = false, -- direction of the sprite
     is_on_ground = false -- player grounded state
+  		running=false,
+    jumping=false,
+    falling=false,
+    sliding=false,
+    landed=false
   }
   
   player2 = {
@@ -33,6 +38,11 @@ function _init()
    -- gravity = 0.3, --  strength
     flip = false, -- direction of the sprite
     is_on_ground = false -- player grounded state
+    running=false,
+    jumping=false,
+    falling=false,
+    sliding=false,
+    landed=false
   }
   
  	box = {
@@ -48,6 +58,9 @@ function _init()
     flip = false, -- direction of the sprite
     --is_on_ground = false -- player grounded state
   }
+  
+  gravity = 0.3
+  friction=0.85
   
   --simple camera
   cam_x = 0
