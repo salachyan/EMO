@@ -4,7 +4,7 @@ function _init()
   -- initialize player properties
   player1 = {
     x = 2,     -- starting x position
-    y = 115,     -- starting y position
+    y = 90,     -- starting y position
     sp = 33,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 2,     -- width of the sprite in pixels
     h = 2,     -- height of the sprite in pixels
@@ -24,7 +24,7 @@ function _init()
   
   player2 = {
     x = 15,     -- starting x position
-    y = 115,     -- starting y position
+    y = 90,     -- starting y position
     sp = 3,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 2,     -- width of the sprite in pixels
     h = 2,     -- height of the sprite in pixels
@@ -33,8 +33,6 @@ function _init()
     speed = 2,  -- movement speed
     frames = {40,42,4,44,46,4},
     spz = 1,
-
-   -- gravity = 0.3, --  strength
     flip = false, -- direction of the sprite
     is_on_ground = false, -- player grounded state
     running=false,
@@ -52,12 +50,11 @@ function _init()
     --dx = 0,     -- horizontal movement speed
     --dy = 0,     -- vertical movement speed (for jumping/falling)
     --speed = 2,  -- movement speed
-   -- gravity = 0.3, --  strength
     flip = false -- direction of the sprite
     --is_on_ground = false -- player grounded state
   }
   
-  gravity = 0.3
+  gravity = 0.1
   friction=0.85
   
   --simple camera
