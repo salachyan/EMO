@@ -18,5 +18,7 @@ function _draw()
           --sspr(0, 0, 16, 16, player.x, player.y, 16, 16)
           --sspr(8, 0, 16, 16, player2.x, player2.y, 8, 8)
           spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
+          spr(switch.sp, switch.x, switch.y, switch.w, switch.h, switch.flip)
+
   
   end

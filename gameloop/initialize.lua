@@ -46,6 +46,19 @@ function _init()
   box = {
     x = 40,     -- starting x position
     y = 112,     -- starting y position
+    sp = 215,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    --dx = 0,     -- horizontal movement speed
+    --dy = 0,     -- vertical movement speed (for jumping/falling)
+    --speed = 2,  -- movement speed
+   -- gravity = 0.3, --  strength
+    flip = false -- direction of the sprite
+    --is_on_ground = false -- player grounded state
+  }
+  switch = {
+    x = 100,     -- starting x position
+    y = 96,     -- starting y position
     sp = 212,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
