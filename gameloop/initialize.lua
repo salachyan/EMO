@@ -76,5 +76,3 @@ function _init()
   map_start = 0
   map_end = 1024
 end
-
-
