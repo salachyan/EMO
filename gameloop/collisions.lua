@@ -4,7 +4,7 @@ function is_colliding_with_ground1(x, y)
   local tile_y1 = flr(y / 16) * 2
 
   -- check collision for a 2x2 grid of 8x8 tiles (which forms a 16x16 area)
-  for i = 0, 1 do
+  for i = 0, 1, 2 do
     for j = 0, 1 do
       local tile_x = tile_x1 + i
       local tile_y = tile_y1 + j
