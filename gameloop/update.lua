@@ -1,4 +1,3 @@
-
 function _update()
   if player1.spz<4.9 then
     player1.spz = player1.spz + .08
@@ -52,13 +51,15 @@ function _update()
  	--player 1 jump press x
  	if btn(❎) then
     player1.y -= player1.speed
-    player1.landed=false
+    --player1.landed=false
+    player1.is_on_ground = false
   end
   
   --player 2 jump press c
   if btn(🅾️) then 
     player2.y -= player2.speed
-    player2.landed=false
+    --player2.landed=false
+    player2.is_on_ground = false
   end
  	
  	--if collide(box) then
@@ -74,6 +75,7 @@ function _update()
   if is_colliding_with_ground(player1.x, player1.y + player1.h) then
     player1.dy = 0
     player1.is_on_ground = true
+    player1.y = flr(player1.y / 8) * 8
   else
     player1.is_on_ground = false
   end
@@ -81,6 +83,7 @@ function _update()
   if is_colliding_with_ground(player2.x, player2.y + player2.h) then
     player2.dy = 0
     player2.is_on_ground = true
+    player2.y = flr(player2.y / 8) * 8
   else
     player2.is_on_ground = false
   end
