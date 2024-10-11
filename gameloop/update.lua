@@ -71,14 +71,14 @@ function _update()
  -- player.dy = player.dy + player.gravity
 
   -- check for ground collision (using flag 0) for a 16x16 region
-  if is_colliding_with_ground1(player1.x, player1.y + player1.h) then
+  if is_colliding_with_ground(player1.x, player1.y + player1.h) then
     player1.dy = 0
     player1.is_on_ground = true
   else
     player1.is_on_ground = false
   end
 
-  if is_colliding_with_ground2(player2.x, player2.y + player2.h) then
+  if is_colliding_with_ground(player2.x, player2.y + player2.h) then
     player2.dy = 0
     player2.is_on_ground = true
   else
