@@ -44,7 +44,12 @@ function _draw()
     spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
     spr(side_sprite.sp, side_sprite.x, side_sprite.y, side_sprite.w, side_sprite.h, side_sprite.flip)
     spr(switch.sp, switch.x, switch.y, switch.w, switch.h, switch.flip)
-
+    spr(platform1.sp, platform1.x, platform1.y, platform1.w, platform1.h)
+    spr(platform2.sp, platform2.x, platform2.y, platform2.w, platform2.h)
+    spr(platform3.sp, platform3.x, platform3.y, platform3.w, platform3.h)
+    spr(platform4.sp, platform4.x, platform4.y, platform4.w, platform4.h)
+    spr(platform5.sp, platform5.x, platform5.y, platform5.w, platform5.h)
+    spr(platform_mover.sp, platform_mover.x, platform_mover.y, platform_mover.w, platform_mover.h)
     --print("side_sprite.x: "..side_sprite.x, 50,30,14)
     --print("box.x: "..box.x, 50,40,14)
   end

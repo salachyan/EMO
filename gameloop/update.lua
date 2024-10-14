@@ -155,10 +155,95 @@ function _update()
     end
   end
 
-  -- Check for player1 collision with the switch
+  -- Check for player1 and player2 collision with the switch
   if check_collision(player1, switch) or check_collision(player2, switch) then
     switch.flip = true
   end
+
+  if switch.flip == true and platform1.y<90 then
+    platform1.y += 1
+    platform2.y += 1
+    platform3.y += 1
+    platform4.y += 1
+    platform5.y += 1
+    platform_mover.y += 1
+  end
+
+  -- Check for player1 and player2 collision with the platform
+  if check_collision(player1, platform1) then
+    if player1.y + player1.h <= platform1.y + platform1.h * 8 and player1.dy > 0 then
+      player1.y = platform1.y - player1.h * 8  -- Position player on top of the platform1
+      player1.dy = 0  -- Reset vertical speed
+      player1.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player1, platform2) then
+    if player1.y + player1.h <= platform2.y + platform2.h * 8 and player1.dy > 0 then
+      player1.y = platform2.y - player1.h * 8  -- Position player on top of the platform2
+      player1.dy = 0  -- Reset vertical speed
+      player1.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player1, platform3) then
+    if player1.y + player1.h <= platform3.y + platform3.h * 8 and player1.dy > 0 then
+      player1.y = platform3.y - player1.h * 8  -- Position player on top of the platform3
+      player1.dy = 0  -- Reset vertical speed
+      player1.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player1, platform4) then
+    if player1.y + player1.h <= platform4.y + platform4.h * 8 and player1.dy > 0 then
+      player1.y = platform4.y - player1.h * 8  -- Position player on top of the platform4
+      player1.dy = 0  -- Reset vertical speed
+      player1.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player1, platform5) then
+    if player1.y + player1.h <= platform5.y + platform5.h * 8 and player1.dy > 0 then
+      player1.y = platform5.y - player1.h * 8  -- Position player on top of the platform5
+      player1.dy = 0  -- Reset vertical speed
+      player1.is_on_ground = true -- Update grounded state
+    end
+  end
+
+  --platform collision for player2
+  if check_collision(player2, platform1) then
+    if player2.y + player2.h <= platform1.y + platform1.h * 8 and player2.dy > 0 then
+      player2.y = platform1.y - player2.h * 8  -- Position player on top of the platform1
+      player2.dy = 0  -- Reset vertical speed
+      player2.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player2, platform2) then
+    if player2.y + player2.h <= platform2.y + platform2.h * 8 and player2.dy > 0 then
+      player2.y = platform2.y - player2.h * 8  -- Position player on top of the platform2
+      player2.dy = 0  -- Reset vertical speed
+      player2.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player2, platform3) then
+    if player2.y + player2.h <= platform3.y + platform3.h * 8 and player2.dy > 0 then
+      player2.y = platform3.y - player2.h * 8  -- Position player on top of the platform3
+      player2.dy = 0  -- Reset vertical speed
+      player2.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player2, platform4) then
+    if player2.y + player2.h <= platform4.y + platform4.h * 8 and player2.dy > 0 then
+      player2.y = platform4.y - player2.h * 8  -- Position player on top of the platform4
+      player2.dy = 0  -- Reset vertical speed
+      player2.is_on_ground = true -- Update grounded state
+    end
+  end
+  if check_collision(player2, platform5) then
+    if player2.y + player2.h <= platform5.y + platform5.h * 8 and player2.dy > 0 then
+      player2.y = platform5.y - player2.h * 8  -- Position player on top of the platform5
+      player2.dy = 0  -- Reset vertical speed
+      player2.is_on_ground = true -- Update grounded state
+    end
+  end
+
+
 
   -- update player position
   player1.x = player1.x + player1.dx

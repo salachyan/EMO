@@ -47,10 +47,12 @@ function _init()
     landed=false,
     is_on_side = false
   }
+
+  --Level 1 Setup -----------------------------------------------------------------------------------------------------
   box = {
     x = 40,     -- starting x position
     y = 112,     -- starting y position
-    sp = 215,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 215,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dx = 0,     -- horizontal movement speed
@@ -64,7 +66,7 @@ function _init()
   side_sprite = {
     x = 72,     -- starting x position
     y = 112,     -- starting y position
-    sp = 226,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 226,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dx = 0,     -- horizontal movement speed
@@ -78,7 +80,7 @@ function _init()
   switch = {
     x = 92,     -- starting x position
     y = 96,     -- starting y position
-    sp = 212,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 212,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     --dx = 0,     -- horizontal movement speed
@@ -86,6 +88,49 @@ function _init()
     --speed = 2,  -- movement speed
     flip = false -- direction of the sprite
     --is_on_ground = false -- player grounded state
+  }
+
+  platform1 = {
+    x = 24,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+  }
+  platform2 = {
+    x = 32,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,     
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+  }
+  platform3 = {
+    x = 40,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+  }
+  platform4 = {
+    x = 48,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+  }
+  platform5 = {
+    x = 56,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+  }
+  platform_mover = {
+    x = 40,     -- starting x position
+    y = 80,     -- starting y position
+    sp = 213,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
   }
   
   gravity = 0.1
