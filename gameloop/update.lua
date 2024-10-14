@@ -85,14 +85,29 @@ function _update()
   end
 
   -- Check for side collisions
-  local side_collision = is_colliding_with_side(player1, is_on_side)
+  local side_collision_player1 = is_colliding_with_side(player1, is_on_side)
+  local side_colliding_with_side_box = is_colliding_with_side_box(box, is_on_side)
 
-  if side_collision == "left" and player1.dx < 0 then
+  if side_collision_player1 == "left" and player1.dx < 0 then
     player1.dx = 0 -- Stop left movement only if moving left
-  elseif side_collision == "right" and player1.dx > 0 then
+  elseif side_collision_player1 == "right" and player1.dx > 0 then
     player1.dx = 0 -- Stop right movement only if moving right
   end
-  
+
+  local side_collision_player2 = is_colliding_with_side(player2, is_on_side)
+
+  if side_collision_player2 == "left" and player2.dx < 0 then
+    player2.dx = 0 -- Stop left movement only if moving left
+  elseif side_collision_player2 == "right" and player2.dx > 0 then
+    player2.dx = 0 -- Stop right movement only if moving right
+  end
+
+  -- Check for collisions between the box and the side_sprite
+  if box.x > (side_sprite.x-8) then
+    box.x = (side_sprite.x-8)
+    box.dx=0
+  end
+
   -- Check for collisions with the box for player1
   if check_collision(player1, box) then
     if player1.is_on_ground then
@@ -109,7 +124,7 @@ function _update()
 
   -- Check for collisions with the box for player2
   if check_collision(player2, box) then
-    if player1.is_on_ground then
+    --if player1.is_on_ground then
     -- Move player2 back based on the direction they are moving
       if player2.dx > 0 and (box.x > player2.x) then
         player2.x = box.x - player2.w * 8  -- Push player to the left
@@ -118,7 +133,7 @@ function _update()
         player2.x = box.x + box.w * 8  -- Push player to the right
         box.x = box.x + player2.dx
       end
-    end
+    --end
   end
 
   -- Allow players to jump on top of the box
@@ -148,5 +163,6 @@ function _update()
   player2.x = player2.x + player2.dx
   player2.y = player2.y + player2.dy
   
+  box.x += box.dx
 
 end
