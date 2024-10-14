@@ -11,6 +11,30 @@ function _draw()
     local map_y = screen_height - (map_height * 8)  -- position it above the bottom
   
     map(0, 0, 0, 0, map_width, map_height)
+
+    print("level 1",50,2,14)
+    text1 = "pip and pete received a note"
+    text2 = "from their brother, percy. the "
+    text3 = "note reads, ''i've discovered  "
+    text4 = "a safe shelter away from the "
+    text5 = "swift-fast cheetah at the top   "
+    text6 = "of the mountain! climb up this "
+    text7 = "cliff! - percy''"
+    box_x = 2
+    box_y = 9
+    box_w = 122
+    box_h = 53
+    rectfill(box_x, box_y, box_x + box_w, box_y + box_h, 7)  -- White background
+    rect(box_x, box_y, box_x + box_w, box_y + box_h, 0)  -- Black border
+
+    -- Draw the text inside the box
+    print(text1, box_x + 2, box_y + 4, 0)
+    print(text2, box_x + 2, box_y + 11, 0)
+    print(text3, box_x + 2, box_y + 18, 0)
+    print(text4, box_x + 2, box_y + 25, 0)
+    print(text5, box_x + 2, box_y + 32, 0)
+    print(text6, box_x + 2, box_y + 39, 0)
+    print(text7, box_x + 2, box_y + 46, 0)
   
     -- draw the player sprite (32x32 pixels = 4 tiles by 4 tiles)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, player1.w, player1.h, player1.flip)
@@ -18,5 +42,5 @@ function _draw()
           --sspr(0, 0, 16, 16, player.x, player.y, 16, 16)
           --sspr(8, 0, 16, 16, player2.x, player2.y, 8, 8)
           spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
-  
+          spr(switch.sp, switch.x, switch.y, switch.w, switch.h, switch.flip)
   end
