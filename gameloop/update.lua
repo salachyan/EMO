@@ -155,6 +155,10 @@ function _update()
     end
   end
 
+  -- Check for player1 collision with the switch
+  if check_collision(player1, switch) or check_collision(player2, switch) then
+    switch.flip = true
+  end
 
   -- update player position
   player1.x = player1.x + player1.dx

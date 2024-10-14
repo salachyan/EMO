@@ -76,7 +76,7 @@ function _init()
   }
 
   switch = {
-    x = 100,     -- starting x position
+    x = 92,     -- starting x position
     y = 96,     -- starting y position
     sp = 212,     -- top-left corner of the 4x4 sprite (32x32 pixels)
     w = 1,     -- width of the sprite in pixels
