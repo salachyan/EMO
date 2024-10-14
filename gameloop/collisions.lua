@@ -1,39 +1,37 @@
-function is_colliding_with_ground1(x, y)
-  -- convert x and y to tile coordinates for a 16x16 region
-  local tile_x1 = flr(x / 16) * 2
-  local tile_y1 = flr(y / 16) * 2
+function is_colliding_with_ground(x, y)
+  -- Convert the player's position into tile coordinates (16x16 grid)
+  local tile_x1 = flr(x / 8)  -- top-left corner (convert pixel to tile coordinate)
+  local tile_y1 = flr(y / 8)  -- top-left corner
+  local tile_x2 = flr((x + 14) / 8)  -- bottom-right corner (character width - 1)
+  local tile_y2 = flr((y + 14) / 8)  -- bottom-right corner (character height - 1)
 
-  -- check collision for a 2x2 grid of 8x8 tiles (which forms a 16x16 area)
-  for i = 0, 1 do
-    for j = 0, 1 do
-      local tile_x = tile_x1 + i
-      local tile_y = tile_y1 + j
-      local tile = mget(tile_x, tile_y)
-      -- check if this tile has the ground_flag (for sprite 005)
-      if fget(tile, ground_flag) then
-        return true  -- ground collision detected
-      end
-    end
+  -- Check the four corners of the 16x16 character
+  local top_left = mget(tile_x1, tile_y1)
+  local top_right = mget(tile_x2, tile_y1)
+  local bottom_left = mget(tile_x1, tile_y2)
+  local bottom_right = mget(tile_x2, tile_y2)
+
+  -- Check if any of these tiles have the ground_flag
+  if fget(top_left, is_on_ground) or fget(top_right, is_on_ground) or 
+     fget(bottom_left, is_on_ground) or fget(bottom_right, is_on_ground) then
+    return true  -- Ground collision detected
   end
-  return false  -- no collision
+
+  return false  -- No collision
 end
 
-function is_colliding_with_ground2(x, y)
-  -- convert x and y to tile coordinates for a 16x16 region
-  local tile_x1 = flr(x / 16) * 2
-  local tile_y1 = flr(y / 16) * 2
+-- Function to check collision between a player and the box
+function check_collision(player, box)
+  return player.x < box.x + box.w * 8 and
+         player.x + player.w * 8 > box.x and
+         player.y < box.y + box.h * 8 and
+         player.y + player.h * 8 > box.y
+end
 
-  -- check collision for a 2x2 grid of 8x8 tiles (which forms a 16x16 area)
-  for i = 0, 1 do
-    for j = 0, 1 do
-      local tile_x = tile_x1 + i
-      local tile_y = tile_y1 + j
-      local tile = mget(tile_x, tile_y)
-      -- check if this tile has the ground_flag (for sprite 005)
-      if fget(tile, ground_flag) then
-        return true  -- ground collision detected
-      end
-    end
-  end
-  return false  -- no collision
+-- Function to check if player is colliding with the box from above
+function is_colliding_with_box(player, box)
+  return player.x < box.x + box.w * 8 and
+         player.x + player.w * 8 > box.x and
+         player.y + player.h * 8 >= box.y and
+         player.y < box.y + box.h * 8
 end

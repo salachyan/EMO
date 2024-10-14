@@ -12,14 +12,14 @@ function _draw()
   
     map(0, 0, 0, 0, map_width, map_height)
 
-    print("Level 1",50,2,14)
+    print("level 1",50,2,14)
     text1 = "pip and pete received a note"
-    text2 = "from their brother, Percy. The "
-    text3 = "note reads, 'I've discovered a "
-    text4 = "safe shelter away from the Big "
-    text5 = "Bad Gorilla at the top of the "
-    text6 = "mountain! Climb up this cliff!"
-    text7 = "- percy'"
+    text2 = "from their brother, percy. the "
+    text3 = "note reads, ''i've discovered  "
+    text4 = "a safe shelter away from the "
+    text5 = "swift-fast cheetah at the top   "
+    text6 = "of the mountain! climb up this "
+    text7 = "cliff! - percy''"
     box_x = 2
     box_y = 9
     box_w = 122
