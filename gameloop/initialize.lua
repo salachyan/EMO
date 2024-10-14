@@ -21,7 +21,8 @@ function _init()
     jumping=false,
     falling=false,
     sliding=false,
-    landed=false
+    landed=false,
+    is_on_box = false
   }
   
   player2 = {
@@ -43,7 +44,8 @@ function _init()
     jumping=false,
     falling=false,
     sliding=false,
-    landed=false
+    landed=false,
+    is_on_box = false
   }
   box = {
     x = 40,     -- starting x position

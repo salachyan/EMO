@@ -19,3 +19,19 @@ function is_colliding_with_ground(x, y)
 
   return false  -- No collision
 end
+
+-- Function to check collision between a player and the box
+function check_collision(player, box)
+  return player.x < box.x + box.w * 8 and
+         player.x + player.w * 8 > box.x and
+         player.y < box.y + box.h * 8 and
+         player.y + player.h * 8 > box.y
+end
+
+-- Function to check if player is colliding with the box from above
+function is_colliding_with_box(player, box)
+  return player.x < box.x + box.w * 8 and
+         player.x + player.w * 8 > box.x and
+         player.y + player.h * 8 >= box.y and
+         player.y < box.y + box.h * 8
+end

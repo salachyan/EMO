@@ -1,4 +1,8 @@
 function _update()
+  -- Reset player horizontal movement speed
+  player1.dx = 0
+  player2.dx = 0
+  
   if player1.spz<4.9 then
     player1.spz = player1.spz + .08
   else
@@ -66,7 +70,6 @@ function _update()
  		--box.x = lx
  		--box.y = ly
  	--end
- 	
 
   -- apply gravity
  -- player.dy = player.dy + player.gravity
@@ -88,13 +91,54 @@ function _update()
     player2.is_on_ground = false
   end
 
+  -- Check for collisions with the box for player1
+  if check_collision(player1, box) then
+    -- Move player1 back based on the direction they are moving
+    if player1.dx > 0 then
+      player1.x = box.x - player1.w * 8  -- Push player to the left
+    elseif player1.dx < 0 then
+      player1.x = box.x + box.w * 8  -- Push player to the right
+    end
+    -- Move the box if player is on the ground
+    if player1.is_on_ground then
+      box.x = box.x + player1.dx
+    end
+  end
+
+  -- Check for collisions with the box for player2
+  if check_collision(player2, box) then
+    -- Move player2 back based on the direction they are moving
+    if player2.dx > 0 then
+      player2.x = box.x - player2.w * 8  -- Push player to the left
+    elseif player2.dx < 0 then
+      player2.x = box.x + box.w * 8  -- Push player to the right
+    end
+    -- Move the box if player is on the ground
+    if player2.is_on_ground then
+      box.x = box.x + player2.dx
+    end
+  end
+
+  -- Allow players to jump on top of the box
+  if is_colliding_with_box(player1, box) then
+    if player1.y + player1.h >= box.y and player1.y + player1.h < box.y + box.h * 8 then
+      player1.y = box.y - player1.h * 8  -- Position player on top of the box
+      player1.dy = 0  -- Reset vertical speed to prevent falling through
+    end
+  end
+
+  if is_colliding_with_box(player2, box) then
+    if player2.y + player2.h >= box.y and player2.y + player2.h < box.y + box.h * 8 then
+      player2.y = box.y - player2.h * 8  -- Position player on top of the box
+      player2.dy = 0  -- Reset vertical speed to prevent falling through
+    end
+  end
+
   -- update player position
   player1.x = player1.x + player1.dx
   player1.y = player1.y + player1.dy
   
   player2.x = player2.x + player2.dx
   player2.y = player2.y + player2.dy
-
-		
 
 end
