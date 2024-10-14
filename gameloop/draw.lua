@@ -38,9 +38,13 @@ function _draw()
   
     -- draw the player sprite (32x32 pixels = 4 tiles by 4 tiles)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, player1.w, player1.h, player1.flip)
-          spr(player2.frames[flr(player2.spz)], player2.x, player2.y, player2.w, player2.h, player2.flip)
-          --sspr(0, 0, 16, 16, player.x, player.y, 16, 16)
-          --sspr(8, 0, 16, 16, player2.x, player2.y, 8, 8)
-          spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
-          spr(switch.sp, switch.x, switch.y, switch.w, switch.h, switch.flip)
+    spr(player2.frames[flr(player2.spz)], player2.x, player2.y, player2.w, player2.h, player2.flip)
+    --sspr(0, 0, 16, 16, player.x, player.y, 16, 16)
+    --sspr(8, 0, 16, 16, player2.x, player2.y, 8, 8)
+    spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
+    spr(side_sprite.sp, side_sprite.x, side_sprite.y, side_sprite.w, side_sprite.h, side_sprite.flip)
+    spr(switch.sp, switch.x, switch.y, switch.w, switch.h, switch.flip)
+
+    --print("side_sprite.x: "..side_sprite.x, 50,30,14)
+    --print("box.x: "..box.x, 50,40,14)
   end

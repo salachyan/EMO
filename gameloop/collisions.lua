@@ -20,6 +20,48 @@ function is_colliding_with_ground(x, y)
   return false  -- No collision
 end
 
+-- Function to check if player is colliding with a side (left or right) based on flags
+function is_colliding_with_side(player, flag)
+  -- Convert player's position into tile coordinates (16x16 grid)
+  local tile_x1 = flr(player.x / 8)  -- Left side of the player
+  local tile_y1 = flr(player.y / 8)  -- Top side
+  local tile_x2 = flr((player.x + 15) / 8)  -- Right side of the player
+  local tile_y2 = flr((player.y + 15) / 8)  -- Bottom side
+  
+  -- Check left side collision
+  if fget(mget(tile_x1, tile_y1), flag) or fget(mget(tile_x1, tile_y2), flag) then
+    return "left"
+  end
+
+  -- Check right side collision
+  if fget(mget(tile_x2, tile_y1), flag) or fget(mget(tile_x2, tile_y2), flag) then
+    return "right"
+  end
+
+  return nil  -- No side collision
+end
+
+-- Function to check if box is colliding with a side (left or right) based on flags
+function is_colliding_with_side_box(box, flag)
+  -- Convert box's position into tile coordinates (16x16 grid)
+  local tile_x1 = flr(box.x / 8)  -- Left side of the box
+  local tile_y1 = flr(box.y / 8)  -- Top side
+  local tile_x2 = flr((box.x + 7) / 8)  -- Right side of the box
+  local tile_y2 = flr((box.y + 7) / 8)  -- Bottom side
+  
+  -- Check left side collision
+  if fget(mget(tile_x1, tile_y1), flag) or fget(mget(tile_x1, tile_y2), flag) then
+    return "left"
+  end
+
+  -- Check right side collision
+  if fget(mget(tile_x2, tile_y1), flag) or fget(mget(tile_x2, tile_y2), flag) then
+    return "right"
+  end
+
+  return nil  -- No side collision
+end
+
 -- Function to check collision between a player and the box
 function check_collision(player, box)
   return player.x < box.x + box.w * 8 and
