@@ -186,18 +186,38 @@ function _update()
     end
   end
 
-  -- Check for player1 and player2 collision with the switch
-  if check_collision(player1, switch) or check_collision(player2, switch) then
-    switch.flip = true
+  -- Check for player1 and player2 collision with the switch1
+  if switch1.flip==false and (check_collision(player1, switch1) or check_collision(player2, switch1)) then
+    switch1.flip = true
   end
+  -- switch_toggle1 = switch1.flip==true and (check_collision(player1, switch1) or check_collision(player2, switch1)) 
+  -- if switch1.flip==true and (check_collision(player1, switch1) or check_collision(player2, switch1)) then
+  --   switch1.flip = false
+  -- end
 
-  if switch.flip == true and platform1.y<98 then
+  if switch1.flip == true and platform6.y<95 then
     platform1.y += 1
     platform2.y += 1
     platform3.y += 1
     platform4.y += 1
     platform5.y += 1
+    platform6.y += 1
+    switch2.y +=1
     platform_mover.y += 1
+  end
+
+  if check_collision(player1, switch2) or check_collision(player2, switch2) then
+    switch2.flip = false
+  end
+
+  if switch2.flip == false and platform1.y>72 then
+    platform1.y -= 1
+    platform2.y -= 1
+    platform3.y -= 1
+    platform4.y -= 1
+    platform5.y -= 1
+    switch2.y -=1
+    platform_mover.y -= 1
   end
 
   -- Check for player1 and player2 collision with the platform

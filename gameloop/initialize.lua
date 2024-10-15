@@ -65,7 +65,7 @@ function _init()
     --is_on_ground = false -- player grounded state
   }
 
-  switch = {
+  switch1 = {
     x = 92,     -- starting x position
     y = 96,     -- starting y position
     sp = 212,     
@@ -84,6 +84,7 @@ function _init()
     sp = 212,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0,
     --dx = 0,     -- horizontal movement speed
     --dy = 0,     -- vertical movement speed (for jumping/falling)
     --speed = 2,  -- movement speed
@@ -97,6 +98,7 @@ function _init()
     sp = 208,    
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   platform2 = {
     x = 32,     -- starting x position
@@ -104,6 +106,7 @@ function _init()
     sp = 208,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   platform3 = {
     x = 40,     -- starting x position
@@ -111,6 +114,7 @@ function _init()
     sp = 208,    
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   platform4 = {
     x = 48,     -- starting x position
@@ -118,6 +122,7 @@ function _init()
     sp = 208,   
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   platform5 = {
     x = 56,     -- starting x position
@@ -125,6 +130,15 @@ function _init()
     sp = 208,   
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform6 = {
+    x = 16,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   platform_mover = {
     x = 40,     -- starting x position
@@ -132,6 +146,7 @@ function _init()
     sp = 213,   
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   
   gravity = 0.1
