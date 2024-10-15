@@ -195,21 +195,18 @@ function _update()
   -- Check for player1 and player2 collision with the switch1
   switch_toggle1 = switch1.flip == true and (check_collision(player1, switch1) or check_collision(player2, switch1))
 
-    switch1_collision_count = 0
-
-    -- Increment switch1_collision if collision occurs
-    if (check_collision(player1, switch1) or check_collision(player2, switch1)) then
-      switch1_collision_count = switch1_collision_count + 1
-    end
-
-    -- Toggle switch based on odd/even check
-    if (switch1_collision_count % 2 == 1) then -- Odd number
-        switch1.flip = true
-    end
-
-    -- if (switch1_collision_count % 2 == 0) then -- Even number
-    --     switch1.flip = false
-    -- end
+  switch1_collision_count = 0
+  -- Increment switch1_collision if collision occurs
+  if (check_collision(player1, switch1) or check_collision(player2, switch1)) then
+    switch1_collision_count = switch1_collision_count + 1
+  end
+  -- Toggle switch based on odd/even check
+  if (switch1_collision_count % 2 == 1) then -- Odd number
+   switch1.flip = true
+  end
+  if (switch1_collision_count % 2 == 0) then -- Even number
+   switch1.flip = false
+  end
 
   if (check_collision(player1, switch1) or check_collision(player2, switch1)) and platform6.y<95 then
     platform1.y += 1
@@ -222,7 +219,23 @@ function _update()
     platform_mover.y += 1
   end
 
-  if check_collision(player1, switch2) or check_collision(player2, switch2) then
+  -- if switch2.flip == true and (check_collision(player1, switch2) or check_collision(player2, switch2)) then
+  --   switch2.flip = false
+  -- end
+  -- if switch2.flip == false and (check_collision(player1, switch2) or check_collision(player2, switch2)) then
+  --   switch2.flip = true
+  -- end
+
+  switch2_collision_count = 0
+  -- Increment switch1_collision if collision occurs
+  if (check_collision(player1, switch2) or check_collision(player2, switch2)) then
+    switch2_collision_count = switch2_collision_count + 1
+  end
+  -- Toggle switch based on odd/even check
+  if (switch2_collision_count % 2 == 1) then -- Odd number
+    switch2.flip = true
+  end
+  if (switch2_collision_count % 2 == 0) then -- Even number
     switch2.flip = false
   end
 
@@ -284,7 +297,7 @@ function _update()
     if player2.y + player2.h >= box.y and player2.y + player2.h < box.y + box.h * 8 and player2.dy < 0 then
       player2.y = box.y + box.h * 8  -- Position player just above the box
       player2.dy = 0  -- Reset vertical speed
-      -- Optional: you may want to update is_on_ground here as needed
+      player2.is_on_ground = true
     end
   end
   if check_collision(player2, platform2) then
