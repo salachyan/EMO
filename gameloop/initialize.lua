@@ -135,7 +135,7 @@ function _init()
   platform6 = {
     x = 16,     -- starting x position
     y = 72,     -- starting y position
-    sp = 208,   
+    sp = 192,   
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dy=0

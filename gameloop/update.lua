@@ -3,6 +3,12 @@ function _update()
   player1.dx = 0
   player2.dx = 0
 
+  platform1.dx = 0
+  platform2.dx = 0
+  platform3.dx = 0
+  platform4.dx = 0
+  platform5.dx = 0
+
   local lx1=player1.x --last x pos
 	local ly1=player1.y --last y pos
   local lx2=player2.x --last x pos
@@ -187,15 +193,25 @@ function _update()
   end
 
   -- Check for player1 and player2 collision with the switch1
-  if switch1.flip==false and (check_collision(player1, switch1) or check_collision(player2, switch1)) then
-    switch1.flip = true
-  end
-  -- switch_toggle1 = switch1.flip==true and (check_collision(player1, switch1) or check_collision(player2, switch1)) 
-  -- if switch1.flip==true and (check_collision(player1, switch1) or check_collision(player2, switch1)) then
-  --   switch1.flip = false
-  -- end
+  switch_toggle1 = switch1.flip == true and (check_collision(player1, switch1) or check_collision(player2, switch1))
 
-  if switch1.flip == true and platform6.y<95 then
+    switch1_collision_count = 0
+
+    -- Increment switch1_collision if collision occurs
+    if (check_collision(player1, switch1) or check_collision(player2, switch1)) then
+      switch1_collision_count = switch1_collision_count + 1
+    end
+
+    -- Toggle switch based on odd/even check
+    if (switch1_collision_count % 2 == 1) then -- Odd number
+        switch1.flip = true
+    end
+
+    -- if (switch1_collision_count % 2 == 0) then -- Even number
+    --     switch1.flip = false
+    -- end
+
+  if (check_collision(player1, switch1) or check_collision(player2, switch1)) and platform6.y<95 then
     platform1.y += 1
     platform2.y += 1
     platform3.y += 1
@@ -210,12 +226,13 @@ function _update()
     switch2.flip = false
   end
 
-  if switch2.flip == false and platform1.y>72 then
+  if (check_collision(player1, switch2) or check_collision(player2, switch2)) and platform1.y>72 then
     platform1.y -= 1
     platform2.y -= 1
     platform3.y -= 1
     platform4.y -= 1
     platform5.y -= 1
+    platform6.y -= 1
     switch2.y -=1
     platform_mover.y -= 1
   end

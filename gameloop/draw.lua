@@ -52,7 +52,7 @@ function _draw()
     -- spr(platform6.sp, platform6.x, platform6.y, platform6.w, platform6.h)
     spr(platform_mover.sp, platform_mover.x, platform_mover.y, platform_mover.w, platform_mover.h)
 
-    print("platform5.y: "..platform5.y, 50,30,14)
+    print("platform6.y: "..platform6.y, 50,30,14)
     print("player1.y: "..player1.y, 50,40,14)
     print("is_colliding_from_below: "..tostring(is_colliding_with_platform_from_below(player2, platform1)), 10, 50, 14)
     print("is_colliding_with_ground: "..tostring(is_colliding_with_ground(player1.x, player1.y)), 10, 60, 14)
@@ -61,6 +61,7 @@ function _draw()
     print("switch1.flip: "..tostring(switch1.flip), 10, 90, 14)
     print("switch2.flip: "..tostring(switch2.flip), 10, 100, 14)
     print("switch_toggle1: "..tostring(switch_toggle1), 10, 110, 14)
+    print("switch1_collision_count: "..switch1_collision_count, 10, 120, 14)
     
     
   end
