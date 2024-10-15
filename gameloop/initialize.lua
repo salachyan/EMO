@@ -22,7 +22,8 @@ function _init()
     falling=false,
     sliding=false,
     landed=false,
-    is_on_side = false
+    is_on_side = false,
+    is_on_bottom_ground = false
   }
   
   player2 = {
@@ -45,7 +46,8 @@ function _init()
     falling=false,
     sliding=false,
     landed=false,
-    is_on_side = false
+    is_on_side = false,
+    is_on_bottom_ground = false
   }
 
   --Level 1 Setup -----------------------------------------------------------------------------------------------------
@@ -53,20 +55,6 @@ function _init()
     x = 40,     -- starting x position
     y = 112,     -- starting y position
     sp = 215,     
-    w = 1,     -- width of the sprite in pixels
-    h = 1,     -- height of the sprite in pixels
-    dx = 0,     -- horizontal movement speed
-    --dy = 0,     -- vertical movement speed (for jumping/falling)
-    --speed = 2,  -- movement speed
-   -- gravity = 0.3, --  strength
-    flip = false -- direction of the sprite
-    --is_on_ground = false -- player grounded state
-  }
-
-  side_sprite = {
-    x = 72,     -- starting x position
-    y = 112,     -- starting y position
-    sp = 226,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dx = 0,     -- horizontal movement speed
@@ -87,6 +75,19 @@ function _init()
     --dy = 0,     -- vertical movement speed (for jumping/falling)
     --speed = 2,  -- movement speed
     flip = false -- direction of the sprite
+    --is_on_ground = false -- player grounded state
+  }
+
+  switch2 = {
+    x = 32,     -- starting x position
+    y = 64,     -- starting y position
+    sp = 212,     
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    --dx = 0,     -- horizontal movement speed
+    --dy = 0,     -- vertical movement speed (for jumping/falling)
+    --speed = 2,  -- movement speed
+    flip = true -- direction of the sprite
     --is_on_ground = false -- player grounded state
   }
 
