@@ -22,7 +22,8 @@ function _init()
     falling=false,
     sliding=false,
     landed=false,
-    is_on_side = false
+    is_on_side = false,
+    is_on_bottom_ground = false
   }
   
   player2 = {
@@ -45,12 +46,15 @@ function _init()
     falling=false,
     sliding=false,
     landed=false,
-    is_on_side = false
+    is_on_side = false,
+    is_on_bottom_ground = false
   }
+
+  --Level 1 Setup -----------------------------------------------------------------------------------------------------
   box = {
     x = 40,     -- starting x position
     y = 112,     -- starting y position
-    sp = 215,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 215,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dx = 0,     -- horizontal movement speed
@@ -61,24 +65,10 @@ function _init()
     --is_on_ground = false -- player grounded state
   }
 
-  side_sprite = {
-    x = 72,     -- starting x position
-    y = 112,     -- starting y position
-    sp = 226,     -- top-left corner of the 4x4 sprite (32x32 pixels)
-    w = 1,     -- width of the sprite in pixels
-    h = 1,     -- height of the sprite in pixels
-    dx = 0,     -- horizontal movement speed
-    --dy = 0,     -- vertical movement speed (for jumping/falling)
-    --speed = 2,  -- movement speed
-   -- gravity = 0.3, --  strength
-    flip = false -- direction of the sprite
-    --is_on_ground = false -- player grounded state
-  }
-
-  switch = {
-    x = 100,     -- starting x position
+  switch1 = {
+    x = 92,     -- starting x position
     y = 96,     -- starting y position
-    sp = 212,     -- top-left corner of the 4x4 sprite (32x32 pixels)
+    sp = 212,     
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     --dx = 0,     -- horizontal movement speed
@@ -86,6 +76,77 @@ function _init()
     --speed = 2,  -- movement speed
     flip = false -- direction of the sprite
     --is_on_ground = false -- player grounded state
+  }
+
+  switch2 = {
+    x = 32,     -- starting x position
+    y = 64,     -- starting y position
+    sp = 212,     
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0,
+    --dx = 0,     -- horizontal movement speed
+    --dy = 0,     -- vertical movement speed (for jumping/falling)
+    --speed = 2,  -- movement speed
+    flip = true -- direction of the sprite
+    --is_on_ground = false -- player grounded state
+  }
+
+  platform1 = {
+    x = 24,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform2 = {
+    x = 32,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,     
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform3 = {
+    x = 40,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform4 = {
+    x = 48,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform5 = {
+    x = 56,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform6 = {
+    x = 64,     -- starting x position
+    y = 72,     -- starting y position
+    sp = 208,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
+  }
+  platform_mover = {
+    x = 40,     -- starting x position
+    y = 80,     -- starting y position
+    sp = 213,   
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0
   }
   
   gravity = 0.1
