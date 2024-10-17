@@ -4,13 +4,13 @@ function _draw()
   
     -- define the size of the map in tiles
     local map_width = 16  -- number of tiles wide you want to draw
-    local map_height = 60 -- number of tiles high you want to draw
+    local map_height = 100 -- number of tiles high you want to draw
   
     -- calculate the y position to draw the map at the bottom-left
     local screen_height = 300
     local map_y = screen_height - (map_height * 8)  -- position it above the bottom
   
-    map(0, 0, 0, 0, map_width, map_height)
+    map(0, 18, 0, 0, map_width, map_height)
 
     print("level 1",50,2,14)
     text1 = "pip and pete received a note"
