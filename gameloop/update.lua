@@ -348,4 +348,18 @@ function _update()
   
   box.x += box.dx
 
+  if player1.x<map_start then
+    player1.x=map_start
+  end
+  if player1.x>map_end then
+    player1.x=map_end 
+  end
+
+  if player2.x<map_start then
+    player2.x=map_start
+  end
+  if player2.x>map_end then
+    player2.x=map_end 
+  end
+
 end
