@@ -1,4 +1,4 @@
-function update_camera()
+function update_camera(player)
     cam_x = player.x - 64  -- assuming 128 is the screen width, adjust as necessary
     if cam_x < map_start then
         cam_x = map_start
