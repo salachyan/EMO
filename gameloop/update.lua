@@ -1,13 +1,19 @@
 function _update()
   map_offset_y=19
   map_offset_x=0
-  player1_update()
-  player2_update()
+
+  -- player1.dx = 0
+  -- player1.dy = 0
+  -- player2.dx = 0
+  -- player2.dy = 0
   collisions_for_switch1()
   collisions_for_switch2()
   update_camera(player1)
   update_camera(player2)
-  update_map_level1_to_level2()
+  update_map_level1a_to_level1b()
+
+  player1_update()
+  player2_update()
   local lx1=player1.x --last x pos
 	local ly1=player1.y --last y pos
 end
@@ -66,14 +72,14 @@ function player1_update()
 
   --   player1.dx=limit_speed(player1.dx,player1.max_dx)
 
-    if map_collision(player1,"left",1,map_offset_y,map_offset_x) then
+    if map_collision(player1,"left",2,map_offset_y,map_offset_x) then
         player1.dx=0
     end
     elseif player1.dx>0 then
 
     --   player1.dx=limit_speed(player1.dx,player1.max_dx)
 
-    if map_collision(player1,"right",1,map_offset_y,map_offset_x) then
+    if map_collision(player1,"right",3,map_offset_y,map_offset_x) then
         player1.dx=0
     end
   end
@@ -157,14 +163,14 @@ function player2_update()
 
   --   player2.dx=limit_speed(player2.dx,player2.max_dx)
 
-    if map_collision(player2,"left",1,map_offset_y,map_offset_x) then
+    if map_collision(player2,"left",2,map_offset_y,map_offset_x) then
         player2.dx=0
     end
     elseif player2.dx>0 then
 
     --   player2.dx=limit_speed(player2.dx,player2.max_dx)
 
-    if map_collision(player2,"right",1,map_offset_y,map_offset_x) then
+    if map_collision(player2,"right",3,map_offset_y,map_offset_x) then
         player2.dx=0
     end
   end
@@ -203,8 +209,12 @@ function collisions_for_switch1()
   -- if (switch1_collision_count % 2 == 0) then -- Even number
   --  switch1.flip = false
   -- end
+  player1_touched_switch1_x = 0
+  player1_touched_switch1_y = 0
   if check_collision(player1, switch1) then
     switch1.flip = true
+    player1_touched_switch1_x = 1
+    player1_touched_switch1_y = 1
   end
 end
 
@@ -223,21 +233,40 @@ function collisions_for_switch2()
   -- if (switch2_collision_count % 2 == 0) then -- Even number
   -- switch2.flip = false
   -- end
-
+  player2_touched_switch2_x = 0
+  player2_touched_switch2_y = 0
   if check_collision(player2, switch2) then
     switch2.flip = true
+    player2_touched_switch2_x=1
+    player2_touched_switch2_y=1
   end
 end
 
-function update_map_level1_to_level2()
+function update_map_level1a_to_level1b()
   if switch1.flip==true and switch2.flip==true then
     if map_offset_x<12 then
-      map_offset_x+=1
+      map_offset_x+=12
     end
-    -- -- player1.x=2
-    -- player1.y=10*8
-    -- -- player2.x=14
-    -- player2.y=10*8
+    switch1.y=32*8
+    switch2.y=32*8
+    if player1_touched_switch1_x==1 then
+      player1.x=2
+      player1_touched_switch1_x=0
+    end
+
+    if player1_touched_switch1_y==1 then
+      player1.y=9*8
+      player1_touched_switch1_y=0
+    end
+    
+    if player2_touched_switch2_x==1 then
+      player2.x=14
+      player2_touched_switch2_x=0
+    end
+    if player2_touched_switch2_y==1 then
+      player2.y=9*8
+      player2_touched_switch2_y=0
+    end
   end
 end
 

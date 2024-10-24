@@ -2,7 +2,7 @@ function _init()
   -- initialize player properties
   player1 = {
     x = 2,     -- starting x position
-    y = 90,     -- starting y position
+    y = 12*8,     -- starting y position
     sp = 0,     
     w=16,
     h=16,
@@ -30,7 +30,7 @@ function _init()
 
   player2 = {
     x = 15,     -- starting x position
-    y = 90,     -- starting y position
+    y = 12*8,     -- starting y position
     sp = 3,     
     w=16,
     h=16,
@@ -81,4 +81,5 @@ function _init()
   
   map_start = 0
   map_end=16*8
+
 end
