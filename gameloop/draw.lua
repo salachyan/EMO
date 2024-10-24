@@ -13,7 +13,10 @@ function _draw()
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
     spr(switch1.sp, switch1.x, switch1.y, switch1.w, switch1.h, switch1.flip)
     spr(switch2.sp, switch2.x, switch2.y, switch2.w, switch2.h, switch2.flip)
-
+    if map_offset_x==12 then
+      spr(switch3.sp, switch3.x, switch3.y, switch3.w, switch3.h, switch3.flip)
+      spr(switch4.sp, switch4.x, switch4.y, switch4.w, switch4.h, switch4.flip)
+    end
     -- print("check_collision: "..tostring(check_collision(player1, switch1)), 5, 50, 14)
     print("map_offset_x: "..map_offset_x, 5, 40, 14)
     print("player1.landed: "..tostring(player1.landed), 5, 50, 14)

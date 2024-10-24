@@ -8,6 +8,8 @@ function _update()
   -- player2.dy = 0
   collisions_for_switch1()
   collisions_for_switch2()
+  collisions_for_switch3()
+  collisions_for_switch4()
   update_camera(player1)
   update_camera(player2)
   update_map_level1a_to_level1b()
@@ -191,82 +193,6 @@ function player2_update()
   end
   if player2.x>map_end-player2.w then
       player2.x=map_end-player2.w
-  end
-end
-
-function collisions_for_switch1()
-  -- switch_toggle1 = switch1.flip == true and check_collision(player1, switch1)
-
-  -- switch1_collision_count = 0
-  -- -- Increment switch1_collision if collision occurs
-  -- if check_collision(player1, switch1) then
-  --   switch1_collision_count = switch1_collision_count + 1
-  -- end
-  -- -- Toggle switch based on odd/even check
-  -- if (switch1_collision_count % 2 == 1) then -- Odd number
-  --  switch1.flip = true
-  -- end
-  -- if (switch1_collision_count % 2 == 0) then -- Even number
-  --  switch1.flip = false
-  -- end
-  player1_touched_switch1_x = 0
-  player1_touched_switch1_y = 0
-  if check_collision(player1, switch1) then
-    switch1.flip = true
-    player1_touched_switch1_x = 1
-    player1_touched_switch1_y = 1
-  end
-end
-
-function collisions_for_switch2()
-  -- switch_toggle2 = switch2.flip == true and check_collision(player2, switch2)
-
-  -- switch2_collision_count = 0
-  -- -- Increment switch2_collision if collision occurs
-  -- if check_collision(player2, switch2) then
-  --   switch2_collision_count = switch2_collision_count + 1
-  -- end
-  -- -- Toggle switch based on odd/even check
-  -- if (switch2_collision_count % 2 == 1) then -- Odd number
-  -- switch2.flip = true
-  -- end
-  -- if (switch2_collision_count % 2 == 0) then -- Even number
-  -- switch2.flip = false
-  -- end
-  player2_touched_switch2_x = 0
-  player2_touched_switch2_y = 0
-  if check_collision(player2, switch2) then
-    switch2.flip = true
-    player2_touched_switch2_x=1
-    player2_touched_switch2_y=1
-  end
-end
-
-function update_map_level1a_to_level1b()
-  if switch1.flip==true and switch2.flip==true then
-    if map_offset_x<12 then
-      map_offset_x+=12
-    end
-    switch1.y=32*8
-    switch2.y=32*8
-    if player1_touched_switch1_x==1 then
-      player1.x=2
-      player1_touched_switch1_x=0
-    end
-
-    if player1_touched_switch1_y==1 then
-      player1.y=9*8
-      player1_touched_switch1_y=0
-    end
-    
-    if player2_touched_switch2_x==1 then
-      player2.x=14
-      player2_touched_switch2_x=0
-    end
-    if player2_touched_switch2_y==1 then
-      player2.y=9*8
-      player2_touched_switch2_y=0
-    end
   end
 end
 

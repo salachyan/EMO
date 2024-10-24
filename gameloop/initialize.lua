@@ -56,6 +56,19 @@ function _init()
     spz = 1,
   }
 
+  switches()
+
+  gravity = 0.08
+  
+  --simple camera
+  cam_x = 0
+  
+  map_start = 0
+  map_end=16*8
+
+end
+
+function switches()
   switch1 = {
     x = 14*8,     -- starting x position
     y = (29-19)*8,     -- starting y position
@@ -74,12 +87,21 @@ function _init()
     flip = false -- direction of the sprite
   }
 
-  gravity = 0.08
-  
-  --simple camera
-  cam_x = 0
-  
-  map_start = 0
-  map_end=16*8
+  switch3 = {
+    x = (26-12)*8,     -- starting x position
+    y = (26-19)*8,     -- starting y position
+    sp = 212,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    flip = false -- direction of the sprite
+  }
 
+  switch4 = {
+    x = (24-12)*8,     -- starting x position
+    y = (26-19)*8,     -- starting y position
+    sp = 212,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    flip = false -- direction of the sprite
+  }
 end
