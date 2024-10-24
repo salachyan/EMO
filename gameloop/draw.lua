@@ -39,7 +39,7 @@ function _draw()
     -- print("map_offset_x: "..map_offset_x, 5, 40, 14)
     -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
     -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
-    print("collision: "..tostring(check_collision(player1, box)), 5, 60, 14)
+    -- print("collision: "..tostring(check_collision(player1, box)), 5, 60, 14)
     
   end
 
