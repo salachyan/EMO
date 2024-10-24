@@ -7,6 +7,11 @@ function _update()
   -- player2.dx = 0
   -- player2.dy = 0
 
+  local lx1=player1.x --last x pos
+  local ly1=player1.y --last y pos
+  local lx2=player2.x --last x pos
+  local ly2=player2.y --last y pos
+
   --functions from level1.lua
   collisions_for_switch1()
   collisions_for_switch2()
@@ -16,13 +21,17 @@ function _update()
   update_camera(player2)
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
+  if map_offset_x==30 and map_offset_y==12 then
+    level2()
+  end
 
   --functions from level2.lua
 
   player1_update()
   player2_update()
-  local lx1=player1.x --last x pos
-	local ly1=player1.y --last y pos
+
+  -- box.dx=0
+
 end
 
 function player1_update()

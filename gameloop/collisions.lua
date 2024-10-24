@@ -1,4 +1,8 @@
 function map_collision(obj,aim,flag,map_offset_y,map_offset_x)
+
+  -- if object == nil then
+  --   return false
+  -- end
   --obj = table needs x,y,w,h
   --aim = left,right,up,down
  
@@ -53,4 +57,19 @@ function check_collision(player, object)
          player.y + player.h > object.y
 end
 
- 
+ -- Function to check if player is colliding with the box from above
+function is_colliding_with_box(player, box)
+  return player.x < box.x + box.w * 8 and
+         player.x + player.sprite_w * 8 > box.x and
+         player.y + player.sprite_h * 8 >= box.y and
+         player.y < box.y + box.h * 8
+end
+
+-- -- Function to check if player is colliding with the platform from below
+-- function is_colliding_with_platform_from_below(player, platform)
+--   return player.x < platform.x + platform.w * 8 and
+--          player.x + player.sprite_w * 8 > platform.x and
+--          player.y <= platform.y + platform.h * 8 and
+--          player.y + player.sprite_h * 8 > platform.y                           -- Ensure the player is moving upward
+-- end
+
