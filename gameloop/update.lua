@@ -6,6 +6,8 @@ function _update()
   -- player1.dy = 0
   -- player2.dx = 0
   -- player2.dy = 0
+
+  --functions from level1.lua
   collisions_for_switch1()
   collisions_for_switch2()
   collisions_for_switch3()
@@ -13,6 +15,9 @@ function _update()
   update_camera(player1)
   update_camera(player2)
   update_map_level1a_to_level1b()
+  update_map_level1_to_level2()
+
+  --functions from level2.lua
 
   player1_update()
   player2_update()

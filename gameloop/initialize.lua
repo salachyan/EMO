@@ -55,7 +55,6 @@ function _init()
     frames = {40,42,8,44,46,8},
     spz = 1,
   }
-
   switches()
 
   gravity = 0.08
@@ -104,4 +103,8 @@ function switches()
     h = 1,     -- height of the sprite in pixels
     flip = false -- direction of the sprite
   }
+end
+
+function boxes()
+
 end

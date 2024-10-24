@@ -18,14 +18,19 @@ function _draw()
       spr(switch4.sp, switch4.x, switch4.y, switch4.w, switch4.h, switch4.flip)
     end
     -- print("check_collision: "..tostring(check_collision(player1, switch1)), 5, 50, 14)
-    print("map_offset_x: "..map_offset_x, 5, 40, 14)
-    print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
-    print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
+    -- print("map_offset_x: "..map_offset_x, 5, 40, 14)
+    -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
+    -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
     
   end
 
 function textbox_level1()
-  print("level 1",50,2,14)
+  if map_offset_y==19 then
+   print("level 1",50,2,14)
+  end
+  if map_offset_x==30 then
+    print("level 2",50,2,14)
+  end
   text1 = "pip and pete received a note"
   text2 = "from their brother, percy. the "
   text3 = "note reads, ''i've discovered  "
