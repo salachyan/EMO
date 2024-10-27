@@ -14,17 +14,20 @@ function _update()
 
   --functions from level1.lua
   
-  collisions_for_switch1()
-  collisions_for_switch2()
-  box_collisions()
-  seesaw_collisions()
-  collisions_for_switch3()
-  collisions_for_switch4()
-  update_camera(player1)
-  update_camera(player2)
+  --level1a
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  if map_offset_x==30 and map_offset_y==12 then
+  if map_offset_x==0 and map_offset_y==19 then
+    collisions_for_switch1()
+    collisions_for_switch2()
+  elseif map_offset_x==12 and map_offset_y==19 then
+    box_collisions()
+    seesaw_collisions()
+    collisions_for_switch3()
+    collisions_for_switch4()
+    -- update_camera(player1)
+    -- update_camera(player2)
+  elseif map_offset_x==30 and map_offset_y==12 then
     level2()
   end
 

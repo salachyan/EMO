@@ -16,24 +16,22 @@ function _draw()
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
 
     --level1a
-    -- if map_offset_y==19 and map_offset_x==0 then
+    if map_offset_y==19 and map_offset_x==0 then
       spr(switch1.sp, switch1.x, switch1.y, 1, 1, switch1.flip)
       spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
-    -- end
+    end
     --level1b
-    -- if map_offset_y==19 and map_offset_x==12 then
-      if map_offset_x==12 then
-        spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
-        spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
-        spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
-        spr(seesaw_arch1.sp, seesaw_arch1.x, seesaw_arch1.y, 1, 1, seesaw_arch1.flip)
-        -- spr(seesaw_holder1.sp, seesaw_holder1.x, seesaw_holder1.y, 1, 1, seesaw_holder1.flip)
-        -- spr(seesaw_holder2.sp, seesaw_holder2.x, seesaw_holder2.y, 1, 1, seesaw_holder2.flip)
-        spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
-        spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
-        spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
-      end
-    -- end
+    if map_offset_x==12 and map_offset_y==19 then
+      spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
+      spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
+      spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
+      spr(seesaw_arch1.sp, seesaw_arch1.x, seesaw_arch1.y, 1, 1, seesaw_arch1.flip)
+      -- spr(seesaw_holder1.sp, seesaw_holder1.x, seesaw_holder1.y, 1, 1, seesaw_holder1.flip)
+      -- spr(seesaw_holder2.sp, seesaw_holder2.x, seesaw_holder2.y, 1, 1, seesaw_holder2.flip)
+      spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
+      spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
+      spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
+    end
 
     --level2
     if map_offset_x==30 and map_offset_y==12 then
@@ -52,12 +50,14 @@ function _draw()
       -- spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
 
-    -- print("check_collision: "..tostring(check_collision(player1, switch1)), 5, 50, 14)
+    print("check_collision: "..tostring(check_collision(player1, seesaw_arch2) and player1.dx>0 and not check_collision(player1, seesaw_bottom1)), 5, 50, 14)
     -- print("map_offset_x: "..map_offset_x, 5, 40, 14)
     -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
     -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
     -- print("collision: "..tostring(check_collision(player1, box1)), 5, 60, 14)
-    -- print("check_collision: "..tostring(check_collision(player2, wall_player2)), 5, 60, 14)
+    -- print("collision: "..tostring(check_collision(player1, seesaw_bottom1)), 5, 60, 14)
+    -- print("collision_top: "..tostring(check_collision(player1, seesaw_top1)), 5, 70, 14)
+    -- print("level1b: "..tostring(player1.y), 5, 80, 14)
     
     
   end
