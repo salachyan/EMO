@@ -1,51 +1,45 @@
   function level2()
-    -- Check for collisions with the box for player1
-    condition1 = player1.dx < 0 and ((box.x+8) < player1.x)
-    if check_collision(player1, box) and player1.landed==true then
-        -- Move player1 back based on the direction they are moving
-        if player1.dx > 0 and (box.x > player1.x) then
-        player1.x = box.x - 1.50 * 8  -- Push player to the left
-        box.x = box.x + player1.dx
-            if box.x>8*8 then
-                box.x=8*8
-            end
-        elseif player1.dx < 0 and (box.x < player1.x) then
-            player1.x = box.x + 3  -- Push player to the right
-            box.x = box.x + player1.dx
+    -- Check for collisions with the box1 for player1
+    condition1 = player1.dx < 0 and ((box1.x+8) < player1.x)
+    if check_collision(player1, box1) and player1.landed==true then
+        if player1.dx > 0 and (box1.x > player1.x) then
+            player1.x = box1.x - 1.8 * 8
+        end
+        if player1.dx < 0 and (box1.x < player1.x) then
+            player1.x = box1.x + 7
         end
     end
 
-
-    -- Check for collisions with the box for player2
-    if check_collision(player2, box) and player2.landed == true then
+    -- Check for collisions with the box1 for player2
+    if check_collision(player2, box1) and player2.landed == true then
         -- Move player2 back based on the direction they are moving
-        if player2.dx > 0 and (box.x > player2.x) then
-            player2.x = box.x - 2 * 8  -- Push player to the left
-            box.x = box.x + player2.dx
-                if box.x>8*8 then
-                    box.x=8*8
+        if player2.dx > 0 and (box1.x > player2.x) then
+            player2.x = box1.x - 1.8 * 8  -- Push player to the left
+            box1.x = box1.x + player2.dx
+                if box1.x>8*8 then
+                    box1.x=8*8
                 end
-        elseif player2.dx < 0 and (box.x < player2.x) then
-            player2.x = box.x + 3  -- Push player to the right
-            box.x = box.x + player2.dx
+        end
+        if player2.dx < 0 and (box1.x < player2.x) then
+            player2.x = box1.x + 7
         end
     end
-    -- box.x += box.dx
+    -- box1.x += box1.dx
 
-    -- Allow players to jump on top of the box
-    if is_colliding_with_box(player1, box) then
-        -- Check if the player is falling onto the box
-        if player1.y + player1.sprite_h <= box.y + box.h * 8 and player1.dy > 0 then
-        player1.y = box.y - player1.sprite_h * 8  -- Position player on top of the box
+    -- Allow players to jump on top of the box1
+    if check_collision(player1, box1) then
+        -- Check if the player is falling onto the box1
+        if player1.y + player1.sprite_h <= box1.y + box1.h * 8 and player1.dy > 0 then
+        player1.y = box1.y - player1.sprite_h * 8  -- Position player on top of the box1
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
         end
     end
 
-    if is_colliding_with_box(player2, box) then
-        -- Check if the player is falling onto the box
-        if player2.y + player2.sprite_h <= box.y + box.h * 8 and player2.dy > 0 then
-        player2.y = box.y - player2.sprite_h * 8  -- Position player on top of the box
+    if check_collision(player2, box1) then
+        -- Check if the player is falling onto the box1
+        if player2.y + player2.sprite_h <= box1.y + box1.h * 8 and player2.dy > 0 then
+        player2.y = box1.y - player2.sprite_h * 8  -- Position player on top of the box1
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
@@ -104,86 +98,109 @@
 
     -- Check for player1 and player2 collision with the platform
     if check_collision(player1, platform1) then
-        if player1.y + player1.sprite_h <= platform1.y + platform1.h * 8 and player1.dy > 0 then
-        player1.y = platform1.y - player1.sprite_h * 8  -- Position player on top of the platform1
+        if player1.y + player1.h <= platform1.y + platform1.h and player1.dy > 0 then
+        player1.y = platform1.y - player1.h  -- Position player on top of the platform1
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
+        elseif player1.y >= platform1.y + platform1.h and player1.dy < 0 then
+            player1.y = platform1.y + platform1.h  
+            player1.dy = 0  
         end
     end
     if check_collision(player1, platform2) then
-        if player1.y + player1.sprite_h <= platform2.y + platform2.h * 8 and player1.dy > 0 then
-        player1.y = platform2.y - player1.sprite_h * 8  -- Position player on top of the platform2
+        if player1.y + player1.h <= platform2.y + platform2.h and player1.dy > 0 then
+        player1.y = platform2.y - player1.h  -- Position player on top of the platform2
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
+        elseif player1.y >= platform2.y + platform2.h and player1.dy < 0 then
+            player1.y = platform2.y + platform2.h 
+            player1.dy = 0  
         end
     end
     if check_collision(player1, platform3) then
-        if player1.y + player1.sprite_h <= platform3.y + platform3.h * 8 and player1.dy > 0 then
-        player1.y = platform3.y - player1.sprite_h * 8  -- Position player on top of the platform3
+        if player1.y + player1.h <= platform3.y + platform3.h and player1.dy > 0 then
+        player1.y = platform3.y - player1.h  -- Position player on top of the platform3
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
+        elseif player1.y >= platform3.y + platform3.h and player1.dy < 0 then
+            player1.y = platform3.y + platform3.h  
+            player1.dy = 0  
         end
     end
     if check_collision(player1, platform4) then
-        if player1.y + player1.sprite_h <= platform4.y + platform4.h * 8 and player1.dy > 0 then
-        player1.y = platform4.y - player1.sprite_h * 8  -- Position player on top of the platform4
+        if player1.y + player1.h <= platform4.y + platform4.h and player1.dy > 0 then
+        player1.y = platform4.y - player1.h  -- Position player on top of the platform4
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
+        elseif player1.y >= platform4.y + platform4.h and player1.dy < 0 then
+            player1.y = platform4.y + platform4.h 
+            player1.dy = 0 
         end
     end
     if check_collision(player1, platform5) then
-        if player1.y + player1.sprite_h <= platform5.y + platform5.h * 8 and player1.dy > 0 then
-        player1.y = platform5.y - player1.sprite_h * 8  -- Position player on top of the platform5
+        if player1.y + player1.h <= platform5.y + platform5.h and player1.dy > 0 then
+        player1.y = platform5.y - player1.h  -- Position player on top of the platform5
         player1.dy = 0  -- Reset vertical speed
         player1.landed = true -- Update grounded state
+        -- if player1.dx < 0 then
+        --     player1.x = platform5.x + 1 * 8
+        -- end
+        elseif player1.y >= platform5.y + platform5.h and player1.dy < 0 then
+            player1.y = platform5.y + platform5.h 
+            player1.dy = 0  
         end
     end
 
     --platform collision for player2
     if check_collision(player2, platform1) then
-        if player2.y + player2.sprite_h <= platform1.y + platform1.h * 8 and player2.dy > 0 then
-        player2.y = platform1.y - player2.sprite_h * 8  -- Position player on top of the platform1
+        if player2.y + player2.h <= platform1.y + platform1.h and player2.dy > 0 then
+        player2.y = platform1.y - player2.h  -- Position player on top of the platform1
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
     end
     if check_collision(player2, platform2) then
-        if player2.y + player2.sprite_h <= platform2.y + platform2.h * 8 and player2.dy > 0 then
-        player2.y = platform2.y - player2.sprite_h * 8  -- Position player on top of the platform2
+        if player2.y + player2.h <= platform2.y + platform2.h and player2.dy > 0 then
+        player2.y = platform2.y - player2.h  -- Position player on top of the platform2
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
     end
     if check_collision(player2, platform3) then
-        if player2.y + player2.sprite_h <= platform3.y + platform3.h * 8 and player2.dy > 0 then
-        player2.y = platform3.y - player2.sprite_h * 8  -- Position player on top of the platform3
+        if player2.y + player2.h <= platform3.y + platform3.h and player2.dy > 0 then
+        player2.y = platform3.y - player2.h  -- Position player on top of the platform3
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
     end
     if check_collision(player2, platform4) then
-        if player2.y + player2.sprite_h <= platform4.y + platform4.h * 8 and player2.dy > 0 then
-        player2.y = platform4.y - player2.sprite_h * 8  -- Position player on top of the platform4
+        if player2.y + player2.h <= platform4.y + platform4.h and player2.dy > 0 then
+        player2.y = platform4.y - player2.h -- Position player on top of the platform4
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
     end
     if check_collision(player2, platform5) then
-        if player2.y + player2.sprite_h <= platform5.y + platform5.h * 8 and player2.dy > 0 then
-        player2.y = platform5.y - player2.sprite_h * 8  -- Position player on top of the platform5
+        if player2.y + player2.h <= platform5.y + platform5.h and player2.dy > 0 then
+        player2.y = platform5.y - player2.h  -- Position player on top of the platform5
         player2.dy = 0  -- Reset vertical speed
         player2.landed = true -- Update grounded state
         end
     end
 
+    if check_collision(player2, wall_player2) then
+        if player2.dx > 0 then
+            player2.x = wall_player2.x - 1.7 * 8
+        end
+    end
 
     -- --check if players are colliding from below platform
     -- if is_colliding_with_platform_from_below(player2, platform1) or is_colliding_with_platform_from_below(player2, platform2) or is_colliding_with_platform_from_below(player2, platform3) or is_colliding_with_platform_from_below(player2, platform4) or is_colliding_with_platform_from_below(player2, platform5) then
-    --     -- Prevent player from going above the box
+    --     -- Prevent player from going above the box1
     --     player2.y = ly2
     -- end
     -- if is_colliding_with_platform_from_below(player1, platform1) or is_colliding_with_platform_from_below(player1, platform2) or is_colliding_with_platform_from_below(player1, platform3) or is_colliding_with_platform_from_below(player1, platform4) or is_colliding_with_platform_from_below(player1, platform5) then
-    --     -- Prevent player from going above the box
+    --     -- Prevent player from going above the box1
     --     player1.y = ly1
     -- end
 

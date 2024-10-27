@@ -13,8 +13,11 @@ function _update()
   local ly2=player2.y --last y pos
 
   --functions from level1.lua
+  
   collisions_for_switch1()
   collisions_for_switch2()
+  box_collisions()
+  seesaw_collisions()
   collisions_for_switch3()
   collisions_for_switch4()
   update_camera(player1)

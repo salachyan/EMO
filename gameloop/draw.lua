@@ -6,40 +6,59 @@ function _draw()
     textbox_level1()
     -- draw the player sprite (32x32 pixels = 4 tiles by 4 tiles)
     -- if switch1.flip==false or switch2.flip==false then
+    if map_offset_x==30 and map_offset_y==12 then
+      spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
+    end
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     -- elseif switch1.flip==true and switch2.flip==true then
     --   spr(player1.frames[flr(player1.spz)], 2, 9*8, 2, 2, player1.flp)
     -- end
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
-    spr(switch1.sp, switch1.x, switch1.y, switch1.w, switch1.h, switch1.flip)
-    spr(switch2.sp, switch2.x, switch2.y, switch2.w, switch2.h, switch2.flip)
+
+    --level1a
+    -- if map_offset_y==19 and map_offset_x==0 then
+      spr(switch1.sp, switch1.x, switch1.y, 1, 1, switch1.flip)
+      spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
+    -- end
     --level1b
-    if map_offset_x==12 then
-      spr(switch3.sp, switch3.x, switch3.y, switch3.w, switch3.h, switch3.flip)
-      spr(switch4.sp, switch4.x, switch4.y, switch4.w, switch4.h, switch4.flip)
-    end
+    -- if map_offset_y==19 and map_offset_x==12 then
+      if map_offset_x==12 then
+        spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
+        spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
+        spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
+        spr(seesaw_arch1.sp, seesaw_arch1.x, seesaw_arch1.y, 1, 1, seesaw_arch1.flip)
+        -- spr(seesaw_holder1.sp, seesaw_holder1.x, seesaw_holder1.y, 1, 1, seesaw_holder1.flip)
+        -- spr(seesaw_holder2.sp, seesaw_holder2.x, seesaw_holder2.y, 1, 1, seesaw_holder2.flip)
+        spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
+        spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
+        spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
+      end
+    -- end
 
     --level2
     if map_offset_x==30 and map_offset_y==12 then
-      spr(switch1_2.sp, switch1_2.x, switch1_2.y, switch1_2.w, switch1_2.h, switch1_2.flip)
-      spr(switch2_2.sp, switch2_2.x, switch2_2.y, switch2_2.w, switch2_2.h, switch2_2.flip)
-      spr(switch3_2.sp, switch3_2.x, switch3_2.y, switch3_2.w, switch3_2.h, switch3_2.flip)
-      spr(switch4_2.sp, switch4_2.x, switch4_2.y, switch4_2.w, switch4_2.h, switch4_2.flip)
-      spr(box.sp, box.x, box.y, box.w, box.h, box.flip)
-      spr(platform1.sp, platform1.x, platform1.y, platform1.w, platform1.h)
-      spr(platform2.sp, platform2.x, platform2.y, platform2.w, platform2.h)
-      spr(platform3.sp, platform3.x, platform3.y, platform3.w, platform3.h)
-      spr(platform4.sp, platform4.x, platform4.y, platform4.w, platform4.h)
-      spr(platform5.sp, platform5.x, platform5.y, platform5.w, platform5.h)
-      spr(platform6.sp, platform6.x, platform6.y, platform6.w, platform6.h)
-      spr(platform_mover.sp, platform_mover.x, platform_mover.y, platform_mover.w, platform_mover.h)
+      spr(switch1_2.sp, switch1_2.x, switch1_2.y, 1, 1, switch1_2.flip)
+      spr(switch2_2.sp, switch2_2.x, switch2_2.y, 1, 1, switch2_2.flip)
+      spr(switch3_2.sp, switch3_2.x, switch3_2.y, 1, 1, switch3_2.flip)
+      spr(switch4_2.sp, switch4_2.x, switch4_2.y, 1, 1, switch4_2.flip)
+      spr(box1.sp, box1.x, box1.y, 1, 1, box1.flip)
+      spr(platform1.sp, platform1.x, platform1.y, 1, 1)
+      spr(platform2.sp, platform2.x, platform2.y, 1, 1)
+      spr(platform3.sp, platform3.x, platform3.y, 1, 1)
+      spr(platform4.sp, platform4.x, platform4.y, 1, 1)
+      spr(platform5.sp, platform5.x, platform5.y, 1, 1)
+      -- spr(platform6.sp, platform6.x, platform6.y, 1, 1)
+      spr(platform_mover.sp, platform_mover.x, platform_mover.y, 1, 1)
+      -- spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
 
     -- print("check_collision: "..tostring(check_collision(player1, switch1)), 5, 50, 14)
     -- print("map_offset_x: "..map_offset_x, 5, 40, 14)
     -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
     -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
-    -- print("collision: "..tostring(check_collision(player1, box)), 5, 60, 14)
+    -- print("collision: "..tostring(check_collision(player1, box1)), 5, 60, 14)
+    -- print("check_collision: "..tostring(check_collision(player2, wall_player2)), 5, 60, 14)
+    
     
   end
 
