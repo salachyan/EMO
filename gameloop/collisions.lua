@@ -49,7 +49,7 @@ function map_collision(obj,aim,flag,map_offset_y,map_offset_x)
   end
 end
 
-function check_collision1(player1, player2)
+function check_collision(player1, player2)
   if player1.x < player2.x + player2.w and
   player1.x + player1.w > player2.x and
   player1.y < player2.y + player2.h and
@@ -60,9 +60,9 @@ function check_collision1(player1, player2)
   end
 end
 
-function check_collision(player1, player2)
-  if player1.x < player2.x + player2.w and
-  player1.x + player1.w > player2.x and
+function check_collision1(player1, player2)
+  if player1.x < player2.x-7 + player2.w-7 and
+  player1.x-7 + player1.w-7 > player2.x-7 and
   player1.y < player2.y + player2.h and
   player1.y + player1.h > player2.y then
   return true

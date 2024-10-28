@@ -95,9 +95,11 @@
         switch2_2.y -=1
         platform_mover.y -= 1
     end
-
+    -- if (player1.x==(38-30)*8 and player.y==(21-12)*8) or (player1.x==(32-30)*8 and player.y==(21-12)*8) then
+    --     playerdx=0.8
+    -- end
     -- Check for player1 and player2 collision with the platform
-    if check_collision(player1, platform1) then
+    if check_collision1(player1, platform1) then
         if player1.y + player1.h <= platform1.y + platform1.h and player1.dy > 0 then
         player1.y = platform1.y - player1.h  -- Position player on top of the platform1
         player1.dy = 0  -- Reset vertical speed
@@ -137,7 +139,7 @@
             player1.dy = 0 
         end
     end
-    if check_collision(player1, platform5) then
+    if check_collision1(player1, platform5) then
         if player1.y + player1.h <= platform5.y + platform5.h and player1.dy > 0 then
         player1.y = platform5.y - player1.h  -- Position player on top of the platform5
         player1.dy = 0  -- Reset vertical speed
@@ -152,7 +154,7 @@
     end
 
     --platform collision for player2
-    if check_collision(player2, platform1) then
+    if check_collision1(player2, platform1) then
         if player2.y + player2.h <= platform1.y + platform1.h and player2.dy > 0 then
         player2.y = platform1.y - player2.h  -- Position player on top of the platform1
         player2.dy = 0  -- Reset vertical speed
@@ -180,7 +182,7 @@
         player2.landed = true -- Update grounded state
         end
     end
-    if check_collision(player2, platform5) then
+    if check_collision1(player2, platform5) then
         if player2.y + player2.h <= platform5.y + platform5.h and player2.dy > 0 then
         player2.y = platform5.y - player2.h  -- Position player on top of the platform5
         player2.dy = 0  -- Reset vertical speed
@@ -188,6 +190,21 @@
         end
     end
 
+    if check_collision1(player1, wall_level2) then
+        if player1.y + player1.h <= wall_level2.y + wall_level2.h and player1.dy > 0 then
+        player1.y = wall_level2.y - player1.h  -- Position player on top of the wall_level2
+        player1.dy = 0  -- Reset vertical speed
+        player1.landed = true -- Update grounded state
+        end
+    end
+    if check_collision1(player2, wall_level2) then
+        if player2.y + player2.h <= wall_level2.y + wall_level2.h and player2.dy > 0 then
+        player2.y = wall_level2.y - player2.h  -- Position player on top of the wall_level2
+        player2.dy = 0  -- Reset vertical speed
+        player2.landed = true -- Update grounded state
+        end
+    end
+    --player2 cannot touch the switch
     if check_collision(player2, wall_player2) then
         if player2.dx > 0 then
             player2.x = wall_player2.x - 1.7 * 8

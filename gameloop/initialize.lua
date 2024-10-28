@@ -188,7 +188,7 @@ end
     -- if map_offset_x==30 and map_offset_y==12 then
     -- if map_offset_x==30 and map_offset_y==12 then
     platform1 = {
-      x = 24,     -- starting x position
+      x = 16,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,    
       w = 8,     -- width of the sprite in pixels
@@ -196,7 +196,7 @@ end
       dy=0
     }
     platform2 = {
-      x = 32,     -- starting x position
+      x = 24,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,    
       w = 8,     -- width of the sprite in pixels
@@ -204,7 +204,7 @@ end
       dy=0
     }
     platform3 = {
-      x = 40,     -- starting x position
+      x = 32,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,    
       w = 8,     -- width of the sprite in pixels
@@ -212,7 +212,7 @@ end
       dy=0
     }
     platform4 = {
-      x = 48,     -- starting x position
+      x = 40,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,  
       w = 8,     -- width of the sprite in pixels
@@ -220,7 +220,7 @@ end
       dy=0
     }
     platform5 = {
-      x = 56,     -- starting x position
+      x = 48,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,  
       w = 8,     -- width of the sprite in pixels
@@ -228,7 +228,7 @@ end
       dy=0
     }
     platform6 = {
-      x = 64,     -- starting x position
+      x = 48,     -- starting x position
       y = 72,     -- starting y position
       sp = 208,  
       w = 8,     -- width of the sprite in pixels
@@ -236,7 +236,7 @@ end
       dy=0
     }
     platform_mover = {
-      x = 40,     -- starting x position
+      x = 32,     -- starting x position
       y = 80,     -- starting y position
       sp = 213,  
       w = 8,     -- width of the sprite in pixels
@@ -325,6 +325,14 @@ end
       x = (42-30)*8,     -- starting x position
       y = (23-12)*8,     -- starting y position
       sp = 231,  
+      w = 8,     -- width of the sprite in pixels
+      h = 8,     -- height of the sprite in pixels
+      dy=0
+    }
+    wall_level2 = {
+      x = (39-30)*8,     -- starting x position
+      y = (21-12)*8,     -- starting y position
+      sp = 208,  
       w = 8,     -- width of the sprite in pixels
       h = 8,     -- height of the sprite in pixels
       dy=0
