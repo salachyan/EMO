@@ -17,6 +17,7 @@ function _update()
   --level1a
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
+  update_map_level3a_to_level3b()
   if map_offset_x==0 and map_offset_y==19 then
     collisions_for_switch1()
     collisions_for_switch2()
@@ -29,6 +30,12 @@ function _update()
     -- update_camera(player2)
   elseif map_offset_x==30 and map_offset_y==12 then
     level2()
+  elseif map_offset_x==49 and map_offset_y==11 then
+    level3a()
+    collisions_for_switch3_3()
+    collisions_for_switch4_3()
+  elseif map_offset_x==62 and map_offset_y==11 then
+    level3b()
   end
 
   --functions from level2.lua
@@ -127,14 +134,16 @@ end
 function player2_update()
   player2.dy+=gravity
   -- move left
-  if btn(⬆️, 1) then
+  -- if btn(⬆️, 1) then
+  if btn(⬆️, 0) then
     player2.dx = -player2.speed
     player2.flip = true -- flip sprite to face left
     player2.running=true
     player2.flp=true
     -- animate_player2_walking()
   -- move right
-  elseif btn(⬇️, 1) then
+  -- elseif btn(⬇️, 1) then
+elseif btn(⬇️, 0) then
     player2.dx = player2.speed
     player2.flip = false -- face sprite to the right
     player2.running=true
@@ -146,7 +155,8 @@ function player2_update()
   end
 
   -- jump
-  if btn(🅾️, 1) and player2.landed then
+  -- if btn(🅾️, 1) and player2.landed then
+  if btn(🅾️, 0) and player2.landed then
     player2.dy-=player2.speed
     player2.landed=false
   end

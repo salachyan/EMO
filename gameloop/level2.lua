@@ -1,4 +1,4 @@
-  function level2()
+function level2()
     -- Check for collisions with the box1 for player1
     condition1 = player1.dx < 0 and ((box1.x+8) < player1.x)
     if check_collision(player1, box1) and player1.landed==true then
@@ -220,5 +220,47 @@
     --     -- Prevent player from going above the box1
     --     player1.y = ly1
     -- end
+
+    player1_touched_switch3_2_x = 0
+    player1_touched_switch3_2_y = 0
+    if check_collision(player1, switch3_2) then
+        switch3_2.flip = true
+        player1_touched_switch3_2_x = 1
+        player1_touched_switch3_2_y = 1
+    end
+
+    player2_touched_switch4_2_x = 0
+    player2_touched_switch4_2_y = 0
+    if check_collision(player2, switch4_2) then
+        switch4_2.flip = true
+        player2_touched_switch4_2_x=1
+        player2_touched_switch4_2_y=1
+    end
+
+    if switch3_2.flip==true and switch4_2.flip==true then
+        map_offset_x=40
+        map_offset_y=12
+    
+        switch3_2.y=32*8
+        switch4_2.y=32*8
+        if player1_touched_switch3_2_x==1 then
+        player1.x=2
+        player1_touched_switch3_2_x=0
+        end
+    
+        if player1_touched_switch3_2_y==1 then
+        player1.y=12*8
+        player1_touched_switch3_2_y=0
+        end
+        
+        if player2_touched_switch4_2_x==1 then
+        player2.x=14
+        player2_touched_switch4_2_x=0
+        end
+        if player2_touched_switch4_2_y==1 then
+        player2.y=12*8
+        player2_touched_switch4_2_y=0
+        end
+    end
 
 end

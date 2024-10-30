@@ -19,9 +19,9 @@ function _draw()
     if map_offset_y==19 and map_offset_x==0 then
       spr(switch1.sp, switch1.x, switch1.y, 1, 1, switch1.flip)
       spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
-    end
+    
     --level1b
-    if map_offset_x==12 and map_offset_y==19 then
+    elseif map_offset_x==12 and map_offset_y==19 then
       spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
       spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
       spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
@@ -31,10 +31,9 @@ function _draw()
       spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
       spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
       spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
-    end
 
     --level2
-    if map_offset_x==30 and map_offset_y==12 then
+    elseif map_offset_x==30 and map_offset_y==12 then
       spr(switch1_2.sp, switch1_2.x, switch1_2.y, 1, 1, switch1_2.flip)
       spr(switch2_2.sp, switch2_2.x, switch2_2.y, 1, 1, switch2_2.flip)
       spr(switch3_2.sp, switch3_2.x, switch3_2.y, 1, 1, switch3_2.flip)
@@ -49,8 +48,42 @@ function _draw()
       spr(platform_mover.sp, platform_mover.x, platform_mover.y, 1, 1)
       spr(wall_level2.sp, wall_level2.x, wall_level2.y, 1, 1)
       -- spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
-    end
 
+    --level3a
+    elseif map_offset_x==49 and map_offset_y==11 then
+      spr(switch1_3.sp, switch1_3.x, switch1_3.y, 1, 1, switch1_3.flip)
+      spr(switch2_3.sp, switch2_3.x, switch2_3.y, 1, 1, switch2_3.flip)
+      spr(switch3_3.sp, switch3_3.x, switch3_3.y, 1, 1, switch3_3.flip)
+      spr(switch4_3.sp, switch4_3.x, switch4_3.y, 1, 1, switch4_3.flip)
+
+      spr(box1_3.sp, box1_3.x, box1_3.y, 1, 1, box1_3.flip)
+      spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
+      spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
+      spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
+      spr(box5_3.sp, box5_3.x, box5_3.y, 1, 1, box5_3.flip)
+
+      spr(platform1_3.sp, platform1_3.x, platform1_3.y, 1, 1)
+      spr(platform2_3.sp, platform2_3.x, platform2_3.y, 1, 1)
+      spr(platform3_3.sp, platform3_3.x, platform3_3.y, 1, 1)
+      spr(platform4_3.sp, platform4_3.x, platform4_3.y, 1, 1)
+
+      spr(platform_mover_3.sp, platform_mover_3.x, platform_mover_3.y, 1, 1)
+
+      spr(wall_player2_3.sp, wall_player2_3.x, wall_player2_3.y, 1, 1)
+      spr(wall_level3.sp, wall_level3.x, wall_level3.y, 1, 1)
+      -- spr(wall1_box_3.sp, wall1_box_3.x, wall1_box_3.y, 1, 1)
+      -- spr(wall2_box_3.sp, wall2_box_3.x, wall2_box_3.y, 1, 1)
+      
+      spr(floor1_3.sp, floor1_3.x, floor1_3.y, 1, 1)
+      spr(floor2_3.sp, floor2_3.x, floor2_3.y, 1, 1)
+      spr(floor3_3.sp, floor3_3.x, floor3_3.y, 1, 1)
+      spr(floor4_3.sp, floor4_3.x, floor4_3.y, 1, 1)
+      spr(floor5_3.sp, floor5_3.x, floor5_3.y, 1, 1)
+    --level3b
+    elseif map_offset_x==60 and map_offset_y==11 then
+      spr(switch3b_3.sp, switch3b_3.x, switch3b_3.y, 1, 1, switch3b_3.flip)
+      spr(switch4b_3.sp, switch4b_3.x, switch4b_3.y, 1, 1, switch4b_3.flip)
+    end
     -- print("check_collision: "..tostring(check_collision(player1,platform5)), 5, 50, 14)
     -- print("map_offset_x: "..tostring(player2.x), 5, 40, 14)
     -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
@@ -66,10 +99,15 @@ function _draw()
 function textbox_level1()
   if map_offset_y==19 then
    print("level 1",50,2,14)
-  end
-  if map_offset_x==30 then
+   level1_story()
+  elseif map_offset_x==30 then
     print("level 2",50,2,14)
+  elseif (map_offset_x==49 and map_offset_y==11) or (map_offset_x==62 and map_offset_y==8) then
+    print("level 3",50,2,14)
   end
+end
+
+function level1_story()
   text1 = "pip and pete received a note"
   text2 = "from their brother, percy. the "
   text3 = "note reads, ''i've discovered  "
