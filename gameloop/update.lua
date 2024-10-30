@@ -43,14 +43,14 @@ end
 function player1_update()
   player1.dy+=gravity
   -- move left
-  if btn(⬅️) then
+  if btn(⬅️, 0) then
     player1.dx = -player1.speed
     player1.flip = true -- flip sprite to face left
     player1.running=true
     player1.flp=true
     -- animate_player1_walking()
   -- move right
-  elseif btn(➡️) then
+  elseif btn(➡️, 0) then
     player1.dx = player1.speed
     player1.flip = false -- face sprite to the right
     player1.running=true
@@ -62,7 +62,7 @@ function player1_update()
   end
 
   -- jump
-  if btn(❎) and player1.landed then
+  if btn(❎, 0) and player1.landed then
     player1.dy-=player1.speed
     player1.landed=false
   end
@@ -127,14 +127,14 @@ end
 function player2_update()
   player2.dy+=gravity
   -- move left
-  if btn(⬆️) then
+  if btn(⬆️, 1) then
     player2.dx = -player2.speed
     player2.flip = true -- flip sprite to face left
     player2.running=true
     player2.flp=true
     -- animate_player2_walking()
   -- move right
-  elseif btn(⬇️) then
+  elseif btn(⬇️, 1) then
     player2.dx = player2.speed
     player2.flip = false -- face sprite to the right
     player2.running=true
@@ -146,7 +146,7 @@ function player2_update()
   end
 
   -- jump
-  if btn(🅾️) and player2.landed then
+  if btn(🅾️, 1) and player2.landed then
     player2.dy-=player2.speed
     player2.landed=false
   end
