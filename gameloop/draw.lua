@@ -80,11 +80,15 @@ function _draw()
       spr(floor4_3.sp, floor4_3.x, floor4_3.y, 1, 1)
       spr(floor5_3.sp, floor5_3.x, floor5_3.y, 1, 1)
     --level3b
-    elseif map_offset_x==60 and map_offset_y==11 then
-      spr(switch3b_3.sp, switch3b_3.x, switch3b_3.y, 1, 1, switch3b_3.flip)
-      spr(switch4b_3.sp, switch4b_3.x, switch4b_3.y, 1, 1, switch4b_3.flip)
+    elseif map_offset_x==62 and map_offset_y==8 then
+      spr(switch1_3b.sp, switch1_3b.x, switch1_3b.y, 1, 1, switch1_3b.flip)
+      spr(switch2_3b.sp, switch2_3b.x, switch2_3b.y, 1, 1, switch2_3b.flip)
+      spr(switch3_3b.sp, switch3_3b.x, switch3_3b.y, 1, 1, switch3_3b.flip)
+      spr(switch4_3b.sp, switch4_3b.x, switch4_3b.y, 1, 1, switch4_3b.flip)
+      spr(switch5_3b.sp, switch5_3b.x, switch5_3b.y, 1, 1, switch5_3b.flip)
+      spr(switch6_3b.sp, switch6_3b.x, switch6_3b.y, 1, 1, switch6_3b.flip)
     end
-    -- print("check_collision: "..tostring(check_collision(player1,platform5)), 5, 50, 14)
+    -- print("check_collision: "..tostring(map_offset_x==49 and map_offset_y==11), 5, 50, 14)
     -- print("map_offset_x: "..tostring(player2.x), 5, 40, 14)
     -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
     -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)

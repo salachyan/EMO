@@ -20,11 +20,11 @@ end
 
 function update_map_level1a_to_level1b()
   if switch1.flip==true and switch2.flip==true then
-    -- if map_offset_x<12 then
-    --   map_offset_x+=12
-    -- end
-    map_offset_x=49
-    map_offset_y=11
+    if map_offset_x<12 then
+      map_offset_x+=12
+    end
+    -- map_offset_x=49
+    -- map_offset_y=11
     
     switch1.y=32*8
     switch2.y=32*8
@@ -34,9 +34,9 @@ function update_map_level1a_to_level1b()
     end
 
     if player1_touched_switch1_y==1 then
-      -- player1.y=9*8
-      --level3a
-      player1.y=(24-12)*8
+      player1.y=9*8
+      -- --level3a
+      -- player1.y=(24-12)*8
       player1_touched_switch1_y=0
     end
     
@@ -46,9 +46,9 @@ function update_map_level1a_to_level1b()
       player2_touched_switch2_x=0
     end
     if player2_touched_switch2_y==1 then
-      -- player2.y=9*8
+      player2.y=9*8
       --level3a
-      player2.y=(24-12)*8
+      -- player2.y=(24-12)*8
       player2_touched_switch2_y=0
     end
   end

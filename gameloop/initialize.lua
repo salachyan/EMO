@@ -154,7 +154,7 @@ function switches()
     dy=0,
     flip = false -- direction of the sprite
   }
-  --level 3
+  --level 3a
   switch1_3 = {
     x = (61-49)*8,     -- starting x position
     y = (24-11)*8,     -- starting y position
@@ -191,18 +191,55 @@ function switches()
     dy=0,
     flip = false -- direction of the sprite
   }
-  switch3b_3 = {
-    x = (60-60)*8,     -- starting x position
-    y = (20-11)*8,     -- starting y position
+  --level3b
+  switch1_3b = {
+    x = (69-62)*8,     -- starting x position
+    y = (71-8)*8,     -- starting y position
+    sp = 243,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0,
+    flip = true -- direction of the sprite
+  }
+  switch2_3b = {
+    x = (71-62)*8,     -- starting x position
+    y = (20-8)*8,     -- starting y position
+    sp = 243,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0,
+    flip = true -- direction of the sprite
+  }
+  switch3_3b = {
+    x = (72-62)*8,     -- starting x position
+    y = (17-8)*8,     -- starting y position
+    sp = 243,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0,
+    flip = true -- direction of the sprite
+  }
+  switch4_3b = {
+    x = (74-62)*8,     -- starting x position
+    y = (17-8)*8,     -- starting y position
+    sp = 243,    
+    w = 1,     -- width of the sprite in pixels
+    h = 1,     -- height of the sprite in pixels
+    dy=0,
+    flip = true -- direction of the sprite
+  }
+  switch5_3b = {
+    x = (76-62)*8,     -- starting x position
+    y = (17-8)*8,     -- starting y position
     sp = 244,    
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
     dy=0,
     flip = true -- direction of the sprite
   }
-  switch4b_3 = {
-    x = (61-60)*8,     -- starting x position
-    y = (20-11)*8,     -- starting y position
+  switch6_3b = {
+    x = (77-62)*8,     -- starting x position
+    y = (17-8)*8,     -- starting y position
     sp = 212,    
     w = 1,     -- width of the sprite in pixels
     h = 1,     -- height of the sprite in pixels
@@ -509,6 +546,14 @@ function walls()
     x = (42-30)*8,     -- starting x position
     y = (23-12)*8,     -- starting y position
     sp = 231,  
+    w = 8,     -- width of the sprite in pixels
+    h = 8,     -- height of the sprite in pixels
+    dy=0
+  }
+  wall_level2 = {
+    x = (39-30)*8,     -- starting x position
+    y = (21-12)*8,     -- starting y position
+    sp = 208,  
     w = 8,     -- width of the sprite in pixels
     h = 8,     -- height of the sprite in pixels
     dy=0

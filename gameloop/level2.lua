@@ -220,36 +220,42 @@ function level2()
     --     -- Prevent player from going above the box1
     --     player1.y = ly1
     -- end
+end
 
-    player1_touched_switch3_2_x = 0
-    player1_touched_switch3_2_y = 0
+player1_touched_switch3_2_x = 0
+player1_touched_switch3_2_y = 0
+function collisions_for_switch3_2()
     if check_collision(player1, switch3_2) then
         switch3_2.flip = true
         player1_touched_switch3_2_x = 1
         player1_touched_switch3_2_y = 1
     end
+end
 
-    player2_touched_switch4_2_x = 0
-    player2_touched_switch4_2_y = 0
+player2_touched_switch4_2_x = 0
+player2_touched_switch4_2_y = 0
+function collisions_for_switch4_2()
     if check_collision(player2, switch4_2) then
         switch4_2.flip = true
         player2_touched_switch4_2_x=1
         player2_touched_switch4_2_y=1
     end
+end
 
+function update_map_level2_to_level3a()
     if switch3_2.flip==true and switch4_2.flip==true then
-        map_offset_x=40
-        map_offset_y=12
+        map_offset_x=49
+        map_offset_y=11
     
-        switch3_2.y=32*8
-        switch4_2.y=32*8
+        -- switch3_2.y=32*8
+        -- switch4_2.y=32*8
         if player1_touched_switch3_2_x==1 then
         player1.x=2
         player1_touched_switch3_2_x=0
         end
     
         if player1_touched_switch3_2_y==1 then
-        player1.y=12*8
+        player1.y=(24-12)*8
         player1_touched_switch3_2_y=0
         end
         
@@ -258,9 +264,8 @@ function level2()
         player2_touched_switch4_2_x=0
         end
         if player2_touched_switch4_2_y==1 then
-        player2.y=12*8
+        player2.y=(24-12)*8
         player2_touched_switch4_2_y=0
         end
     end
-
 end

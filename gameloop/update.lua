@@ -17,6 +17,7 @@ function _update()
   --level1a
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
+  update_map_level2_to_level3a()
   update_map_level3a_to_level3b()
   if map_offset_x==0 and map_offset_y==19 then
     collisions_for_switch1()
@@ -30,6 +31,8 @@ function _update()
     -- update_camera(player2)
   elseif map_offset_x==30 and map_offset_y==12 then
     level2()
+    collisions_for_switch3_2()
+    collisions_for_switch4_2()
   elseif map_offset_x==49 and map_offset_y==11 then
     level3a()
     collisions_for_switch3_3()
