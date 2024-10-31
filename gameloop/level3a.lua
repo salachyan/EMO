@@ -29,7 +29,7 @@ function level3a()
     box5_3.y+=box5_3.dy
 
     -- Allow players to jump on top of the box5_3
-    if check_collision(player1, box5_3) then
+    if check_collision1(player1, box5_3) then
         -- Check if the player is falling onto the box5_3
         if player1.y + player1.sprite_h <= box5_3.y + box5_3.h * 8 and player1.dy > 0 then
         player1.y = box5_3.y - player1.sprite_h * 8  -- Position player on top of the box5_3
@@ -38,7 +38,7 @@ function level3a()
         end
     end
 
-    if check_collision(player2, box5_3) then
+    if check_collision1(player2, box5_3) then
         -- Check if the player is falling onto the box5_3
         if player2.y + player2.sprite_h <= box5_3.y + box5_3.h * 8 and player2.dy > 0 then
         player2.y = box5_3.y - player2.sprite_h * 8  -- Position player on top of the box5_3
