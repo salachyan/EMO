@@ -1,0 +1,15 @@
+Level 1a:
+map_offset_x=0
+map_offset_y=19
+level1b:
+map_offset_x=12
+map_offset_y=19
+level2:
+map_offset_x=30
+map_offset_y=12
+level3a:
+map_offset_x=49
+map_offset_y=11
+level3b:
+map_offset_x=62
+map_offset_y=8
