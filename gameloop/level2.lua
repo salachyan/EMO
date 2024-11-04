@@ -27,7 +27,7 @@ function level2()
     -- box1.x += box1.dx
 
     -- Allow players to jump on top of the box1
-    if check_collision(player1, box1) then
+    if check_collision2(player1, box1) then
         -- Check if the player is falling onto the box1
         if player1.y + player1.sprite_h <= box1.y + box1.h * 8 and player1.dy > 0 then
         player1.y = box1.y - player1.sprite_h * 8  -- Position player on top of the box1
@@ -36,7 +36,7 @@ function level2()
         end
     end
 
-    if check_collision(player2, box1) then
+    if check_collision2(player2, box1) then
         -- Check if the player is falling onto the box1
         if player2.y + player2.sprite_h <= box1.y + box1.h * 8 and player2.dy > 0 then
         player2.y = box1.y - player2.sprite_h * 8  -- Position player on top of the box1
@@ -48,7 +48,7 @@ function level2()
     -- Check for player1 and player2 collision with the switch1
     switch1_2_collision_count = 0
     -- Increment switch1_collision if collision occurs
-    if (check_collision(player1, switch1_2) or check_collision(player2, switch1_2)) then
+    if (check_collision2(player1, switch1_2) or check_collision2(player2, switch1_2)) then
         switch1_2_collision_count = switch1_2_collision_count + 1
     end
     -- Toggle switch based on odd/even check
@@ -60,7 +60,7 @@ function level2()
     end
 
 
-    if (check_collision(player1, switch1_2) or check_collision(player2, switch1_2)) and platform6.y<95 then
+    if (check_collision2(player1, switch1_2) or check_collision2(player2, switch1_2)) and platform6.y<95 then
         platform1.y += 1
         platform2.y += 1
         platform3.y += 1
@@ -73,7 +73,7 @@ function level2()
 
     switch2_2_collision_count = 0
     -- Increment switch1_collision if collision occurs
-    if (check_collision(player1, switch2_2) or check_collision(player2, switch2_2)) then
+    if (check_collision2(player1, switch2_2) or check_collision2(player2, switch2_2)) then
         switch2_2_collision_count = switch2_2_collision_count + 1
     end
     -- Toggle switch based on odd/even check
@@ -85,7 +85,7 @@ function level2()
     end
 
 
-    if (check_collision(player1, switch2_2) or check_collision(player2, switch2_2)) and platform1.y>72 then
+    if (check_collision2(player1, switch2_2) or check_collision2(player2, switch2_2)) and platform1.y>72 then
         platform1.y -= 1
         platform2.y -= 1
         platform3.y -= 1
@@ -225,7 +225,7 @@ end
 player1_touched_switch3_2_x = 0
 player1_touched_switch3_2_y = 0
 function collisions_for_switch3_2()
-    if check_collision(player1, switch3_2) then
+    if check_collision2(player1, switch3_2) then
         switch3_2.flip = true
         player1_touched_switch3_2_x = 1
         player1_touched_switch3_2_y = 1
@@ -235,7 +235,7 @@ end
 player2_touched_switch4_2_x = 0
 player2_touched_switch4_2_y = 0
 function collisions_for_switch4_2()
-    if check_collision(player2, switch4_2) then
+    if check_collision2(player2, switch4_2) then
         switch4_2.flip = true
         player2_touched_switch4_2_x=1
         player2_touched_switch4_2_y=1

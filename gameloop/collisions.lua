@@ -71,4 +71,15 @@ function check_collision1(player1, player2)
   end
 end
 
+function check_collision2(player1, player2)
+  if player1.x-5 < player2.x-5 + player2.w-5 and
+  player1.x-5 + player1.w-5 > player2.x-5 and
+  player1.y < player2.y + player2.h and
+  player1.y + player1.h > player2.y then
+  return true
+  else
+    return false
+  end
+end
+
 

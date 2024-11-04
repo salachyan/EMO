@@ -1,7 +1,7 @@
 player1_touched_switch1_x = 0
 player1_touched_switch1_y = 0
 function collisions_for_switch1()
-  if check_collision(player1, switch1) then
+  if check_collision2(player1, switch1) then
     switch1.flip = true
     player1_touched_switch1_x = 1
     player1_touched_switch1_y = 1
@@ -11,7 +11,7 @@ end
 player2_touched_switch2_x = 0
 player2_touched_switch2_y = 0
 function collisions_for_switch2()
-  if check_collision(player2, switch2) then
+  if check_collision2(player2, switch2) then
     switch2.flip = true
     player2_touched_switch2_x=1
     player2_touched_switch2_y=1
@@ -73,7 +73,7 @@ function box_collisions()
   if check_collision(player2, box2) and player2.landed == true then
       -- Move player2 back based on the direction they are moving
       if player2.dx > 0 and (box2.x > player2.x) then
-          player2.x = box2.x - 1.8 * 8  -- Push player to the left
+          player2.x = box2.x - 1.8 * 8  
           box2.x = box2.x + player2.dx
               if seesaw_top1.sp~=152 and box2.x>(((18-1)-12)*8)-2 then
                 box2.x=(((18-1)-12)*8)-2 
@@ -87,20 +87,18 @@ function box_collisions()
       end
   end
   -- Allow players to jump on top of the box2
-  if check_collision(player1, box2) then
-    -- Check if the player is falling onto the box2
+  if check_collision2(player1, box2) then
     if player1.y + player1.sprite_h <= box2.y + box2.h * 8 and player1.dy > 0 then
-    player1.y = box2.y - player1.sprite_h * 8  -- Position player on top of the box2
-    player1.dy = 0  -- Reset vertical speed
-    player1.landed = true -- Update grounded state
+    player1.y = box2.y - player1.sprite_h * 8  
+    player1.dy = 0 
+    player1.landed = true 
     end
   end
-  if check_collision(player2, box2) then
-    -- Check if the player is falling onto the box2
+  if check_collision2(player2, box2) then
     if player2.y + player2.sprite_h <= box2.y + box2.h * 8 and player2.dy > 0 then
-    player2.y = box2.y - player2.sprite_h * 8  -- Position player on top of the box2
-    player2.dy = 0  -- Reset vertical speed
-    player2.landed = true -- Update grounded state
+    player2.y = box2.y - player2.sprite_h * 8 
+    player2.dy = 0 
+    player2.landed = true 
     end
   end
 end
@@ -245,7 +243,7 @@ end
 player1_touched_switch3_x = 0
 player1_touched_switch3_y = 0
 function collisions_for_switch3()  
-  if check_collision(player1, switch3) then
+  if check_collision2(player1, switch3) then
     switch3.flip = true
     player1_touched_switch3_x = 1
     player1_touched_switch3_y = 1
@@ -255,7 +253,7 @@ end
 player2_touched_switch4_x = 0
 player2_touched_switch4_y = 0
 function collisions_for_switch4()
-  if check_collision(player2, switch4) then
+  if check_collision2(player2, switch4) then
     switch4.flip = true
     player2_touched_switch4_x=1
     player2_touched_switch4_y=1

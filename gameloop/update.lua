@@ -27,8 +27,6 @@ function _update()
     seesaw_collisions()
     collisions_for_switch3()
     collisions_for_switch4()
-    -- update_camera(player1)
-    -- update_camera(player2)
   elseif map_offset_x==30 and map_offset_y==12 then
     level2()
     collisions_for_switch3_2()
@@ -196,14 +194,10 @@ elseif btn(⬇️, 0) then
   --check collision left and right
   if player2.dx<0 then
 
-  --   player2.dx=limit_speed(player2.dx,player2.max_dx)
-
     if map_collision(player2,"left",2,map_offset_y,map_offset_x) then
         player2.dx=0
     end
     elseif player2.dx>0 then
-
-    --   player2.dx=limit_speed(player2.dx,player2.max_dx)
 
     if map_collision(player2,"right",3,map_offset_y,map_offset_x) then
         player2.dx=0
@@ -228,11 +222,3 @@ elseif btn(⬇️, 0) then
       player2.x=map_end-player2.w
   end
 end
-
--- function animate_player1_walking()
---   player1.anim_timer += player1.anim_speed
---   if player1.anim_timer >= 1 then
---     player1.anim_timer = 0
---     player1.sp = (player1.sp + 1) % #player1.anim_frames_walking
---   end
--- end

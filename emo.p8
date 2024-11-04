@@ -3,14 +3,12 @@ version 42
 __lua__
 
 #include gameloop/initialize.lua
-#include gameloop/camera.lua
 #include gameloop/draw.lua
 #include gameloop/collisions.lua
 #include gameloop/update.lua
 #include gameloop/level1.lua
 #include gameloop/level2.lua
-#include gameloop/level3a.lua
-#include gameloop/level3b.lua
+#include gameloop/level3.lua
 
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000088888800000000008888880000000000888888000000000088888800000

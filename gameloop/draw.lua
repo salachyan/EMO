@@ -1,18 +1,11 @@
 function _draw()
-    -- clear screen
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 16, 16)
-    -- map(128 - 16, 32 - 16, 0, 0, 16, 16)
     textbox_level1()
-    -- draw the player sprite (32x32 pixels = 4 tiles by 4 tiles)
-    -- if switch1.flip==false or switch2.flip==false then
     if map_offset_x==30 and map_offset_y==12 then
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
-    -- elseif switch1.flip==true and switch2.flip==true then
-    --   spr(player1.frames[flr(player1.spz)], 2, 9*8, 2, 2, player1.flp)
-    -- end
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
 
     --level1a
@@ -26,8 +19,6 @@ function _draw()
       spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
       spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
       spr(seesaw_arch1.sp, seesaw_arch1.x, seesaw_arch1.y, 1, 1, seesaw_arch1.flip)
-      -- spr(seesaw_holder1.sp, seesaw_holder1.x, seesaw_holder1.y, 1, 1, seesaw_holder1.flip)
-      -- spr(seesaw_holder2.sp, seesaw_holder2.x, seesaw_holder2.y, 1, 1, seesaw_holder2.flip)
       spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
       spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
       spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
@@ -56,12 +47,6 @@ function _draw()
       spr(switch3_3.sp, switch3_3.x, switch3_3.y, 1, 1, switch3_3.flip)
       spr(switch4_3.sp, switch4_3.x, switch4_3.y, 1, 1, switch4_3.flip)
 
-      spr(box1_3.sp, box1_3.x, box1_3.y, 1, 1, box1_3.flip)
-      spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
-      spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
-      spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
-      spr(box5_3.sp, box5_3.x, box5_3.y, 1, 1, box5_3.flip)
-
       spr(platform1_3.sp, platform1_3.x, platform1_3.y, 1, 1)
       spr(platform2_3.sp, platform2_3.x, platform2_3.y, 1, 1)
       spr(platform3_3.sp, platform3_3.x, platform3_3.y, 1, 1)
@@ -71,8 +56,7 @@ function _draw()
 
       spr(wall_player2_3.sp, wall_player2_3.x, wall_player2_3.y, 1, 1)
       spr(wall_level3.sp, wall_level3.x, wall_level3.y, 1, 1)
-      -- spr(wall1_box_3.sp, wall1_box_3.x, wall1_box_3.y, 1, 1)
-      -- spr(wall2_box_3.sp, wall2_box_3.x, wall2_box_3.y, 1, 1)
+      spr(box5_3.sp, box5_3.x, box5_3.y, 1, 1, box5_3.flip)
       
       spr(floor1_3.sp, floor1_3.x, floor1_3.y, 1, 1)
       spr(floor2_3.sp, floor2_3.x, floor2_3.y, 1, 1)
@@ -87,17 +71,13 @@ function _draw()
       spr(switch4_3b.sp, switch4_3b.x, switch4_3b.y, 1, 1, switch4_3b.flip)
       spr(switch5_3b.sp, switch5_3b.x, switch5_3b.y, 1, 1, switch5_3b.flip)
       spr(switch6_3b.sp, switch6_3b.x, switch6_3b.y, 1, 1, switch6_3b.flip)
+
+      spr(box1_3.sp, box1_3.x, box1_3.y, 1, 1, box1_3.flip)
+      -- spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
+      -- spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
+      -- spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
+      
     end
-    -- print("check_collision: "..tostring(map_offset_x==49 and map_offset_y==11), 5, 50, 14)
-    -- print("map_offset_x: "..tostring(player2.x), 5, 40, 14)
-    -- print("player1.landed: "..tostring(player1.landed), 5, 50, 14)
-    -- print("player1_touched_switch1_x: "..player1_touched_switch1_x, 5, 60, 14)
-    -- print("collision: "..tostring(check_collision(player1,platform1)), 5, 60, 14)
-    -- print("collision: "..tostring(check_collision(player1, seesaw_bottom1)), 5, 60, 14)
-    -- print("collision_top: "..tostring(check_collision(player1, seesaw_top1)), 5, 70, 14)
-    -- print("level1b: "..tostring(player1.y), 5, 80, 14)
-    
-    
   end
 
 function textbox_level1()
