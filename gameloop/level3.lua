@@ -222,9 +222,9 @@ if box5_3.dy>0 then
 
     if check_collision1(player1, wall_level3) then
         if player1.y + player1.h <= wall_level3.y + wall_level3.h and player1.dy > 0 then
-        player1.y = wall_level3.y - player1.h  -- Position player on top of the wall_level3
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = wall_level3.y - player1.h  
+        player1.dy = 0  
+        player1.landed = true 
         end
     end
     if check_collision1(player2, wall_level3) then

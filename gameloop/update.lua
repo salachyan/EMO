@@ -1,42 +1,40 @@
-map_offset_y=19
-map_offset_x=0
 function _update()
+  if map_offset_x==0 and map_offset_y==14 then
+    level = "1a"
+  elseif map_offset_x==12 and map_offset_y==14 then
+    level = "1b"
+  elseif map_offset_x==30 and map_offset_y==14 then
+    level = "2a"
+  elseif map_offset_x==44 and map_offset_y==12 then
+    level = "2b"
+  elseif map_offset_x==49 and map_offset_y==14 then
+    level = "3a"
+  elseif map_offset_x==62 and map_offset_y==14 then
+    level = "3b"
+  end
 
-  -- player1.dx = 0
-  -- player1.dy = 0
-  -- player2.dx = 0
-  -- player2.dy = 0
-
-  local lx1=player1.x --last x pos
-  local ly1=player1.y --last y pos
-  local lx2=player2.x --last x pos
-  local ly2=player2.y --last y pos
-
-  --functions from level1.lua
-  
-  --level1a
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  update_map_level2_to_level3a()
+  update_map_level2a_to_level2b()
   update_map_level3a_to_level3b()
-
-  if map_offset_x==0 and map_offset_y==19 then
+  
+  if level == "1a" then
     collisions_for_switch1()
     collisions_for_switch2()
-  elseif map_offset_x==12 and map_offset_y==19 then
+  elseif level == "1b" then
     box_collisions()
     seesaw_collisions()
     collisions_for_switch3()
     collisions_for_switch4()
-  elseif map_offset_x==30 and map_offset_y==12 then
+  elseif level == "2a" then
     level2()
     collisions_for_switch3_2()
     collisions_for_switch4_2()
-  elseif map_offset_x==49 and map_offset_y==11 then
+  elseif level == "3a" then
     level3a()
     collisions_for_switch3_3()
     collisions_for_switch4_3()
-  elseif map_offset_x==62 and map_offset_y==8 then
+  elseif level == "3b" then
     level3b()
   end
 

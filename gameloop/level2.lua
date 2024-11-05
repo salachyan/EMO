@@ -101,9 +101,9 @@ function level2()
     -- Check for player1 and player2 collision with the platform
     if check_collision1(player1, platform1) then
         if player1.y + player1.h <= platform1.y + platform1.h and player1.dy > 0 then
-        player1.y = platform1.y - player1.h  -- Position player on top of the platform1
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = platform1.y - player1.h 
+        player1.dy = 0 
+        player1.landed = true 
         elseif player1.y >= platform1.y + platform1.h and player1.dy < 0 then
             player1.y = platform1.y + platform1.h  
             player1.dy = 0  
@@ -111,9 +111,9 @@ function level2()
     end
     if check_collision(player1, platform2) then
         if player1.y + player1.h <= platform2.y + platform2.h and player1.dy > 0 then
-        player1.y = platform2.y - player1.h  -- Position player on top of the platform2
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = platform2.y - player1.h  
+        player1.dy = 0  
+        player1.landed = true 
         elseif player1.y >= platform2.y + platform2.h and player1.dy < 0 then
             player1.y = platform2.y + platform2.h 
             player1.dy = 0  
@@ -121,9 +121,9 @@ function level2()
     end
     if check_collision(player1, platform3) then
         if player1.y + player1.h <= platform3.y + platform3.h and player1.dy > 0 then
-        player1.y = platform3.y - player1.h  -- Position player on top of the platform3
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = platform3.y - player1.h 
+        player1.dy = 0  
+        player1.landed = true 
         elseif player1.y >= platform3.y + platform3.h and player1.dy < 0 then
             player1.y = platform3.y + platform3.h  
             player1.dy = 0  
@@ -131,9 +131,9 @@ function level2()
     end
     if check_collision(player1, platform4) then
         if player1.y + player1.h <= platform4.y + platform4.h and player1.dy > 0 then
-        player1.y = platform4.y - player1.h  -- Position player on top of the platform4
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = platform4.y - player1.h  
+        player1.dy = 0  
+        player1.landed = true
         elseif player1.y >= platform4.y + platform4.h and player1.dy < 0 then
             player1.y = platform4.y + platform4.h 
             player1.dy = 0 
@@ -141,9 +141,9 @@ function level2()
     end
     if check_collision1(player1, platform5) then
         if player1.y + player1.h <= platform5.y + platform5.h and player1.dy > 0 then
-        player1.y = platform5.y - player1.h  -- Position player on top of the platform5
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = platform5.y - player1.h  
+        player1.dy = 0  
+        player1.landed = true 
         -- if player1.dx < 0 then
         --     player1.x = platform5.x + 1 * 8
         -- end
@@ -163,45 +163,45 @@ function level2()
     end
     if check_collision(player2, platform2) then
         if player2.y + player2.h <= platform2.y + platform2.h and player2.dy > 0 then
-        player2.y = platform2.y - player2.h  -- Position player on top of the platform2
-        player2.dy = 0  -- Reset vertical speed
-        player2.landed = true -- Update grounded state
+        player2.y = platform2.y - player2.h 
+        player2.dy = 0  
+        player2.landed = true
         end
     end
     if check_collision(player2, platform3) then
         if player2.y + player2.h <= platform3.y + platform3.h and player2.dy > 0 then
-        player2.y = platform3.y - player2.h  -- Position player on top of the platform3
-        player2.dy = 0  -- Reset vertical speed
-        player2.landed = true -- Update grounded state
+        player2.y = platform3.y - player2.h 
+        player2.dy = 0  
+        player2.landed = true 
         end
     end
     if check_collision(player2, platform4) then
         if player2.y + player2.h <= platform4.y + platform4.h and player2.dy > 0 then
-        player2.y = platform4.y - player2.h -- Position player on top of the platform4
-        player2.dy = 0  -- Reset vertical speed
-        player2.landed = true -- Update grounded state
+        player2.y = platform4.y - player2.h 
+        player2.dy = 0 
+        player2.landed = true
         end
     end
     if check_collision1(player2, platform5) then
         if player2.y + player2.h <= platform5.y + platform5.h and player2.dy > 0 then
-        player2.y = platform5.y - player2.h  -- Position player on top of the platform5
-        player2.dy = 0  -- Reset vertical speed
-        player2.landed = true -- Update grounded state
+        player2.y = platform5.y - player2.h  
+        player2.dy = 0 
+        player2.landed = true 
         end
     end
 
     if check_collision1(player1, wall_level2) then
         if player1.y + player1.h <= wall_level2.y + wall_level2.h and player1.dy > 0 then
-        player1.y = wall_level2.y - player1.h  -- Position player on top of the wall_level2
-        player1.dy = 0  -- Reset vertical speed
-        player1.landed = true -- Update grounded state
+        player1.y = wall_level2.y - player1.h 
+        player1.dy = 0 
+        player1.landed = true 
         end
     end
     if check_collision1(player2, wall_level2) then
         if player2.y + player2.h <= wall_level2.y + wall_level2.h and player2.dy > 0 then
-        player2.y = wall_level2.y - player2.h  -- Position player on top of the wall_level2
-        player2.dy = 0  -- Reset vertical speed
-        player2.landed = true -- Update grounded state
+        player2.y = wall_level2.y - player2.h 
+        player2.dy = 0 
+        player2.landed = true 
         end
     end
     --player2 cannot touch the switch
@@ -242,10 +242,26 @@ function collisions_for_switch4_2()
     end
 end
 
-function update_map_level2_to_level3a()
-    if switch3_2.flip==true and switch4_2.flip==true then
-        map_offset_x=49
-        map_offset_y=11
+function update_map_level2a_to_level2b()
+    if switch3_2.flip==true and switch4_2.flip==true and player1.landed==true and player2.landed==true then
+        if map_offset_x1<44 then
+            map_offset_x1+=0.4
+            if map_offset_x1>44 then
+                map_offset_x1=44
+            end
+            gravity=0
+            player1.x=2
+            player2.x=14
+            player1.dx=0
+            player1.dy=0
+            player2.dx=0
+            player2.dy=0
+        end
+        if map_offset_y1>12 then
+            map_offset_y1-=0.5
+        end
+        map_offset_x=44
+        map_offset_y=12
     
         -- switch3_2.y=32*8
         -- switch4_2.y=32*8
@@ -255,7 +271,7 @@ function update_map_level2_to_level3a()
         end
     
         if player1_touched_switch3_2_y==1 then
-        player1.y=(24-12)*8
+        player1.y=(22-12)*8
         player1_touched_switch3_2_y=0
         end
         
@@ -264,7 +280,7 @@ function update_map_level2_to_level3a()
         player2_touched_switch4_2_x=0
         end
         if player2_touched_switch4_2_y==1 then
-        player2.y=(24-12)*8
+        player2.y=(22-12)*8
         player2_touched_switch4_2_y=0
         end
     end

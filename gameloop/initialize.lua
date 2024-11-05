@@ -1,4 +1,10 @@
 function _init()
+  level = "level1a"
+  map_offset_y=14
+  map_offset_x=0
+  map_offset_y1=14
+  map_offset_x1=30
+
   player1 = {
     x = 2,    
     y = 12*8,    
@@ -64,6 +70,7 @@ function _init()
   seesaws()
   walls()
   floors()
+  spring()
 
   gravity = 0.08
   
@@ -72,6 +79,8 @@ function _init()
   
   map_start = 0
   map_end=16*8
+
+
 
 end
 
@@ -82,8 +91,8 @@ function switches()
       y = (29-19)*8,   
       sp = 244,    
       w = 1,     
-      h = 1,     
-      flip = false
+      h = 1,  
+      flip = false,
     }
     
     switch2 = {
@@ -92,7 +101,7 @@ function switches()
       sp = 212,    
       w = 1,   
       h = 1,     
-      flip = false 
+      flip = false
     }
   -- end
   -- if map_offset_y==19 and map_offset_x== 12 then
@@ -252,6 +261,7 @@ function switches()
 end
 
 function boxes()
+    --level2
     box1 = {
       x = 40,
       y = 112,
@@ -261,9 +271,9 @@ function boxes()
       dx = 0,
       flip = false
   }
-
+  --level1b
   box2 = {
-      x = (15-12)*8,
+      x = (16-12)*8,
       y = (29-19)*8,
       sp = 215,
       w = 8,
@@ -609,4 +619,28 @@ function floors()
       dy=0
   }
 
+end
+
+function spring()
+  spring1={
+    x = (52-43)*8,
+    y = (26-12)*8,
+    sp = 216,
+    w = 8,
+    h = 8,
+  }
+  spring2 = {
+    x = (53-43)*8,
+    y = (26-12)*8,
+    sp = 216,
+    w = 8,
+    h = 8,
+  }
+  spring3 = {
+    x = (54-43)*8,
+    y = (26-12)*8,
+    sp = 216,
+    w = 8,
+    h = 8,
+  }
 end
