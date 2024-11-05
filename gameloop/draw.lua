@@ -1,6 +1,6 @@
 function _draw()
     cls()
-    map(map_offset_x, map_offset_y, 0, 0, 16, 16)
+    map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     textbox_level1()
     if map_offset_x==30 and map_offset_y==12 then
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
@@ -78,6 +78,9 @@ function _draw()
       -- spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end
+    -- print("collision: "..tostring(map_offset_x==62 and map_offset_y==8), 5, 60, 14)
+    print("x: "..tostring(map_offset_x), 5, 40, 14)
+    print("y: "..tostring(map_offset_x<12), 5, 50, 14)
   end
 
 function textbox_level1()

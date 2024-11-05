@@ -1,6 +1,6 @@
+map_offset_y=19
+map_offset_x=0
 function _update()
-  map_offset_y=19
-  map_offset_x=0
 
   -- player1.dx = 0
   -- player1.dy = 0
@@ -19,6 +19,7 @@ function _update()
   update_map_level1_to_level2()
   update_map_level2_to_level3a()
   update_map_level3a_to_level3b()
+
   if map_offset_x==0 and map_offset_y==19 then
     collisions_for_switch1()
     collisions_for_switch2()
@@ -35,7 +36,7 @@ function _update()
     level3a()
     collisions_for_switch3_3()
     collisions_for_switch4_3()
-  elseif map_offset_x==62 and map_offset_y==11 then
+  elseif map_offset_x==62 and map_offset_y==8 then
     level3b()
   end
 
@@ -43,8 +44,6 @@ function _update()
 
   player1_update()
   player2_update()
-
-  -- box.dx=0
 
 end
 

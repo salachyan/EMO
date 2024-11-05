@@ -300,26 +300,26 @@ function update_map_level3a_to_level3b()
 end
 
 function level3b()
-    -- Check for collisions with the box1_3 for player1
-    if check_collision(player1, box1_3) and player1.landed == true then
-        -- Move player1 back based on the direction they are moving
+    if check_collision(player1, box1_3) and player1.landed==true then
         if player1.dx > 0 and (box1_3.x > player1.x) then
-            player1.x = box1_3.x - 1.8 * 8 
-            box1_3.x = box1_3.x + player1.dx
+            player1.x = box1_3.x - 1.8 * 8
         end
         if player1.dx < 0 and (box1_3.x < player1.x) then
-            player1.x = box1_3.x + 7
+          player1.x = box1_3.x + 7
         end
     end
     -- Check for collisions with the box1_3 for player2
     if check_collision(player2, box1_3) and player2.landed == true then
         -- Move player2 back based on the direction they are moving
         if player2.dx > 0 and (box1_3.x > player2.x) then
-            player2.x = box1_3.x - 1.8 * 8 
+            player2.x = box1_3.x - 1.8 * 8  
             box1_3.x = box1_3.x + player2.dx
+                if seesaw_top1.sp~=152 and box1_3.x>(((18-1)-12)*8)-2 then
+                  box1_3.x=(((18-1)-12)*8)-2 
+                end
         end
         if player2.dx < 0 and (box1_3.x < player2.x) then
-            player2.x = box1_3.x + 7
+          player2.x = box1_3.x + 7
         end
     end
 end

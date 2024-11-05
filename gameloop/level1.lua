@@ -21,13 +21,12 @@ end
 function update_map_level1a_to_level1b()
   if switch1.flip==true and switch2.flip==true then
     if map_offset_x<12 then
-      map_offset_x+=12
+      map_offset_x+=0.5
+      gravity=0
+    else
+      gravity=0.08
     end
-    -- map_offset_x=49
-    -- map_offset_y=11
-    
-    switch1.y=32*8
-    switch2.y=32*8
+
     if player1_touched_switch1_x==1 then
       player1.x=2
       player1_touched_switch1_x=0
@@ -59,7 +58,6 @@ function box_collisions()
 --     box2.dx=0
 -- end
   -- Check for collisions with the box2 for player1
-  condition1 = player1.dx < 0 and ((box2.x+8) < player1.x)
   if check_collision(player1, box2) and player1.landed==true then
       if player1.dx > 0 and (box2.x > player1.x) then
           player1.x = box2.x - 1.8 * 8
