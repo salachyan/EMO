@@ -4,6 +4,8 @@ function _draw()
       map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     elseif level=="2a" or level=="2b" then
       map(map_offset_x1, map_offset_y1, 0, 0, 32, 32)
+    elseif level=="3a" or level=="3b" then
+      map(map_offset_x2, map_offset_y2, 0, 0, 32, 32)
     end  
     level_num()
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
@@ -14,8 +16,6 @@ function _draw()
       spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
 
     elseif level == "1b" then
-      -- spr(switch1.sp, switch1.x, switch1.y, 1, 1, switch1.flip)
-      -- spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
       spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
       spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
       spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
@@ -40,9 +40,8 @@ function _draw()
       spr(wall_level2.sp, wall_level2.x, wall_level2.y, 1, 1)
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     elseif level == "2b" then
-      spr(spring1.sp, spring1.x, spring1.y, 1, 1, spring1.flip)
-      spr(spring2.sp, spring2.x, spring2.y, 1, 1, spring2.flip)
-      spr(spring3.sp, spring3.x, spring3.y, 1, 1, spring3.flip)
+      spr(switch1_2b.sp, switch1_2b.x, switch1_2b.y, 1, 1, switch1_2b.flip)
+      spr(switch2_2b.sp, switch2_2b.x, switch2_2b.y, 1, 1, switch2_2b.flip)
     elseif level == "3a" then
       spr(switch1_3.sp, switch1_3.x, switch1_3.y, 1, 1, switch1_3.flip)
       spr(switch2_3.sp, switch2_3.x, switch2_3.y, 1, 1, switch2_3.flip)
@@ -80,15 +79,9 @@ function _draw()
       -- spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end
-    -- print("collision: "..tostring(map_offset_x==62 and map_offset_y==8), 5, 60, 14)
-    print("x: "..tostring(map_offset_x), 5, 40, 14)
-    print("y: "..tostring(map_offset_y), 5, 50, 14)
-    print("x: "..tostring(map_offset_x1), 5, 60, 14)
-    print("y: "..tostring(map_offset_y1), 5, 70, 14)
-    print("y: "..tostring(map_offset_x<43), 5, 80, 14)
-    print("level2b: "..tostring(level=="2b"), 5, 90, 14)
-    print("y: "..tostring(map_offset_x==43 and map_offset_y==12), 5, 100, 14)
-    
+
+    print("1: "..tostring(player1.x), 5, 30, 14)
+    print("2: "..tostring(player1.y), 5, 40, 14)
     
     
   end
@@ -96,35 +89,11 @@ function _draw()
 function level_num()
   if level == "1a" or level == "1b" then
    print("level 1",50,2,14)
-   level1_story()
-  elseif level == "2a" and level=="2b" then
+  --  level1_story()
+  elseif level == "2a" or level=="2b" then
     print("level 2",50,2,14)
   elseif level == "3a" or level == "3b" then
     print("level 3",50,2,14)
   end
 end
 
-function level1_story()
-  text1 = "pip and pete received a note"
-  text2 = "from their brother, percy. the "
-  text3 = "note reads, ''i've discovered  "
-  text4 = "a safe shelter away from the "
-  text5 = "swift-fast cheetah at the top   "
-  text6 = "of the mountain! climb up this "
-  text7 = "cliff! - percy''"
-  box_x = 2
-  box_y = 9
-  box_w = 122
-  box_h = 53
-  rectfill(box_x, box_y, box_x + box_w, box_y + box_h, 7)  -- White background
-  rect(box_x, box_y, box_x + box_w, box_y + box_h, 0)  -- Black border
-
-  -- Draw the text inside the box
-  print(text1, box_x + 2, box_y + 4, 0)
-  print(text2, box_x + 2, box_y + 11, 0)
-  print(text3, box_x + 2, box_y + 18, 0)
-  print(text4, box_x + 2, box_y + 25, 0)
-  print(text5, box_x + 2, box_y + 32, 0)
-  print(text6, box_x + 2, box_y + 39, 0)
-  print(text7, box_x + 2, box_y + 46, 0)
-end

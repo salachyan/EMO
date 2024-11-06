@@ -1,11 +1,5 @@
 function map_collision(obj,aim,flag,map_offset_y,map_offset_x)
 
-  -- if object == nil then
-  --   return false
-  -- end
-  --obj = table needs x,y,w,h
-  --aim = left,right,up,down
- 
   local x=obj.x  local y=obj.y
   local w=obj.w  local h=obj.h
  

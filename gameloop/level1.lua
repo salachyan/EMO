@@ -68,9 +68,7 @@ function box_collisions()
       end
   end
 
-  -- Check for collisions with the box2 for player2
   if check_collision(player2, box2) and player2.landed == true then
-      -- Move player2 back based on the direction they are moving
       if player2.dx > 0 and (box2.x > player2.x) then
           player2.x = box2.x - 1.8 * 8  
           box2.x = box2.x + player2.dx
@@ -85,7 +83,7 @@ function box_collisions()
         player2.x = box2.x + 7
       end
   end
-  -- Allow players to jump on top of the box2
+  -- jump on top of the box2
   if check_collision2(player1, box2) then
     if player1.y + player1.sprite_h <= box2.y + box2.h * 8 and player1.dy > 0 then
     player1.y = box2.y - player1.sprite_h * 8  

@@ -4,6 +4,8 @@ function _init()
   map_offset_x=0
   map_offset_y1=14
   map_offset_x1=30
+  map_offset_y2=44
+  map_offset_x2=22
 
   player1 = {
     x = 2,    
@@ -70,7 +72,6 @@ function _init()
   seesaws()
   walls()
   floors()
-  spring()
 
   gravity = 0.08
   
@@ -161,6 +162,25 @@ function switches()
       dy = 0,
       flip = false
   }
+
+  switch1_2b = {
+    x = (56-44)*8,
+    y = (19-12)*8,
+    sp = 244,
+    w = 1,
+    h = 1,
+    flip = false
+}
+
+switch2_2b = {
+    x = (58-44)*8,
+    y = (19-12)*8,
+    sp = 212,
+    w = 1,
+    h = 1,
+    dy = 0,
+    flip = false
+}
 
   switch1_3 = {
       x = (61-49)*8,
@@ -619,28 +639,4 @@ function floors()
       dy=0
   }
 
-end
-
-function spring()
-  spring1={
-    x = (52-43)*8,
-    y = (26-12)*8,
-    sp = 216,
-    w = 8,
-    h = 8,
-  }
-  spring2 = {
-    x = (53-43)*8,
-    y = (26-12)*8,
-    sp = 216,
-    w = 8,
-    h = 8,
-  }
-  spring3 = {
-    x = (54-43)*8,
-    y = (26-12)*8,
-    sp = 216,
-    w = 8,
-    h = 8,
-  }
 end
