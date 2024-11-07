@@ -9,7 +9,7 @@ function _update()
     level = "2b"
   elseif map_offset_x==60 and map_offset_y==15 then
     level = "3a"
-  elseif map_offset_x==70 and map_offset_y==14 then
+  elseif map_offset_x==73 and map_offset_y==13 then
     level = "3b"
   end
 

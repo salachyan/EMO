@@ -16,9 +16,9 @@ function level3a()
         if player2.dx > 0 and (box5_3.x > player2.x) then
             player2.x = box5_3.x - 1.8 * 8  
             box5_3.x = box5_3.x + player2.dx
-                -- if box5_3.x>8*8 then
-                --     box5_3.x=8*8
-                -- end
+                if box5_3.x>(68-60)*8 then
+                    box5_3.x=(68-60)*8
+                end
         end
         if player2.dx < 0 and (box5_3.x < player2.x) then
             player2.x = box5_3.x + 7
@@ -265,10 +265,10 @@ end
 
 function update_map_level3a_to_level3b()
   if switch3_3.flip==true and switch4_3.flip==true then
-    map_offset_x=70
-    map_offset_y=14
-    map_offset_x2=70
-    map_offset_y2=14
+    map_offset_x=73
+    map_offset_y=13
+    map_offset_x2=73
+    map_offset_y2=13
     
     switch3_3.y=32*8
     switch4_3.y=32*8
@@ -307,18 +307,47 @@ function level3b()
           player1.x = box1_3.x + 7
         end
     end
+    if check_collision(player2, box4_3) and box1_3.y<(26-13)*8 then
+        player2.x = box4_3.x - 1.8 * 8 
+    end
     -- Check for collisions with the box1_3 for player2
-    if check_collision(player2, box1_3) and player2.landed == true then
+    if check_collision(player2, box1_3) and player2.landed == true and box1_3.y<(26-13)*8 then
         -- Move player2 back based on the direction they are moving
-        if player2.dx > 0 and (box1_3.x > player2.x) then
+        if player2.dx > 0 and (box1_3.x > player2.x) and box1_3.x<(78-73)*8 then
             player2.x = box1_3.x - 1.8 * 8  
-            box1_3.x = box1_3.x + player2.dx
-                if seesaw_top1.sp~=152 and box1_3.x>(((18-1)-12)*8)-2 then
-                  box1_3.x=(((18-1)-12)*8)-2 
-                end
+            box1_3.x += player2.dx
+            box2_3.x += player2.dx
+            box3_3.x += player2.dx
+            box4_3.x += player2.dx
+            
         end
         if player2.dx < 0 and (box1_3.x < player2.x) then
           player2.x = box1_3.x + 7
         end
     end
+    if box1_3.x>=(78-73)*8 and box1_3.y<(26-13)*8 then
+        box1_3.y += 1
+        box2_3.y += 1
+        box3_3.y += 1
+        box4_3.y += 1
+        box1_3.x = (78-73)*8
+        box2_3.x = (79-73)*8
+        box3_3.x = (79-73)*8
+        box4_3.x = (78-73)*8
+    end
+    if check_collision2(player1, box3_3) then
+        if player1.y + player1.sprite_h <= box3_3.y + box3_3.h * 8 and player1.dy > 0 then
+        player1.y = box3_3.y - player1.sprite_h * 8 
+        player1.dy = 0  
+        player1.landed = true 
+        end
+    end
+    if check_collision2(player1, box4_3) then
+        if player1.y + player1.sprite_h <= box4_3.y + box4_3.h * 8 and player1.dy > 0 then
+        player1.y = box4_3.y - player1.sprite_h * 8 
+        player1.dy = 0  
+        player1.landed = true 
+        end
+    end
+
 end

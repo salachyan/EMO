@@ -74,14 +74,14 @@ function _draw()
       spr(switch6_3b.sp, switch6_3b.x, switch6_3b.y, 1, 1, switch6_3b.flip)
 
       spr(box1_3.sp, box1_3.x, box1_3.y, 1, 1, box1_3.flip)
-      -- spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
-      -- spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
-      -- spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
+      spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
+      spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
+      spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end
 
-    print("1: "..tostring(player1.x), 5, 30, 14)
-    print("2: "..tostring(player1.y), 5, 40, 14)
+    -- print("1: "..tostring(player1.x), 5, 30, 14)
+    -- print("2: "..tostring(player1.y), 5, 40, 14)
     
     
   end
