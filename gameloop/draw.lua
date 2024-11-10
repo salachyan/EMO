@@ -1,7 +1,9 @@
 function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 16, 16)
-    textbox_level1()
+    -- textbox_level1()
+    dialog:queue("hello... press z")
+    dialog:queue("hello")
     if map_offset_x==30 and map_offset_y==12 then
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
@@ -80,16 +82,16 @@ function _draw()
     end
   end
 
-function textbox_level1()
-  if map_offset_y==19 then
-   print("level 1",50,2,14)
-   level1_story()
-  elseif map_offset_x==30 then
-    print("level 2",50,2,14)
-  elseif (map_offset_x==49 and map_offset_y==11) or (map_offset_x==62 and map_offset_y==8) then
-    print("level 3",50,2,14)
-  end
-end
+-- function textbox_level1()
+--   if map_offset_y==19 then
+--    print("level 1",50,2,14)
+--    level1_story()
+--   elseif map_offset_x==30 then
+--     print("level 2",50,2,14)
+--   elseif (map_offset_x==49 and map_offset_y==11) or (map_offset_x==62 and map_offset_y==8) then
+--     print("level 3",50,2,14)
+--   end
+-- end
 
 function level1_story()
   text1 = "pip and pete received a note"
@@ -107,11 +109,13 @@ function level1_story()
   rect(box_x, box_y, box_x + box_w, box_y + box_h, 0)  -- Black border
 
   -- Draw the text inside the box
-  print(text1, box_x + 2, box_y + 4, 0)
-  print(text2, box_x + 2, box_y + 11, 0)
-  print(text3, box_x + 2, box_y + 18, 0)
-  print(text4, box_x + 2, box_y + 25, 0)
-  print(text5, box_x + 2, box_y + 32, 0)
-  print(text6, box_x + 2, box_y + 39, 0)
-  print(text7, box_x + 2, box_y + 46, 0)
+  -- print(text1, box_x + 2, box_y + 4, 0)
+  -- print(text2, box_x + 2, box_y + 11, 0)
+  -- print(text3, box_x + 2, box_y + 18, 0)
+  -- print(text4, box_x + 2, box_y + 25, 0)
+  -- print(text5, box_x + 2, box_y + 32, 0)
+  -- print(text6, box_x + 2, box_y + 39, 0)
+  -- print(text7, box_x + 2, box_y + 46, 0)
+  dialog:draw()
+  rect(0,90,127,127,7)
 end

@@ -1,4 +1,5 @@
 function _init()
+
   player1 = {
     x = 2,    
     y = 12*8,    
@@ -608,5 +609,4 @@ function floors()
       h = 8,
       dy=0
   }
-
 end
