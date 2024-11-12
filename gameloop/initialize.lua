@@ -1,4 +1,5 @@
 function _init()
+  reading=false -- global variable used to tell when the player is supposed to be reading from the text box. this is useful to change the game state (for example, freeze it) when the player is reading from a text box.
 
   player1 = {
     x = 2,    

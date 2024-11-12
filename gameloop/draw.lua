@@ -2,8 +2,7 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 16, 16)
     -- textbox_level1()
-    dialog:queue("hello... press z")
-    dialog:queue("hello")
+    tb_draw() -- to draw text boxes, this function must be called. it is processed when reading is true, so there is no need to do a check here.
     if map_offset_x==30 and map_offset_y==12 then
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
@@ -94,13 +93,6 @@ function _draw()
 -- end
 
 function level1_story()
-  text1 = "pip and pete received a note"
-  text2 = "from their brother, percy. the "
-  text3 = "note reads, ''i've discovered  "
-  text4 = "a safe shelter away from the "
-  text5 = "swift-fast cheetah at the top   "
-  text6 = "of the mountain! climb up this "
-  text7 = "cliff! - percy''"
   box_x = 2
   box_y = 9
   box_w = 122

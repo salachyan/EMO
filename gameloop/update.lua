@@ -1,190 +1,162 @@
-dialog = {
-  x = 8,
-  y = 97,
-  color = 7,
-  max_chars_per_line = 27,
-  max_lines = 4,
-  dialog_queue = {},
-  blinking_counter = 0,
-  init = function(self)
-  end,
-  queue = function(self, message, autoplay)
-    -- default autoplay to false
-    autoplay = type(autoplay) == "nil" and false or autoplay
-    add(self.dialog_queue, {
-      message = message,
-      autoplay = autoplay
-    })
+-- text box example
+-- by profpatonildo
 
-    if (#self.dialog_queue == 1) then
-      self:trigger(self.dialog_queue[1].message, self.dialog_queue[1].autoplay)
-    end
-  end,
-  trigger = function(self, message, autoplay)
-    self.autoplay = autoplay
-    self.current_message = ''
-    self.messages_by_line = nil
-    self.animation_loop = nil
-    self.current_line_in_table = 1
-    self.current_line_count = 1
-    self.pause_dialog = false
-    self:format_message(message)
-    self.animation_loop = cocreate(self.animate_text)
-  end,
-  format_message = function(self, message)
-    local total_msg = {}
-    local word = ''
-    local letter = ''
-    local current_line_msg = ''
+--[[
+**if you have trouble reading
+this on pico 8's tiny screen,
+select all the code and copy
+it to a text editor**
 
-    for i = 1, #message do
-      -- get the current letter add
-      letter = sub(message, i, i)
+how it works:
 
-      -- keep track of the current word
-      word ..= letter
+reading must be set to false
+on _init(). this variable is
+used to check when a text box
+is currently being displayed
+and is useful for diferentiating
+game states.
 
-      -- if it's a space or the end of the message,
-      -- determine whether we need to continue the current message
-      -- or start it on a new line
-      if letter == ' ' or i == #message then
-        -- get the potential line length if this word were to be added
-        local line_length = #current_line_msg + #word
-        -- if this would overflow the dialog width
-        if line_length > self.max_chars_per_line then
-          -- add our current line to the total message table
-          add(total_msg, current_line_msg)
-          -- and start a new line with this word
-          current_line_msg = word
-        else
-          -- otherwise, continue adding to the current line
-          current_line_msg ..= word
-        end
+tb_init(voice,string)
+creates the text box and it's
+properties. this is the function
+you should call in your game
+when you want to start a text
+box. "voice" is a sfx number
+and "string" is a table with
+the messages you want to display
+there is no automatic parsing
+of the messages, so you will 
+have to manually position empty
+spaces with \n and check if the
+message fits the box. check the
+examples to have an idea of
+how much text fits on the box.
 
-        -- if this is the last letter and it didn't overflow
-        -- the dialog width, then go ahead and add it
-        if i == #message then
-          add(total_msg, current_line_msg)
-        end
+tb_update() must be called on
+_update() when reading is true.
+this handles the text box behavior,
+like advancing messages and
+progressively displaying them,
+in a typewriter effect.
 
-        -- reset the word since we've written
-        -- a full word to the current message
-        word = ''
+tb_draw() draws the text box.
+you can just put this on _draw()
+and forget about it. no need
+to do anything special with it,
+since it is self contained.
+--]]
+
+function tb_init(voice,string) -- this function starts and defines a text box.
+  reading=true -- sets reading to true when a text box has been called.
+  tb={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+  str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
+  voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
+  i=1, -- index used to tell what string from tb.str to read.
+  cur=0, -- buffer used to progressively show characters on the text box.
+  char=0, -- current character to be drawn on the text box.
+  x=0, -- x coordinate
+  y=14, -- y coordginate
+  w=127, -- text box width
+  h=35, -- text box height
+  col1=7, -- background color
+  col2=0, -- border color
+  col3=0, -- text color
+  }
+end
+
+function tb_update()  -- this function handles the text box on every frame update.
+  if tb.char<#tb.str[tb.i] then -- if the message has not been processed until it's last character:
+      tb.cur+=0.5 -- increase the buffer. 0.5 is already max speed for this setup. if you want messages to show slower, set this to a lower number. this should not be lower than 0.1 and also should not be higher than 0.9
+      if tb.cur>0.9 then -- if the buffer is larger than 0.9:
+          tb.char+=1 -- set next character to be drawn.
+          tb.cur=0    -- reset the buffer.
+          if (ord(tb.str[tb.i],tb.char)!=32) sfx(tb.voice) -- play the voice sound effect.
       end
-    end
-
-    self.messages_by_line = total_msg
-  end,
-  animate_text = function(self)
-    -- for each line, write it out letter by letter
-    -- if we each the max lines, pause the coroutine
-    -- wait for input in update before proceeding
-    for k, line in pairs(self.messages_by_line) do
-      self.current_line_in_table = k
-      for i = 1, #line do
-        self.current_message ..= sub(line, i, i)
-
-        -- press btn 5 to skip to the end of the current passage
-        -- otherwise, print 1 character per frame
-        -- with sfx about every 5 frames
-        if (not btnp(5)) then
-          if (i % 5 == 0) sfx(0)
-          yield()
-        end
+      if (btnp(5)) tb.char=#tb.str[tb.i] -- advance to the last character, to speed up the message.
+  elseif btnp(5) then -- if already on the last message character and button ❎/x is pressed:
+      if #tb.str>tb.i then -- if the number of strings to disay is larger than the current index (this means that there's another message to display next):
+          tb.i+=1 -- increase the index, to display the next message on tb.str
+          tb.cur=0 -- reset the buffer.
+          tb.char=0 -- reset the character position.
+      else -- if there are no more messages to display:
+          reading=false -- set reading to false. this makes sure the text box isn't drawn on screen and can be used to resume normal gameplay.
       end
-      self.current_message ..= '\n'
-      self.current_line_count += 1
-      if ((self.current_line_count > self.max_lines) or (self.current_line_in_table == #self.messages_by_line and not self.autoplay)) then
-        self.pause_dialog = true
-        yield()
-      end
-    end
+  end
+end
 
-    if (self.autoplay) then
-      self.delay(30)
-    end
-  end,
-  shift = function (t)
-    local n=#t
-    for i = 1, n do
-      if i < n then
-        t[i] = t[i + 1]
-      else
-        t[i] = nil
-      end
-    end
-  end,
-  -- helper function to add delay in coroutines
-  delay = function(frames)
-    for i = 1, frames do
-      yield()
-    end
-  end,
-  update = function(self)
-    if (self.animation_loop and costatus(self.animation_loop) != 'dead') then
-      if (not self.pause_dialog) then
-        coresume(self.animation_loop, self)
-      else
-        if btnp(4) then
-          self.pause_dialog = false
-          self.current_line_count = 1
-          self.current_message = ''
-        end
-      end
-    elseif (self.animation_loop and self.current_message) then
-      if (self.autoplay) self.current_message = ''
-      self.animation_loop = nil
-    end
+function tb_draw()
+  if reading then
+      -- Draw text box background and border
+      rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
+      rect(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col2)
 
-    if (not self.animation_loop and #self.dialog_queue > 0) then
-      self.shift(self.dialog_queue, 1)
-      if (#self.dialog_queue > 0) then
-        self:trigger(self.dialog_queue[1].message, self.dialog_queue[1].autoplay)
-        coresume(self.animation_loop, self)
+      -- Initialize variables for text rendering
+      local max_chars_per_line = 30
+      local num_lines = 5
+      local x_offset = tb.x + 2
+      local y_offset = tb.y + 2
+      local text = sub(tb.str[tb.i], 1, tb.char)
+      local current_line = ""
+      local line_count = 0
+
+      -- Split text by spaces to handle word-wrapping
+      for word in all(split(text, " ")) do
+          if #current_line + #word <= max_chars_per_line then
+              current_line = current_line .. word .. " "
+          else
+              print(current_line, x_offset, y_offset + (line_count * 6), tb.col3)
+              line_count += 1
+              current_line = word .. " "
+              if line_count >= num_lines then break end
+          end
       end
-    end
 
-    if (not self.autoplay) then
-      self.blinking_counter += 1
-      if self.blinking_counter > 30 then self.blinking_counter = 0 end
-    end
-  end,
-  draw = function(self)
-    local screen_width = 128
-
-    -- display message
-    if (self.current_message) then
-      print(self.current_message, self.x, self.y, self.color)
-    end
-
-    -- draw blinking cursor at the bottom right
-    if (not self.autoplay and self.pause_dialog) then
-      if self.blinking_counter > 15 then
-        if (self.current_line_in_table == #self.messages_by_line) then
-          -- draw square
-          rectfill(
-            screen_width - 11,
-            screen_width - 10,
-            screen_width - 11 + 3,
-            screen_width - 10 + 3,
-            7
-          )
-        else
-          -- draw arrow
-          line(screen_width - 12, screen_width - 9, screen_width - 8,screen_width - 9)
-          line(screen_width - 11, screen_width - 8, screen_width - 9,screen_width - 8)
-          line(screen_width - 10, screen_width - 7, screen_width - 10,screen_width - 7)
-        end
+      -- Print the last line if there's remaining text
+      if line_count < num_lines then
+          print(current_line, x_offset, y_offset + (line_count * 6), tb.col3)
       end
+
+  -- Draw the triangle indicator if all characters in the current string have been displayed
+    if tb.char >= #tb.str[tb.i] and #tb.str > tb.i then
+      local tri_x = tb.x + tb.w - 6
+      local tri_y = tb.y + tb.h - 6
+
+      -- Draw a small downward-pointing triangle
+      line(tri_x, tri_y, tri_x + 4, tri_y)           -- top side
+      line(tri_x + 4, tri_y, tri_x + 2, tri_y + 4)   -- right side
+      line(tri_x + 2, tri_y + 4, tri_x, tri_y)       -- left side
     end
   end
-}
+end
 
 function _update()
-  dialog:update()
-  if (#dialog.dialog_queue == 0) then
-    _init()
+  if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+    tb_update() -- handle the text box on every frame update.
+  else
+  -- if reading is false, then a text box is not being displayed. here you would put your normal game code. also, calls to brande new text boxes must be made only when reading is false, to avoid errors and conflicts.
+      if (btnp(5))then tb_init(0,{"long ago, there were three brothers: pip, pete, and percy."})
+      end
+  -- if (btnp(5))then tb_init(0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
+      --                             "pip heard this from another monkey in the village and ran over to see his brothers.","pip sees his brother pete first and talks to him."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+      -- end
+      if (btnp(4)) tb_init(1,{"this is a higher pitch voice because i can speak in different voices!","pretty cool, huh? this system is simple, but it can be put to great use!","i bet you are impressed! ♥"})
   end
+
+    --  // if you're in the main game...
+  if(gamestate == 'a') then
+    answerA() 
+
+  --  // if you're in the main game...   
+  elseif(gamestate == 'b')then
+  answerB() 
+
+  --  // if you're in the main game...
+  elseif(gamestate == 'c')then
+  answerC() 
+
+  --  // if you're in the main game... 
+  elseif(gamestate == 'd')then
+  answerD()
 
   map_offset_y=19
   map_offset_x=0
@@ -223,8 +195,10 @@ function _update()
 
   --functions from level2.lua
 
-  player1_update()
-  player2_update()
+  if(reading != true) then
+    player1_update()
+    player2_update()
+  end
 
   -- box.dx=0
 
@@ -338,11 +312,11 @@ elseif btn(⬇️, 0) then
   end
 
   -- jump
-  -- -- if btn(🅾️, 1) and player2.landed then
-  -- if btn(🅾️, 0) and player2.landed then
-  --   player2.dy-=player2.speed
-  --   player2.landed=false
-  -- end
+  -- if btn(🅾️, 1) and player2.landed then
+  if btn(🅾️, 0) and player2.landed then
+    player2.dy-=player2.speed
+    player2.landed=false
+  end
 
   -- this map collision functionalities are from https://nerdyteachers.com/Explain/Platformer/
   --check collision up and down
