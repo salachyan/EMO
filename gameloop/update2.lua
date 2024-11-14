@@ -13,20 +13,11 @@ function _update()
       level = "3b"
     end
   
-    update_map_level1a_to_level1b()
-    update_map_level1_to_level2()
     update_map_level2a_to_level2b()
     update_map_level2b_to_level3a()
     update_map_level3a_to_level3b()
     
-    if level == "1a" then
-      collisions_for_switch1()
-      collisions_for_switch2()
-    elseif level == "1b" then
-      level1b()
-      collisions_for_switch3()
-      collisions_for_switch4()
-    elseif level == "2a" then
+    if level == "2a" then
       level2()
       collisions_for_switch3_2()
       collisions_for_switch4_2()

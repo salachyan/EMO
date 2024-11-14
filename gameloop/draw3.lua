@@ -78,16 +78,7 @@ function _draw()
       spr(box3_3.sp, box3_3.x, box3_3.y, 1, 1, box3_3.flip)
       spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
-    end
-
-    print("1: "..tostring(map_offset_x), 5, 30, 14)
-    print("2: "..tostring(map_offset_y), 5, 40, 14)
-    print("1: "..tostring(map_offset_x2), 5, 50, 14)
-    print("2: "..tostring(map_offset_y2), 5, 60, 14)
-    print("1: "..tostring(map_offset_x1), 5, 70, 10)
-    print("2: "..tostring(map_offset_y1), 5, 80, 10)
-    
-    
+    end    
     
   end
 
