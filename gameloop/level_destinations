@@ -1,15 +1,13 @@
-Level 1a:
-map_offset_x=0
-map_offset_y=19
-level1b:
-map_offset_x=12
-map_offset_y=19
-level2:
-map_offset_x=30
-map_offset_y=12
-level3a:
-map_offset_x=49
-map_offset_y=11
-level3b:
-map_offset_x=62
-map_offset_y=8
+if map_offset_x==0 and map_offset_y==14 then
+  level = "1a"
+elseif map_offset_x==12 and map_offset_y==14 then
+  level = "1b"
+elseif map_offset_x==30 and map_offset_y==14 then
+  level = "2a"
+elseif map_offset_x==44 and map_offset_y==12 then
+  level = "2b"
+elseif map_offset_x==60 and map_offset_y==15 then
+  level = "3a"
+elseif map_offset_x==73 and map_offset_y==13 then
+  level = "3b"
+end

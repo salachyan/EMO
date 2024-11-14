@@ -1,5 +1,11 @@
 function _init()
-  reading=false -- global variable used to tell when the player is supposed to be reading from the text box. this is useful to change the game state (for example, freeze it) when the player is reading from a text box.
+  level = "1a"
+  map_offset_y=14
+  map_offset_x=0
+  map_offset_y1=14
+  map_offset_x1=30
+  map_offset_y2=44
+  map_offset_x2=22
 
   player1 = {
     x = 2,    
@@ -75,6 +81,8 @@ function _init()
   map_start = 0
   map_end=16*8
 
+
+
 end
 
 function switches()
@@ -84,8 +92,8 @@ function switches()
       y = (29-19)*8,   
       sp = 244,    
       w = 1,     
-      h = 1,     
-      flip = false
+      h = 1,  
+      flip = false,
     }
     
     switch2 = {
@@ -94,7 +102,7 @@ function switches()
       sp = 212,    
       w = 1,   
       h = 1,     
-      flip = false 
+      flip = false
     }
   -- end
   -- if map_offset_y==19 and map_offset_x== 12 then
@@ -155,6 +163,25 @@ function switches()
       flip = false
   }
 
+  switch1_2b = {
+    x = (56-44)*8,
+    y = (19-12)*8,
+    sp = 244,
+    w = 1,
+    h = 1,
+    flip = false
+}
+
+switch2_2b = {
+    x = (58-44)*8,
+    y = (19-12)*8,
+    sp = 212,
+    w = 1,
+    h = 1,
+    dy = 0,
+    flip = false
+}
+
   switch1_3 = {
       x = (61-49)*8,
       y = (24-11)*8,
@@ -196,8 +223,8 @@ function switches()
   }
 
   switch1_3b = {
-      x = (69-62)*8,
-      y = (71-8)*8,
+      x = (80-73)*8,
+      y = (24-13)*8,
       sp = 243,
       w = 1,
       h = 1,
@@ -206,8 +233,8 @@ function switches()
   }
 
   switch2_3b = {
-      x = (71-62)*8,
-      y = (20-8)*8,
+      x = (82-73)*8,
+      y = (24-13)*8,
       sp = 243,
       w = 1,
       h = 1,
@@ -216,8 +243,8 @@ function switches()
   }
 
   switch3_3b = {
-    x = (72-62)*8,    
-    y = (17-8)*8,   
+    x = (83-73)*8,    
+    y = (21-13)*8,   
     sp = 243,    
     w = 1,     
     h = 1,     
@@ -225,8 +252,8 @@ function switches()
     flip = true
   }
   switch4_3b = {
-    x = (74-62)*8,     
-    y = (17-8)*8,    
+    x = (85-73)*8,     
+    y = (21-13)*8,    
     sp = 243,    
     w = 1,    
     h = 1,     
@@ -234,8 +261,8 @@ function switches()
     flip = true 
   }
   switch5_3b = {
-    x = (76-62)*8,    
-    y = (17-8)*8,  
+    x = (87-73)*8,    
+    y = (21-13)*8,  
     sp = 244,    
     w = 1,    
     h = 1,   
@@ -243,8 +270,8 @@ function switches()
     flip = true 
   }
   switch6_3b = {
-    x = (77-62)*8,   
-    y = (17-8)*8,    
+    x = (88-73)*8,   
+    y = (21-13)*8,    
     sp = 212,    
     w = 1,    
     h = 1,   
@@ -254,6 +281,7 @@ function switches()
 end
 
 function boxes()
+    --level2
     box1 = {
       x = 40,
       y = 112,
@@ -263,9 +291,9 @@ function boxes()
       dx = 0,
       flip = false
   }
-
+  --level1b
   box2 = {
-      x = (15-12)*8,
+      x = (16-12)*8,
       y = (29-19)*8,
       sp = 215,
       w = 8,
@@ -285,8 +313,8 @@ function boxes()
   }
 
   box1_3 = {
-      x = (65-62)*8,
-      y = (20-8)*8,
+      x = (76-73)*8,
+      y = (24-13)*8,
       sp = 215,
       w = 8,
       h = 8,
@@ -296,8 +324,8 @@ function boxes()
   }
 
   box2_3 = {
-      x = (66-62)*8,
-      y = (20-8)*8,
+      x = (77-73)*8,
+      y = (24-13)*8,
       sp = 215,
       w = 8,
       h = 8,
@@ -307,8 +335,8 @@ function boxes()
   }
 
   box3_3 = {
-      x = (65-62)*8,
-      y = (19-8)*8,
+      x = (77-73)*8,
+      y = (23-13)*8,
       sp = 215,
       w = 8,
       h = 8,
@@ -318,8 +346,8 @@ function boxes()
   }
 
   box4_3 = {
-      x = (66-62)*8,
-      y = (19-8)*8,
+      x = (76-73)*8,
+      y = (23-13)*8,
       sp = 215,
       w = 8,
       h = 8,
@@ -327,7 +355,7 @@ function boxes()
       dy = 0,
       flip = false
   }
-
+  --3a
   box5_3 = {
       x = (52-49)*8,
       y = (24-11)*8,
@@ -610,6 +638,5 @@ function floors()
       h = 8,
       dy=0
   }
-  iquestion()
 
 end

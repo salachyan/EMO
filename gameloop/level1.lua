@@ -21,45 +21,45 @@ end
 function update_map_level1a_to_level1b()
   if switch1.flip==true and switch2.flip==true then
     if map_offset_x<12 then
-      map_offset_x+=12
+      map_offset_x+=0.2
+      if map_offset_x>12 then
+        map_offset_x=12
+      end
+      player1.speed=0
+      player2.speed=0
+      gravity=0
+      switch1.y=100*8
+      switch2.y=100*8
+      player1.x-=1.5
+      player2.x-=1.5
+      player1.y=9*8
+      player2.y=9*8
+    else
+      player1.speed = 1.2
+      player2.speed = 1.2
+      gravity = 0.08
     end
-    -- map_offset_x=49
-    -- map_offset_y=11
-    
-    switch1.y=32*8
-    switch2.y=32*8
+
     if player1_touched_switch1_x==1 then
-      player1.x=2
       player1_touched_switch1_x=0
     end
 
     if player1_touched_switch1_y==1 then
-      player1.y=9*8
-      -- --level3a
-      -- player1.y=(24-12)*8
       player1_touched_switch1_y=0
     end
     
     if player2_touched_switch2_x==1 then
-      player2.x=14
-
       player2_touched_switch2_x=0
     end
     if player2_touched_switch2_y==1 then
-      player2.y=9*8
-      --level3a
-      -- player2.y=(24-12)*8
       player2_touched_switch2_y=0
     end
   end
 end
 
-function box_collisions()
---   if map_collision(box2,"right",3,map_offset_y,map_offset_x) then
---     box2.dx=0
--- end
+function level1b()
+  --box collisions
   -- Check for collisions with the box2 for player1
-  condition1 = player1.dx < 0 and ((box2.x+8) < player1.x)
   if check_collision(player1, box2) and player1.landed==true then
       if player1.dx > 0 and (box2.x > player1.x) then
           player1.x = box2.x - 1.8 * 8
@@ -69,9 +69,7 @@ function box_collisions()
       end
   end
 
-  -- Check for collisions with the box2 for player2
   if check_collision(player2, box2) and player2.landed == true then
-      -- Move player2 back based on the direction they are moving
       if player2.dx > 0 and (box2.x > player2.x) then
           player2.x = box2.x - 1.8 * 8  
           box2.x = box2.x + player2.dx
@@ -86,7 +84,7 @@ function box_collisions()
         player2.x = box2.x + 7
       end
   end
-  -- Allow players to jump on top of the box2
+  -- jump on top of the box2
   if check_collision2(player1, box2) then
     if player1.y + player1.sprite_h <= box2.y + box2.h * 8 and player1.dy > 0 then
     player1.y = box2.y - player1.sprite_h * 8  
@@ -101,9 +99,8 @@ function box_collisions()
     player2.landed = true 
     end
   end
-end
 
-function seesaw_collisions()
+  --seesaw collisions
   -- Check for player1 and player2 collision with the seesaw
   --left side
   if check_collision(player1, seesaw_bottom1) and box2.x ~=(18-12)*8 then
@@ -172,9 +169,6 @@ function seesaw_collisions()
       end
     end
   end
-  -- if player1.y>56.08 and player2.x>=(22-12)*8 and player2.x<=(23-12)*8 then
-  --   player1.y=56.08
-  -- end
   --right side
   if check_collision(player2, seesaw_bottom1) and box2.x ~=(18-12)*8 then
     if check_collision(player1, seesaw_top1) then
@@ -238,7 +232,9 @@ function seesaw_collisions()
   if check_collision(player2, seesaw_arch2) and player2.dx>0 and not check_collision(player2, seesaw_bottom1) then
     player2.x=seesaw_arch2.x-13
   end
+
 end
+
 
 player1_touched_switch3_x = 0
 player1_touched_switch3_y = 0
@@ -263,7 +259,6 @@ end
 function update_map_level1_to_level2()
   if switch3.flip==true and switch4.flip==true then
     map_offset_x=30
-    map_offset_y=12
 
     switch3.y=32*8
     switch4.y=32*8
@@ -285,6 +280,7 @@ function update_map_level1_to_level2()
       player2.y=12*8
       player2_touched_switch4_y=0
     end
+    load("level2.p8")
   end
 end
 
