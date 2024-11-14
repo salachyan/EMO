@@ -280,6 +280,7 @@ function update_map_level1_to_level2()
       player2.y=12*8
       player2_touched_switch4_y=0
     end
+    load("level2.p8")
   end
 end
 
