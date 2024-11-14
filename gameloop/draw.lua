@@ -1,8 +1,10 @@
 function _draw()
     cls()
+    
     map(map_offset_x, map_offset_y, 0, 0, 16, 16)
     -- textbox_level1()
     tb_draw() -- to draw text boxes, this function must be called. it is processed when reading is true, so there is no need to do a check here.
+
     if map_offset_x==30 and map_offset_y==12 then
       spr(wall_player2.sp, wall_player2.x, wall_player2.y, 1, 1)
     end
@@ -79,6 +81,8 @@ function _draw()
       -- spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end
+        dquestion()
+
   end
 
 -- function textbox_level1()
@@ -108,6 +112,5 @@ function level1_story()
   -- print(text5, box_x + 2, box_y + 32, 0)
   -- print(text6, box_x + 2, box_y + 39, 0)
   -- print(text7, box_x + 2, box_y + 46, 0)
-  dialog:draw()
   rect(0,90,127,127,7)
 end
