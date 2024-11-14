@@ -302,6 +302,7 @@ function update_map_level2b_to_level3a()
         player2.y=7*8
         player2_touched_switch2_2b_y=0
         end
+        load("level3.p8")
     end
 end
 

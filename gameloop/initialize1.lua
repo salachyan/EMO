@@ -1,5 +1,5 @@
 function _init()
-  level = "level1a"
+  level = "1a"
   map_offset_y=14
   map_offset_x=0
   map_offset_y1=14

@@ -1,12 +1,12 @@
 function _init()
-    level = "2a"
-    
-    map_offset_x=30
-    map_offset_y=14
+    level = "3a"
+    map_offset_x=60
+    map_offset_y=15
+
     map_offset_y1=14
     map_offset_x1=30
-    map_offset_y2=44
-    map_offset_x2=22
+    map_offset_y2=60
+    map_offset_x2=15
   
     player1 = {
       x = 2,    
