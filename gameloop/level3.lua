@@ -335,8 +335,8 @@ function level3b()
         box3_3.x = (79-73)*8
         box4_3.x = (78-73)*8
     end
-    if check_collision2(player1, box3_3) then
-        if player1.y + player1.sprite_h <= box3_3.y + box3_3.h * 8 and player1.dy > 0 then
+    if check_collision2(player1, box3_3)  then
+        if (player1.y + player1.sprite_h <= box3_3.y + box3_3.h * 8 and player1.dy > 0) then
         player1.y = box3_3.y - player1.sprite_h * 8 
         player1.dy = 0  
         player1.landed = true 

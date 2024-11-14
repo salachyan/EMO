@@ -23,8 +23,7 @@ function _update()
     collisions_for_switch1()
     collisions_for_switch2()
   elseif level == "1b" then
-    box_collisions()
-    seesaw_collisions()
+    level1b()
     collisions_for_switch3()
     collisions_for_switch4()
   elseif level == "2a" then

@@ -57,7 +57,8 @@ function update_map_level1a_to_level1b()
   end
 end
 
-function box_collisions()
+function level1b()
+  --box collisions
   -- Check for collisions with the box2 for player1
   if check_collision(player1, box2) and player1.landed==true then
       if player1.dx > 0 and (box2.x > player1.x) then
@@ -98,9 +99,8 @@ function box_collisions()
     player2.landed = true 
     end
   end
-end
 
-function seesaw_collisions()
+  --seesaw collisions
   -- Check for player1 and player2 collision with the seesaw
   --left side
   if check_collision(player1, seesaw_bottom1) and box2.x ~=(18-12)*8 then
@@ -232,7 +232,9 @@ function seesaw_collisions()
   if check_collision(player2, seesaw_arch2) and player2.dx>0 and not check_collision(player2, seesaw_bottom1) then
     player2.x=seesaw_arch2.x-13
   end
+
 end
+
 
 player1_touched_switch3_x = 0
 player1_touched_switch3_y = 0
