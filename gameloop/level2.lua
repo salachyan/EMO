@@ -222,9 +222,6 @@ function update_map_level2a_to_level2b()
         map_offset_y=12
         map_offset_x1=44
         map_offset_y1=12
-
-        switch3.y=32*8
-        switch4.y=32*8
         if player1_touched_switch3_2_x==1 then
         player1.x=2
         player1_touched_switch3_2_x=0

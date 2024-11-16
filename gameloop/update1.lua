@@ -3,19 +3,10 @@ function _update()
     level = "1a"
   elseif map_offset_x==12 and map_offset_y==14 then
     level = "1b"
-  elseif map_offset_x==30 and map_offset_y==14 then
-    level = "2a"
-  elseif map_offset_x==44 and map_offset_y==12 then
-    level = "2b"
-  elseif map_offset_x==60 and map_offset_y==15 then
-    level = "3a"
-  elseif map_offset_x==73 and map_offset_y==13 then
-    level = "3b"
   end
-
+  
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-
   
   if level == "1a" then
     collisions_for_switch1()

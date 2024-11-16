@@ -1,21 +1,12 @@
 function _update()
-    if map_offset_x==0 and map_offset_y==14 then
-      level = "1a"
-    elseif map_offset_x==12 and map_offset_y==14 then
-      level = "1b"
-    elseif map_offset_x==30 and map_offset_y==14 then
+    if map_offset_x==30 and map_offset_y==14 then
       level = "2a"
     elseif map_offset_x==44 and map_offset_y==12 then
       level = "2b"
-    elseif map_offset_x==60 and map_offset_y==15 then
-      level = "3a"
-    elseif map_offset_x==73 and map_offset_y==13 then
-      level = "3b"
     end
   
     update_map_level2a_to_level2b()
     update_map_level2b_to_level3a()
-    update_map_level3a_to_level3b()
     
     if level == "2a" then
       level2()
@@ -25,15 +16,7 @@ function _update()
       level2b()
       collisions_for_switch1_2b()
       collisions_for_switch2_2b()
-    elseif level == "3a" then
-      level3a()
-      collisions_for_switch3_3()
-      collisions_for_switch4_3()
-    elseif level == "3b" then
-      level3b()
     end
-  
-    --functions from level2.lua
   
     player1_update()
     player2_update()
