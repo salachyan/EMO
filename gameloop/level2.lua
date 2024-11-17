@@ -217,31 +217,73 @@ function collisions_for_switch4_2()
 end
 
 function update_map_level2a_to_level2b()
-    if switch3_2.flip==true and switch4_2.flip==true then
-        map_offset_x=44
-        map_offset_y=12
-        map_offset_x1=44
-        map_offset_y1=12
-        if player1_touched_switch3_2_x==1 then
-        player1.x=2
-        player1_touched_switch3_2_x=0
+    if switch3_2.flip == true and switch4_2.flip == true then
+      if map_offset_x < 44 then
+        map_offset_x += 0.2
+        if map_offset_x > 44 then
+          map_offset_x = 44
         end
-
-        if player1_touched_switch3_2_y==1 then
-        player1.y=7*8
-        player1_touched_switch3_2_y=0
+      end
+  
+      if map_offset_y < 12 then
+        map_offset_y += 0.2
+        if map_offset_y > 12 then
+          map_offset_y = 12
         end
-        
-        if player2_touched_switch4_2_x==1 then
-        player2.x=14
-        player2_touched_switch4_2_x=0
+      elseif map_offset_y > 12 then
+        map_offset_y -= 0.2
+        if map_offset_y < 12 then
+          map_offset_y = 12
         end
-        if player2_touched_switch4_2_y==1 then
-        player2.y=7*8
-        player2_touched_switch4_2_y=0
-        end
+      end
+  
+      if map_offset_x == 44 and map_offset_y == 12 then
+        player1.speed = 1.2
+        player2.speed = 1.2
+        gravity = 0.08
+      else
+        player1.speed = 0
+        player2.speed = 0
+        gravity = 0
+        switch1_2.y=100 * 8
+        switch2_2.y=100 * 8
+        switch3_2.y = 100 * 8
+        switch4_2.y = 100 * 8
+        box1.y=100 * 8
+        platform1.y = 100*8
+        platform2.y = 100*8
+        platform3.y=100 * 8
+        platform4.y=100 * 8
+        platform5.y=100 * 8
+        platform_mover.y=100*8
+        wall_level2.y=100*8
+        wall_player2.y=100*8
+        player1.x -= 1.5
+        player2.x -= 1.5
+        player1.y = 9 * 8
+        player2.y = 9 * 8
+      end
+    else
+      player1.speed = 1.2
+      player2.speed = 1.2
+      gravity = 0.08
     end
-end
+  
+    if player1_touched_switch3_2_x == 1 then
+      player1_touched_switch3_2_x = 0
+    end
+  
+    if player1_touched_switch3_2_y == 1 then
+      player1_touched_switch3_2_y = 0
+    end
+  
+    if player2_touched_switch4_2_x == 1 then
+      player2_touched_switch4_2_x = 0
+    end
+    if player2_touched_switch4_2_y == 1 then
+      player2_touched_switch4_2_y = 0
+    end
+  end
 
 function level2b()
     if (player1.x>=59.599 and player1.x<=73 and player1.y==(24-12)*8 and btn(❎, 0) and player1.landed) then

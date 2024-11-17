@@ -3,8 +3,6 @@ function _init()
     
     map_offset_x=30
     map_offset_y=14
-    map_offset_y1=14
-    map_offset_x1=30
   
     player1 = {
       x = 2,    

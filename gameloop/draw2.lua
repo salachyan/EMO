@@ -1,6 +1,6 @@
 function _draw()
     cls()
-    map(map_offset_x1, map_offset_y1, 0, 0, 32, 32)  
+    map(map_offset_x, map_offset_y, 0, 0, 32, 32)  
     print("level 2",50,2,14)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
@@ -25,8 +25,8 @@ function _draw()
       spr(switch2_2b.sp, switch2_2b.x, switch2_2b.y, 1, 1, switch2_2b.flip)
     end
 
-    -- print("1: "..tostring(player1.speed), 5, 30, 14)
-    -- print("2: "..tostring(player1.speed), 5, 40, 14)
+    -- print("x: "..tostring(map_offset_x), 5, 30, 14)
+    -- print("y: "..tostring(map_offset_y), 5, 40, 14)
   
   end
 
