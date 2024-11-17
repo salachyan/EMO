@@ -7,7 +7,7 @@ function _init()
     map_offset_x2=15
   
     player1 = {
-      x = 2,    
+      x = 0,    
       y = 12*8,    
       sp = 0,     
       w=16,
@@ -37,7 +37,7 @@ function _init()
     }
   
     player2 = {
-      x = 15,    
+      x = 8,    
       y = 12*8,    
       sp = 3,     
       w=16,

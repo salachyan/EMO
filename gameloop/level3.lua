@@ -16,8 +16,8 @@ function level3a()
         if player2.dx > 0 and (box5_3.x > player2.x) then
             player2.x = box5_3.x - 1.8 * 8  
             box5_3.x = box5_3.x + player2.dx
-                if box5_3.x>(68-60)*8 then
-                    box5_3.x=(68-60)*8
+                if box5_3.x>(69-60)*8 then
+                    box5_3.x=(69-60)*8
                 end
         end
         if player2.dx < 0 and (box5_3.x < player2.x) then
@@ -262,41 +262,79 @@ function collisions_for_switch4_3()
     player2_touched_switch4_3_y=1
   end
 end
-
 function update_map_level3a_to_level3b()
-  if switch3_3.flip==true and switch4_3.flip==true then
-    map_offset_x=74
-    map_offset_y=13
-    map_offset_x2=74
-    map_offset_y2=13
-    
-    switch3_3.y=32*8
-    switch4_3.y=32*8
-    if player1_touched_switch3_3_x==1 then
-      player1.x=2
-      player1_touched_switch3_3_x=0
+    if switch3_3.flip == true and switch4_3.flip == true then
+      if map_offset_x < 74 then
+        map_offset_x += 0.2
+        if map_offset_x > 74 then
+          map_offset_x = 74
+        end
+      end
+  
+      if map_offset_y < 13 then
+        map_offset_y += 0.2
+        if map_offset_y > 13 then
+          map_offset_y = 13
+        end
+      elseif map_offset_y > 13 then
+        map_offset_y -= 0.2
+        if map_offset_y < 13 then
+          map_offset_y = 13
+        end
+      end
+  
+      if map_offset_x == 74 and map_offset_y == 13 then
+        player1.speed = 1.2
+        player2.speed = 1.2
+        gravity = 0.08
+      else
+        player1.speed = 0
+        player2.speed = 0
+        gravity = 0
+        switch1_3.y=100 * 8
+        switch2_3.y=100 * 8
+        switch3_3.y = 100 * 8
+        switch4_3.y = 100 * 8
+        platform1_3.y=100 * 8
+        platform2_3.y = 100*8
+        platform3_3.y = 100*8
+        platform4_3.y=100 * 8
+        platform_mover_3.y=100 * 8
+        wall_player2_3.y=100 * 8
+        wall_level3.y=100*8
+        box5_3.y=100*8
+        floor1_3.y=100*8
+        floor2_3.y =100*8
+        floor3_3.y =100*8
+        floor4_3.y = 100*8
+        floor5_3.y = 100*8
+        player1.x -= 1.5
+        player2.x -= 1.5
+        player1.y = 10 * 8
+        player2.y = 10 * 8
+      end
+    else
+      player1.speed = 1.2
+      player2.speed = 1.2
+      gravity = 0.08
     end
-
-    if player1_touched_switch3_3_y==1 then
-      -- player1.y=9*8
-      --level3a
-      player1.y=(21-12)*8
-      player1_touched_switch3_3_y=0
+  
+    if player1_touched_switch3_3_x == 1 then
+      player1_touched_switch3_3_x = 0
     end
-    
-    if player2_touched_switch4_3_x==1 then
-      player2.x=14
-
-      player2_touched_switch4_3_x=0
+  
+    if player1_touched_switch3_3_y == 1 then
+      player1_touched_switch3_3_y = 0
     end
-    if player2_touched_switch4_3_y==1 then
-      -- player2.y=9*8
-      --level3a
-      player2.y=(21-12)*8
-      player2_touched_switch4_3_y=0
+  
+    if player2_touched_switch4_3_x == 1 then
+      player2_touched_switch4_3_x = 0
+    end
+    if player2_touched_switch4_3_y == 1 then
+      player2_touched_switch4_3_y = 0
     end
   end
-end
+
 
 function level3b()
     if check_collision(player1, box1_3) and player1.landed==true then
