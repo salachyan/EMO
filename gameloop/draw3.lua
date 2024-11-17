@@ -30,11 +30,17 @@ function _draw()
 
     elseif level == "3b" then
       spr(switch1_3b.sp, switch1_3b.x, switch1_3b.y, 1, 1, switch1_3b.flip)
-      spr(switch2_3b.sp, switch2_3b.x, switch2_3b.y, 1, 1, switch2_3b.flip)
+      -- spr(switch2_3b.sp, switch2_3b.x, switch2_3b.y, 1, 1, switch2_3b.flip)
       spr(switch3_3b.sp, switch3_3b.x, switch3_3b.y, 1, 1, switch3_3b.flip)
       spr(switch4_3b.sp, switch4_3b.x, switch4_3b.y, 1, 1, switch4_3b.flip)
       spr(switch5_3b.sp, switch5_3b.x, switch5_3b.y, 1, 1, switch5_3b.flip)
       spr(switch6_3b.sp, switch6_3b.x, switch6_3b.y, 1, 1, switch6_3b.flip)
+
+      spr(platform1_3b.sp, platform1_3b.x, platform1_3b.y, 1, 1)
+      spr(platform2_3b.sp, platform2_3b.x, platform2_3b.y, 1, 1)
+      spr(platform3_3b.sp, platform3_3b.x, platform3_3b.y, 1, 1)
+
+      spr(platform_mover_3b.sp, platform_mover_3b.x, platform_mover_3b.y, 1, 1)
 
       spr(box1_3.sp, box1_3.x, box1_3.y, 1, 1, box1_3.flip)
       spr(box2_3.sp, box2_3.x, box2_3.y, 1, 1, box2_3.flip)
@@ -42,7 +48,8 @@ function _draw()
       spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end    
-    
+    -- print("collision: "..tostring(check_collision2(player1, box3_3) and check_collision2(player2, box3_3)), 5, 20, 14)
+
   end
 
 

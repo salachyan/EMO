@@ -1,7 +1,7 @@
 function _update()
     if map_offset_x==60 and map_offset_y==15 then
       level = "3a"
-    elseif map_offset_x==73 and map_offset_y==13 then
+    elseif map_offset_x==74 and map_offset_y==13 then
       level = "3b"
     end
 
@@ -13,6 +13,8 @@ function _update()
       collisions_for_switch4_3()
     elseif level == "3b" then
       level3b()
+      collisions_for_switch5_3b()
+      collisions_for_switch6_3b()
     end
   
     player1_update()

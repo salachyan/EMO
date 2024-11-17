@@ -100,7 +100,7 @@ function _init()
     }
   
     switch3_3 = {
-        x = (60-49)*8,
+        x = (61-49)*8,
         y = (20-11)*8,
         sp = 244,
         w = 1,
@@ -110,7 +110,7 @@ function _init()
     }
   
     switch4_3 = {
-        x = (61-49)*8,
+        x = (63-49)*8,
         y = (20-11)*8,
         sp = 212,
         w = 1,
@@ -120,66 +120,66 @@ function _init()
     }
   
     switch1_3b = {
-        x = (80-73)*8,
+        x = (81-74)*8,
         y = (24-13)*8,
         sp = 243,
         w = 1,
         h = 1,
         dy = 0,
-        flip = true
+        flip = false
     }
   
-    switch2_3b = {
-        x = (82-73)*8,
-        y = (24-13)*8,
-        sp = 243,
-        w = 1,
-        h = 1,
-        dy = 0,
-        flip = true
-    }
+    -- switch2_3b = {
+    --     x = (82-74)*8,
+    --     y = (24-13)*8,
+    --     sp = 243,
+    --     w = 1,
+    --     h = 1,
+    --     dy = 0,
+    --     flip = false
+    -- }
   
     switch3_3b = {
-      x = (83-73)*8,    
+      x = (83-74)*8,    
       y = (21-13)*8,   
       sp = 243,    
       w = 1,     
       h = 1,     
       dy=0,
-      flip = true
+      flip = false
     }
     switch4_3b = {
-      x = (85-73)*8,     
+      x = (85-74)*8,     
       y = (21-13)*8,    
       sp = 243,    
       w = 1,    
       h = 1,     
       dy=0,
-      flip = true 
+      flip = false 
     }
     switch5_3b = {
-      x = (87-73)*8,    
+      x = (87-74)*8,    
       y = (21-13)*8,  
       sp = 244,    
       w = 1,    
       h = 1,   
       dy=0,
-      flip = true 
+      flip = false 
     }
     switch6_3b = {
-      x = (88-73)*8,   
+      x = (89-74)*8,   
       y = (21-13)*8,    
       sp = 212,    
       w = 1,    
       h = 1,   
       dy=0,
-      flip = true 
+      flip = false 
     }
   end
   
   function boxes()
     box1_3 = {
-        x = (76-73)*8,
+        x = (76-74)*8,
         y = (24-13)*8,
         sp = 215,
         w = 8,
@@ -190,7 +190,7 @@ function _init()
     }
   
     box2_3 = {
-        x = (77-73)*8,
+        x = (77-74)*8,
         y = (24-13)*8,
         sp = 215,
         w = 8,
@@ -201,7 +201,7 @@ function _init()
     }
   
     box3_3 = {
-        x = (77-73)*8,
+        x = (77-74)*8,
         y = (23-13)*8,
         sp = 215,
         w = 8,
@@ -212,7 +212,7 @@ function _init()
     }
   
     box4_3 = {
-        x = (76-73)*8,
+        x = (76-74)*8,
         y = (23-13)*8,
         sp = 215,
         w = 8,
@@ -281,13 +281,49 @@ function _init()
     }
   
     platform_mover_3 = {
-        x = (55-49)*8,
+        x = (56-49)*8,
         y = (22-11)*8,
         sp = 213,
         w = 8,
         h = 8,
         dy=0
     }
+
+    platform1_3b = {
+      x = (83-74)*8,
+      y = (22-13)*8,
+      sp = 208,
+      w = 8,
+      h = 8,
+      dy=0
+    }
+
+    platform2_3b = {
+        x = (84-74)*8,
+        y = (22-13)*8,
+        sp = 208,
+        w = 8,
+        h = 8,
+        dy=0
+    }
+
+    platform3_3b = {
+        x = (85-74)*8,
+        y = (22-13)*8,
+        sp = 208,
+        w = 8,
+        h = 8,
+        dy=0
+    }
+
+    platform_mover_3b = {
+      x = (84-49)*8,
+      y = (23-11)*8,
+      sp = 213,
+      w = 8,
+      h = 8,
+      dy=0
+  }
   end
   
   function walls()

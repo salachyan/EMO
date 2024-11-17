@@ -3,7 +3,7 @@ function map_collision(obj,aim,flag,map_offset_y,map_offset_x)
   local x=obj.x  local y=obj.y
   local w=obj.w  local h=obj.h
  
-  local x1=0	 local y1=0
+  local x1=0   local y1=0
   local x2=0  local y2=0
  
   if aim=="left" then
@@ -42,6 +42,8 @@ function map_collision(obj,aim,flag,map_offset_y,map_offset_x)
     return false
   end
 end
+
+
 
 function check_collision(player1, player2)
   if player1.x < player2.x + player2.w and
