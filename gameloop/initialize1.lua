@@ -2,8 +2,6 @@ function _init()
   level = "1a"
   map_offset_y=14
   map_offset_x=0
-  map_offset_y1=14
-  map_offset_x1=30
 
   player1 = {
     x = 2,    
