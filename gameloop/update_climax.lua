@@ -1,16 +1,14 @@
 function _update()
     if map_offset_x==60 and map_offset_y==15 then
-      level = "3a"
+      level = "climax"
     elseif map_offset_x==74 and map_offset_y==13 then
       level = "3b"
     end
 
     -- update_map_level3a_to_level3b()
     
-    if level == "3a" then
-    --   level3a()
-    --   collisions_for_switch3_3()
-    --   collisions_for_switch4_3()
+    if level == "climax" then
+      climax()
     elseif level == "3b" then
     --   level3b()
     --   collisions_for_switch5_3b()
