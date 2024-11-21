@@ -1,5 +1,6 @@
 function _draw()
     cls()
+    tb_draw()
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)  
     print("level 2",50,2,14)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)

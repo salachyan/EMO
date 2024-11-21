@@ -17,7 +17,7 @@ function tb_init(voice,string) -- this function starts and defines a text box.
     }
   end
   
-  function tb_update()  -- this function handles the text box on every frame update.
+function tb_update()  -- this function handles the text box on every frame update.
     if tb.char<#tb.str[tb.i] then -- if the message has not been processed until it's last character:
         tb.cur+=0.5 -- increase the buffer. 0.5 is already max speed for this setup. if you want messages to show slower, set this to a lower number. this should not be lower than 0.1 and also should not be higher than 0.9
         if tb.cur>0.9 then -- if the buffer is larger than 0.9:
@@ -35,14 +35,14 @@ function tb_init(voice,string) -- this function starts and defines a text box.
             reading=false -- set reading to false. this makes sure the text box isn't drawn on screen and can be used to resume normal gameplay.
         end
     end
-  end
+end
   
-  function tb_draw()
+function tb_draw()
     if reading then
         -- Draw text box background and border
         rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
         rect(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col2)
-  
+
         -- Initialize variables for text rendering
         local max_chars_per_line = 30
         local num_lines = 5
@@ -51,7 +51,7 @@ function tb_init(voice,string) -- this function starts and defines a text box.
         local text = sub(tb.str[tb.i], 1, tb.char)
         local current_line = ""
         local line_count = 0
-  
+
         -- Split text by spaces to handle word-wrapping
         for word in all(split(text, " ")) do
             if #current_line + #word <= max_chars_per_line then
@@ -63,24 +63,37 @@ function tb_init(voice,string) -- this function starts and defines a text box.
                 if line_count >= num_lines then break end
             end
         end
-  
+
         -- Print the last line if there's remaining text
         if line_count < num_lines then
             print(current_line, x_offset, y_offset + (line_count * 6), tb.col3)
         end
-  
+
     -- Draw the triangle indicator if all characters in the current string have been displayed
-      if tb.char >= #tb.str[tb.i] and #tb.str > tb.i then
-        local tri_x = tb.x + tb.w - 6
-        local tri_y = tb.y + tb.h - 6
-  
-        -- Draw a small downward-pointing triangle
-        line(tri_x, tri_y, tri_x + 4, tri_y)           -- top side
-        line(tri_x + 4, tri_y, tri_x + 2, tri_y + 4)   -- right side
-        line(tri_x + 2, tri_y + 4, tri_x, tri_y)       -- left side
-      end
+        if tb.char >= #tb.str[tb.i] and #tb.str > tb.i then
+            local sprite_id =206 -- Replace with the ID of your sprite
+            local tri_x = tb.x + tb.w - 10 -- X position of the sprite
+            local tri_y_base = tb.y + tb.h - 10 -- Base Y position of the sprite
+
+            -- Create an animation effect: move the sprite up and down
+            local offset_y = flr(sin(time() ) * 2) -- Up/down offset using a sine wave
+            local tri_y = tri_y_base + offset_y -- Adjust Y position with the offset
+
+            -- Draw the sprite
+            spr(sprite_id, tri_x, tri_y)
+        end
     end
+end
+
+
+function prologue()
+  if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+    tb_update() -- handle the text box on every frame update.
+  else
+  tb_init(0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
+                "pip heard this from another monkey in the village and ran over to see his brothers.","pip sees his brother pete first and talks to him."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
   end
+end
 
   --[[  if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
     tb_update() -- handle the text box on every frame update.

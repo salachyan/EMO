@@ -1,4 +1,6 @@
 function _update()
+  
+  -- prologue()
   if map_offset_x==0 and map_offset_y==14 then
     level = "1a"
   elseif map_offset_x==12 and map_offset_y==14 then
@@ -7,7 +9,9 @@ function _update()
   
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  
+  if question == true then
+    uquestion()
+  end
   if level == "1a" then
     collisions_for_switch1()
     collisions_for_switch2()
@@ -16,9 +20,12 @@ function _update()
     collisions_for_switch3()
     collisions_for_switch4()
   end
+  if reading or question then
+  else
+      player1_update()
+      player2_update()
+  end
 
-  player1_update()
-  player2_update()
 
 end
 
@@ -174,5 +181,6 @@ elseif btn(⬇️, 0) then
 
   player2.x+=player2.dx
   player2.y+=player2.dy
+
 end
 

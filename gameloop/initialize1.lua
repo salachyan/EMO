@@ -1,4 +1,8 @@
 function _init()
+  reading=false
+  question=true 
+  correct=false
+  
   level = "1a"
   map_offset_y=14
   map_offset_x=0
@@ -183,5 +187,5 @@ function seesaws()
       dy=0,
       flip=false
   }
-
+  iquestion()
 end
