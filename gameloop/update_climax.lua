@@ -60,7 +60,7 @@ function _update()
       end
       elseif player1.dy<0 then
           player1.jumping=true
-          if map_collision(player1,"up",1,map_offset_y,map_offset_x) then
+          if map_collision(player1,"up",0,map_offset_y,map_offset_x) then
           player1.dy=0
       end
     end
@@ -68,13 +68,13 @@ function _update()
     --left right
     if player1.dx<0 then
   
-      if map_collision(player1,"left",2,map_offset_y,map_offset_x) then
+      if map_collision(player1,"left",0,map_offset_y,map_offset_x) then
           player1.dx=0
       end
       elseif player1.dx>0 then
   
   
-      if map_collision(player1,"right",3,map_offset_y,map_offset_x) then
+      if map_collision(player1,"right",0,map_offset_y,map_offset_x) then
           player1.dx=0
       end
     end
@@ -138,7 +138,7 @@ function _update()
       end
       elseif player2.dy<0 then
           player2.jumping=true
-          if map_collision(player2,"up",1,map_offset_y,map_offset_x) then
+          if map_collision(player2,"up",0,map_offset_y,map_offset_x) then
           player2.dy=0
       end
   
@@ -153,12 +153,12 @@ function _update()
     --left right
     if player2.dx<0 then
   
-      if map_collision(player2,"left",2,map_offset_y,map_offset_x) then
+      if map_collision(player2,"left",0,map_offset_y,map_offset_x) then
           player2.dx=0
       end
       elseif player2.dx>0 then
   
-      if map_collision(player2,"right",3,map_offset_y,map_offset_x) then
+      if map_collision(player2,"right",0,map_offset_y,map_offset_x) then
           player2.dx=0
       end
     end

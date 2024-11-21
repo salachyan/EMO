@@ -66,12 +66,27 @@ function _init()
     spz = 1,
   }
 
+  
+
+  bridge()
+  boulder()
+
+  gravity = 0.08
+
+  map_start = 0
+  map_end=16*8
+  
+end
+
+function boulder()
   boulder = {
     x = (73-60)*8,    
     y = (15-15)*8,    
+    -- x = (65-60)*8,    
+    -- y = (15-15)*8,  
     sp = 140,     
-    w=16,
-    h=16,
+    w=32,
+    h=32,
     sprite_w=2,
     sprite_h=2,
     flp=false,
@@ -83,14 +98,6 @@ function _init()
     flip=false,
     spz = 1,
   }
-
-  bridge()
-
-  gravity = 0.08
-
-  map_start = 0
-  map_end=16*8
-  
 end
 
 function bridge()
@@ -134,6 +141,7 @@ function bridge()
     dy = 0,
     flip = false
   }
+  
 end
   
  

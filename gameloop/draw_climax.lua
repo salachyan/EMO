@@ -12,7 +12,7 @@ function _draw()
     spr(bridge3.sp, bridge3.x, bridge3.y, 1, 1, bridge3.flip)
     spr(bridge4.sp, bridge4.x, bridge4.y, 1, 1, bridge4.flip)
     
-    print("collision: "..tostring(level == "climax"), 5, 20, 14)
+    -- print("collision: "..tostring(level == "climax"), 5, 20, 14)
 
   end
 
