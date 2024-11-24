@@ -3,8 +3,7 @@ function _init()
   map_offset_x=60
   map_offset_y=15
 
-  map_offset_y2=60
-  map_offset_x2=15
+  close_to_boulder=0
 
   player1 = {
     x = 0,    
@@ -66,8 +65,6 @@ function _init()
     spz = 1,
   }
 
-  
-
   bridge()
   boulder()
 
@@ -80,7 +77,27 @@ end
 
 function boulder()
   boulder = {
-    x = (73-60)*8,    
+    x = (76-60)*8,    
+    y = (15-15)*8,    
+    -- x = (65-60)*8,    
+    -- y = (15-15)*8,  
+    sp = 140,     
+    w=32,
+    h=32,
+    sprite_w=2,
+    sprite_h=2,
+    flp=false,
+    dx=0,
+    dy=0,
+    max_dx=2,
+    max_dy=3,
+    speed = 1.2,
+    flip=false,
+    spz = 1,
+  }
+
+  boulder_blocker = {
+    x = (76-60)*8,    
     y = (15-15)*8,    
     -- x = (65-60)*8,    
     -- y = (15-15)*8,  

@@ -98,11 +98,49 @@ function climax()
     end
   end
 
-if (player1.x>=70 and player2.x>=70) and boulder.x>=40 then
-    boulder.x-=1;
+if (player1.x>=70 and player2.x>=70) then
+    close_to_boulder=1
+end
+
+if close_to_boulder>=1 and boulder.x>=40 then
+    boulder.x-=1
 end
 
 --boulder breaking bridge
+if check_collision(boulder, bridge1) or check_collision(boulder, bridge2) or check_collision(boulder, bridge3) or check_collision(boulder, bridge4) then
+    bridge1.sp=146
+    bridge1.x=(64-60)*8
+    bridge1.y=(23-15)*8
+
+    bridge2.sp=146
+    bridge2.x=(64-60)*8
+    bridge2.y=(24-15)*8
+
+    bridge3.sp=146
+    bridge3.x=(69-60)*8
+    bridge3.y=(23-15)*8
+
+    bridge4.sp=146
+    bridge4.x=(69-60)*8
+    bridge4.y=(24-15)*8
+end 
+
+--collision with boulder and players
+if check_collision2(boulder, player1) and boulder.x>=40 then
+    player1.x =boulder.x-3
+end
+if check_collision2(boulder, player2) and boulder.x>=40 then
+    player2.x =boulder.x-3
+
+end
+if close_to_boulder==1 then
+    if player1.x<=(65-60)*8 then
+        player1.x=(65-60)*8
+    end
+    if player2.x<=(65-60)*8 then
+        player2.x=(65-60)*8
+    end
+end
 
 --jump on top of boulder
 -- if check_collision2(player1, boulder) then
