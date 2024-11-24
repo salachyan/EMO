@@ -110,19 +110,19 @@ end
 if check_collision(boulder, bridge1) or check_collision(boulder, bridge2) or check_collision(boulder, bridge3) or check_collision(boulder, bridge4) then
     bridge1.sp=146
     bridge1.x=(64-60)*8
-    bridge1.y=(23-15)*8
+    bridge1.y=(14)*8
 
     bridge2.sp=146
     bridge2.x=(64-60)*8
-    bridge2.y=(24-15)*8
+    bridge2.y=(15)*8
 
     bridge3.sp=146
     bridge3.x=(69-60)*8
-    bridge3.y=(23-15)*8
+    bridge3.y=(14)*8
 
     bridge4.sp=146
     bridge4.x=(69-60)*8
-    bridge4.y=(24-15)*8
+    bridge4.y=(15)*8
 end 
 
 --collision with boulder and players

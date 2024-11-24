@@ -17,8 +17,25 @@ function _update()
   
     player1_update()
     player2_update()
+    update_camera()
   
   end
+
+  function update_camera()
+    --midpoint between player1 and player2
+    local target_x = (player1.x + player2.x) / 2 - 64  
+    local target_y = (player1.y + player2.y) / 2 - 64  
+  
+    --move the camera toward the target position
+    camera_x += (target_x - camera_x) * easing
+    camera_y += (target_y - camera_y) * easing
+  
+    --set camera within map boundaries
+    camera_x = mid(map_start, camera_x, map_end - 128)
+    camera_y = mid(0, camera_y, 128) 
+  
+    camera(camera_x, camera_y)
+end
   
   function player1_update()
     player1.dy+=gravity
