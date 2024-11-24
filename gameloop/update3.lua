@@ -6,6 +6,7 @@ function _update()
     end
 
     update_map_level3a_to_level3b()
+    update_map_level3b_to_climax()
     
     if level == "3a" then
       level3a()
