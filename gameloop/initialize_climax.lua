@@ -4,6 +4,7 @@ function _init()
   map_offset_y=0
 
   close_to_boulder=0
+  players_fell = false
 
   player1 = {
     x = 0,    
@@ -33,6 +34,7 @@ function _init()
     anim_frames_punching = {4, 5, 6, 7},
     frames = {32,34,0,36,38,0 },
     spz = 1,
+    -- climbing_ability = false
   }
 
   player2 = {
@@ -63,15 +65,17 @@ function _init()
     anim_frames_punching = {4, 5, 6, 7},
     frames = {40,42,8,44,46,8},
     spz = 1,
+    -- climbing_ability = false
   }
 
   bridge()
   boulder()
+  ground()
 
   gravity = 0.08
 
-  map_start = 0
-  map_end=16*8
+  map_start =0
+  map_end=100*8
   --simple camera
   camera_x = 0
   camera_y = 0
@@ -81,11 +85,11 @@ end
 
 function boulder()
   boulder = {
-    x = (76-60)*8,    
+    x = (78-60)*8,    
     y = (-5)*8,    
     -- x = (65-60)*8,    
     -- y = (15-15)*8,  
-    sp = 140,     
+    sp = 68,     
     w=32,
     h=32,
     sprite_w=2,
@@ -126,7 +130,7 @@ function bridge()
   bridge1 = {
     x = (65-60)*8,    
     y = (14)*8,    
-    sp = 130,     
+    sp = 178,     
     w = 8,
     h = 8,
     dx = 0,
@@ -136,7 +140,7 @@ function bridge()
   bridge2 = {
     x = (66-60)*8,    
     y = (14)*8,    
-    sp = 130,     
+    sp = 178,     
     w = 8,
     h = 8,
     dx = 0,
@@ -146,7 +150,7 @@ function bridge()
   bridge3 = {
     x = (67-60)*8,    
     y = (14)*8,    
-    sp = 130,     
+    sp = 178,     
     w = 8,
     h = 8,
     dx = 0,
@@ -156,7 +160,7 @@ function bridge()
   bridge4 = {
     x = (68-60)*8,    
     y = (14)*8,    
-    sp = 130,     
+    sp = 178,     
     w = 8,
     h = 8,
     dx = 0,
@@ -164,6 +168,364 @@ function bridge()
     flip = false
   }
   
+end
+
+grounds = {}
+
+function ground()
+  --ground levels on right side
+  FourR = {
+    x = (61-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeR = {
+    x = (61-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoR = {
+    x = (61-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneR = {
+    x = (61-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --ground levels on left side
+  FourL = {
+    x = (69-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeL = {
+    x = (69-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoL = {
+    x = (69-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneL = {
+    x = (69-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --ground levels on far right side
+  FourR2 = {
+    x = (57-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeR2 = {
+    x = (57-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoR2 = {
+    x = (57-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneR2 = {
+    x = (57-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --ground levels on far left side
+  FourL2 = {
+    x = (73-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeL2 = {
+    x = (73-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoL2 = {
+    x = (73-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneL2 = {
+    x = (73-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --farthest right
+  FourR3 = {
+    x = (73-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  FourR4 = {
+    x = (65-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  ThreeR3 = {
+    x = (73-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeR4 = {
+    x = (65-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  TwoR3 = {
+    x = (73-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoR4 = {
+    x = (65-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneR3 = {
+    x = (73-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneR4 = {
+    x = (57-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --farthest left
+  FourL3 = {
+    x = (73-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  FourL4 = {
+    x = (73-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  ThreeL3 = {
+    x = (73-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  ThreeL4 = {
+    x = (73-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  TwoL3 = {
+    x = (73-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoL4 = {
+    x = (73-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  OneL3 = {
+    x = (73-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  OneL4 = {
+    x = (73-60)*8,    
+    y = (31)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  --lowest ground 
+  Zero1 = {
+    x = (57-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  Zero2 = {
+    x = (61-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  Zero3 = {
+    x = (65-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  Zero4 = {
+    x = (69-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  Zero5 = {
+    x = (73-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  Zero6 = {
+    x = (77-60)*8,    
+    y = (35)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  circle1 = {
+    x = (65-60)*8,    
+    y = (19)*8,    
+    sp = 136,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  circle2 = {
+    x = (65-60)*8,    
+    y = (19)*8,    
+    sp = 136,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
+  add(grounds, ground1)
+  add(grounds, ground2)
+  add(grounds, ground3)
+  add(grounds, ground4)
+  add(grounds, ground5)
+  add(grounds, ground6)
+  add(grounds, ground7)
+  add(grounds, ground8)
+  add(grounds, ground9)
+  add(grounds, ground10)
+  add(grounds, ground11)
+  add(grounds, ground12)
+
 end
   
  
