@@ -326,6 +326,15 @@ function ground()
     h=32,
     flip=false,
   }
+  FourR5 = {
+    x = (65-60)*8,    
+    y = (19)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
 
   ThreeR3 = {
     x = (73-60)*8,    
@@ -343,6 +352,15 @@ function ground()
     h=32,
     flip=false,
   }
+  ThreeR5 = {
+    x = (65-60)*8,    
+    y = (23)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+
 
   TwoR3 = {
     x = (73-60)*8,    
@@ -353,6 +371,14 @@ function ground()
     flip=false,
   }
   TwoR4 = {
+    x = (65-60)*8,    
+    y = (27)*8,    
+    sp = 132,     
+    w=32,
+    h=32,
+    flip=false,
+  }
+  TwoR5 = {
     x = (65-60)*8,    
     y = (27)*8,    
     sp = 132,     
@@ -496,7 +522,7 @@ function ground()
     flip=false,
   }
 
-  circle1 = {
+  circle = {
     x = (65-60)*8,    
     y = (19)*8,    
     sp = 136,     

@@ -16,58 +16,58 @@ function _draw()
     draw_ground()
 
     
-    print("collision: "..tostring(TwoR4.x), 5, 180, 10)
-    print("player1: "..tostring(TwoR4.y), 5, 190, 10)
-    print("condition: "..tostring(TwoR3.x), 5, 200, 10)
+    print("L4: "..tostring(TwoL4.x), 5, 180, 10)
+    print("L3: "..tostring(TwoL3.x), 5, 190, 10)
+    print("L5: "..tostring(TwoR5.x), 5, 200, 10)
+    print("OneL4: "..tostring(OneL4.x), 5, 210, 10)
+    print("OneL3: "..tostring(OneL3.x), 5, 220, 10)
 
-    -- print("collision: "..tostring(btn(❎, 0) and player1.landed and player1.climbing_ability==false), 5, 180, 14)
+    -- print("collision: "..tostring(players_fell), 5, 180, 14)
     -- print("player1: "..tostring(player1.climbing_ability), 5, 190, 14)
     -- print("condition: "..tostring(player1.x>=(62-60)*8 and player1.x<=(63-60)*8 and player1.y<=29*8 and player1.y>=15*8 ), 5, 200, 14)
   end
 
   function draw_ground()
-    -- Ground levels on right side
-    spr(FourR.sp, FourR.x, FourR.y, 4, 4, FourR.flip)
-    spr(ThreeR.sp, ThreeR.x, ThreeR.y, 4, 4, ThreeR.flip)
-    spr(TwoR.sp, TwoR.x, TwoR.y, 4, 4, TwoR.flip)
     spr(OneR.sp, OneR.x, OneR.y, 4, 4, OneR.flip)
-
-    -- Ground levels on left side
-    spr(FourL.sp, FourL.x, FourL.y, 4, 4, FourL.flip)
-    spr(ThreeL.sp, ThreeL.x, ThreeL.y, 4, 4, ThreeL.flip)
-    spr(TwoL.sp, TwoL.x, TwoL.y, 4, 4, TwoL.flip)
-    spr(OneL.sp, OneL.x, OneL.y, 4, 4, OneL.flip)
-
-    -- Ground levels on far right side
-    spr(FourR2.sp, FourR2.x, FourR2.y, 4, 4, FourR2.flip)
-    spr(ThreeR2.sp, ThreeR2.x, ThreeR2.y, 4, 4, ThreeR2.flip)
-    spr(TwoR2.sp, TwoR2.x, TwoR2.y, 4, 4, TwoR2.flip)
     spr(OneR2.sp, OneR2.x, OneR2.y, 4, 4, OneR2.flip)
-
-    -- Ground levels on far left side
-    spr(FourL2.sp, FourL2.x, FourL2.y, 4, 4, FourL2.flip)
-    spr(ThreeL2.sp, ThreeL2.x, ThreeL2.y, 4, 4, ThreeL2.flip)
-    spr(TwoL2.sp, TwoL2.x, TwoL2.y, 4, 4, TwoL2.flip)
-    spr(OneL2.sp, OneL2.x, OneL2.y, 4, 4, OneL2.flip)
-
     spr(OneR3.sp, OneR3.x, OneR3.y, 4, 4, OneR3.flip)
-    spr(OneR4.sp, OneR4.x, OneR4.y, 4, 4, OneR4.flip)
+    spr(OneL.sp, OneL.x, OneL.y, 4, 4, OneL.flip)
+    spr(OneL2.sp, OneL2.x, OneL2.y, 4, 4, OneL2.flip)
     spr(OneL3.sp, OneL3.x, OneL3.y, 4, 4, OneL3.flip)
     spr(OneL4.sp, OneL4.x, OneL4.y, 4, 4, OneL4.flip)
+
+    spr(TwoR.sp, TwoR.x, TwoR.y, 4, 4, TwoR.flip)
+    spr(TwoR2.sp, TwoR2.x, TwoR2.y, 4, 4, TwoR2.flip)
     spr(TwoR3.sp, TwoR3.x, TwoR3.y, 4, 4, TwoR3.flip)
     spr(TwoR4.sp, TwoR4.x, TwoR4.y, 4, 4, TwoR4.flip)
+    spr(TwoL.sp, TwoL.x, TwoL.y, 4, 4, TwoL.flip)
+    spr(TwoL2.sp, TwoL2.x, TwoL2.y, 4, 4, TwoL2.flip)
     spr(TwoL3.sp, TwoL3.x, TwoL3.y, 4, 4, TwoL3.flip)
     spr(TwoL4.sp, TwoL4.x, TwoL4.y, 4, 4, TwoL4.flip)
 
-    -- Zero levels
+    spr(ThreeR.sp, ThreeR.x, ThreeR.y, 4, 4, ThreeR.flip)
+    spr(ThreeR2.sp, ThreeR2.x, ThreeR2.y, 4, 4, ThreeR2.flip)
+    spr(ThreeR3.sp, ThreeR3.x, ThreeR3.y, 4, 4, ThreeR3.flip)
+    spr(ThreeR4.sp, ThreeR4.x, ThreeR4.y, 4, 4, ThreeR4.flip)
+    spr(ThreeL.sp, ThreeL.x, ThreeL.y, 4, 4, ThreeL.flip)
+    spr(ThreeL2.sp, ThreeL2.x, ThreeL2.y, 4, 4, ThreeL2.flip)
+    spr(ThreeL3.sp, ThreeL3.x, ThreeL3.y, 4, 4, ThreeL3.flip)
+    spr(ThreeL4.sp, ThreeL4.x, ThreeL4.y, 4, 4, ThreeL4.flip)
+
+    spr(FourR.sp, FourR.x, FourR.y, 4, 4, FourR.flip)
+    spr(FourR2.sp, FourR2.x, FourR2.y, 4, 4, FourR2.flip)
+    spr(FourR3.sp, FourR3.x, FourR3.y, 4, 4, FourR3.flip)
+    spr(FourR4.sp, FourR4.x, FourR4.y, 4, 4, FourR4.flip)
+    spr(FourL.sp, FourL.x, FourL.y, 4, 4, FourL.flip)
+    spr(FourL2.sp, FourL2.x, FourL2.y, 4, 4, FourL2.flip)
+    spr(FourL3.sp, FourL3.x, FourL3.y, 4, 4, FourL3.flip)
+    spr(FourL4.sp, FourL4.x, FourL4.y, 4, 4, FourL4.flip)
+
     spr(Zero1.sp, Zero1.x, Zero1.y, 4, 4, Zero1.flip)
     spr(Zero2.sp, Zero2.x, Zero2.y, 4, 4, Zero2.flip)
     spr(Zero3.sp, Zero3.x, Zero3.y, 4, 4, Zero3.flip)
     spr(Zero4.sp, Zero4.x, Zero4.y, 4, 4, Zero4.flip)
     spr(Zero5.sp, Zero5.x, Zero5.y, 4, 4, Zero5.flip)
-    spr(Zero6.sp, Zero6.x, Zero6.y, 4, 4, Zero6.flip)
 
-
-    spr(circle1.sp, circle1.x, circle1.y, 4, 4, circle1.flip)
-    -- spr(circle2.sp, circle2.x, circle2.y, 4, 4, circle2.flip)
+    spr(circle.sp, circle.x, circle.y, 4, 4, circle.flip)
   end
