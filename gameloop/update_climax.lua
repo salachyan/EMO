@@ -43,27 +43,44 @@ function _update()
   
   function player1_update()
     player1.dy+=gravity
-    --left
-    if btn(⬅️, 0) then
-      player1.dx = -player1.speed
-      player1.flip = true 
-      player1.running=true
-      player1.flp=true
-    --right
-    elseif btn(➡️, 0) then
-      player1.dx = player1.speed
-      player1.flip = false
-      player1.running=true
-      player1.flp=false
-    else
-      player1.dx=0
-      player1.sprite_id = player1.anim_frames[0]
+
+    climbing_ability=false
+
+    if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=15*8 then
+        climbing_ability = true
     end
-  
-    -- jump
-    if btn(❎, 0) and player1.landed then
-      player1.dy-=player1.speed
-      player1.landed=false
+
+    if climbing_ability then
+        if btn(❎, 0) then
+          player1.y -= 0.8 
+          player1.dy = 0 -- Prevent gravity from pulling the player down while climbing
+          player1.landed = false 
+        end
+    end
+
+    
+      --left
+      if btn(⬅️, 0) then
+        player1.dx = -player1.speed
+        player1.flip = true 
+        player1.running=true
+        player1.flp=true
+      --right
+      elseif btn(➡️, 0) then
+        player1.dx = player1.speed
+        player1.flip = false
+        player1.running=true
+        player1.flp=false
+      else
+        player1.dx=0
+        player1.sprite_id = player1.anim_frames[0]
+      end
+      if not climbing_ability then
+      -- jump
+      if btn(❎, 0) and player1.landed then
+        player1.dy-=player1.speed
+        player1.landed=false
+      end
     end
   
     --from https://nerdyteachers.com/Explain/Platformer/

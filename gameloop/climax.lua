@@ -174,6 +174,9 @@ end
         -- Update circle to follow player1
         circle.x = player1.x - 8  
         circle.y = player1.y - 8  
+        if circle.y <= 19*8 then
+            circle.y=19*8
+        end
     end
 
     --remove circle
@@ -183,6 +186,7 @@ end
 
     --flashlight logic
     if player1.y<= (33*8)+32 and player1.y>=20*8 then
+      
         OneR.x=circle.x- 4*8
         OneR2.x=OneR.x - 4*8
         OneR3.x=OneR2.x - 4*8
@@ -194,9 +198,9 @@ end
         OneL3.x=OneL2.x +4*8
         OneL4.x=OneL3.x +4*8
         OneL.y=circle.y
-        OneL2.y=OneL.y 
-        OneL3.y=OneL2.y 
-        OneL4.y=OneL3.y 
+        OneL2.y=circle.y
+        OneL3.y=circle.y 
+        OneL4.y=circle.y 
 
         TwoR4.x=circle.x
         TwoR.x=circle.x-4*8
@@ -211,9 +215,9 @@ end
         TwoL3.x=TwoL2.x +4*8
         TwoL4.x=TwoL3.x +4*8
         TwoL.y=circle.y-4*8
-        TwoL2.y=TwoL.y 
-        TwoL3.y=TwoL2.y
-        TwoL4.y=TwoL3.y
+        TwoL2.y=circle.y-4*8
+        TwoL3.y=circle.y-4*8
+        TwoL4.y=circle.y-4*8
         
         ThreeR4.x=circle.x
         ThreeR.x=circle.x-4*8
@@ -228,9 +232,9 @@ end
         ThreeL3.x=ThreeL2.x +4*8
         ThreeL4.x=ThreeL3.x +4*8
         ThreeL.y=circle.y-8*8
-        ThreeL2.y=ThreeL.y 
-        ThreeL3.y=ThreeL2.y
-        ThreeL4.y=ThreeL3.y
+        ThreeL2.y=circle.y-8*8
+        ThreeL3.y=circle.y-8*8
+        ThreeL4.y=circle.y-8*8
 
         FourR4.x=circle.x
         FourR.x=circle.x-4*8
@@ -245,9 +249,9 @@ end
         FourL3.x=FourL2.x +4*8
         FourL4.x=FourL3.x +4*8
         FourL.y=circle.y-12*8
-        FourL2.y=FourL.y 
-        FourL3.y=FourL2.y
-        FourL4.y=FourL3.y
+        FourL2.y=circle.y-12*8
+        FourL3.y=circle.y-12*8
+        FourL4.y=circle.y-12*8
 
         Zero1.y=circle.y +4*8
         Zero2.y=circle.y +4*8
@@ -256,7 +260,43 @@ end
         Zero5.y=circle.y +4*8
         Zero6.y=circle.y +4*8
 
+        if circle.y<=(220)  then
+            FourR.y=circle.y+8*8
+            FourR2.y=circle.y +8*8
+            FourR3.y=circle.y +8*8 
+            FourR4.y=circle.y +8*8
+            FourL.y=circle.y +8*8
+            FourL2.y=circle.y +8*8
+            FourL3.y=circle.y +8*8
+            FourL4.y=circle.y +8*8
+    
+        end
+
+        if circle.y<=(27.5-4)*8  then
+            ThreeR.y=circle.y+12*8
+            ThreeR2.y=circle.y +12*8
+            ThreeR3.y=circle.y +12*8 
+            ThreeR4.y=circle.y +12*8
+            ThreeL.y=circle.y +12*8
+            ThreeL2.y=circle.y +12*8
+            ThreeL3.y=circle.y +12*8
+            ThreeL4.y=circle.y +12*8
+        end
+
+        if circle.y<=(27.5-8)*8  then
+            TwoR.y=circle.y+16*8
+            TwoR2.y=circle.y +16*8
+            TwoR3.y=circle.y +16*8 
+            TwoR4.y=circle.y +16*8
+            TwoL.y=circle.y +16*8
+            TwoL2.y=circle.y +16*8
+            TwoL3.y=circle.y +16*8
+            TwoL4.y=circle.y +16*8
+        end
+
     end
+
+    
 
     -- if player1.y<=33*8 and player1.y>=26*8 then
     --     TwoR.y=circle.y-4*8
@@ -272,19 +312,7 @@ end
     --     ground12.x=circle.x +4*8
     -- end
 
-    climbing_ability=false
-
-    if player1.x>=(62-60)*8 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=15*8 then
-        climbing_ability = true
-    end
-
-    if climbing_ability then
-        if btn(❎, 0) then
-            if player1.y>=13*8 then
-                player1.y-=3
-            end
-        end
-    end
+    
 
 
 end
