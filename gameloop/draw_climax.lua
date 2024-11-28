@@ -2,6 +2,17 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 64)
     print("climax",50,5,14)
+
+    if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=12.5*8 or player2.x>=((62-60)*8)-4 and player2.x<=(63-60)*8 and player2.y<=32*8 and player2.y>=22.5*8 then
+      ladder_draw=true
+    end
+
+    if ladder_draw==true then
+      spr(ladderL1.sp, ladderL1.x, ladderL1.y, 1, 1)
+      spr(ladderR1.sp, ladderR1.x, ladderR1.y, 1, 1)
+      spr(ladderL2.sp, ladderL2.x, ladderL2.y, 1, 1)
+      spr(ladderR2.sp, ladderR2.x, ladderR2.y, 1, 1)
+    end
     
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
@@ -13,6 +24,7 @@ function _draw()
     spr(bridge3.sp, bridge3.x, bridge3.y, 1, 1, bridge3.flip)
     spr(bridge4.sp, bridge4.x, bridge4.y, 1, 1, bridge4.flip)
 
+    
     draw_ground()
 
     

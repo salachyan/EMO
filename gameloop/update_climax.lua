@@ -46,7 +46,7 @@ function _update()
 
     climbing_ability=false
 
-    if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=15*8 then
+    if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=12.5*8 then
         climbing_ability = true
     end
 
@@ -137,6 +137,20 @@ function _update()
   
   function player2_update()
     player2.dy+=gravity
+
+    climbing_ability2 = false
+    if player2.x>=((62-60)*8)-4 and player2.x<=(63-60)*8 and player2.y<=32*8 and player2.y>=12.5*8 then
+      climbing_ability2 = true
+  end
+  
+  if climbing_ability2 then
+      if btn(🅾️, 0) then
+        player2.y -= 0.8 
+        player2.dy = 0 -- Prevent gravity from pulling the player down while climbing
+        player2.landed = false 
+      end
+  end
+
     --left
     if btn(⬆️, 0) then
       player2.dx = -player2.speed
@@ -156,10 +170,12 @@ function _update()
     end
   
     -- jump
+    if not climbing_ability2 then
     if btn(🅾️, 0) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
+  end
   
     --from https://nerdyteachers.com/Explain/Platformer/
     --up down

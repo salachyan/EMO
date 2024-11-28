@@ -146,43 +146,18 @@ if player1.y==32*8 and player2.y==32*8 then
     close_to_boulder=0
 end
 
---jump on top of boulder
--- if check_collision2(player1, boulder) then
---     if player1.y + player1.sprite_h <= boulder.y + boulder.h * 8 and player1.dy > 0 then
---     player1.y = boulder.y - player1.sprite_h * 8 
---     player1.dy = 0  
---     player1.landed = true 
---     end
--- end
--- if check_collision2(player2, boulder) then
---     if player2.y + player2.sprite_h <= boulder.y + boulder.h * 8 and player2.dy > 0 then
---     player2.y = boulder.y - player2.sprite_h * 8  
---     player2.dy = 0  
---     player2.landed = true 
---     end
--- end
-
--- if (player1.x<=65 and player1.y>=19 and player2.x<=65 and player2.y>=19) then
---     circle.x=player1.x
---     circle2.x=player2.x
--- end
-
     if player1.x<=(65-60)*8 and player1.y>=19*8 and player2.x<=(65-60)*8 and player2.y>=19*8 then
-        players_fell=true
+        players_fell=1
     end
-    if (players_fell==true) then
+    if (players_fell==1) then
         -- Update circle to follow player1
         circle.x = player1.x - 8  
         circle.y = player1.y - 8  
         if circle.y <= 19*8 then
             circle.y=19*8
+            players_fell=2
         end
     end
-
-    --remove circle
-    -- if player1.y==20*8 and player1.x==(62-60)*8 then
-    --     circle.y=19*8
-    -- end
 
     --flashlight logic
     if player1.y<= (33*8)+32 and player1.y>=20*8 then
@@ -296,24 +271,21 @@ end
 
     end
 
-    
-
-    -- if player1.y<=33*8 and player1.y>=26*8 then
-    --     TwoR.y=circle.y-4*8
-    --     -- ground1.y=TwoR.y-4*8
-    -- end
-    -- if check_collision(ground6, circle) then
-    --     ground6.x=circle.x +4*8
-    -- end
-    -- -- if check_collision(ground9, circle) then
-    -- --     ground9.x=circle.x -4*8
-    -- -- end
-    -- if check_collision(ground12, circle) then
-    --     ground12.x=circle.x +4*8
-    -- end
-
-    
-
+    --jump on top of boulder
+if check_collision2(player1, boulder) and players_fell==2 then
+    if player1.y + player1.sprite_h <= boulder.y + boulder.h * 8 and player1.dy > 0 then
+    player1.y = boulder.y - player1.sprite_h * 8 
+    player1.dy = 0  
+    player1.landed = true 
+    end
+end
+if check_collision2(player2, boulder) and players_fell==2 then
+    if player2.y + player2.sprite_h <= boulder.y + boulder.h * 8 and player2.dy > 0 then
+    player2.y = boulder.y - player2.sprite_h * 8  
+    player2.dy = 0  
+    player2.landed = true 
+    end
+end
 
 end
 

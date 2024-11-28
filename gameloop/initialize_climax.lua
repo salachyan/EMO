@@ -4,7 +4,7 @@ function _init()
   map_offset_y=0
 
   close_to_boulder=0
-  players_fell = false
+  players_fell = 0
 
   player1 = {
     x = 0,    
@@ -34,7 +34,7 @@ function _init()
     anim_frames_punching = {4, 5, 6, 7},
     frames = {32,34,0,36,38,0 },
     spz = 1,
-    -- climbing_ability = false
+    ladder_draw = false
   }
 
   player2 = {
@@ -71,6 +71,35 @@ function _init()
   bridge()
   boulder()
   ground()
+
+  ladderR1 = {
+    x = (62-60)*8,    
+    y = (15)*8,    
+    sp = 176,     
+    w = 8,
+    h = 8,
+  }
+  ladderL1 = {
+    x = (63-60)*8,    
+    y = (15)*8,    
+    sp = 177,     
+    w = 8,
+    h = 8,
+  }
+  ladderR2 = {
+    x = (62-60)*8,    
+    y = (14)*8,    
+    sp = 144,     
+    w = 8,
+    h = 8,
+  }
+  ladderL2 = {
+    x = (63-60)*8,    
+    y = (14)*8,    
+    sp = 145,     
+    w = 8,
+    h = 8,
+  }
 
   gravity = 0.08
 
