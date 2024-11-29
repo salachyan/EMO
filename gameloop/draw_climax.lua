@@ -28,10 +28,10 @@ function _draw()
     draw_ground()
 
     
-    print("circle.y: "..tostring(circle.y), 5, 180, 10)
+    -- print("circle.y: "..tostring(circle.y), 5, 180, 10)
 
-    print("TwoR.y: "..tostring(TwoR.y), 5, 190, 10)
-    print("circle.y <= 19*8  : "..tostring(circle.y <= 19*8 ), 5, 200, 10)
+    -- print("TwoR.y: "..tostring(TwoR.y), 5, 190, 10)
+    -- print("circle.y <= 19*8  : "..tostring(circle.y <= 19*8 ), 5, 200, 10)
     -- print("condition: "..tostring(player1.x>=(62-60)*8 and player1.x<=(63-60)*8 and player1.y<=29*8 and player1.y>=15*8 ), 5, 200, 14)
   end
 
