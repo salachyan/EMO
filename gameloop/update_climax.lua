@@ -1,16 +1,14 @@
 function _update()
     if map_offset_x==60 and map_offset_y==15 then
-      level = "3a"
+      level = "climax"
     elseif map_offset_x==74 and map_offset_y==13 then
       level = "3b"
     end
 
     -- update_map_level3a_to_level3b()
     
-    if level == "3a" then
-    --   level3a()
-    --   collisions_for_switch3_3()
-    --   collisions_for_switch4_3()
+    if level == "climax" then
+      climax()
     elseif level == "3b" then
     --   level3b()
     --   collisions_for_switch5_3b()
@@ -19,32 +17,70 @@ function _update()
   
     player1_update()
     player2_update()
+    update_camera()
   
+  end
+
+  function update_camera()
+    --midpoint between player1 and player2
+    local target_x = (player1.x + player2.x) / 2 - 64  -- offset to keep midpoint centered horizontally
+    local target_y = (player1.y + player2.y) / 2 - 64  -- offset for vertical centering
+
+    --move the camera toward the target position
+    local vertical_offset = 32  
+    target_y -= vertical_offset
+  
+    -- Smoothly move the camera toward the target position
+    camera_x += (target_x - camera_x) * easing
+    camera_y += (target_y - camera_y) * easing
+  
+    --set camera within map boundaries
+    camera_x = mid(map_start, camera_x, map_end - 128)
+    camera_y = mid(0, camera_y, 512-128)
+  
+    camera(camera_x, camera_y)
   end
   
   function player1_update()
     player1.dy+=gravity
-    --left
-    if btn(⬅️, 0) then
-      player1.dx = -player1.speed
-      player1.flip = true 
-      player1.running=true
-      player1.flp=true
-    --right
-    elseif btn(➡️, 0) then
-      player1.dx = player1.speed
-      player1.flip = false
-      player1.running=true
-      player1.flp=false
-    else
-      player1.dx=0
-      player1.sprite_id = player1.anim_frames[0]
+
+    climbing_ability=false
+
+    if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=12.5*8 then
+        climbing_ability = true
     end
-  
-    -- jump
-    if btn(❎, 0) and player1.landed then
-      player1.dy-=player1.speed
-      player1.landed=false
+
+    if climbing_ability then
+        if btn(❎, 0) then
+          player1.y -= 0.8 
+          player1.dy = 0 -- Prevent gravity from pulling the player down while climbing
+          player1.landed = false 
+        end
+    end
+
+    
+      --left
+      if btn(⬅️, 0) then
+        player1.dx = -player1.speed
+        player1.flip = true 
+        player1.running=true
+        player1.flp=true
+      --right
+      elseif btn(➡️, 0) then
+        player1.dx = player1.speed
+        player1.flip = false
+        player1.running=true
+        player1.flp=false
+      else
+        player1.dx=0
+        player1.sprite_id = player1.anim_frames[0]
+      end
+      if not climbing_ability then
+      -- jump
+      if btn(❎, 0) and player1.landed then
+        player1.dy-=player1.speed
+        player1.landed=false
+      end
     end
   
     --from https://nerdyteachers.com/Explain/Platformer/
@@ -62,7 +98,7 @@ function _update()
       end
       elseif player1.dy<0 then
           player1.jumping=true
-          if map_collision(player1,"up",1,map_offset_y,map_offset_x) then
+          if map_collision(player1,"up",0,map_offset_y,map_offset_x) then
           player1.dy=0
       end
     end
@@ -70,13 +106,13 @@ function _update()
     --left right
     if player1.dx<0 then
   
-      if map_collision(player1,"left",2,map_offset_y,map_offset_x) then
+      if map_collision(player1,"left",0,map_offset_y,map_offset_x) then
           player1.dx=0
       end
       elseif player1.dx>0 then
   
   
-      if map_collision(player1,"right",3,map_offset_y,map_offset_x) then
+      if map_collision(player1,"right",0,map_offset_y,map_offset_x) then
           player1.dx=0
       end
     end
@@ -101,8 +137,24 @@ function _update()
   
   function player2_update()
     player2.dy+=gravity
+
+    climbing_ability2 = false
+    if player2.x>=((62-60)*8)-4 and player2.x<=(63-60)*8 and player2.y<=32*8 and player2.y>=12.5*8 then
+      climbing_ability2 = true
+  end
+  
+  if climbing_ability2 then
+      if btn(🅾️, 0) then
+      -- if btn(❎, 1) then
+        player2.y -= 0.8 
+        player2.dy = 0 -- Prevent gravity from pulling the player down while climbing
+        player2.landed = false 
+      end
+  end
+
     --left
     if btn(⬆️, 0) then
+    -- if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
       player2.running=true
@@ -110,6 +162,7 @@ function _update()
   
     -- right
   elseif btn(⬇️, 0) then
+-- elseif btn(➡️, 1) then
       player2.dx = player2.speed
       player2.flip = false 
       player2.running=true
@@ -120,10 +173,13 @@ function _update()
     end
   
     -- jump
+    if not climbing_ability2 then
     if btn(🅾️, 0) and player2.landed then
+    -- if btn(❎, 1) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
+  end
   
     --from https://nerdyteachers.com/Explain/Platformer/
     --up down
@@ -140,7 +196,7 @@ function _update()
       end
       elseif player2.dy<0 then
           player2.jumping=true
-          if map_collision(player2,"up",1,map_offset_y,map_offset_x) then
+          if map_collision(player2,"up",0,map_offset_y,map_offset_x) then
           player2.dy=0
       end
   
@@ -155,12 +211,12 @@ function _update()
     --left right
     if player2.dx<0 then
   
-      if map_collision(player2,"left",2,map_offset_y,map_offset_x) then
+      if map_collision(player2,"left",0,map_offset_y,map_offset_x) then
           player2.dx=0
       end
       elseif player2.dx>0 then
   
-      if map_collision(player2,"right",3,map_offset_y,map_offset_x) then
+      if map_collision(player2,"right",0,map_offset_y,map_offset_x) then
           player2.dx=0
       end
     end

@@ -527,3 +527,33 @@ function collisions_for_switch6_3b()
     player2_touched_switch6_3b_y=1
   end
 end
+
+function update_map_level3b_to_climax()
+    if switch5_3b.flip==true and switch6_3b.flip==true then
+        map_offset_x2=60
+        map_offset_y2=15
+        map_offset_x=60
+        map_offset_y=15
+
+        if player1_touched_switch5_3b_x==1 then
+        player1.x=2
+        player1_touched_switch5_3b_x=0
+        end
+
+
+        if player1_touched_switch5_3b_y==1 then
+        player1.y=7*8
+        player1_touched_switch5_3b_y=0
+        end
+       
+        if player2_touched_switch6_3b_x==1 then
+        player2.x=14
+        player2_touched_switch6_3b_x=0
+        end
+        if player2_touched_switch6_3b_y==1 then
+        player2.y=7*8
+        player2_touched_switch6_3b_y=0
+        end
+        load("climax.p8")
+    end
+end

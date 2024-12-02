@@ -9,7 +9,7 @@ function _init()
 
   player1 = {
     x = 2,    
-    y = 12*8,    
+    y = 13*8,    
     sp = 0,     
     w=16,
     h=16,
@@ -39,7 +39,7 @@ function _init()
 
   player2 = {
     x = 15,    
-    y = 12*8,    
+    y = 13*8,    
     sp = 3,     
     w=16,
     h=16,

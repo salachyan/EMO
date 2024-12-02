@@ -13,6 +13,7 @@ function _update()
     end
 
     update_map_level3a_to_level3b()
+    update_map_level3b_to_climax()
     
     if level == "3a" then
       level3a()
@@ -110,6 +111,7 @@ function _update()
     player2.dy+=gravity
     --left
     if btn(⬆️, 0) then
+    -- if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
       player2.running=true
@@ -117,6 +119,7 @@ function _update()
   
     -- right
   elseif btn(⬇️, 0) then
+-- elseif btn(➡️, 1) then
       player2.dx = player2.speed
       player2.flip = false 
       player2.running=true
@@ -128,6 +131,7 @@ function _update()
   
     -- jump
     if btn(🅾️, 0) and player2.landed then
+    -- if btn(❎, 1) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
