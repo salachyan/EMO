@@ -1,6 +1,6 @@
 function _draw()
     cls()
-    tb_draw()
+    -- tb_draw()
 
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     print("level 3",50,2,14)

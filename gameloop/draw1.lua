@@ -25,7 +25,7 @@ function _draw()
       spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
       spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
       spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
-      dquestion(q2)
+      -- dquestion(q2)
     end
   end
 
