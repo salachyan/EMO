@@ -144,8 +144,8 @@ function _update()
   end
   
   if climbing_ability2 then
-      -- if btn(🅾️, 0) then
-      if btn(❎, 1) then
+      if btn(🅾️, 0) then
+      -- if btn(❎, 1) then
         player2.y -= 0.8 
         player2.dy = 0 -- Prevent gravity from pulling the player down while climbing
         player2.landed = false 
@@ -153,16 +153,16 @@ function _update()
   end
 
     --left
-    -- if btn(⬆️, 0) then
-    if btn(⬅️, 1) then
+    if btn(⬆️, 0) then
+    -- if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
       player2.running=true
       player2.flp=true
   
     -- right
-  -- elseif btn(⬇️, 0) then
-elseif btn(➡️, 1) then
+  elseif btn(⬇️, 0) then
+-- elseif btn(➡️, 1) then
       player2.dx = player2.speed
       player2.flip = false 
       player2.running=true
@@ -174,8 +174,8 @@ elseif btn(➡️, 1) then
   
     -- jump
     if not climbing_ability2 then
-    -- if btn(🅾️, 0) and player2.landed then
-    if btn(❎, 1) and player2.landed then
+    if btn(🅾️, 0) and player2.landed then
+    -- if btn(❎, 1) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
