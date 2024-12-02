@@ -2,8 +2,8 @@ function _init()
   reading=false
   question=true 
   correct=false
-  
   level = "1a"
+  qn=1
   map_offset_y=14
   map_offset_x=0
 

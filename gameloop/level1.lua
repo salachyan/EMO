@@ -60,6 +60,8 @@ end
 function level1b()
   --box collisions
   -- Check for collisions with the box2 for player1
+  -- dquestion(q2)
+
   if check_collision(player1, box2) and player1.landed==true then
       if player1.dx > 0 and (box2.x > player1.x) then
           player1.x = box2.x - 1.8 * 8
