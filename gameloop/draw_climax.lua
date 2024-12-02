@@ -2,6 +2,8 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 64)
     print("climax",50,5,14)
+    tb_draw()
+
 
     if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=12.5*8 or player2.x>=((62-60)*8)-4 and player2.x<=(63-60)*8 and player2.y<=32*8 and player2.y>=22.5*8 then
       ladder_draw=true
