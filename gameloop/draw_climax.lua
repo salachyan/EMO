@@ -2,8 +2,6 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 64)
     print("climax",50,5,14)
-    tb_draw()
-
 
     if player1.x>=((62-60)*8)-4 and player1.x<=(63-60)*8 and player1.y<=32*8 and player1.y>=12.5*8 or player2.x>=((62-60)*8)-4 and player2.x<=(63-60)*8 and player2.y<=32*8 and player2.y>=22.5*8 then
       ladder_draw=true
@@ -30,6 +28,7 @@ function _draw()
 
     
     draw_ground()
+    tb_draw()
 
     -- if player1.x>=(64-60)*8 and player1.x<=(68-60)*8 and player1.y<=33*8 and and player1.y>=30*8 then
       
@@ -38,10 +37,11 @@ function _draw()
     
     -- print("storyline condition: "..tostring(level == "climax" and checker==0 ), 5, 20, 10)
     -- print("climax condition: "..tostring(level == "climax"), 5, 30, 10)
-    print("player1.y: "..tostring(player1.y), 5, 40, 10)
-    print("players_fell "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 180, 10)
-    print("storyline condition: "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 20, 10)
-    print("condition: "..tostring(player1.y ), 5, 200, 14)
+    
+    -- print("player1.y: "..tostring(player1.y), 5, 40, 10)
+    -- print("players_fell "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 180, 10)
+    -- print("storyline condition: "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 20, 10)
+    -- print("condition: "..tostring(player1.y ), 5, 200, 14)
   end
 
   function draw_ground()

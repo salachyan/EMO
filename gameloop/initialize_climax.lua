@@ -232,8 +232,6 @@ function bridge()
   
 end
 
-grounds = {}
-
 function ground()
   --ground levels on right side
   FourR = {
@@ -592,27 +590,6 @@ function ground()
     h=32,
     flip=false,
   }
-  circle2 = {
-    x = (65-60)*8,    
-    y = (19)*8,    
-    sp = 136,     
-    w=32,
-    h=32,
-    flip=false,
-  }
-
-  add(grounds, ground1)
-  add(grounds, ground2)
-  add(grounds, ground3)
-  add(grounds, ground4)
-  add(grounds, ground5)
-  add(grounds, ground6)
-  add(grounds, ground7)
-  add(grounds, ground8)
-  add(grounds, ground9)
-  add(grounds, ground10)
-  add(grounds, ground11)
-  add(grounds, ground12)
 
 end
   

@@ -9,7 +9,7 @@ function tb_init(voice,string) -- this function starts and defines a text box.
     cur=0, -- buffer used to progressively show characters on the text box.
     char=0, -- current character to be drawn on the text box.
     x=0, -- x coordinate
-    y=14, -- y coordginate
+    y=(2+20)*8, -- y coordginate
     w=127, -- text box width
     h=35, -- text box height
     col1=7, -- background color
@@ -99,8 +99,8 @@ function storylinetext()
     if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
         tb_update() -- handle the text box on every frame update.
     else
-        if player1.y==32*8 and checker==0 then
-            tb_init(0,{"we have to cross this bridge"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+        if player1.y==32*8 and player2.y==32*8 and checker==0 then 
+            tb_init(0,{"pip exclaims, ''we're trapped! We're never getting out of here!'' ", "pete says, ''it's okay, we just have to figure out how to climb back up.''"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
             -- reading=false
             checker+=1
        
