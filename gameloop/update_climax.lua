@@ -29,6 +29,10 @@ function _update()
     --move the camera toward the target position
     local vertical_offset = 32  
     target_y -= vertical_offset
+
+    if player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+      target_x += 32  -- pan more to the right
+    end
   
     -- Smoothly move the camera toward the target position
     camera_x += (target_x - camera_x) * easing

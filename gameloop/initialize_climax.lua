@@ -69,25 +69,15 @@ function _init()
   }
 
   percy = {
-    x = 8,    
-    y = (12)*8,    
+    x = (81-60)*8,    
+    y = (7)*8,    
     sp = 64,     
     w=16,
     h=16,
     sprite_w=2,
     sprite_h=2,
-    flp=false,
-    dx=0,
-    dy=0,
-    max_dx=2,
-    max_dy=3,
     speed = 1.2,
-    flip=false,
-    running=false,
-    jumping=false,
-    falling=false,
-    sliding=false,
-    landed=false,
+    flip=true,
     anim_timer = 0,
     anim_timer2 = 0,
     anim_speed = 0.2,
@@ -97,6 +87,18 @@ function _init()
     frames = {40,42,8,44,46,8},
     spz = 1,
     -- climbing_ability = false
+  }
+  cheetah = {
+    x = (83-60)*8,    
+    y = (5)*8,    
+    sp = 72,     
+    w=32,
+    h=32,
+    sprite_w=2,
+    sprite_h=2,
+    speed = 1.2,
+    flip=true,
+    spz = 1,
   }
 
   bridge()
@@ -147,8 +149,6 @@ function boulder()
   boulder = {
     x = (78-60)*8,    
     y = (-6)*8,    
-    -- x = (65-60)*8,    
-    -- y = (15-15)*8,  
     sp = 68,     
     w=32,
     h=32,
