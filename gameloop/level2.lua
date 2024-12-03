@@ -291,8 +291,8 @@ function level2b()
     else
         player1.speed = 1.2
     end
-    -- if (player2.x>=59.599 and player2.x<=73 and player2.y==(24-12)*8 and btn(❎, 0) and player2.landed) then
-     if   (player2.x>=59.599 and player2.x<=73 and player2.y==(24-12)*8 and btn(❎, 1) and player2.landed) then
+    if (player2.x>=59.599 and player2.x<=73 and player2.y==(24-12)*8 and btn(❎, 0) and player2.landed) then
+    --  if   (player2.x>=59.599 and player2.x<=73 and player2.y==(24-12)*8 and btn(❎, 1) and player2.landed) then
         player2.speed=3
     else 
         player2.speed = 1.2

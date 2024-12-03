@@ -1,6 +1,6 @@
 function _draw()
     cls()
-    map(map_offset_x, map_offset_y, 0, 0, 32, 32)  
+    map(map_offset_x, map_offset_y, 0, 0, 32, 64)  
     print("level 2",50,2,14)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
