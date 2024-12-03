@@ -1,6 +1,6 @@
 function _update()
-  
-  -- prologue()
+
+  storylinetext()
   if map_offset_x==0 and map_offset_y==14 then
     level = "1a"
   elseif map_offset_x==12 and map_offset_y==14 then

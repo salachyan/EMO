@@ -50,9 +50,9 @@ function iquestion()
     answers = {"a. ","b. ","c. ","d. "}
     answersel=1
     qamaster = {2,3,2,3}
-    q1ca=2
-    q2ca=3
-    q3ca=2
+    -- q1ca=2
+    -- q2ca=3
+    -- q3ca=2
     qtoggle=true
 end
 
@@ -60,6 +60,7 @@ function resetquestion()
     question=false
     correct=false
     answered=false
+    answernumber=0
 end
 
 function uquestion()
@@ -83,6 +84,7 @@ function uquestion()
         else
             answered=true
             correct=false
+            answernumber+=1
         end
     end
 end
@@ -95,9 +97,14 @@ function checkquestion(q)
                 resetquestion()
             end
         else
-            dincorrect(q)
-            if (btnp(4)) then
-                answered=false
+            if(answernumber<2)then
+                dincorrect(q)
+                if (btnp(4)) then
+                    viewhint=true
+                    if(btnp(5)) then
+                        answered=false
+                    end
+                end
             end
         end
     end
@@ -109,28 +116,33 @@ end
 -- rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
 function dcorrect(q)
     if correct and answered then
-        rectfill(q.x+20,q.y+12,q.w-20, q.h-32,15)
-        rect(q.x+20,q.y+12,q.w-20, q.h-32,0)
+        rectfill(q.x+20,q.y+12,q.w-20, q.y+28,15)
+        rect(q.x+20,q.y+12,q.w-20, q.y+28,0)
         print("correct!",q.x+40,q.y+18,8)
     end
 end
 
 function dincorrect(q)
     if answered and (correct != true)then
-        rectfill(q.x+12,q.y+12,q.w-12, q.h-16,15)
-        rect(q.x+12,q.y+12,q.w-12, q.h-16,0)
+        rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+        rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
         print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8)
+        if(viewhint) then
+            rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+            rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
+            print(q.hint,q.x+15,q.y+18,8)
+        end    
     end
 end
 
 function dhint(q)
-    rectfill(q.x+12,q.y+12,q.w-12, q.h-16,15)
-    rect(q.x+20,q.y+12,q.w-20, q.h-32,0)
-    print(q.hint,q.x+40,q.y+18,8)
+    rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+    rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
+    print(q.hint)
 end
 
 
-function dquestion(q)
+function dquestion(q)   
     -- Calculate the height of the question text based on the first value in `q.rowsa`
     local question_rows = q.rowsa[1]
     local question_height = question_rows * 8 -- 8 pixels per row for the question text

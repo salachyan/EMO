@@ -1,8 +1,12 @@
 function _init()
   reading=false
-  question=true 
+  -- question=true 
   correct=false
+  answernumber=0
+  viewhint=false
+  checker=0
   level = "1a"
+  storylinestage="1a"
   qn=1
   map_offset_y=14
   map_offset_x=0

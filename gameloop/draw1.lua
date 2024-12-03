@@ -14,8 +14,8 @@ function _draw()
       spr(switch1.sp, switch1.x, switch1.y, 1, 1, switch1.flip)
       spr(switch2.sp, switch2.x, switch2.y, 1, 1, switch2.flip)
       if(question == true) then
-        dquestion(q4)
-        checkquestion(q4)
+        dquestion(q1)
+        checkquestion(q1)
       end
     elseif level == "1b" then
       spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
