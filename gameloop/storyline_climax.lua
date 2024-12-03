@@ -1,3 +1,5 @@
+
+
 function tb_init(voice,string) -- this function starts and defines a text box.
     reading=true -- sets reading to true when a text box has been called.
     tb={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
@@ -93,25 +95,26 @@ end
 
 
 
-function prologue()
-  if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
-    tb_update() -- handle the text box on every frame update.
-  else
-  tb_init(0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
-                "pip heard this from another monkey in the village and ran over to see his brothers.","pip sees his brother pete first and talks to him."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
-  end
+function storylinetext()
+    if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+        tb_update() -- handle the text box on every frame update.
+    else
+        if player1.y==32*8 and checker==0 then
+            tb_init(0,{"we have to cross this bridge"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+            -- reading=false
+            checker+=1
+       
+        -- elseif level == "climax" and checker==1 then
+        --     tb_init(0,{"hi."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+        --     -- reading=false
+        --     checker+=1
+        end
+    end
 end
 
 
-  --[[  if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
-    tb_update() -- handle the text box on every frame update.
-  else
-  -- if reading is false, then a text box is not being displayed. here you would put your normal game code. also, calls to brande new text boxes must be made only when reading is false, to avoid errors and conflicts.
-      if (btnp(5))then tb_init(0,{"long ago, there were three brothers: pip, pete, and percy."})
-      end
-  -- if (btnp(5))then tb_init(0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
-      --                             "pip heard this from another monkey in the village and ran over to see his brothers.","pip sees his brother pete first and talks to him."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
-      -- end
-      if (btnp(4)) tb_init(1,{"this is a higher pitch voice because i can speak in different voices!","pretty cool, huh? this system is simple, but it can be put to great use!","i bet you are impressed! ♥"})
-  end
-]]--
+
+
+
+
+

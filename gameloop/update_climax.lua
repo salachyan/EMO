@@ -1,25 +1,27 @@
 function _update()
-    if map_offset_x==60 and map_offset_y==15 then
-      level = "climax"
-    elseif map_offset_x==74 and map_offset_y==13 then
-      level = "3b"
-    end
-
-    -- update_map_level3a_to_level3b()
-    
-    if level == "climax" then
-      climax()
-    elseif level == "3b" then
-    --   level3b()
-    --   collisions_for_switch5_3b()
-    --   collisions_for_switch6_3b()
-    end
-  
-    player1_update()
-    player2_update()
-    update_camera()
-  
+  storylinetext()
+  if map_offset_x==60 and map_offset_y==15 then
+    level = "climax"
+  elseif map_offset_x==74 and map_offset_y==13 then
+    level = "3b"
   end
+  
+  if level == "climax" then
+    climax()
+  elseif level == "3b" then
+  --   level3b()
+  --   collisions_for_switch5_3b()
+  --   collisions_for_switch6_3b()
+  end
+
+  if reading or question then
+  else
+      player1_update()
+      player2_update()
+  end
+  update_camera()
+  
+end
 
   function update_camera()
     --midpoint between player1 and player2

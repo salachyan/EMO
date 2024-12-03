@@ -3,6 +3,8 @@ function _init()
   map_offset_x=60
   map_offset_y=0
 
+  checker=0
+
   close_to_boulder=0
   players_fell = 0
 
