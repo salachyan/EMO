@@ -38,9 +38,9 @@ function _draw()
     -- print("storyline condition: "..tostring(level == "climax" and checker==0 ), 5, 20, 10)
     -- print("climax condition: "..tostring(level == "climax"), 5, 30, 10)
     
-    -- print("player1.y: "..tostring(player1.y), 5, 40, 10)
-    -- print("players_fell "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 180, 10)
-    -- print("storyline condition: "..tostring(player1.y<=32*8 and player1.y>31*8), 5, 20, 10)
+    print("player1.y: "..tostring(player1.y), 5, 40, 10)
+    print("players_fell "..tostring(players_fell), 5, 20, 10)
+    print("y: "..tostring(y), 5, 30, 10)
     -- print("condition: "..tostring(player1.y ), 5, 200, 14)
   end
 

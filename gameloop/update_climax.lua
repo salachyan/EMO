@@ -23,6 +23,8 @@ function _update()
   
 end
 
+local camera_panned = false
+
   function update_camera()
     --midpoint between player1 and player2
     local target_x = (player1.x + player2.x) / 2 - 64  -- offset to keep midpoint centered horizontally
@@ -32,8 +34,21 @@ end
     local vertical_offset = 32  
     target_y -= vertical_offset
 
-    if player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
-      target_x += 32  -- pan more to the right
+    -- if player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+    --   target_x += 32  -- pan more to the right
+    -- end
+
+    -- Check if both players have surpassed the area to pan the camera further to the right
+    if panned_threshold == nil and player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+      -- Pan the camera further to the right
+      target_x += 38
+      -- Set the threshold to prevent moving the camera back
+      panned_threshold = target_x
+    end
+
+    -- Prevent camera from moving back past the panned threshold
+    if panned_threshold ~= nil and target_x < panned_threshold then
+        target_x = panned_threshold
     end
   
     -- Smoothly move the camera toward the target position
@@ -129,9 +144,6 @@ end
       player1.spz = 1
     end
   
-    player1.x+=player1.dx
-    player1.y+=player1.dy
-  
     --limit players to map
     if player1.x<map_start then
       player1.x=map_start
@@ -139,6 +151,16 @@ end
     if player1.x>map_end-player1.w then
         player1.x=map_end-player1.w
     end
+
+    -- Prevent moving past the camera bounds
+    if player1.x < camera_x then
+      player1.x = camera_x
+    elseif player1.x > camera_x + 128 - player1.w then
+        player1.x = camera_x + 128 - player1.w
+    end
+
+    player1.x+=player1.dx
+    player1.y+=player1.dy
   end
   
   function player2_update()
@@ -233,7 +255,14 @@ end
     else
       player2.spz = 1
     end
-  
+
+    -- Prevent moving past the camera bounds
+    if player2.x < camera_x then
+      player2.x = camera_x
+    elseif player2.x > camera_x + 128 - player2.w then
+        player2.x = camera_x + 128 - player2.w
+    end
+    
     player2.x+=player2.dx
     player2.y+=player2.dy
   end

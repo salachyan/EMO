@@ -8,8 +8,8 @@ function tb_init(voice,string) -- this function starts and defines a text box.
     i=1, -- index used to tell what string from tb.str to read.
     cur=0, -- buffer used to progressively show characters on the text box.
     char=0, -- current character to be drawn on the text box.
-    x=0, -- x coordinate
-    y=(2+20)*8, -- y coordginate
+    -- x=0, -- x coordinate
+    -- y=(2+20)*8, -- y coordginate
     w=127, -- text box width
     h=35, -- text box height
     col1=7, -- background color
@@ -41,15 +41,15 @@ end
 function tb_draw()
     if reading then
         -- Draw text box background and border
-        rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
-        rect(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col2)
+        rectfill(x, y, x + tb.w, y + tb.h, tb.col1)
+        rect(x, y, x + tb.w, y + tb.h, tb.col2)
 
 
         -- Initialize variables for text rendering
         local max_chars_per_line = 30
         local num_lines = 5
-        local x_offset = tb.x + 2
-        local y_offset = tb.y + 2
+        local x_offset = x + 2
+        local y_offset = y + 2
         local text = sub(tb.str[tb.i], 1, tb.char)
         local current_line = ""
         local line_count = 0
@@ -77,8 +77,8 @@ function tb_draw()
     -- Draw the triangle indicator if all characters in the current string have been displayed
         if tb.char >= #tb.str[tb.i] and #tb.str > tb.i then
             local sprite_id =206 -- Replace with the ID of your sprite
-            local tri_x = tb.x + tb.w - 10 -- X position of the sprite
-            local tri_y_base = tb.y + tb.h - 10 -- Base Y position of the sprite
+            local tri_x = x + tb.w - 10 -- X position of the sprite
+            local tri_y_base = y + tb.h - 10 -- Base Y position of the sprite
 
 
             -- Create an animation effect: move the sprite up and down
@@ -102,12 +102,14 @@ function storylinetext()
         if player1.y==32*8 and player2.y==32*8 and checker==0 then 
             tb_init(0,{"pip exclaims, ''we're trapped! We're never getting out of here!'' ", "pete says, ''it's okay, we just have to figure out how to climb back up.''"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
             -- reading=false
+            y=(2+20)*8
             checker+=1
        
-        -- elseif level == "climax" and checker==1 then
-        --     tb_init(0,{"hi."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
-        --     -- reading=false
-        --     checker+=1
+        elseif player1.y==12*8 and player2.y==12*8 and players_fell==2 and checker==1 then
+            tb_init(0,{"pip exclaims, ''we did it! let's cross that boulder.''"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+            -- reading=false
+            y=12
+            checker+=1
         end
     end
 end

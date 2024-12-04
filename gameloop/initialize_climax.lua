@@ -8,6 +8,9 @@ function _init()
   close_to_boulder=0
   players_fell = 0
 
+  x=0
+  y=0
+
   player1 = {
     x = 0,    
     y = (12)*8,    
