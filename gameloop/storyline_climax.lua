@@ -99,18 +99,35 @@ function storylinetext()
     if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
         tb_update() -- handle the text box on every frame update.
     else
-        if player1.y==32*8 and player2.y==32*8 and checker==0 then 
-            tb_init(0,{"pip exclaims, ''we're trapped! We're never getting out of here!'' ", "pete says, ''it's okay, we just have to figure out how to climb back up.''"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+        if player1.y==32*8 and player2.y==32*8 and checker==0 and camera_y>= 159 then 
+            tb_init(0,{"pip exclaims, ''we're trapped! We're never getting out of here!'' "
+            , "pete says, ''it's okay, we just have to figure out how to climb back up.''"}) 
             -- reading=false
-            y=(2+20)*8
             checker+=1
        
         elseif player1.y==12*8 and player2.y==12*8 and players_fell==2 and checker==1 then
-            tb_init(0,{"pip exclaims, ''we did it! let's cross that boulder.''"}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+            tb_init(0,{"pip exclaims, ''we did it! let's cross that boulder.''"}) 
             -- reading=false
-            y=12
             checker+=1
+
+        elseif meet_percy==true and player1.landed and player2.landed and  player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and checker==2 then
+            tb_meet = tb_init(0,{"pip exclaims, ''percy, we've found you! are you okay? why is the cheetah standing next to you?''"
+            , "percy says, ''the boulder you guys saw waasn't just an accident."
+            , "pete says, ''what do you mean? wasn't it just a part of the mountain?''"
+                , "pip says, ''yeah, why did it fall right when we were crossing the bridge?''"
+                , "cheetah says, ''percy and i set it up. it was supposed to stop you two from getting any further.''"
+                , "percy says, ''I've been working with the cheetah all along. you two were never supposed to make it this far.''"
+                , "pip says, ''why did you join him, percy? what did he promise you?''"}) 
+            -- reading=false
+            if check_collision1(player1,player2) then
+                player1.x+=1.5*8
+            end
+            checker+=1
+            if tb.i==1 then
+                player1.y-=5
+            end 
         end
+
     end
 end
 

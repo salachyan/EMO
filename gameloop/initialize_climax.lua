@@ -7,9 +7,17 @@ function _init()
 
   close_to_boulder=0
   players_fell = 0
+  -- i=0
+  -- tb_meet = tb_init(0,{"pip exclaims, ''percy, we've found you! are you okay? why is the cheetah standing next to you?''"
+  --           , "percy says, ''the boulder you guys saw waasn't just an accident."
+  --           , "pete says, ''what do you mean? wasn't it just a part of the mountain?''"
+  --               , "pip says, ''yeah, why did it fall right when we were crossing the bridge?''"
+  --               , "cheetah says, ''percy and i set it up. it was supposed to stop you two from getting any further.''"
+  --               , "percy says, ''I've been working with the cheetah all along. you two were never supposed to make it this far.''"
+  --               , "pip says, ''why did you join him, percy? what did he promise you?''"}) 
 
-  x=0
-  y=0
+  
+  meet_percy=false
 
   player1 = {
     x = 0,    
@@ -147,6 +155,9 @@ function _init()
   camera_x = 0
   camera_y = 0
   easing = 0.1
+
+  x=camera_x
+  y=camera_y
   
 end
 

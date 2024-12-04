@@ -1,18 +1,7 @@
 function _update()
   storylinetext()
-  if map_offset_x==60 and map_offset_y==15 then
-    level = "climax"
-  elseif map_offset_x==74 and map_offset_y==13 then
-    level = "3b"
-  end
   
-  if level == "climax" then
-    climax()
-  elseif level == "3b" then
-  --   level3b()
-  --   collisions_for_switch5_3b()
-  --   collisions_for_switch6_3b()
-  end
+  climax()
 
   if reading or question then
   else
@@ -20,7 +9,12 @@ function _update()
       player2_update()
   end
   update_camera()
-  
+  x=camera_x
+  y=camera_y+12
+  if meet_percy then
+    y=camera_y+4
+  end
+
 end
 
 local camera_panned = false
@@ -44,6 +38,7 @@ local camera_panned = false
       target_x += 38
       -- Set the threshold to prevent moving the camera back
       panned_threshold = target_x
+      meet_percy=true
     end
 
     -- Prevent camera from moving back past the panned threshold
