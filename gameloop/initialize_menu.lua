@@ -17,12 +17,6 @@ function _init()
       max_dx=2,
       max_dy=3,
       speed = 1.2,
-      flip=false,
-      running=false,
-      jumping=false,
-      falling=false,
-      sliding=false,
-      landed=false,
       anim_timer = 0,
       anim_timer2 = 0,
       anim_speed = 0.2,
@@ -47,12 +41,6 @@ function _init()
       max_dx=2,
       max_dy=3,
       speed = 1.2,
-      flip=false,
-      running=false,
-      jumping=false,
-      falling=false,
-      sliding=false,
-      landed=false,
       anim_timer = 0,
       anim_timer2 = 0,
       anim_speed = 0.2,
@@ -61,6 +49,27 @@ function _init()
       anim_frames_punching = {4, 5, 6, 7},
       frames = {40,42,8,44,46,8},
       spz = 1,
+    }
+
+    e_title = {
+      x = 5*8,    
+      y = 0.5*8,    
+      sp = 68,     
+    }
+    m_title = {
+        x = 7*8,    
+        y = 0.5*8,    
+        sp = 70,     
+    }
+    o_title = {
+        x = 9*8,    
+        y = 0.5*8,    
+        sp = 72,     
+    }
+    dot_title = {
+        x = 11*8,    
+        y = 2*8,    
+        sp = 74,     
     }
   
     map_start = 0
