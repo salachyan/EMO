@@ -85,14 +85,64 @@ function _init()
     }
 
     exposition_line1 = {
-        x = 1*8,    
-        y = (29-17)*8,    
+        x = 2*8,    
+        y = (28-17)*8,    
         sp = 168,     
     }
-    exposition_line2 = {
-        x = 2*8,    
+    conflict = {
+        x = 4*8,    
         y = (29-17)*8,    
-        sp = 168,     
+        sp = 186,     
+    }
+    rising1 = {
+        x = 4*8,    
+        y = (27-17)*8,    
+        sp = 174,     
+    }
+    rising2 = {
+        x = 5*8,    
+        y = (25-17)*8,    
+        sp = 142,     
+    }
+    rising3 = {
+        x = 6*8,    
+        y = (23-17)*8,    
+        sp = 142,     
+    }
+    rising4 = {
+        x = 7*8,    
+        y = (21-17)*8,    
+        sp = 172,     
+    }
+    falling1 = {
+        x = 9*8,    
+        y = (21-17)*8,    
+        sp = 154,     
+    }
+    falling2 = {
+        x = 10*8,    
+        y = (23-17)*8,    
+        sp = 136,     
+    }
+    falling3a = {
+        x = 11*8,    
+        y = (25-17)*8,    
+        sp = 138,     
+    }
+    falling3b = {
+        x = 12*8,    
+        y = (26-17)*8,    
+        sp = 138,     
+    }
+    falling3c = {
+        x = 12*8,    
+        y = (25-17)*8,    
+        sp = 139,     
+    }
+    resolution = {
+        x = 13*8,    
+        y = (26-17)*8,    
+        sp = 140,     
     }
   
     map_start = 0
