@@ -1,5 +1,5 @@
 function _init()
-    screen = "start"
+    screen = "level"
     map_offset_y=0
     map_offset_x=17
     color_outline_start = 8
@@ -82,6 +82,17 @@ function _init()
         x = 11*8,    
         y = 2*8,    
         sp = 74,     
+    }
+
+    exposition_line1 = {
+        x = 1*8,    
+        y = (29-17)*8,    
+        sp = 168,     
+    }
+    exposition_line2 = {
+        x = 2*8,    
+        y = (29-17)*8,    
+        sp = 168,     
     }
   
     map_start = 0

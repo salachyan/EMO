@@ -35,13 +35,13 @@ function _draw()
     -- end 
 
     
-    print("camera_x: "..tostring(camera_x ), camera_x,  camera_y+50, 14)
-    print("camera_y: "..tostring(camera_y), camera_x, camera_y+60, 14)
+    -- print("camera_x: "..tostring(camera_x ), camera_x,  camera_y+50, 14)
+    -- print("camera_y: "..tostring(camera_y), camera_x, camera_y+60, 14)
     
-    print("x: "..tostring(x), camera_x, camera_y+70, 14)
-    print("y "..tostring(y), camera_x, camera_y+80, 14)
-    -- print("meet_percy: "..tostring(meet_percy ), camera_x, 50, 14)
-    print("dialogue_index: "..tostring(dialogue_index ), camera_x, camera_y+90, 14)
+    -- print("x: "..tostring(x), camera_x, camera_y+70, 14)
+    -- print("y "..tostring(y), camera_x, camera_y+80, 14)
+    -- -- print("meet_percy: "..tostring(meet_percy ), camera_x, 50, 14)
+    -- print("dialogue_index: "..tostring(dialogue_index ), camera_x, camera_y+90, 14)
     -- print("i: "..tostring(i), camera_x, camera_y + 100, 14)
 
   end
