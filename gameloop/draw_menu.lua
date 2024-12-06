@@ -174,7 +174,7 @@ function plot_diagram()
     spr(falling3c.sp, falling3c.x, falling3c.y, 1, 1)
     spr(resolution.sp, resolution.x, resolution.y, 2, 2)
 
-    print("exposition",0.5*8,(30-17)*8,11)
+    print("exposition",0.5*8,(30-17)*8,7)
     print("conflict",5*8,95,0)
     print("rising",3*8,(23-17)*8,0)
     print("action",3*8,(24-17)*8,0)
@@ -194,13 +194,13 @@ function plot_diagram()
     print("prologue",0.3*8,(28-17)*8,1)
 
 
-    local tb_x1 = 0*8
+    local tb_x1 = 0.4*8
     local tb_y1 = (26.5-17)*8
     local tb_w1 = 4.3*8  
     local tb_h1 = 8.5
     rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 9)
     rect(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 7)
-    print("level 1",0.5*8,(26.8-17)*8,1)
+    print("level 1",0.9*8,(26.8-17)*8,1)
 
     local tb_x2 = 10.5
     local tb_y2 = (25.2-17)*8
