@@ -11,13 +11,20 @@ function _draw()
     elseif level == "1b" then
       spr(switch3.sp, switch3.x, switch3.y, 1, 1, switch3.flip)
       spr(switch4.sp, switch4.x, switch4.y, 1, 1, switch4.flip)
-      spr(seesaw_bottom1.sp, seesaw_bottom1.x, seesaw_bottom1.y, 1, 1, seesaw_bottom1.flip)
+      spr(seesaw_right.sp, seesaw_right.x, seesaw_right.y, 1, 1, seesaw_right.flip)
       spr(seesaw_arch1.sp, seesaw_arch1.x, seesaw_arch1.y, 1, 1, seesaw_arch1.flip)
       spr(seesaw_arch2.sp, seesaw_arch2.x, seesaw_arch2.y, 1, 1, seesaw_arch2.flip)
-      spr(seesaw_top1.sp, seesaw_top1.x, seesaw_top1.y, 1, 1, seesaw_top1.flip)
+      spr(seesaw_left.sp, seesaw_left.x, seesaw_left.y, 1, 1, seesaw_left.flip)
       spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
       
     end
+
+    print("collision: "..tostring(both_player1_left), map_offset_x,  map_offset_y+10, 14)
+    print("player1.y: "..tostring(player1.y), map_offset_x,  map_offset_y+20, 14)
+    print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
+    print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
+    print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
+    
   end
 
 

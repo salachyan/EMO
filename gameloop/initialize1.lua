@@ -3,6 +3,9 @@ function _init()
   map_offset_y=14
   map_offset_x=0
 
+  both_player1_left=false
+  both_player2_left=false
+
   player1 = {
     x = 2,    
     y = 13*8,    
@@ -122,7 +125,7 @@ function boxes()
 end
 
 function seesaws()
-  seesaw_bottom1 = {
+  seesaw_right = {
     x = (23-12)*8,
     y = (29-19)*8,
     sp = 152,
@@ -132,6 +135,7 @@ function seesaws()
     flip=false
   }
 
+  --left on top
   seesaw_arch1 = {
       x = (19-12)*8,
       y = (28-19)*8,
@@ -141,7 +145,7 @@ function seesaws()
       dy=0,
       flip=false
   }
-
+  --right bottom
   seesaw_arch2 = {
       x = (22-12)*8,
       y = (29-19)*8,
@@ -151,7 +155,7 @@ function seesaws()
       dy=0,
       flip=false
   }
-
+  --left_bottom
   seesaw_arch3 = {
       x = (19-12)*8,
       y = (29-19)*8,
@@ -172,7 +176,7 @@ function seesaws()
       flip=false
   }
 
-  seesaw_top1 = {
+  seesaw_left = {
       x = (18-12)*8,
       y = (28-19)*8,
       sp = 136,

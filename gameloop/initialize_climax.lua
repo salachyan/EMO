@@ -2,6 +2,8 @@ function _init()
   level = "climax"
   map_offset_x=60
   map_offset_y=0
+  move_player1=false
+have_moved=false
 
   checker=0
 

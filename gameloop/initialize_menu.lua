@@ -1,5 +1,5 @@
 function _init()
-    screen = "level"
+    screen = "start"
     map_offset_y=0
     map_offset_x=17
     color_outline_start = 8

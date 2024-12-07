@@ -63,7 +63,7 @@ function title_page()
     local tb_height = 8  
 
     rectfill(tb_x, tb_y, tb_x + tb_width, tb_y + tb_height, 15)
-    print("(educational multiplayer game)",3,24,3)
+    print("(educational multiplayer outlet)",0.9,24,3)
 end
 
 function buttons_menu()
