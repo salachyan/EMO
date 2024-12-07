@@ -1,5 +1,5 @@
 
-function tb_init(voice,string) -- this function starts and defines a text box.
+function tb_init(xx,yy,voice,string) -- this function starts and defines a text box.
     reading=true -- sets reading to true when a text box has been called.
     tb={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
@@ -7,8 +7,8 @@ function tb_init(voice,string) -- this function starts and defines a text box.
     i=1, -- index used to tell what string from tb.str to read.
     cur=0, -- buffer used to progressively show characters on the text box.
     char=0, -- current character to be drawn on the text box.
-    x=0, -- x coordinate
-    y=14, -- y coordginate
+    x=xx, -- x coordinate
+    y=yy, -- y coordginate
     w=127, -- text box width
     h=35, -- text box height
     col1=7, -- background color
@@ -17,6 +17,8 @@ function tb_init(voice,string) -- this function starts and defines a text box.
     }
   end
   
+
+
 function tb_update()  -- this function handles the text box on every frame update.
     if tb.char<#tb.str[tb.i] then -- if the message has not been processed until it's last character:
         tb.cur+=0.5 -- increase the buffer. 0.5 is already max speed for this setup. if you want messages to show slower, set this to a lower number. this should not be lower than 0.1 and also should not be higher than 0.9
@@ -33,6 +35,7 @@ function tb_update()  -- this function handles the text box on every frame updat
             tb.char=0 -- reset the character position.
         else -- if there are no more messages to display:
             reading=false -- set reading to false. this makes sure the text box isn't drawn on screen and can be used to resume normal gameplay.
+            
         end
     end
 end
@@ -91,13 +94,13 @@ function storylinetext()
         tb_update() -- handle the text box on every frame update.
     else
         if level == "1a" and checker==0 then
-            tb_init(0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
+            tb_init(0,14,0,{"long ago, there were three brothers: pip, pete, and percy. they lived happily at the bottom of the mountain.","but one day, rumors spread around that there was a swift fast cheetah approaching their village to attack the three brothers!",
                             "pip heard this from another monkey in the village and ran over to see his brothers.","pip sees his brother pete first and talks to him."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
             -- reading=false
             checker+=1
         
         elseif level == "1b" and checker==1 then
-            tb_init(0,{"hi."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
+            tb_init(0,14,0,{"hi."}) -- when calling for a new text box, you must pass two arguments to it: voice (the sfx played) and a table containing the strings to be printed. this table can have any number of strings separated with a comma.
             -- reading=false
             checker+=1
         end

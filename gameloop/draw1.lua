@@ -1,7 +1,7 @@
 function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)
-    tb_draw()
+    -- tb_draw()
     -- if question then
     --   dquestion(q2)
     --   checkquestion(q2)

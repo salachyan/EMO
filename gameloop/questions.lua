@@ -7,7 +7,8 @@ function iquestion()
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="don't forget that pip \nlearned something from the rumors!",
+    -- hint="don't forget that \npip learned \nsomething from \nthe rumors!",
+    hint="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
     question="question 1: what is the \n main reason pip runs to\n talk to pete?",
     qa={'to tell pete a secret','to warn pete about\nthe approaching cheetah','to ask pete for some food','to plan a party for percy'},
     rowsa= {3,1,2,1,1},
@@ -127,10 +128,16 @@ function dincorrect(q)
         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
         print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8)
+        if(btnp(4)) then
+            viewhint=true
+        end
         if(viewhint) then
             rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
             rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
             print(q.hint,q.x+15,q.y+18,8)
+            if btnp(4) then
+                viewhint=false
+            end
         end    
     end
 end

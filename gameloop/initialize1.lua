@@ -1,6 +1,6 @@
 function _init()
   reading=false
-  -- question=true 
+  question=true 
   correct=false
   answernumber=0
   viewhint=false
