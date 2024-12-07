@@ -12,14 +12,33 @@ function _update()
     if question == true then
       uquestion()
     end
-
+  --   if btnp(4) then
+  --     -- if a button is pressed
+  --     -- add some shake
+  --     -- start developing picture
+  --     -- note that we add to the
+  --     -- shake variable so shaking
+  --     -- is cumulative. mashing
+  --     -- the button will shake
+  --     -- screen a lot.
+  --     shake+=1
+  --     devspeed+=0.04
+  -- end
     player1_update()
     player2_update()
     player3_update()
-    
-    update_camera()
+    if shake!= true then
+      update_camera()
+    end
+
     -- move_player1right()
     prologue()
+
+    -- develop+=devspeed
+    
+    --make sure it never goes
+    --above 100
+    -- develop=min(100,develop)
   end
   
   function update_camera()
@@ -301,7 +320,7 @@ function walking_animationp2()
             player2.spz = 1
         end
         player2.frames = {40,42,8,44,46,8}
-    elseif (knock>=1 and knock<=4 and part=="3b") or (knock2>=1 and knock2<=4 and part=="3c") then
+    elseif (knock>=1 and knock<=4 and part=="3ab") or (knock2>=1 and knock2<=4 and part=="3c") then
               -- Standing still
               local num_frames = 1.9  -- Total frames in the animation
               if player2.spz < num_frames then
