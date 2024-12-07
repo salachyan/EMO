@@ -286,7 +286,6 @@ function update_map_level2a_to_level2b()
   end
 
 function level2b()
-    --spring
     if (player1.x>=59.599 and player1.x<=73 and player1.y==(24-12)*8 and btn(❎, 0) and player1.landed) then
         player1.speed=3
     else
