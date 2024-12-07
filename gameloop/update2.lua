@@ -21,7 +21,32 @@ function _update()
   
     player1_update()
     player2_update()
+    -- update_camera()
   
+  end
+
+  function update_camera()
+    --midpoint between player1 and player2
+    local target_x = (player1.x + player2.x) / 2 - 64  -- offset to keep midpoint centered horizontally
+    local target_y = (player1.y + player2.y) / 2 - 64  -- offset for vertical centering
+
+    --move the camera toward the target position
+    local vertical_offset = 32  
+    target_y -= vertical_offset
+
+    if player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+      target_x += 32  -- pan more to the right
+    end
+  
+    -- Smoothly move the camera toward the target position
+    camera_x += (target_x - camera_x) * easing
+    camera_y += (target_y - camera_y) * easing
+  
+    --set camera within map boundaries
+    camera_x = mid(map_start, camera_x, map_end - 128)
+    camera_y = mid(0, camera_y, 512-128)
+  
+    camera(camera_x, camera_y)
   end
   
   function player1_update()

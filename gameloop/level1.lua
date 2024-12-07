@@ -75,7 +75,7 @@ function level1b()
       if player2.dx > 0 and (box2.x > player2.x) then
           player2.x = box2.x - 1.8 * 8  
           box2.x = box2.x + player2.dx
-              if seesaw_top1.sp~=152 and box2.x>(((18-1)-12)*8)-2 then
+              if seesaw_left.sp~=152 and box2.x>(((18-1)-12)*8)-2 then
                 box2.x=(((18-1)-12)*8)-2 
               elseif box2.x>(18-12)*8 then
                 box2.x=(18-12)*8
@@ -103,135 +103,157 @@ function level1b()
   end
 
   --seesaw collisions
-  -- Check for player1 and player2 collision with the seesaw
-  --left side
-  if check_collision(player1, seesaw_bottom1) and box2.x ~=(18-12)*8 then
-    if player1.y + player1.h <= seesaw_bottom1.y + seesaw_bottom1.h and player1.dy > 0 then
-    player1.y = seesaw_bottom1.y - player1.h +5
-    player1.dy = 0 
-    player1.landed = true
-      if check_collision(player2, seesaw_top1) then
-        player1.y-=5
-      end
-      if seesaw_top1.sp == 152 and
-      seesaw_arch1.sp== 138 and
-      seesaw_top1.y==((28+1)-19)*8 and
-      seesaw_arch1.y==((28+1)-19)*8 and
-  
-      seesaw_bottom1.sp== 136 and
-      seesaw_arch2.sp== 138 and
-      seesaw_bottom1.y==((28)-19)*8 and
-      seesaw_arch2.y==((28)-19)*8 and not check_collision(player2, seesaw_top1) then
-        seesaw_top1.sp= 136
-        seesaw_arch1.sp= 155
-        seesaw_top1.y=((28)-19)*8
-        seesaw_arch1.y=((28)-19)*8
-
-        seesaw_bottom1.sp= 152
-        seesaw_arch2.sp= 155
-        seesaw_bottom1.y=((28+1)-19)*8
-        seesaw_arch2.y=((28+1)-19)*8
-      end
-    end
-  end
   --box collides with left side and keep right side up
-  if check_collision(player1, seesaw_bottom1) and box2.x ==(18-12)*8 then
-    if player1.y + player1.h <= seesaw_bottom1.y + seesaw_bottom1.h and player1.dy > 0 then
-      player1.y = seesaw_bottom1.y - player1.h 
+  if check_collision(player1, seesaw_right) and box2.x ==(18-12)*8 then
+    if player1.y + player1.h <= seesaw_right.y + seesaw_right.h and player1.dy > 0 then
+      player1.y = seesaw_right.y - player1.h 
       player1.dy = 0 
       player1.landed = true
     end
   end
-  if check_collision(player2, seesaw_bottom1) and box2.x ==(18-12)*8 then
-    if player2.y + player2.h <= seesaw_bottom1.y + seesaw_bottom1.h and player2.dy > 0 then
-      player2.y = seesaw_bottom1.y - player2.h 
+  if check_collision(player2, seesaw_right) and box2.x ==(18-12)*8 then
+    if player2.y + player2.h <= seesaw_right.y + seesaw_right.h and player2.dy > 0 then
+      player2.y = seesaw_right.y - player2.h 
       player2.dy = 0 
       player2.landed = true
     end
   end
-  -- left side
-  if check_collision(player1, seesaw_top1) and box2.x ~=(18-12)*8 then
-    if player1.y + player1.h <= seesaw_top1.y + seesaw_top1.h and player1.dy > 0 then
-      player1.y = seesaw_top1.y - player1.h +5
-      player1.dy = 0 
-      player1.landed = true
-    if check_collision(player2, seesaw_bottom1) then
-      player1.y -=5
-    end
-      if not check_collision(player2, seesaw_bottom1) then
-        seesaw_top1.sp= 152
-        seesaw_arch1.sp= 138
-        seesaw_top1.y=((28+1)-19)*8
-        seesaw_arch1.y=((28+1)-19)*8
 
-        seesaw_bottom1.sp= 136
-        seesaw_arch2.sp= 138
-        seesaw_bottom1.y=((28)-19)*8
-        seesaw_arch2.y=((28)-19)*8
+  -- player1_onleft = player1.x>=(17.5-12)*8 and player1.x<=(18.5-12)*8
+  -- player2_onleft = player2.x>=(21.5-12)*8 and player2.x<=(22.5-12)*8
+  -- both_player1_left = player1_onleft and player2_onleft
+  -- -- player1 is on left (top) and player2 is on right (bottom)
+  
+  -- if both_player1_left then
+  --   player1.y=(23-14)*8
+  --   player2.y=(21-14)*8
+  --   if btn(🅾️, 0) then
+  --     player2.y-=3
+  --   end
+  --   gravity=0
+  --   player2.dy = 0
+  -- end
+
+
+    -- Check for player1 and player2 collision with the seesaw
+  -- left side
+  if check_collision(player1, seesaw_right) and box2.x ~=(18-12)*8 then
+    if player1.y + player1.h <= seesaw_right.y + seesaw_right.h and player1.dy > 0 then
+    player1.y = seesaw_right.y - player1.h +5
+    player1.dy = 0 
+    player1.landed = true
+      if check_collision(player2, seesaw_left) then
+        player1.y-=5
       end
-    end
-  end
-  --right side
-  if check_collision(player2, seesaw_bottom1) and box2.x ~=(18-12)*8 then
-    if check_collision(player1, seesaw_top1) then
-      player1.y=(26-19)*8
-    end
-    if player2.y + player2.h <= seesaw_bottom1.y + seesaw_bottom1.h and player2.dy > 0 then
-      player2.y = seesaw_bottom1.y - player2.h +5
-      player2.dy = 0 
-      player2.landed = true 
-      if seesaw_top1.sp == 152 and
+      if seesaw_left.sp == 152 and
       seesaw_arch1.sp== 138 and
-      seesaw_top1.y==((28+1)-19)*8 and
+      seesaw_left.y==((28+1)-19)*8 and
       seesaw_arch1.y==((28+1)-19)*8 and
   
-      seesaw_bottom1.sp== 136 and
+      seesaw_right.sp== 136 and
       seesaw_arch2.sp== 138 and
-      seesaw_bottom1.y==((28)-19)*8 and
-      seesaw_arch2.y==((28)-19)*8 then
-        seesaw_top1.sp= 136
+      seesaw_right.y==((28)-19)*8 and
+      seesaw_arch2.y==((28)-19)*8 and not check_collision(player2, seesaw_left) then
+        seesaw_left.sp= 136
         seesaw_arch1.sp= 155
-        seesaw_top1.y=((28)-19)*8
+        seesaw_left.y=((28)-19)*8
         seesaw_arch1.y=((28)-19)*8
 
-        seesaw_bottom1.sp= 152
+        seesaw_right.sp= 152
         seesaw_arch2.sp= 155
-        seesaw_bottom1.y=((28+1)-19)*8
+        seesaw_right.y=((28+1)-19)*8
         seesaw_arch2.y=((28+1)-19)*8
       end
     end
   end
-  --left side
-  if check_collision(player2, seesaw_top1) and box2.x ~=(18-12)*8 then
-    if check_collision(player1, seesaw_bottom1) then
+
+  -- left side
+  if check_collision(player1, seesaw_left) and box2.x ~=(18-12)*8 then
+    if player1.y + player1.h <= seesaw_left.y + seesaw_left.h and player1.dy > 0 then
+      player1.y = seesaw_left.y - player1.h +5
+      player1.dy = 0 
+      player1.landed = true
+      time_start=time()
+    if check_collision(player2, seesaw_right) then
+      player1.y-=5
+    end
+      if not check_collision(player2, seesaw_right) then
+        seesaw_left.sp= 152
+        seesaw_arch1.sp= 138
+        seesaw_left.y=((28+1)-19)*8
+        seesaw_arch1.y=((28+1)-19)*8
+
+        seesaw_right.sp= 136
+        seesaw_arch2.sp= 138
+        seesaw_right.y=((28)-19)*8
+        seesaw_arch2.y=((28)-19)*8
+      end
+    end
+  end
+
+  -- right side
+  if check_collision(player2, seesaw_right) and box2.x ~=(18-12)*8 then
+    if check_collision(player1, seesaw_left) then
       player1.y=(26-19)*8
     end
-    if player2.y + player2.h <= seesaw_top1.y + seesaw_top1.h and player2.dy > 0 then
-      player2.y = seesaw_top1.y - player2.h  +5
+    if player2.y + player2.h <= seesaw_right.y + seesaw_right.h and player2.dy > 0 then
+      player2.y = seesaw_right.y - player2.h +5
+      player2.dy = 0 
+      player2.landed = true 
+      if seesaw_left.sp == 152 and
+      seesaw_arch1.sp== 138 and
+      seesaw_left.y==((28+1)-19)*8 and
+      seesaw_arch1.y==((28+1)-19)*8 and
+  
+      seesaw_right.sp== 136 and
+      seesaw_arch2.sp== 138 and
+      seesaw_right.y==((28)-19)*8 and
+      seesaw_arch2.y==((28)-19)*8 then
+        seesaw_left.sp= 136
+        seesaw_arch1.sp= 155
+        seesaw_left.y=((28)-19)*8
+        seesaw_arch1.y=((28)-19)*8
+
+        seesaw_right.sp= 152
+        seesaw_arch2.sp= 155
+        seesaw_right.y=((28+1)-19)*8
+        seesaw_arch2.y=((28+1)-19)*8
+      end
+    end
+  end
+
+  -- left side
+  if check_collision(player2, seesaw_left) and box2.x ~=(18-12)*8 then
+    if check_collision(player1, seesaw_right) then
+      player1.y=(26-19)*8
+    end
+    if player2.y + player2.h <= seesaw_left.y + seesaw_left.h and player2.dy > 0 then
+      player2.y = seesaw_left.y - player2.h  +5
       player2.dy = 0 
       player2.landed = true 
 
-      seesaw_top1.sp= 152
+      seesaw_left.sp= 152
       seesaw_arch1.sp= 138
-      seesaw_top1.y=((28+1)-19)*8
+      seesaw_left.y=((28+1)-19)*8
       seesaw_arch1.y=((28+1)-19)*8
 
-      seesaw_bottom1.sp= 136
+      seesaw_right.sp= 136
       seesaw_arch2.sp= 138
-      seesaw_bottom1.y=((28)-19)*8
+      seesaw_right.y=((28)-19)*8
       seesaw_arch2.y=((28)-19)*8
     end
   end
-  if check_collision(player1, seesaw_arch1) and player1.dx<0 and not check_collision(player1, seesaw_top1) then
+
+  if check_collision(player1, seesaw_arch1) and player1.dx<0 and not check_collision(player1, seesaw_left) then
     player1.x=seesaw_arch1.x+5
   end
-  if check_collision(player2, seesaw_arch1) and player2.dx<0 and not check_collision(player2, seesaw_top1) then
+  if check_collision(player2, seesaw_arch1) and player2.dx<0 and not check_collision(player2, seesaw_left) then
     player2.x=seesaw_arch1.x+5
   end
-  if check_collision(player1, seesaw_arch2) and player1.dx>0 and not check_collision(player1, seesaw_bottom1) then
+  if check_collision(player1, seesaw_arch2) and player1.dx>0 and not check_collision(player1, seesaw_right) then
     player1.x=seesaw_arch2.x-13
   end
-  if check_collision(player2, seesaw_arch2) and player2.dx>0 and not check_collision(player2, seesaw_bottom1) then
+  if check_collision(player2, seesaw_arch2) and player2.dx>0 and not check_collision(player2, seesaw_right) then
     player2.x=seesaw_arch2.x-13
   end
 

@@ -11,3 +11,6 @@ elseif map_offset_x==60 and map_offset_y==15 then
 elseif map_offset_x==74 and map_offset_y==13 then
   level = "3b"
 end
+elseif map_offset_x==60 and map_offset_y==0 then
+  level = "climax"
+end

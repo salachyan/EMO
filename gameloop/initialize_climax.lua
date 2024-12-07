@@ -2,9 +2,24 @@ function _init()
   level = "climax"
   map_offset_x=60
   map_offset_y=0
+  move_player1=false
+have_moved=false
+
+  checker=0
 
   close_to_boulder=0
   players_fell = 0
+  -- i=0
+  -- tb_meet = tb_init(0,{"pip exclaims, ''percy, we've found you! are you okay? why is the cheetah standing next to you?''"
+  --           , "percy says, ''the boulder you guys saw waasn't just an accident."
+  --           , "pete says, ''what do you mean? wasn't it just a part of the mountain?''"
+  --               , "pip says, ''yeah, why did it fall right when we were crossing the bridge?''"
+  --               , "cheetah says, ''percy and i set it up. it was supposed to stop you two from getting any further.''"
+  --               , "percy says, ''I've been working with the cheetah all along. you two were never supposed to make it this far.''"
+  --               , "pip says, ''why did you join him, percy? what did he promise you?''"}) 
+
+  
+  meet_percy=false
 
   player1 = {
     x = 0,    
@@ -68,6 +83,39 @@ function _init()
     -- climbing_ability = false
   }
 
+  percy = {
+    x = (81-60)*8,    
+    y = (7)*8,    
+    sp = 64,     
+    w=16,
+    h=16,
+    sprite_w=2,
+    sprite_h=2,
+    speed = 1.2,
+    flip=true,
+    anim_timer = 0,
+    anim_timer2 = 0,
+    anim_speed = 0.2,
+    anim_frames = {0, 1, 2, 3, 4, 5, 6, 7},
+    anim_frames_walking = {0, 2, 4, 6},
+    anim_frames_punching = {4, 5, 6, 7},
+    frames = {40,42,8,44,46,8},
+    spz = 1,
+    -- climbing_ability = false
+  }
+  cheetah = {
+    x = (83-60)*8,    
+    y = (5)*8,    
+    sp = 72,     
+    w=32,
+    h=32,
+    sprite_w=2,
+    sprite_h=2,
+    speed = 1.2,
+    flip=true,
+    spz = 1,
+  }
+
   bridge()
   boulder()
   ground()
@@ -109,6 +157,9 @@ function _init()
   camera_x = 0
   camera_y = 0
   easing = 0.1
+
+  x=camera_x
+  y=camera_y
   
 end
 
@@ -116,8 +167,6 @@ function boulder()
   boulder = {
     x = (78-60)*8,    
     y = (-6)*8,    
-    -- x = (65-60)*8,    
-    -- y = (15-15)*8,  
     sp = 68,     
     w=32,
     h=32,

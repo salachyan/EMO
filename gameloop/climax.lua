@@ -141,12 +141,27 @@ if close_to_boulder==1 then
         player2.x=(65-60)*8
     end
 end
+
+--move players apart a little
+
+if player1.x<=(65-60)*8 and player1.y>=19*8 and player2.x<=(65-60)*8 and player2.y>=19*8 and have_moved==false then
+    move_player1=true
+else
+    move_player1=false
+end
+if move_player1 then
+    player1.x+=(1)*8
+    if player1.landed or player1.x==48 then
+    have_moved=true
+    end
+end
+
 --players are no longer close to the boulder
 if player1.y==32*8 and player2.y==32*8 then
     close_to_boulder=0
 end
 
-    if player1.x<=(65-60)*8 and player1.y>=19*8 and player2.x<=(65-60)*8 and player2.y>=19*8 then
+    if  player1.y>=19*8 and player2.x<=(65-60)*8 and player2.y>=19*8 then
         players_fell=1
     end
     if (players_fell==1) then

@@ -72,7 +72,11 @@ function _init()
 
     map_start = 0
     map_end=16*8
-  
+    --simple camera
+    camera_x = 0
+    camera_y = 0
+    easing = 0.1
+    
   end
   
   function switches()

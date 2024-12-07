@@ -1,25 +1,23 @@
 function _update()
-    if map_offset_x==60 and map_offset_y==15 then
-      level = "climax"
-    elseif map_offset_x==74 and map_offset_y==13 then
-      level = "3b"
-    end
+  storylinetext()
+  
+  climax()
 
-    -- update_map_level3a_to_level3b()
-    
-    if level == "climax" then
-      climax()
-    elseif level == "3b" then
-    --   level3b()
-    --   collisions_for_switch5_3b()
-    --   collisions_for_switch6_3b()
-    end
-  
-    player1_update()
-    player2_update()
-    update_camera()
-  
+  if reading or question then
+  else
+      player1_update()
+      player2_update()
   end
+  update_camera()
+  x=camera_x
+  y=camera_y+12
+  if meet_percy then
+    y=camera_y+4
+  end
+
+end
+
+local camera_panned = false
 
   function update_camera()
     --midpoint between player1 and player2
@@ -29,6 +27,24 @@ function _update()
     --move the camera toward the target position
     local vertical_offset = 32  
     target_y -= vertical_offset
+
+    -- if player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+    --   target_x += 32  -- pan more to the right
+    -- end
+
+    -- Check if both players have surpassed the area to pan the camera further to the right
+    if panned_threshold == nil and player1.x >= (75 - 60) * 8 and player1.y <= 7 * 8 and player2.x >= (75 - 60) * 8 and player2.y <= 7 * 8 then
+      -- Pan the camera further to the right
+      target_x += 38
+      -- Set the threshold to prevent moving the camera back
+      panned_threshold = target_x
+      meet_percy=true
+    end
+
+    -- Prevent camera from moving back past the panned threshold
+    if panned_threshold ~= nil and target_x < panned_threshold then
+        target_x = panned_threshold
+    end
   
     -- Smoothly move the camera toward the target position
     camera_x += (target_x - camera_x) * easing
@@ -123,9 +139,6 @@ function _update()
       player1.spz = 1
     end
   
-    player1.x+=player1.dx
-    player1.y+=player1.dy
-  
     --limit players to map
     if player1.x<map_start then
       player1.x=map_start
@@ -133,6 +146,16 @@ function _update()
     if player1.x>map_end-player1.w then
         player1.x=map_end-player1.w
     end
+
+    -- Prevent moving past the camera bounds
+    if player1.x < camera_x then
+      player1.x = camera_x
+    elseif player1.x > camera_x + 128 - player1.w then
+        player1.x = camera_x + 128 - player1.w
+    end
+
+    player1.x+=player1.dx
+    player1.y+=player1.dy
   end
   
   function player2_update()
@@ -227,7 +250,14 @@ function _update()
     else
       player2.spz = 1
     end
-  
+
+    -- Prevent moving past the camera bounds
+    if player2.x < camera_x then
+      player2.x = camera_x
+    elseif player2.x > camera_x + 128 - player2.w then
+        player2.x = camera_x + 128 - player2.w
+    end
+    
     player2.x+=player2.dx
     player2.y+=player2.dy
   end

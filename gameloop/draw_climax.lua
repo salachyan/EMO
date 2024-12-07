@@ -16,7 +16,9 @@ function _draw()
     
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
-    
+    spr(percy.sp, percy.x, percy.y, 2, 2, percy.flip)
+    spr(cheetah.sp, cheetah.x, cheetah.y, 4, 4, cheetah.flip)
+
     spr(boulder.sp, boulder.x, boulder.y, 4, 4, boulder.flip)
 
     spr(bridge1.sp, bridge1.x, bridge1.y, 1, 1, bridge1.flip)
@@ -26,13 +28,22 @@ function _draw()
 
     
     draw_ground()
+    tb_draw()
+
+    -- if player1.x>=(64-60)*8 and player1.x<=(68-60)*8 and player1.y<=33*8 and and player1.y>=30*8 then
+      
+    -- end 
 
     
-    -- print("circle.y: "..tostring(circle.y), 5, 180, 10)
-
-    -- print("TwoR.y: "..tostring(TwoR.y), 5, 190, 10)
-    -- print("circle.y <= 19*8  : "..tostring(circle.y <= 19*8 ), 5, 200, 10)
-    -- print("condition: "..tostring(player1.x>=(62-60)*8 and player1.x<=(63-60)*8 and player1.y<=29*8 and player1.y>=15*8 ), 5, 200, 14)
+    -- print("camera_x: "..tostring(camera_x ), camera_x,  camera_y+50, 14)
+    -- print("camera_y: "..tostring(camera_y), camera_x, camera_y+60, 14)
+    
+    -- print("x: "..tostring(x), camera_x, camera_y+70, 14)
+    -- print("y "..tostring(y), camera_x, camera_y+80, 14)
+    -- print("meet_percy: "..tostring(meet_percy ), camera_x, 50, 14)
+    -- print("move_player1: "..tostring(move_player1 ), camera_x, camera_y+90, 0)
+    -- print("have_moved: "..tostring(have_moved), camera_x, camera_y + 100, 0)
+    -- print("player1.x: "..tostring(player1.x), camera_x, camera_y + 110, 0)
   end
 
   function draw_ground()
