@@ -9,9 +9,9 @@ function _draw()
         title_page() 
         buttons_menu()
     elseif screen=="inst" then
+        instructions_print() 
     elseif screen=="level" then
         title_lvl() 
-        -- buttons_lvl()
         plot_diagram() 
     end
 
@@ -26,20 +26,15 @@ function _draw()
         map_offset_y=0
     end
 
-    
-    if color_outline_inst == 8 and btn(❎, 0) then
-        inst_condition=true
-    end
-
     if (time() - time_start) > 3.5 and lvl_condition==false and inst_condition==false then
         map_offset_x=0
         map_offset_y=0
     end
     
 
-    print("color_outline_prologue: "..tostring(color_outline_prologue), map_offset_x,  map_offset_y+30, 10)
-    print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+40, 10)
-    print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+50, 10)
+    -- print("color_outline_prologue: "..tostring(color_outline_prologue), map_offset_x,  map_offset_y+30, 10)
+    -- print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+40, 10)
+    -- print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+50, 10)
     -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+60, 10)
     -- print("menu_cond: "..tostring(color_outline_menu_lvl==8 and btn(❎, 0)), map_offset_x,  map_offset_y+70, 10)
     
@@ -114,52 +109,6 @@ function title_lvl()
     rectfill(tb_x, tb_y, tb_x + tb_width, tb_y + tb_height, 15)
     rect(tb_x, tb_y, tb_x + tb_width, tb_y + tb_height, 3)
     print("level selection",36,9,3)
-end
-
-function buttons_lvl()
-    --level1
-    local tb_x = 29
-    local tb_y = 35
-    local tb_w = 70  
-    local tb_h = 2*8  
-
-    rectfill(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, 9)
-    --border
-    rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_start)
-    print("level 1",47,tb_y+6,1)
-
-    --level2
-    local tb_x = 29
-    local tb_y = 55
-    local tb_w = 70  
-    local tb_h = 2*8  
-
-    rectfill(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, 9)
-    --border
-    rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_inst)
-    print("level 2",47,tb_y+6,1)
-
-    --level3
-    local tb_x = 29
-    local tb_y = 75
-    local tb_w = 70  
-    local tb_h = 2*8  
-
-    rectfill(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, 9)
-    --border
-    rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_lvl)
-    print("level 3",47,tb_y+6,1)
-
-    -- --menu
-    -- local tb_x = 29
-    -- local tb_y = 95
-    -- local tb_w = 70  
-    -- local tb_h = 2*8  
-
-    -- rectfill(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, 9)
-    -- --border
-    -- rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_lvl)
-    -- print("menu",47,tb_y+6,1)
 end
 
 --plot diagram
@@ -237,4 +186,50 @@ function plot_diagram()
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
     rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_outline_menu_lvl)
     print("menu",12.7*8,(29.3-17)*8,1)
+end
+
+function instructions_print() 
+    --title instructions
+    local tb_x = 30
+    local tb_y = 5
+    local tb_width = 70  
+    local tb_height = 12  
+
+    rectfill(tb_x, tb_y, tb_x + tb_width, tb_y + tb_height, 15)
+    rect(tb_x, tb_y, tb_x + tb_width, tb_y + tb_height, 3)
+    print("basic controls",36,9,3)
+
+    local tb_x1 = (19-17)*8
+    local tb_y1 = (20-16)*8
+    local tb_w1 = 3*8  
+    local tb_h1 = 8.5*2
+    rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 12)
+    print("move",tb_x1+4,tb_y1+2,0)
+    print("left",tb_x1+4,tb_y1+10,0)
+
+    local tb_x2 = (28-17)*8
+    local tb_y2 = (20-16)*8
+    local tb_w2 = 3*8  
+    local tb_h2 = 8.5*2
+    rectfill(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 12)
+    print("move",tb_x2+3,tb_y2+2,0)
+    print("right",tb_x2+3,tb_y2+10,0)
+
+    print("a",(19.1-17)*8,(23.7-16)*8,0)
+    print("b",(19.1-17)*8,(27.7-16)*8,0)
+
+    local tb_x3 = (22.5-17)*8
+    local tb_y3 = (23.5-16)*8
+    local tb_w3 = 9*8  
+    local tb_h3 = 8.5*2
+    rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 12)
+    print("jump or",tb_x3+3,tb_y3+2,0)
+    print("continue dialogue",tb_x3+2,tb_y3+10,0)
+
+    local tb_x4 = (22.5-17)*8
+    local tb_y4 = (27.5-16)*8
+    local tb_w4 = 8*8  
+    local tb_h4 = 8.5
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 12)
+    print("exit questions",tb_x4+2,tb_y4+2,0)
 end

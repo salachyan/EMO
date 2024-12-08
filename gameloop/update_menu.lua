@@ -11,6 +11,9 @@ function _update()
             menu_condition = false
             
         end
+        if color_outline_inst == 8 and btn(❎, 0) then
+            inst_condition=true
+        end
     elseif screen == "level" then
         level()
         color_outline_lvl = 7
@@ -18,6 +21,8 @@ function _update()
             menu_condition=true
             lvl_condition = false
         end
+    elseif screen=="instruction" then
+        
     end
     
 
