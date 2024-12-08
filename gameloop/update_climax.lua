@@ -52,7 +52,7 @@ function _update()
       cheetah.x = lerp(cheetah.x, (82 - 60) * 8, 0.04)
     end
     if current_message_index>=21 then
-      cheetah.x = lerp(cheetah.x, (115 - 60) * 8, 0.009)
+      cheetah.x = lerp(cheetah.x, (120 - 60) * 8, 0.009)
       cheetah.flip=false
     end
   end
