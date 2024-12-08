@@ -7,10 +7,12 @@ function iquestion()
     w=119, -- text box width
     h=73, -- text box height
     -- hint="don't forget that \npip learned \nsomething from \nthe rumors!",
-    hint="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
+    hint="pip ran to\npete because \nmiguel told him \nsomething.",
+    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
     question="question 1: what is the \n main reason pip runs to\n talk to pete?",
     qa={'to tell pete a secret','to warn pete about\nthe approaching cheetah','to ask pete for some food','to plan a party for percy'},
     rowsa= {3,1,2,1,1},
+    qn = 1
     }
     q2={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
@@ -19,10 +21,12 @@ function iquestion()
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="don't forget that pip \nlearned something from the rumors!",
+    hint='after the first \nknock,pete said "bro! \nopen the door! \nwe have something \nimportant to tell you!',
+    answer="percy didn't answer \nwith the first knock",
     question="question 2: why do pip and \n pete knock on percy's door\n harder the second time?",
     qa={'they forgot to knock the \nfirst time','they want to see if \nanyone else is home',"percy didn't answer \nwith the first knock",'they are playing\na game with percy'},
-    rowsa= {3,2,2,2,2}
+    rowsa= {3,2,2,2,2},
+    qn=2
     }
     q3={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
@@ -30,10 +34,12 @@ function iquestion()
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="don't forget that pip \nlearned something from the rumors!",
+    hint="pip ran to\npete because \nmiguel told him \nsomething.",
+    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",    
     question = "question 3: what can the \n reader infer from pete's \n statement, \"he never \n leaves his doorunlocked\"?",
     qa={'percy likes to keep his\nhouse neat', 'percy is usually very \ncareful about \nlocking his door', 'percy often forgets \nto close his door', 'percy does not\n like visitors'},
-    rowsa= {4,2,3,2,2}
+    rowsa= {4,2,3,2,2},
+    qn = 3
     }
     q4={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
@@ -41,10 +47,12 @@ function iquestion()
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="don't forget that pip \nlearned something from the rumors!",
+    hint="pip ran to\npete because \nmiguel told him \nsomething.",
+    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
     question = "question 4: based on the \n events in the prologue,\n what is most likely\n to happen next?",
     qa={'the brothers will return \nhome and forget about \nthe cheetah', 'percy will greet them \nat the door with a gift', 'the brothers will leave\nthe village immediately.', "the cheetah will arrive\nbefore they leave"},
-    rowsa= {4,3,2,2,2}
+    rowsa= {4,3,2,2,2},
+    qn = 4
     }
 
     answers = {"a. ","b. ","c. ","d. "}
@@ -57,34 +65,43 @@ function iquestion()
 end
 
 function resetquestion()
-    question=false
+    question="qx"
     correct=false
     answered=false
     answernumber=0
+    viewhint=false
+    viewhint1checker=false
+end
+function resetfirsthint()
+    viewhint=false
+    answernumber=1
 end
 
 function uquestion()
-    if btnp(⬇️) then
-        if answersel<#answers then
-            answersel+=1
-        else
-            answersel=1
+    if answered != true then
+        if btnp(⬇️) then
+            if answersel<#answers then
+                answersel+=1
+            else
+                answersel=1
+            end
+        elseif btnp(⬆️) then
+            if answersel>1 then
+                answersel-=1
+            else
+                answersel=#answers
+            end
         end
-    elseif btnp(⬆️) then
-        if answersel>1 then
-            answersel-=1
-        else
-            answersel=#answers
-        end
-    end
-    if(btnp(5))then
-        if(answersel == qamaster[qn])then
-            correct=true
-            answered=true
-        else
-            answered=true
-            correct=false
-            answernumber+=1
+        if(btnp(5))then
+            if(answersel == qamaster[questionAns])then
+                correct=true
+                answered=true
+                answernumber+=1
+            else
+                answered=true
+                correct=false
+                answernumber+=1
+            end
         end
     end
 end
@@ -92,25 +109,53 @@ end
 function checkquestion(q)
     if answered then
         if correct then
-            dcorrect(q)
-            if(btnp(4)) then
-                resetquestion()
-            end
-        else
-            if(answernumber<2)then
-                dincorrect(q)
-                if (btnp(4)) then
-                    viewhint=true
-                    if(btnp(5)) then
-                        answered=false
-                    end
-                end
-            end
+            correctlogic(q)
+        elseif correct != true then
+            incorrectlogic(q)
         end
     end
 end
 
 
+function correctlogic(q)
+    dcorrect(q)
+        currentQ = q.qn+1
+        if(btnp(4)) then
+            resetquestion()
+    end
+end
+
+function incorrectlogic(q)
+    if(answernumber==1)then
+        dincorrect1(q)
+        if (btnp(4)) then
+            viewhint=true
+            answernumber+=1
+        elseif btnp(5) and viewhint==true then
+            dhint(q)
+            viewhintfalselogic(q)        
+        end
+    end
+    if(answernumber>=2 and viewhint1checker)then
+        dincorrect2(q)
+        if btnp(4) then
+            currentQ = q.qn + 1
+            resetquestion()
+        -- elseif 
+        end
+        
+    end
+end
+
+function viewhintfalselogic(q)
+    if viewhint then
+        if btnp(5) then
+            viewhint=false
+            answered=false
+            viewhint1checker=true
+        end
+    end
+end
 
 
 -- rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
@@ -122,30 +167,90 @@ function dcorrect(q)
     end
 end
 
-function dincorrect(q)
-    if answered and (correct != true)then
-        rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
-        rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
-        print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8)
-        if(btnp(4)) then
-            viewhint=true
+-- function dincorrect1(q)
+--     if answered and (correct != true) then
+--         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+--         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
+--         print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8) 
+--     end
+-- end
+function dincorrect1(q)
+    if answered and (correct != true) then
+        local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint."
+        local lines = split(text, "\n")
+        local line_count = #lines
+        local rect_height = line_count * 8 + 4 -- 8 pixels per line + 4 for padding
+
+        rectfill(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 15)
+        rect(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 0)
+
+        local y_offset = q.y + 16 -- Starting Y position for text
+        for line in all(lines) do
+            print(line, q.x+13, y_offset, 8)
+            y_offset += 8 -- Move down for the next line
         end
-        if(viewhint) then
-            rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
-            rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
-            print(q.hint,q.x+15,q.y+18,8)
-            if btnp(4) then
-                viewhint=false
-            end
-        end    
     end
 end
 
-function dhint(q)
-    rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
-    rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
-    print(q.hint)
+
+
+-- function dincorrect2(q)
+--     if answered and (correct != true) then
+--         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+--         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
+--         print("that was incorrect.",q.x+15,q.y+18,8) 
+--         print(q.answer, q.x+15, q.y+25,8)
+--     end
+-- end
+function dincorrect2(q)
+    if answered and (correct != true) then
+        local text = "that was incorrect."
+        local answer_lines = split(q.answer, "\n")
+        local total_lines = #split(text, "\n") + #answer_lines
+        local rect_height = total_lines * 8 + 4 -- 8 pixels per line + 4 for padding
+
+        rectfill(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 15)
+        rect(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 0)
+
+        local y_offset = q.y + 16 -- Starting Y position for text
+        for line in all(split(text, "\n")) do
+            print(line, q.x+15, y_offset, 8)
+            y_offset += 8 -- Move down for the next line
+        end
+
+        for line in all(answer_lines) do
+            print(line, q.x+13, y_offset, 8)
+            y_offset += 8 -- Move down for the next line
+        end
+    end
 end
+
+
+
+-- function dhint(q)
+--     if viewhint==true then
+--     rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
+--     rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
+--     print(q.hint, q.x+15, q.y+16,8)
+--     end
+-- end
+function dhint(q)
+    if viewhint == true then
+        local hint_lines = split(q.hint, "\n")
+        local line_count = #hint_lines
+        local rect_height = line_count * 8 + 4 -- 8 pixels per line + 4 for padding
+
+        rectfill(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 15)
+        rect(q.x+8, q.y+12, q.w-8, q.y+12 + rect_height, 0)
+
+        local y_offset = q.y + 16 -- Starting Y position for text
+        for line in all(hint_lines) do
+            print(line, q.x+13, y_offset, 8)
+            y_offset += 8 -- Move down for the next line
+        end
+    end
+end
+
 
 
 function dquestion(q)   
