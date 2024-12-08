@@ -8,7 +8,7 @@ __lua__
 #include gameloop/update_prologue.lua
 --#include gameloop/level1.lua
 #include gameloop/prologue.lua
-#include gameloop/questions.lua
+#include gameloop/questions1.lua
 #include gameloop/storyline.lua
 --#include gameloop/level1.lua
 __gfx__
