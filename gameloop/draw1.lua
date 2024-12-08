@@ -28,11 +28,11 @@ function _draw()
       -- dquestion(q2)
     end
 
-    print("collision: "..tostring(both_player1_left), map_offset_x,  map_offset_y+10, 14)
-    print("player1.y: "..tostring(player1.y), map_offset_x,  map_offset_y+20, 14)
-    print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
-    print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
-    print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
+    -- print("collision: "..tostring(both_player1_left), map_offset_x,  map_offset_y+10, 14)
+    -- print("player1.y: "..tostring(player1.y), map_offset_x,  map_offset_y+20, 14)
+    -- print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
+    -- print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
+    -- print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
     
   end
 
