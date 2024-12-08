@@ -3,9 +3,67 @@ function _init()
   map_offset_x=60
   map_offset_y=0
   move_player1=false
-have_moved=false
+  have_moved=false
+  start_story = have_moved and player1.y>=7*8 and player2.y>=7*8 and player1.x>=(74-60)*8 and player2.x>=(74-60)*8
 
   checker=0
+  sprite_loop_timer = 0 
+  sprite_loop_timer2=0
+  sprite_change_speed = 20  -- How fast to change the sprite (lower is faster)
+
+  message2 ="pip: percy, we've found you! are you okay? why is the cheetah standing next to you?"
+  message3="percy: the boulder you guys found, it wasn't just an accident."
+  message4="pete: what do you mean? wasn't it just a part of the mountain?"
+  message5="pip: yeah, why did it fall right when we were crossing the bridge?"
+  message6="cheetah: percy and i set it up. it was supposed to stop you two from getting any further."
+  message7="percy: i've been working with the cheetah all along. you two were never supposed to make it this far."
+  message8="pip: this was all a lie? why did you join him, percy? what did he promise you?"
+  message9="percy: i did it because i felt left out. you two were always so close, always working together, and i was on the outside."
+  message10="percy: i thought if i teamed up with the cheetah, i could prove that i was just as strong, wise, and capable as you both."
+  message11="percy: i wanted to outsmart everyone and show that i didn't need you guys to feel powerful and important."
+  message12="pip: we never wanted to make you feel left out, percy. we should've been there for you when you needed us, instead of letting you feel alone."
+  message13="pete: yeah, you don't need to prove anything to us. we're a team, no matter what."
+  message14="pete: we want to work together as a family, no matter what."
+  message15="percy: i'm so sorry for lying to you guys this whole time. how can you guys forgive me so easily?"
+  message16="pip: it's because we're also sorry for leaving you out. we should have known how leaving you out would make you feel."
+  message17="pete: yeah, i'm so sorry, percy. we forgive you and can you forgive us too? you're our brother and we care about you."
+  message18="percy: i forgive you guys and i'm really sorry for what i did. i'm glad we can work together again."
+  message19="cheetah: percy, i knew you felt left out. that's why i used you."
+  message20="cheetah: i figured you'd be willing to help me take them down, just to feel like you finally mattered."
+  message21="cheetah: but it's clear now... whatever you three have, it's not something I can break."
+  message22="pip: it's over! the cheetah won't bother us anymore"
+  message23="pete: we did it as a team! we're so happy to have you back percy!"
+  message24="percy: i'm so happy we're brothers!"
+  -- Track current message being displayed
+  current_message_index = 1  -- Start from the first message (index 0)
+  
+  -- Define the dialogue messages
+  dialogue_messages = {
+    message2,  
+    message3,
+    message4,
+    message5,
+    message6,
+    message7,
+    message8,
+    message9,
+    message10,
+    message11,
+    message12,
+    message13,
+    message14,
+    message15,
+    message16,
+    message17,
+    message18,
+    message19,
+    message20,
+    message21,
+    message22,
+    message23,
+    message24
+
+  }
 
   close_to_boulder=0
   players_fell = 0
@@ -39,15 +97,9 @@ have_moved=false
     running=false,
     jumping=false,
     falling=false,
-    sliding=false,
+
     landed=false,
-    anim_timer = 0,
-    anim_timer2 = 0,
-    anim_speed = 0.2,
-    anim_frames = {0, 1, 2, 3, 4, 5, 6, 7},
-    anim_frames_walking = {0, 2, 4, 6},
-    anim_frames_punching = {4, 5, 6, 7},
-    frames = {32,34,0,36,38,0 },
+
     spz = 1,
     ladder_draw = false
   }
@@ -55,7 +107,7 @@ have_moved=false
   player2 = {
     x = 8,    
     y = (12)*8,    
-    sp = 3,     
+    sp = 8,     
     w=16,
     h=16,
     sprite_w=2,
@@ -70,15 +122,9 @@ have_moved=false
     running=false,
     jumping=false,
     falling=false,
-    sliding=false,
+
     landed=false,
-    anim_timer = 0,
-    anim_timer2 = 0,
-    anim_speed = 0.2,
-    anim_frames = {0, 1, 2, 3, 4, 5, 6, 7},
-    anim_frames_walking = {0, 2, 4, 6},
-    anim_frames_punching = {4, 5, 6, 7},
-    frames = {40,42,8,44,46,8},
+
     spz = 1,
     -- climbing_ability = false
   }

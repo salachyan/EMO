@@ -99,66 +99,35 @@ function storylinetext()
     if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
         tb_update() -- handle the text box on every frame update.
     else
-        if player1.y==32*8 and player2.y==32*8 and checker==0 and camera_y>= 159 then 
+        if player1.y>=30*8 and player2.y>=30*8 and checker==0 and camera_y>= 159 then 
             tb_init(0,{"pip: we're trapped! we're never getting out of here! "
             , "pete: it's okay, we just have to figure out how to climb back up."}) 
             checker+=1
+            player1.y=32*8
+            player2.y=32*8
             -- player1.x+=(1)*8
        
-        elseif player1.y==12*8 and player2.y==12*8 and players_fell==2 and checker==1 then
+        elseif player1.y<=12*8 and player2.y<=12*8 and players_fell==2 and checker==1 then
             tb_init(0,{"pete: we did it! let's cross that boulder."}) 
             checker+=1
-            player1.x-=(1)*8
+            player1.x=8
+            player2.x=16
+            player1.y=12*8
+            player2.y=12*8
+            player1.flp=false
+            player2.flip=false
 
-        elseif meet_percy==true and player1.landed and player2.landed and  player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and (checker==2 or checker==1) then
-            tb_meet = tb_init(0,{"pip: percy, we've found you! are you okay? why is the cheetah standing next to you?"
-            , "percy: i should've told you the truth earlier... the boulder, it wasn't just an accident."
-            , "pete: what do you mean? wasn't it just a part of the mountain?"
-            , "pip: yeah, why did it fall right when we were crossing the bridge?"
-            , "cheetah: percy and i set it up. it was supposed to stop you two from getting any further."
-            , "percy: i've been working with the cheetah all along. you two were never supposed to make it this far."
-            , "pip: all of this was lie? why did you join him, percy? what did he promise you?"
-            , "percy: i did it because i felt left out. you two were always so close, always working together, and i was on the outside"
-            , "percy: i thought if i teamed up with the cheetah, i could prove that i was just as strong, wise, and capable as you both."
-            , "percy: i wanted to outsmart everyone and show that i didn't need you guys to feel powerful and important."
-            , "pip: we never wanted to make you feel left out, percy. we should've been there for you when you needed us, instead of letting you feel alone."
-            , "pete: yeah, you don't need to prove anything to us. we're a team, no matter what."
-            , "pete: we want to work together as a family, no matter what."
-            , "percy: i'm so sorry for lying to you guys this whole time. how can you guys forgive me so easily?"
-            , "pip: it's because you we're sorry too for leaving you out. we should have known how leaving you out would make you feel."
-            , "pete: year, i'm so sorry for percy. we forgive you and can you forgive us too? you're our brother and we care about you."
-            , "percy: i forgive you guys and i'm really sorry for what i did. i'm glad we can work together again."}) 
 
-            if check_collision1(player1,player2) then
-                player1.x+=1.5*8
+            
+        elseif meet_percy == true and player2.landed and player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and checker == 2 then
+            tb_meet = tb_init(0, {dialogue_messages[current_message_index]})
+            if current_message_index<=23 then
+                -- Increment the message index after it is displayed
+                current_message_index = current_message_index + 1
+            elseif current_message_index == 24 then
+                -- Stop the text box display after the last message
+                reading = false
             end
-            checker+=1
-            -- if tb.i==1 then
-            --     player1.y-=5
-            -- end
-        elseif checker==3 then
-            tb_meet = tb_init(0,{"pete: we never wanted to make you feel left out, percy. we should've been there for you, instead of letting you feel alone.",""})  
-                player2.x=(76-60)*8
-                player1.x=(77.5-60)*8
-                checker+=1
-                player1.y+=1
-        elseif checker==4 then
-            tb_meet = tb_init(0,{"cheetah: i knew you felt left out. that's why i used you. i figured you'd be willing to help me take them down, just to feel like you finally mattered. pip: we're a team now. you can't break us apart.",""})  
-            player2.x=(76-60)*8
-            player1.x=(77.5-60)*8
-            percy.x=(79-60)*8
-            percy.flip=false
-            player1.y+=1
-                checker+=1
-        elseif checker==5 then
-            tb_meet = tb_init(0,{"pete: we did it together! the cheetah is not going to bother us anymore.",""})  
-                cheetah.flip=false
-                player2.x=(76-60)*8
-            player1.x=(77.5-60)*8
-            percy.x=(79-60)*8
-                cheetah.x+=3*8
-                player1.y+=1
-                checker+=1
         end
 
     end

@@ -3,11 +3,137 @@ function _update()
   
   climax()
 
-  if reading or question then
+  start_story = have_moved and player1.y>=7*8 and player2.y>=7*8 and player1.x>=(74-60)*8 and player2.x>=(74-60)*8
+  if reading or question or (start_story) then
   else
       player1_update()
       player2_update()
   end
+
+  --percy animation
+  if current_message_index==3 or current_message_index==7 or current_message_index==9 or current_message_index==10 or current_message_index==11 or current_message_index==15 or current_message_index==18 or current_message_index==24 then
+    sprite_loop_timer = sprite_loop_timer + 1
+    if sprite_loop_timer >= sprite_change_speed then
+      if percy.sp==64 then
+        percy.sp = 66
+      else
+        percy.sp = 64
+      end
+      sprite_loop_timer = 0
+    end
+    if current_message_index==10 then
+      percy.x = lerp(percy.x, (81.7- 60) * 8, 0.04)
+    end
+    if current_message_index>=15 then
+      percy.x = lerp(percy.x, (80.5- 60) * 8, 0.04)
+      if current_message_index==18 then
+        percy.x = lerp(percy.x, (79.5- 60) * 8, 0.04)
+      end
+      if current_message_index==24 then
+        percy.x = lerp(percy.x, (79- 60) * 8, 0.04)
+        player2.x = lerp(player2.x, (78.5- 60) * 8, 0.04)
+      end
+    end
+  end
+
+  --cheetah animation
+  if current_message_index==6 or current_message_index==19 or current_message_index==20 or current_message_index==21 then
+    sprite_loop_timer = sprite_loop_timer + 1
+    if sprite_loop_timer >= sprite_change_speed then
+      if cheetah.sp==72 then
+        cheetah.sp = 76
+      else
+        cheetah.sp = 72
+      end
+      sprite_loop_timer = 0
+    end
+    if current_message_index>=19 then
+      percy.flip=false
+      cheetah.x = lerp(cheetah.x, (82 - 60) * 8, 0.04)
+    end
+    if current_message_index>=21 then
+      cheetah.x = lerp(cheetah.x, (115 - 60) * 8, 0.009)
+      cheetah.flip=false
+    end
+  end
+
+  --player1 animation
+  if player1.x >= (74-60) * 8 then
+    player1.x = lerp(player1.x, (77.7 - 60) * 8, 0.04)
+    if current_message_index == 2 or current_message_index == 5 or current_message_index==8 or current_message_index==12 or current_message_index==16 or current_message_index==22 then
+        sprite_loop_timer = sprite_loop_timer + 1
+        -- Change sprite at intervals controlled by sprite_change_speed
+        if sprite_loop_timer >= sprite_change_speed then
+            if player1.sp == 0 then
+                player1.sp = 2
+            else
+                player1.sp = 0
+            end
+            sprite_loop_timer = 0
+        end
+    else
+        player1.y = 56
+        player1.sp = 0
+    end 
+    if current_message_index>=12 then
+      player1.x = lerp(player1.x, (79.3 - 60) * 8, 0.04)
+        if current_message_index>=22 then
+          sprite_change_speed=17
+          percy.flip=true
+        end
+    end
+  else
+    sprite_loop_timer = sprite_loop_timer + 1
+    -- Change sprite at intervals controlled by sprite_change_speed
+    if sprite_loop_timer >= sprite_change_speed then
+        if player1.sp == 0 then
+            player1.sp = 32
+        elseif player1.sp == 32 then
+            player1.sp = 34
+        elseif player1.sp == 34 then
+            player1.sp = 36
+        else
+            player1.sp = 0
+        end
+        sprite_loop_timer = 0
+    end
+  end
+
+
+  --player2 animation
+  if player2.x>=(74-60)*8 then
+    player2.x = lerp(player2.x, (76 - 60) * 8, 0.04)
+    if current_message_index==4 or current_message_index==13 or current_message_index==14 or current_message_index==17 or current_message_index==23 then
+      sprite_loop_timer = sprite_loop_timer + 1
+      if sprite_loop_timer >= 23 then
+        if player2.sp==8 then
+          player2.sp = 10
+        else
+          player2.sp = 8
+        end
+        sprite_loop_timer = 0
+      end
+    else
+      player2.y=56
+    end
+    if current_message_index>=13 then
+      player2.x = lerp(player2.x, (78 - 60) * 8, 0.04)
+    end
+  else
+    sprite_loop_timer2 = sprite_loop_timer2 + 1
+    -- Change sprite at intervals controlled by sprite_change_speed
+    if sprite_loop_timer2 >= 23 then
+        if player2.sp == 8 then
+          player2.sp = 40
+        elseif player2.sp == 40 then
+          player2.sp = 44
+        else
+          player2.sp = 8
+        end
+        sprite_loop_timer2 = 0
+    end
+  end 
+
   update_camera()
   x=camera_x
   y=camera_y+12
@@ -15,6 +141,10 @@ function _update()
     y=camera_y+4
   end
 
+end
+
+function lerp(current, target, speed)
+  return current + (target - current) * speed
 end
 
 local camera_panned = false
@@ -89,7 +219,6 @@ local camera_panned = false
         player1.flp=false
       else
         player1.dx=0
-        player1.sprite_id = player1.anim_frames[0]
       end
       if not climbing_ability then
       -- jump
@@ -192,7 +321,6 @@ local camera_panned = false
       player2.flp=false
     else
       player2.dx=0
-      player2.sprite_id = player2.anim_frames[0]
     end
   
     -- jump
@@ -242,13 +370,6 @@ local camera_panned = false
       if map_collision(player2,"right",0,map_offset_y,map_offset_x) then
           player2.dx=0
       end
-    end
-  
-    --animation player2
-    if player2.spz<4.9 then
-      player2.spz = player2.spz + .05
-    else
-      player2.spz = 1
     end
 
     -- Prevent moving past the camera bounds
