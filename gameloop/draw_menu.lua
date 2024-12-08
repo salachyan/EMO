@@ -15,30 +15,33 @@ function _draw()
         plot_diagram() 
     end
 
-    if (time() - time_start) > 1 then
+    if (time() - time_start) > 1 and screen~="level" then
         map_offset_x=34+(17)
     end
-    if (time() - time_start) > 2 then
+    if (time() - time_start) > 2 and screen~="level" then
         map_offset_x=34
     end
-
-    if color_outline_lvl == 8 and btn(❎, 0) then
-        lvl_condition=true
+    if (time() - time_start) > 3.5 and screen~="level" then
+        map_offset_x=0
+        map_offset_y=0
     end
+
+    
     if color_outline_inst == 8 and btn(❎, 0) then
         inst_condition=true
     end
 
     if (time() - time_start) > 3.5 and lvl_condition==false and inst_condition==false then
-        screen="menu"
+        map_offset_x=0
+        map_offset_y=0
     end
     
 
-    -- print("screen: "..tostring(color_outline_inst==8), map_offset_x,  map_offset_y+30, 14)
-    -- print("map_offset_x: "..tostring(map_offset_x), map_offset_x,  map_offset_y+40, 14)
-    -- print("map_offset_y: "..tostring(map_offset_y), map_offset_x,  map_offset_y+50, 14)
-    -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+60, 14)
-    -- print("inst_condition: "..tostring(inst_condition), map_offset_x,  map_offset_y+70, 14)
+    -- print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+30, 10)
+    -- print("map_offset_x: "..tostring(map_offset_x), map_offset_x,  map_offset_y+40, 10)
+    -- print("color_outline_lvl == 8: "..tostring(color_outline_lvl == 8 and btn(❎, 0) ), map_offset_x,  map_offset_y+50, 10)
+    -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+60, 10)
+    -- print("menu_cond: "..tostring(color_outline_menu_lvl==8 and btn(❎, 0)), map_offset_x,  map_offset_y+70, 10)
     
     
 end

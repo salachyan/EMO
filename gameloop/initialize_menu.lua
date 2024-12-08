@@ -17,6 +17,7 @@ function _init()
     time_start = time()
     lvl_condition=false
     inst_condition=false
+    menu_condition=false
 
     prologue_condition=false
     lvl1_condition=false
