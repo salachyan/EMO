@@ -37,9 +37,9 @@ function _draw()
     end
     
 
-    -- print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+30, 10)
-    -- print("map_offset_x: "..tostring(map_offset_x), map_offset_x,  map_offset_y+40, 10)
-    -- print("color_outline_lvl == 8: "..tostring(color_outline_lvl == 8 and btn(❎, 0) ), map_offset_x,  map_offset_y+50, 10)
+    print("color_outline_prologue: "..tostring(color_outline_prologue), map_offset_x,  map_offset_y+30, 10)
+    print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+40, 10)
+    print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+50, 10)
     -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+60, 10)
     -- print("menu_cond: "..tostring(color_outline_menu_lvl==8 and btn(❎, 0)), map_offset_x,  map_offset_y+70, 10)
     

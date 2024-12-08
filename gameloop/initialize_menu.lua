@@ -2,11 +2,11 @@ function _init()
     screen = "start"
     map_offset_y=0
     map_offset_x=17
-    color_outline_start = 8
+    color_outline_start = 7
     color_outline_inst = 7
     color_outline_lvl = 7
 
-    color_outline_prologue = 8
+    color_outline_prologue = 7
     color_outline_lvl1 = 7
     color_outline_lvl2 = 7
     color_outline_lvl3 = 7
