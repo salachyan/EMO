@@ -1,6 +1,6 @@
 function _update()
 
-  storylinetext()
+
   if map_offset_x==0 and map_offset_y==14 then
     level = "1a"
   elseif map_offset_x==12 and map_offset_y==14 then
@@ -9,12 +9,26 @@ function _update()
   
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  if question == true then
+  if question then
     uquestion()
   end
   if level == "1a" then
     collisions_for_switch1()
     collisions_for_switch2()
+    -- question="q1"
+  if(currentQ==1 and question == "qx") then
+    question = "q1"
+  end
+  if(currentQ==2 and question == "qx") then
+    question = "q2"
+  end
+  if(currentQ==3 and question == "qx") then
+    question = "q3"
+  end
+  if(currentQ==4 and question == "qx") then
+    question = "q4"
+  end
+
   elseif level == "1b" then
     level1b()
     collisions_for_switch3()
@@ -32,6 +46,7 @@ end
 function player1_update()
   player1.dy+=gravity
   --left
+  player1.running=false
   if btn(⬅️, 0) then
     player1.dx = -player1.speed
     player1.flip = true 
@@ -88,12 +103,7 @@ function player1_update()
     end
   end
 
-  if player1.spz<4.9 then
-    player1.spz = player1.spz + .08
-  else
-    player1.spz = 1
-  end
-
+  walking_animationp1()
   player1.x+=player1.dx
   player1.y+=player1.dy
 
@@ -174,16 +184,56 @@ elseif btn(➡️, 1) then
         player2.dx=0
     end
   end
+  walking_animationp2()
 
-  --animation player2
-  if player2.spz<4.9 then
-    player2.spz = player2.spz + .05
-  else
-    player2.spz = 1
-  end
 
   player2.x+=player2.dx
   player2.y+=player2.dy
 
 end
+
+
+function walking_animationp1()
+  if player1.running then
+      local num_frames = 6.9  -- Total frames in the animation
+      if player1.spz < num_frames then
+          player1.spz = player1.spz + 0.1
+      else
+          player1.spz = 1
+      end
+      player1.frames = {32,34,0,36,38,0}
+  
+  else
+      -- Standing still
+      local num_frames = 2.9  -- Total frames in the animation
+      if player1.spz < num_frames then
+          player1.spz = player1.spz + 0.05
+      else
+          player1.spz = 1
+      end
+      player1.frames = {0,2} -- Idle frame
+  end
+end
+
+function walking_animationp2()
+  if player2.running then
+      local num_frames = 6.9  -- Total frames in the animation
+      if player2.spz < num_frames then
+          player2.spz = player2.spz + 0.1
+      else
+          player2.spz = 1
+      end
+      player2.frames = {40,42,8,44,46,8}
+  else
+      -- Standing still
+      local num_frames = 2.9  -- Total frames in the animation
+      if player2.spz < num_frames then
+          player2.spz = player2.spz + 0.05
+      else
+          player2.spz = 1
+      end
+      player2.frames = {8,10} -- Idle frame
+  end
+end
+
 
