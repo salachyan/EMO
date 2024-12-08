@@ -3,7 +3,8 @@ function _init()
   map_offset_x=60
   map_offset_y=0
   move_player1=false
-have_moved=false
+  have_moved=false
+  start_story = have_moved and player1.y>=7*8 and player2.y>=7*8 and player1.x>=(74-60)*8 and player2.x>=(74-60)*8
 
   checker=0
 

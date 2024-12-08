@@ -43,7 +43,10 @@ function _draw()
     -- print("meet_percy: "..tostring(meet_percy ), camera_x, 50, 14)
     -- print("move_player1: "..tostring(move_player1 ), camera_x, camera_y+90, 0)
     -- print("have_moved: "..tostring(have_moved), camera_x, camera_y + 100, 0)
-    -- print("player1.x: "..tostring(player1.x), camera_x, camera_y + 110, 0)
+    print("player1.y: "..tostring(player1.y), camera_x, camera_y + 90, 0)
+    print("player2.y: "..tostring(player2.y), camera_x, camera_y + 100, 0)
+    print("player1.x: "..tostring(player1.x), camera_x, camera_y + 110, 0)
+    print("player2.x: "..tostring(player2.x), camera_x, camera_y + 120, 0)
   end
 
   function draw_ground()

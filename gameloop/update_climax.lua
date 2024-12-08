@@ -3,11 +3,20 @@ function _update()
   
   climax()
 
-  if reading or question then
+  start_story = have_moved and player1.y>=7*8 and player2.y>=7*8 and player1.x>=(74-60)*8 and player2.x>=(74-60)*8
+  if reading or question or (start_story) then
   else
       player1_update()
       player2_update()
   end
+
+  if player1.x>=(74-60)*8 then
+    player1.x = lerp(player1.x, (77.7 - 60) * 8, 0.02)
+  end
+  if player2.x>=(74-60)*8 then
+    player2.x = lerp(player2.x, (76 - 60) * 8, 0.02)
+  end 
+
   update_camera()
   x=camera_x
   y=camera_y+12
@@ -15,6 +24,10 @@ function _update()
     y=camera_y+4
   end
 
+end
+
+function lerp(current, target, speed)
+  return current + (target - current) * speed
 end
 
 local camera_panned = false

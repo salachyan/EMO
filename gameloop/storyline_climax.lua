@@ -108,9 +108,12 @@ function storylinetext()
         elseif player1.y==12*8 and player2.y==12*8 and players_fell==2 and checker==1 then
             tb_init(0,{"pete: we did it! let's cross that boulder."}) 
             checker+=1
-            player1.x-=(1)*8
+            player1.x=8
+            player2.x=2*8
+            player1.flp=false
+            player2.flip=false
 
-        elseif meet_percy==true and player1.landed and player2.landed and  player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and (checker==2 or checker==1) then
+        elseif meet_percy==true and player1.landed and player2.landed and  player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and checker==2 then
             tb_meet = tb_init(0,{"pip: percy, we've found you! are you okay? why is the cheetah standing next to you?"
             , "percy: i should've told you the truth earlier... the boulder, it wasn't just an accident."
             , "pete: what do you mean? wasn't it just a part of the mountain?"
