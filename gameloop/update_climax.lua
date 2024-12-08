@@ -11,10 +11,16 @@ function _update()
   end
 
   if player1.x>=(74-60)*8 then
-    player1.x = lerp(player1.x, (77.7 - 60) * 8, 0.02)
+    player1.x = lerp(player1.x, (77.7 - 60) * 8, 0.04)
+    if current_message_index==1 then
+      player1.y=56
+    elseif current_message_index==2 then
+      player1.y=56
+    end
   end
   if player2.x>=(74-60)*8 then
-    player2.x = lerp(player2.x, (76 - 60) * 8, 0.02)
+    player2.x = lerp(player2.x, (76 - 60) * 8, 0.04)
+    player2.y=56
   end 
 
   update_camera()

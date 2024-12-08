@@ -8,6 +8,32 @@ function _init()
 
   checker=0
 
+  pip_1 = "pip: percy, we've found you! are you okay? why is the cheetah standing next to you?"
+
+  -- Track current message being displayed
+  current_message_index = 1  -- Start from the first message (index 0)
+  
+  -- Define the dialogue messages
+  dialogue_messages = {
+      pip_1,  -- First message (should be displayed first)
+      "percy: i should've told you the truth earlier... the boulder, it wasn't just an accident.",
+      "pete: what do you mean? wasn't it just a part of the mountain?",
+      "pip: yeah, why did it fall right when we were crossing the bridge?",
+      "cheetah: percy and i set it up. it was supposed to stop you two from getting any further.",
+      "percy: i've been working with the cheetah all along. you two were never supposed to make it this far.",
+      "pip: all of this was a lie? why did you join him, percy? what did he promise you?",
+      "percy: i did it because i felt left out. you two were always so close, always working together, and i was on the outside.",
+      "percy: i thought if i teamed up with the cheetah, i could prove that i was just as strong, wise, and capable as you both.",
+      "percy: i wanted to outsmart everyone and show that i didn't need you guys to feel powerful and important.",
+      "pip: we never wanted to make you feel left out, percy. we should've been there for you when you needed us, instead of letting you feel alone.",
+      "pete: yeah, you don't need to prove anything to us. we're a team, no matter what.",
+      "pete: we want to work together as a family, no matter what.",
+      "percy: i'm so sorry for lying to you guys this whole time. how can you guys forgive me so easily?",
+      "pip: it's because you're sorry too for leaving you out. we should have known how leaving you out would make you feel.",
+      "pete: yeah, i'm so sorry for percy. we forgive you and can you forgive us too? you're our brother and we care about you.",
+      "percy: i forgive you guys and i'm really sorry for what i did. i'm glad we can work together again."
+  }
+
   close_to_boulder=0
   players_fell = 0
   -- i=0
