@@ -190,7 +190,7 @@ function plot_diagram()
     local tb_h = 8.5
 
     rectfill(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, 9)
-    rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_start)
+    rect(tb_x, tb_y, tb_x + tb_w, tb_y + tb_h, color_outline_prologue)
     print("prologue",0.3*8,(28-17)*8,1)
 
 
@@ -199,7 +199,7 @@ function plot_diagram()
     local tb_w1 = 4.3*8  
     local tb_h1 = 8.5
     rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 9)
-    rect(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 7)
+    rect(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, color_outline_lvl1)
     print("level 1",0.9*8,(26.8-17)*8,1)
 
     local tb_x2 = 10.5
@@ -207,7 +207,7 @@ function plot_diagram()
     local tb_w2 = 4.3*8  
     local tb_h2 = 8.5
     rectfill(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 9)
-    rect(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 7)
+    rect(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, color_outline_lvl2)
     print("level 2",14,(25.5-17)*8,1)
     
     local tb_x3 = 18.9
@@ -215,7 +215,7 @@ function plot_diagram()
     local tb_w3 = 4.3*8  
     local tb_h3 = 8.5
     rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 9)
-    rect(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 7)
+    rect(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, color_outline_lvl3)
     print("level 3",22,(21.7-17)*8,1)
     
     local tb_x4 = 10.5*8
@@ -223,7 +223,15 @@ function plot_diagram()
     local tb_w4 = 4.3*8  
     local tb_h4 = 8.5*2
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 9)
-    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 7)
+    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_outline_boulder)
     print("boulder",11*8,(20.5-17)*8,1)
     print("stage",11*8,(21.5-17)*8,1)
+
+    local tb_x4 = 12*8
+    local tb_y4 = (29-17)*8
+    local tb_w4 = 3*8  
+    local tb_h4 = 8.5
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
+    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_outline_menu_lvl)
+    print("menu",12.7*8,(29.3-17)*8,1)
 end

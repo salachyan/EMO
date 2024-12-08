@@ -6,14 +6,30 @@ function _init()
     color_outline_inst = 7
     color_outline_lvl = 7
 
+    color_outline_prologue = 8
+    color_outline_lvl1 = 7
+    color_outline_lvl2 = 7
+    color_outline_lvl3 = 7
+    color_outline_boulder = 7
+    color_outline_menu_lvl=7
+
     color_outline_menu=7
     time_start = time()
     lvl_condition=false
     inst_condition=false
+
+    prologue_condition=false
+    lvl1_condition=false
+    lvl2_condition=false
+    lvl3_condition=false
+    boulder_condition=false
     
     btn_count = 1
+    btn_count_lvl = 1
     last_btn_state_down = false 
     last_btn_state_up = false
+    last_btn_state_down_lvl = false 
+    last_btn_state_up_lvl = false
   
     player1 = {
       x = 0.5*8,    
