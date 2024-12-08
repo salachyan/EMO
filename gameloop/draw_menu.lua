@@ -203,7 +203,7 @@ function instructions_print()
     local tb_y1 = (20-16)*8
     local tb_w1 = 3*8  
     local tb_h1 = 8.5*2
-    rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 12)
+    rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 15)
     print("move",tb_x1+4,tb_y1+2,0)
     print("left",tb_x1+4,tb_y1+10,0)
 
@@ -211,7 +211,7 @@ function instructions_print()
     local tb_y2 = (20-16)*8
     local tb_w2 = 3*8  
     local tb_h2 = 8.5*2
-    rectfill(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 12)
+    rectfill(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 15)
     print("move",tb_x2+3,tb_y2+2,0)
     print("right",tb_x2+3,tb_y2+10,0)
 
@@ -222,7 +222,7 @@ function instructions_print()
     local tb_y3 = (23.5-16)*8
     local tb_w3 = 9*8  
     local tb_h3 = 8.5*2
-    rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 12)
+    rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 15)
     print("jump or",tb_x3+3,tb_y3+2,0)
     print("continue dialogue",tb_x3+2,tb_y3+10,0)
 
@@ -230,6 +230,6 @@ function instructions_print()
     local tb_y4 = (27.5-16)*8
     local tb_w4 = 8*8  
     local tb_h4 = 8.5
-    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 12)
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
     print("exit questions",tb_x4+2,tb_y4+2,0)
 end
