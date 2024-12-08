@@ -14,8 +14,8 @@ function _draw()
       spr(ladderR2.sp, ladderR2.x, ladderR2.y, 1, 1)
     end
     
-    spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
-    spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
+    spr(player1.sp, player1.x, player1.y, 2, 2, player1.flp)
+    spr(player2.sp, player2.x, player2.y, 2, 2, player2.flip)
     spr(percy.sp, percy.x, percy.y, 2, 2, percy.flip)
     spr(cheetah.sp, cheetah.x, cheetah.y, 4, 4, cheetah.flip)
 
@@ -40,13 +40,13 @@ function _draw()
     
     -- print("x: "..tostring(x), camera_x, camera_y+70, 14)
     -- print("y "..tostring(y), camera_x, camera_y+80, 14)
-    -- print("meet_percy: "..tostring(meet_percy ), camera_x, 50, 14)
-    print("condition: "..tostring(current_message_index==2), camera_x, camera_y+70, 0)
-    print("current_message_index : "..tostring(current_message_index), camera_x, camera_y + 80, 0)
-    print("player1.y: "..tostring(player1.y), camera_x, camera_y + 90, 0)
-    print("player2.y: "..tostring(player2.y), camera_x, camera_y + 100, 0)
-    print("player1.x: "..tostring(player1.x), camera_x, camera_y + 110, 0)
-    print("player2.x: "..tostring(player2.x), camera_x, camera_y + 120, 0)
+    -- print("player1.sp: "..tostring(player1.sp),camera_x, camera_y+60, 0)
+    -- print("condition: "..tostring(current_message_index==2), camera_x, camera_y+70, 0)
+    -- print("current_message_index : "..tostring(current_message_index), camera_x, camera_y + 80, 0)
+    -- print("player1.y: "..tostring(player1.y), camera_x, camera_y + 90, 0)
+    -- print("player2.y: "..tostring(player2.y), camera_x, camera_y + 100, 0)
+    -- print("player1.x: "..tostring(player1.x), camera_x, camera_y + 110, 0)
+    -- print("player2.x: "..tostring(player2.x), camera_x, camera_y + 120, 0)
   end
 
   function draw_ground()
