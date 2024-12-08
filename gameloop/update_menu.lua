@@ -27,7 +27,7 @@ function _update()
         -- btn_count_lvl = 1
     elseif inst_condition then
         map_offset_x=17
-        map_offset_y=17
+        map_offset_y=16
     elseif menu_condition then
         map_offset_x=0
         map_offset_y=0
@@ -39,7 +39,7 @@ function _update()
         screen = "level"
     elseif map_offset_x==0 and map_offset_y==0 then
         screen = "menu"
-    elseif map_offset_x==17 and map_offset_y==17 then
+    elseif map_offset_x==17 and map_offset_y==16 then
         screen = "inst"
     end
 
