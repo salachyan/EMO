@@ -13,12 +13,40 @@ function _draw()
       spr(ladderL2.sp, ladderL2.x, ladderL2.y, 1, 1)
       spr(ladderR2.sp, ladderR2.x, ladderR2.y, 1, 1)
     end
-    
-    spr(player1.sp, player1.x, player1.y, 2, 2, player1.flp)
-    spr(player2.sp, player2.x, player2.y, 2, 2, player2.flip)
-    spr(percy.sp, percy.x, percy.y, 2, 2, percy.flip)
-    spr(cheetah.sp, cheetah.x, cheetah.y, 4, 4, cheetah.flip)
 
+    -- if gameover_condition==true then
+    --   print("thanks for playing! "..tostring(current_message_index>=24), camera_x, camera_y+70, 14)
+    -- end
+
+    if (fading>0) fadeout()
+    if fading<0 then
+        rectfill(0,0,400,400,0)
+    end
+
+    if current_message_index<=24 and fading<0 then
+      gameover_condition=true
+    end
+    
+    if gameover_condition==false then
+      spr(player1.sp, player1.x, player1.y, 2, 2, player1.flp)
+      spr(player2.sp, player2.x, player2.y, 2, 2, player2.flip)
+      spr(percy.sp, percy.x, percy.y, 2, 2, percy.flip)
+      spr(cheetah.sp, cheetah.x, cheetah.y, 4, 4, cheetah.flip)  
+    else
+      if gameover_time<=1 then
+        gameover_time+=0.1
+        ending_condition=true
+      end
+      if gameover_time<=4 then
+        gameover_time+=0.1
+        thanks_condition=true
+      end
+      if ending_condition then
+        print("the three brothers then head back down the mountain together, healing their relationship with each other.", camera_x, camera_y+50, 7)
+      elseif thanks_condition then
+      print("thanks for playing!", camera_x, camera_y+50, 7)     
+      end
+    end
     spr(boulder.sp, boulder.x, boulder.y, 4, 4, boulder.flip)
 
     spr(bridge1.sp, bridge1.x, bridge1.y, 1, 1, bridge1.flip)
@@ -38,9 +66,9 @@ function _draw()
     -- print("camera_x: "..tostring(camera_x ), camera_x,  camera_y+50, 14)
     -- print("camera_y: "..tostring(camera_y), camera_x, camera_y+60, 14)
     
-    -- print("x: "..tostring(x), camera_x, camera_y+70, 14)
-    -- print("y "..tostring(y), camera_x, camera_y+80, 14)
-    -- print("player1.sp: "..tostring(player1.sp),camera_x, camera_y+60, 0)
+    -- print("current_message_index>=24: "..tostring(current_message_index>=24), camera_x, camera_y+70, 14)
+    -- print("gameover_condition==true "..tostring(gameover_condition==true), camera_x, camera_y+80, 14)
+    -- print("fading==0: "..tostring(fading==0),camera_x, camera_y+60, 0)
     -- print("condition: "..tostring(current_message_index==2), camera_x, camera_y+70, 0)
     -- print("current_message_index : "..tostring(current_message_index), camera_x, camera_y + 80, 0)
     -- print("player1.y: "..tostring(player1.y), camera_x, camera_y + 90, 0)

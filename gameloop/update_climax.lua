@@ -11,7 +11,7 @@ function _update()
   end
 
   --percy animation
-  if current_message_index==3 or current_message_index==7 or current_message_index==9 or current_message_index==10 or current_message_index==11 or current_message_index==15 or current_message_index==18 or current_message_index==24 then
+  if current_message_index==3 or current_message_index==7 or current_message_index==9 or current_message_index==10 or current_message_index==11 or current_message_index==15 or current_message_index==18 then
     sprite_loop_timer = sprite_loop_timer + 1
     if sprite_loop_timer >= sprite_change_speed then
       if percy.sp==64 then
@@ -21,20 +21,34 @@ function _update()
       end
       sprite_loop_timer = 0
     end
+  else
+    percy.y = 56
+    percy.sp = 64
+  end
     if current_message_index==10 then
       percy.x = lerp(percy.x, (81.7- 60) * 8, 0.04)
     end
     if current_message_index>=15 then
       percy.x = lerp(percy.x, (80.5- 60) * 8, 0.04)
-      if current_message_index==18 then
+      if current_message_index>=18 then
         percy.x = lerp(percy.x, (79.5- 60) * 8, 0.04)
-      end
-      if current_message_index==24 then
+      if current_message_index>=24 then
         percy.x = lerp(percy.x, (79- 60) * 8, 0.04)
         player2.x = lerp(player2.x, (78.5- 60) * 8, 0.04)
+        percy.y=6*8
       end
     end
+    end
+
+  if current_message_index >= 24 and reading==false then
+      if(fading==0)then 
+          fadeout()
+      end
+      -- if fading < 0 then
+      --     level = "3e"
+      -- end
   end
+ 
 
   --cheetah animation
   if current_message_index==6 or current_message_index==19 or current_message_index==20 or current_message_index==21 then
@@ -60,7 +74,7 @@ function _update()
   --player1 animation
   if player1.x >= (74-60) * 8 then
     player1.x = lerp(player1.x, (77.7 - 60) * 8, 0.04)
-    if current_message_index == 2 or current_message_index == 5 or current_message_index==8 or current_message_index==12 or current_message_index==16 or current_message_index==22 then
+    if current_message_index == 2 or current_message_index == 5 or current_message_index==8 or current_message_index==12 or current_message_index==16 or current_message_index==22 or current_message_index==23 then
         sprite_loop_timer = sprite_loop_timer + 1
         -- Change sprite at intervals controlled by sprite_change_speed
         if sprite_loop_timer >= sprite_change_speed then
@@ -80,6 +94,9 @@ function _update()
         if current_message_index>=22 then
           sprite_change_speed=17
           percy.flip=true
+          if current_message_index>=24 then
+            player1.y=6*8
+          end
         end
     end
   else
@@ -103,7 +120,7 @@ function _update()
   --player2 animation
   if player2.x>=(74-60)*8 then
     player2.x = lerp(player2.x, (76 - 60) * 8, 0.04)
-    if current_message_index==4 or current_message_index==13 or current_message_index==14 or current_message_index==17 or current_message_index==23 then
+    if current_message_index==4 or current_message_index==13 or current_message_index==14 or current_message_index==17 then
       sprite_loop_timer = sprite_loop_timer + 1
       if sprite_loop_timer >= 23 then
         if player2.sp==8 then
@@ -118,6 +135,9 @@ function _update()
     end
     if current_message_index>=13 then
       player2.x = lerp(player2.x, (78 - 60) * 8, 0.04)
+      if current_message_index>=24 then
+        player2.y=6*8
+      end
     end
   else
     sprite_loop_timer2 = sprite_loop_timer2 + 1
@@ -383,4 +403,22 @@ local camera_panned = false
     player2.y+=player2.dy
   end
   
-  
+
+  function fadeout()
+    local fade,c,p={[0]=0,17,18,19,20,16,22,6,24,25,9,27,28,29,29,31,0,0,16,17,16,16,5,0,2,4,0,3,1,18,2,4}
+        fading+=1
+        if fading%fadespeed==1 then
+            for i=0,15 do
+                c=peek(24336+i)
+                if (c>=128) c-=112
+                p=fade[c]
+                if (p>=16) p+=112
+                pal(i,p,1)
+            end
+            if fading==7*fadespeed+1 then
+                cls()
+                pal()
+                fading=-1
+            end
+        end
+  end

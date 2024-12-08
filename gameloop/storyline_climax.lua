@@ -121,13 +121,19 @@ function storylinetext()
             
         elseif meet_percy == true and player2.landed and player1.x >= (75 - 60) * 8 and player2.x >= (75 - 60) * 8 and checker == 2 then
             tb_meet = tb_init(0, {dialogue_messages[current_message_index]})
+            
             if current_message_index<=23 then
                 -- Increment the message index after it is displayed
                 current_message_index = current_message_index + 1
             elseif current_message_index == 24 then
                 -- Stop the text box display after the last message
                 reading = false
+                gameover_condition=true
             end
+        -- elseif checker==3 then
+        --     player1.y+=3*8
+        --     player2.y+=2*8
+        --     percy.y+=1*8
         end
 
     end

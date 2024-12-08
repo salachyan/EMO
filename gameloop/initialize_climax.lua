@@ -6,6 +6,16 @@ function _init()
   have_moved=false
   start_story = have_moved and player1.y>=7*8 and player2.y>=7*8 and player1.x>=(74-60)*8 and player2.x>=(74-60)*8
 
+  pal(0,128,1) -- force disrupt
+  pal()
+  fading=0
+  fadespeed=5
+  
+  gameover_time=0
+  gameover_condition=false
+  ending_condition=false
+  thanks_condition=false
+
   checker=0
   sprite_loop_timer = 0 
   sprite_loop_timer2=0
@@ -32,8 +42,8 @@ function _init()
   message20="cheetah: i figured you'd be willing to help me take them down, just to feel like you finally mattered."
   message21="cheetah: but it's clear now... whatever you three have, it's not something I can break."
   message22="pip: it's over! the cheetah won't bother us anymore"
-  message23="pete: we did it as a team! we're so happy to have you back percy!"
-  message24="percy: i'm so happy we're brothers!"
+  message23="percy: i'm so happy we're brothers!" 
+  message24="pete: we did it as a team! we're so happy to have you back percy!"
   -- Track current message being displayed
   current_message_index = 1  -- Start from the first message (index 0)
   

@@ -104,8 +104,8 @@ function _update()
   function player2_update()
     player2.dy+=gravity
     --left
-    if btn(⬆️, 0) then
-    -- if btn(⬅️, 1) then
+    -- if btn(⬆️, 0) then
+    if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
       player2.running=true
