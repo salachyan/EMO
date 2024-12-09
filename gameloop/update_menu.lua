@@ -9,10 +9,12 @@ function _update()
         if color_outline_lvl == 8 and btnp(❎, 0) then
             lvl_condition=true
             menu_condition = false
-            
+            inst_condition=false
         end
-        if color_outline_inst == 8 and btn(❎, 0) then
+        if color_outline_inst == 8 and btnp(❎, 0) then
             inst_condition=true
+            lvl_condition=false
+            menu_condition = false
         end
     elseif screen == "level" then
         level()
@@ -20,9 +22,15 @@ function _update()
         if color_outline_menu_lvl==8 and btnp(❎, 0) then
             menu_condition=true
             lvl_condition = false
+            inst_condition=false
         end
-    elseif screen=="instruction" then
-        
+    elseif screen=="inst" then
+        color_outline_inst = 7
+        if btnp(❎, 0) then
+            menu_condition=true
+            inst_condition=false
+            lvl_condition = false
+        end
     end
     
 
