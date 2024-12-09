@@ -2,6 +2,10 @@ function _init()
     level = "2a"
     map_offset_x=30
     map_offset_y=14
+    iquestion()
+    reading=false
+    finalquestion=false
+    complete=false
     player1 = {
       x = 2,    
       y = 13*8,    

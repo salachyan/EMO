@@ -1,71 +1,96 @@
 function iquestion()
-    q1={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q5={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
-    y=14, -- y coordginate
+    y=10, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
     -- hint="don't forget that \npip learned \nsomething from \nthe rumors!",
-    hint="pip ran to\npete because \nmiguel told him \nsomething.",
-    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
-    question="question 1: what is the \n main reason pip runs to\n talk to pete?",
-    qa={'to tell pete a secret','to warn pete about\nthe approaching cheetah','to ask pete for some food','to plan a party for percy'},
-    rowsa= {3,1,2,1,1},
-    qn = 1
+    hint="the cheetah \nexclaimed something \nbetween level 2 and 3!",
+    answer="remember: it is a sign \nthat percy and \nthe cheetah are \nworking together to \nstop the brothers",
+    question="question 5: what is the \n significance of the \n boulder in the story?",
+    qa={'it symbolizes the \nstrength of the brothers.','it is an obstacle to help \nthe brothers get up \nthe mountain.','it is a sign that percy \nand the cheetah are \nworking together to \nstop the brothers.',"it marks the end \nof the brother's journey."},
+    rowsa= {3,2,3,4,2},
+    qn = 5
     }
-    q2={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q6={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
-    y=14, -- y coordginate
+    y=10, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint='after the first \nknock,pete said "bro! \nopen the door! \nwe have something \nimportant to tell you!',
-    answer="percy didn't answer \nwith the first knock",
-    question="question 2: why do pip and \n pete knock on percy's door\n harder the second time?",
-    qa={'they forgot to knock the \nfirst time','they want to see if \nanyone else is home',"percy didn't answer \nwith the first knock",'they are playing\na game with percy'},
-    rowsa= {3,2,2,2,2},
-    qn=2
+    hint='percy said: "you two \nwere always so close, \nalways working \ntogether, and i \nwas on the outside."',
+    answer="remember: he felt \nleft out and wanted \nto prove he was \njust as capable as \npip and pete.",
+    question="question 6: why did percy \n team up with the cheetah?",
+    qa={'he wanted to be the \nstrongest of the \nthree brothers.','he felt left out and \nwanted to prove he was \njust as capable \nas pip and pete.',"he thought the \ncheetah was his friend",'he wanted to escape \nfrom the mountain.'},
+    rowsa= {3,3,4,2,2},
+    qn=6
     }
-    q3={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q7={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
+    x=8, -- x coordinate
+    y=10, -- y coordginate
+    w=119, -- text box width
+    h=73, -- text box height
+    hint='after percy said, \n"i am really sorry \nfor what i did,"\npete and pip responded \nby talking about \nhow they wanted \nto be a team \nand move forward.',
+    answer="remember: when someone \nsays they're sorry ",
+    question = "question 7: how do pip and \n pete react after percy \n explains why he worked \n with the cheetah?",
+    qa={'they apologize to percy \nfor making him feel left \nout and promise to \nwork together.', 'they get angry and \nleave percy behind.', 'they challenge the \ncheetah to a fight.', "they ask the cheetah \nto join them."},
+    rowsa= {4,4,2,2,2},
+    qn = 7
+    }
+    q8={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="pip ran to\npete because \nmiguel told him \nsomething.",
-    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",    
-    question = "question 3: what can the \n reader infer from pete's \n statement, \"he never \n leaves his doorunlocked\"?",
-    qa={'percy likes to keep his\nhouse neat', 'percy is usually very \ncareful about \nlocking his door', 'percy often forgets \nto close his door', 'percy does not\n like visitors'},
-    rowsa= {4,2,3,2,2},
-    qn = 3
+    hint="don't forget that \nthe three brothers \ntalk and resolve \ntheir problems!",
+    answer="remember: the brothers' \nbond is too strong \nfor him to manipulate.",    
+    question = "question 8: what does \nthe cheetah realize \nat the end of the climax?",
+    qa={'he can easily break the \nbond between the brothers.', 'percy was lying to \nhim the whole time.', "the brothers don't \nneed him to succeed.", "the brothers' bond \nis too strong for \nhim to manipulate."},
+    rowsa= {3,2,2,2,3},
+    qn = 8
     }
-    q4={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q9={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
     y=14, -- y coordginate
     w=119, -- text box width
     h=73, -- text box height
-    hint="pip ran to\npete because \nmiguel told him \nsomething.",
-    answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
-    question = "question 4: based on the \n events in the prologue,\n what is most likely\n to happen next?",
-    qa={'the brothers will return \nhome and forget about \nthe cheetah', 'percy will greet them \nat the door with a gift', 'the brothers will leave\nthe village immediately.', "the cheetah will arrive\nbefore they leave"},
-    rowsa= {4,3,2,2,2},
-    qn = 4
+    hint="who are the characters \nin this story?",
+    answer="remember: they are \ntrying to escape \nthe cheetah",    
+    question = "question 9: what is the \n main conflict that pip and \n pete face in the story?",
+    qa={'they are trying to \nfind food for \ntheir family.', 'they are trying \nto escape the cheetah.', "they are trying \nto fix their house.", "they are looking \nfor a new home."},
+    rowsa= {3,3,2,2,2},
+    qn = 9
+    }
+    q10={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
+    x=8, -- x coordinate
+    y=10, -- y coordginate
+    w=119, -- text box width
+    h=73, -- text box height
+    hint="the falling action \nis the story that \nhappens after \nthe climax!",
+    answer="remember: percy \nexplains that he \njoined the cheetah \nbecause he felt left \nout and wanted \nto prove himself.",    
+    question = "question 10: what causes the \nfalling action in the story?",
+    qa={'percy explains that he \njoined the cheetah \nbecause he felt left \nout and wanted \nto prove himself.', 'pip and pete leave \nthe mountain \nand never return.', "The cheetah defeats \nthe brothers in a race.", "percy tells the brothers \nthat he never wanted to \nbe a part of their team."},
+    rowsa= {2,4,3,2,3},
+    qn = 10
     }
 
     answers = {"a. ","b. ","c. ","d. "}
     answersel=1
-    qamaster = {2,3,2,3}
-    question="qx"
+    qamaster = {2,1,0,3,1,0}
+    question="q5"
     viewhint1checker=false 
     correct=false
     answernumber=0
     viewhint=false
-    level = "1a"
-    currentQ=1
-    questionAns=1
+    currentQ=5
+    questionAns=2
 end
 
 function resetquestion()
@@ -97,7 +122,7 @@ function uquestion()
             end
         end
         if(btnp(5))then
-            if(answersel == qamaster[questionAns])then
+            if(answersel == questionAns)then
                 correct=true
                 answered=true
                 answernumber+=1
@@ -125,6 +150,9 @@ function correctlogic(q)
     dcorrect(q)
         currentQ = q.qn+1
         if(btnp(4)) then
+            if finalquestion==true then
+                complete=true
+            end
             resetquestion()
     end
 end
@@ -143,6 +171,9 @@ function incorrectlogic(q)
     if(answernumber>=2 and viewhint1checker)then
         dincorrect2(q)
         if btnp(4) then
+            if finalquestion==true then
+                complete=true
+            end
             currentQ = q.qn + 1
             resetquestion()
         -- elseif 
@@ -161,8 +192,6 @@ function viewhintfalselogic(q)
     end
 end
 
-
--- rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
 function dcorrect(q)
     if correct and answered then
         rectfill(q.x+20,q.y+12,q.w-20, q.y+28,15)
@@ -171,13 +200,6 @@ function dcorrect(q)
     end
 end
 
--- function dincorrect1(q)
---     if answered and (correct != true) then
---         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---         print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8) 
---     end
--- end
 function dincorrect1(q)
     if answered and (correct != true) then
         local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint."
@@ -196,16 +218,6 @@ function dincorrect1(q)
     end
 end
 
-
-
--- function dincorrect2(q)
---     if answered and (correct != true) then
---         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---         print("that was incorrect.",q.x+15,q.y+18,8) 
---         print(q.answer, q.x+15, q.y+25,8)
---     end
--- end
 function dincorrect2(q)
     if answered and (correct != true) then
         local text = "that was incorrect."
@@ -231,13 +243,6 @@ end
 
 
 
--- function dhint(q)
---     if viewhint==true then
---     rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---     rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---     print(q.hint, q.x+15, q.y+16,8)
---     end
--- end
 function dhint(q)
     if viewhint == true then
         local hint_lines = split(q.hint, "\n")

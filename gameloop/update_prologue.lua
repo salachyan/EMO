@@ -1,44 +1,17 @@
 function _update()
 
-    -- storylinetext()
-    if map_offset_x==0 and map_offset_y==14 then
-      level = "1a"
-    elseif map_offset_x==12 and map_offset_y==14 then
-      level = "1b"
-    end
-    
-    -- update_map_level1a_to_level1b()
-    -- update_map_level1_to_level2()
     if question == true then
       uquestion()
     end
-  --   if btnp(4) then
-  --     -- if a button is pressed
-  --     -- add some shake
-  --     -- start developing picture
-  --     -- note that we add to the
-  --     -- shake variable so shaking
-  --     -- is cumulative. mashing
-  --     -- the button will shake
-  --     -- screen a lot.
-  --     shake+=1
-  --     devspeed+=0.04
-  -- end
+
     player1_update()
     player2_update()
     player3_update()
     if shake!= true then
       update_camera()
     end
-
-    -- move_player1right()
     prologue()
 
-    -- develop+=devspeed
-    
-    --make sure it never goes
-    --above 100
-    -- develop=min(100,develop)
   end
   
   function update_camera()

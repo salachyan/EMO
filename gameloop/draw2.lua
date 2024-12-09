@@ -1,5 +1,7 @@
 function _draw()
   cls()
+  tb_draw()
+
   map(map_offset_x, map_offset_y, 0, 0, 32, 64)  
   print("level 2",50,2,14)
   spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
@@ -24,9 +26,6 @@ function _draw()
     spr(switch1_2b.sp, switch1_2b.x, switch1_2b.y, 1, 1, switch1_2b.flip)
     spr(switch2_2b.sp, switch2_2b.x, switch2_2b.y, 1, 1, switch2_2b.flip)
   end
-
-  -- print("x: "..tostring(map_offset_x), 5, 30, 14)
-  -- print("y: "..tostring(map_offset_y), 5, 40, 14)
 
 end
 

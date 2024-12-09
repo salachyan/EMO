@@ -19,13 +19,17 @@ function _update()
       collisions_for_switch6_3b()
     end
   
-    player1_update()
-    player2_update()
+    if reading then
+    else
+        player1_update()
+        player2_update()
+    end
   
   end
   
   function player1_update()
     player1.dy+=gravity
+    player1.running=false
     --left
     if btn(⬅️, 0) then
       player1.dx = -player1.speed
@@ -83,11 +87,7 @@ function _update()
       end
     end
   
-    if player1.spz<4.9 then
-      player1.spz = player1.spz + .08
-    else
-      player1.spz = 1
-    end
+    walking_animationp1()
   
     player1.x+=player1.dx
     player1.y+=player1.dy
@@ -105,6 +105,7 @@ function _update()
     player2.dy+=gravity
     --left
     -- if btn(⬆️, 0) then
+    player2.running=false
     if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
@@ -171,14 +172,55 @@ function _update()
     end
   
     --animation player2
-    if player2.spz<4.9 then
-      player2.spz = player2.spz + .05
-    else
-      player2.spz = 1
-    end
+    walking_animationp2()
   
     player2.x+=player2.dx
     player2.y+=player2.dy
   end
+  
+  
+  function walking_animationp1()
+    if player1.running then
+        local num_frames = 6.9  -- Total frames in the animation
+        if player1.spz < num_frames then
+            player1.spz = player1.spz + 0.1
+        else
+            player1.spz = 1
+        end
+        player1.frames = {32,34,0,36,38,0}
+    
+    else
+        -- Standing still
+        local num_frames = 2.9  -- Total frames in the animation
+        if player1.spz < num_frames then
+            player1.spz = player1.spz + 0.05
+        else
+            player1.spz = 1
+        end
+        player1.frames = {0,2} -- Idle frame
+    end
+  end
+  
+  function walking_animationp2()
+    if player2.running then
+        local num_frames = 6.9  -- Total frames in the animation
+        if player2.spz < num_frames then
+            player2.spz = player2.spz + 0.1
+        else
+            player2.spz = 1
+        end
+        player2.frames = {40,42,8,44,46,8}
+    else
+        -- Standing still
+        local num_frames = 2.9  -- Total frames in the animation
+        if player2.spz < num_frames then
+            player2.spz = player2.spz + 0.05
+        else
+            player2.spz = 1
+        end
+        player2.frames = {8,10} -- Idle frame
+    end
+  end
+  
   
   
