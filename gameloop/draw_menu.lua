@@ -216,8 +216,8 @@ function instructions_print()
     print("move",tb_x2+3,tb_y2+2,0)
     print("right",tb_x2+3,tb_y2+10,0)
 
-    print("a",(19.1-17)*8,(23.7-16)*8,0)
-    print("b",(19.1-17)*8,(27.7-16)*8,0)
+    print("a",(19.1-17)*8,(22.7-16)*8,0)
+    print("b",(19.1-17)*8,(26.7-16)*8,0)
 
     local tb_x3 = (22-17)*8
     local tb_y3 = (22.5-16)*8
