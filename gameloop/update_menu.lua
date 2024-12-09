@@ -19,14 +19,14 @@ function _update()
     elseif screen == "level" then
         level()
         color_outline_lvl = 7
-        if color_outline_menu_lvl==8 and btnp(❎, 0) then
+        if btnp(🅾️,0) then
             menu_condition=true
             lvl_condition = false
             inst_condition=false
         end
     elseif screen=="inst" then
         color_outline_inst = 7
-        if btnp(❎, 0) then
+        if btnp(🅾️,0) then
             menu_condition=true
             inst_condition=false
             lvl_condition = false
@@ -206,10 +206,11 @@ function level()
         load("level3.p8")
     elseif color_outline_boulder==8 and btn(❎, 0) then
         load("climax.p8")
-    -- elseif color_outline_menu_lvl==8 and btn(❎, 0) then
-    --     map_offset_x=0
-    --     map_offset_y=0
-    --     menu_condition=true
-    --     -- lvl_condition = false
+    elseif color_outline_menu_lvl==8 and btn(❎, 0) then
+        load("postclimax.p8")
+        -- map_offset_x=0
+        -- map_offset_y=0
+        -- menu_condition=true
+        -- -- lvl_condition = false
     end
 end

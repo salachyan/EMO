@@ -179,13 +179,14 @@ function plot_diagram()
     print("boulder",11*8,(20.5-17)*8,1)
     print("stage",11*8,(21.5-17)*8,1)
 
-    local tb_x4 = 12*8
+    local tb_x4 = 9.5*8
     local tb_y4 = (29-17)*8
-    local tb_w4 = 3*8  
-    local tb_h4 = 8.5
-    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
+    local tb_w4 = 3*8*2  
+    local tb_h4 = 8.5*2
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 9)
     rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_outline_menu_lvl)
-    print("menu",12.7*8,(29.3-17)*8,1)
+    print("post-game",10.2*8,(29.3-17)*8,1)
+    print("questions",10.2*8,((29.3-17)*8)+8,1)
 end
 
 function instructions_print() 
@@ -218,7 +219,7 @@ function instructions_print()
     print("a",(19.1-17)*8,(23.7-16)*8,0)
     print("b",(19.1-17)*8,(27.7-16)*8,0)
 
-    local tb_x3 = (22.5-17)*8
+    local tb_x3 = (22-17)*8
     local tb_y3 = (22.5-16)*8
     local tb_w3 = 9*8  
     local tb_h3 = 8.5*3
@@ -227,20 +228,22 @@ function instructions_print()
     print("dialogue, or",tb_x3+2,tb_y3+10,0)
     print("select answers",tb_x3+2,tb_y3+18,0)
 
-    local tb_x4 = (22.5-17)*8
+    local tb_x4 = (22-17)*8
     local tb_y4 = (26.5-16)*8
-    local tb_w4 = 8*8  
-    local tb_h4 = 8.5*3
+    local tb_w4 = 9.8*8  
+    local tb_h4 = 8.5*4
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
     print("acknowledge ",tb_x4+2,tb_y4+2,0)
     print("feedback",tb_x4+2,tb_y4+10,0)
-    print("from questions",tb_x4+2,tb_y4+18,0)
+    print("from questions, or",tb_x4+2,tb_y4+18,0)
+    print("return to menu page",tb_x4+2,tb_y4+26,0)
 
-    local tb_x4 = 11.8*8
-    local tb_y4 = (31.8-17)*8
-    local tb_w4 = 3*8  
-    local tb_h4 = 8.5
-    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
-    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 8)
-    print("menu",12.4*8,(32-17)*8,color_menu)
+    -- local tb_x4 = 11.8*8
+    -- local tb_y4 = (31.8-17)*8
+    -- local tb_w4 = 3*8  
+    -- local tb_h4 = 8.5
+    -- rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
+    -- rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 8)
+    -- print("post-game",12.4*8,(32-17)*8,color_menu)
+    -- print("questions",12.4*8,(32-17)*8,color_menu)
 end
