@@ -38,9 +38,9 @@ function _update()
   else
       player1_update()
       player2_update()
+      btn_option()
       if btnp(🅾️,0) then
-        btn_option()
-        
+        show_popup = true
       end
   end
 
@@ -242,64 +242,38 @@ function walking_animationp2()
 end
 
 function btn_option()
-  if show_popup then
-    -- Navigate Yes/No options
-    if btnp(⬆️, 0) then
-        popup_selection = 1 -- Yes
-    elseif btnp(⬇️, 0) then
-        popup_selection = 2 -- No
+    if btn(⬇️, 0) and not last_btn_state_down_lvl then
+    btn_count_lvl -= 1
+    last_btn_state_down_lvl = true  --button is now pressed
+    elseif not btn(⬇️, 0) and last_btn_state_down_lvl then
+      last_btn_state_down_lvl = false  --button has been released
     end
 
-    -- Confirm selection
-    if btnp(🅾️, 0) then
-        if popup_selection == 1 then
-            load("menu.p8") -- Load the main menu
-        else
-            show_popup = false -- Close popup, stay on current screen
-        end
+    if btn(⬆️, 0) and not last_btn_state_up_lvl then
+      btn_count_lvl += 1
+      last_btn_state_up_lvl = true 
+    elseif not btn(⬆️, 0) and last_btn_state_up_lvl then
+      last_btn_state_up_lvl = false 
     end
-else
-    -- Your existing button logic to trigger the popup
-    if btnp(🅾️, 0) then
-        show_popup = true -- Show confirmation popup
+
+    --cycle button selection with wraparound behavior
+    if btn_count_lvl > 2 then
+      btn_count_lvl = 1
+    elseif btn_count_lvl < 1 then
+      btn_count_lvl = 2
     end
-end
-  -- --detect if the down button is pressed and released
-  -- if btn(⬇️, 0) and not last_btn_state_down_lvl then
-  --   btn_count_lvl -= 1
-  --   last_btn_state_down_lvl = true  --button is now pressed
-  -- elseif not btn(⬇️, 0) and last_btn_state_down_lvl then
-  --     last_btn_state_down_lvl = false  --button has been released
-  -- end
 
-  -- if btn(⬆️, 0) and not last_btn_state_up_lvl then
-  --     btn_count_lvl += 1
-  --     last_btn_state_up_lvl = true 
-  -- elseif not btn(⬆️, 0) and last_btn_state_up_lvl then
-  --     last_btn_state_up_lvl = false 
-  -- end
-
-  -- --cycle button selection with wraparound behavior
-  -- if btn_count_lvl > 7 then
-  --     btn_count_lvl = 1
-  -- elseif btn_count_lvl < 1 then
-  --     btn_count_lvl = 7
-  -- end
-
-  -- --set button outline colors based on button selection
-  -- if btn_count_lvl == 1 then
-  --     color_outline_prologue = 7
-  --     color_outline_lvl1 = 7
-  --     color_outline_lvl2 = 7
-  --     color_outline_lvl3 = 7
-  --     color_outline_boulder = 7
-  --     color_outline_menu_lvl=7
-  -- elseif btn_count_lvl == 2 then
-  --     color_outline_prologue = 8
-  --     color_outline_lvl1 = 7
-  --     color_outline_lvl2 = 7
-  --     color_outline_lvl3 = 7
-  --     color_outline_boulder = 7
-  --     color_outline_menu_lvl=7
-  -- end
+    --set button outline colors based on button selection
+    if btn_count_lvl == 1 then
+      yes_color=8
+      no_color=7
+    elseif btn_count_lvl == 2 then
+      yes_color=7
+      no_color=8
+    end
+    if yes_color==8 and btn(❎, 0) then
+      load("menu.p8")
+    elseif no_color==8 and btn(❎, 0) then
+      show_popup=false
+    end
 end

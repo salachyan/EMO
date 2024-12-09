@@ -65,24 +65,27 @@ function _draw()
         viewhintfalselogic(q4)
       end
     end
-    print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+10, 14)
-    print("color_menu "..tostring(color_menu), map_offset_x,  map_offset_y+20, 14)
-    -- print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
-    -- print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
+    print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+70, 14)
+    print("yes_color "..tostring(yes_color), map_offset_x,  map_offset_y+80, 14)
+    print("no_color: "..tostring(no_color), map_offset_x,  map_offset_y+90, 14)
+    print("cond: "..tostring(btn(⬇️, 0) and not last_btn_state_down_lvl), map_offset_x,  map_offset_y+100, 14)
     -- print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
     
     if show_popup then
-      -- Popup background
-      rectfill(20, 40, 108, 80, 0) -- Black box
-      rect(20, 40, 108, 80, 7) -- White border
+      rectfill(17, 40, 116, 80, 0) 
+      rect(17, 40, 116, 80, 7) 
 
       -- Popup text
-      print("Are you sure you want", 30, 45, 7)
-      print("to go back to the menu?", 30, 53, 7)
+      print("are you sure you want", 20, 45, 7)
+      print("to go back to the menu?", 20, 53, 7)
 
-      -- Options
-      print("Yes", 50, 65, popup_selection == 1 and 8 or 7)
-      print("No", 80, 65, popup_selection == 2 and 8 or 7)
+      rectfill(40, 65, 60, 75, 7) 
+      rect(40, 65, 60, 75, yes_color) 
+      print("yes", 45, 68, 0) 
+
+      rectfill(70, 65, 90, 75, 7) 
+      rect(70, 65, 90, 75, no_color)
+      print("no", 75, 68, 0)
     end
   end
 

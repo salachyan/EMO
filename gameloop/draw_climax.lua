@@ -59,9 +59,9 @@ function _draw()
       end
 
       if questions_condition==true then
-        -- if btn(❎, 0) then
-        --   load("menu.p8")
-        -- end
+        if btn(❎, 0) then
+          load("postclimax.p8")
+        end
       end
       if ending_condition==true then
         print("the three brothers then headed", camera_x+1, camera_y+40, 7)

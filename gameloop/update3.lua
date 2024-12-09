@@ -113,8 +113,8 @@ function _update()
       player2.flp=true
   
     -- right
-  elseif btn(⬇️, 0) then
--- elseif btn(➡️, 1) then
+  -- elseif btn(⬇️, 0) then
+elseif btn(➡️, 1) then
       player2.dx = player2.speed
       player2.flip = false 
       player2.running=true
@@ -125,8 +125,8 @@ function _update()
     end
   
     -- jump
-    if btn(🅾️, 0) and player2.landed then
-    -- if btn(❎, 1) and player2.landed then
+    -- if btn(🅾️, 0) and player2.landed then
+    if btn(❎, 1) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
