@@ -1,4 +1,16 @@
 function _update()
+  if show_popup==true then
+    btn_option()
+  end
+ 
+  if show_popup==false then
+    yes_color=7
+    no_color=7
+  end
+  if btnp(🅾️,0) then
+    show_popup = true
+  end
+
   storylinetext()
   
   climax()
@@ -316,8 +328,8 @@ local camera_panned = false
   end
   
   if climbing_ability2 then
-      if btn(🅾️, 0) then
-      -- if btn(❎, 1) then
+      -- if btn(🅾️, 0) then
+      if btn(❎, 1) then
         player2.y -= 0.8 
         player2.dy = 0 -- Prevent gravity from pulling the player down while climbing
         player2.landed = false 
@@ -325,16 +337,16 @@ local camera_panned = false
   end
 
     --left
-    if btn(⬆️, 0) then
-    -- if btn(⬅️, 1) then
+    -- if btn(⬆️, 0) then
+    if btn(⬅️, 1) then
       player2.dx = -player2.speed
       player2.flip = true 
       player2.running=true
       player2.flp=true
   
     -- right
-  elseif btn(⬇️, 0) then
--- elseif btn(➡️, 1) then
+  -- elseif btn(⬇️, 0) then
+elseif btn(➡️, 1) then
       player2.dx = player2.speed
       player2.flip = false 
       player2.running=true
@@ -345,8 +357,8 @@ local camera_panned = false
   
     -- jump
     if not climbing_ability2 then
-    if btn(🅾️, 0) and player2.landed then
-    -- if btn(❎, 1) and player2.landed then
+    -- if btn(🅾️, 0) and player2.landed then
+    if btn(❎, 1) and player2.landed then
       player2.dy-=player2.speed
       player2.landed=false
     end
@@ -422,3 +434,50 @@ local camera_panned = false
             end
         end
   end
+
+  function btn_option()
+    if btn(⬇️, 0) and not last_btn_state_down_lvl then
+    btn_count_lvl -= 1
+    last_btn_state_down_lvl = true  --button is now pressed
+    elseif not btn(⬇️, 0) and last_btn_state_down_lvl then
+      last_btn_state_down_lvl = false  --button has been released
+    end
+
+
+
+
+    if btn(⬆️, 0) and not last_btn_state_up_lvl then
+      btn_count_lvl += 1
+      last_btn_state_up_lvl = true
+    elseif not btn(⬆️, 0) and last_btn_state_up_lvl then
+      last_btn_state_up_lvl = false
+    end
+
+
+
+
+    --cycle button selection with wraparound behavior
+    if btn_count_lvl > 2 then
+      btn_count_lvl = 1
+    elseif btn_count_lvl < 1 then
+      btn_count_lvl = 2
+    end
+
+
+
+
+    --set button outline colors based on button selection
+    if btn_count_lvl == 1 then
+      yes_color=7
+      no_color=8
+     
+    elseif btn_count_lvl == 2 then
+      yes_color=8
+      no_color=7
+    end
+    if yes_color==8 and btn(❎, 0) then
+      load("menu.p8")
+    elseif no_color==8 and btn(❎, 0) then
+      show_popup=false
+    end
+end

@@ -29,6 +29,14 @@ function _init()
     easing = 0.1
     pal(0,128,1) -- force disrupt
     pal()
+
+    btn_count_lvl=1
+    local show_popup = false
+    local popup_selection = 1
+    yes_color=7
+    no_color=7
+    last_btn_state_down_lvl = false
+    last_btn_state_up_lvl = false
     
     fading=0
     fadespeed=5
