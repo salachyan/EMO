@@ -5,7 +5,9 @@ function _update()
     elseif map_offset_x==74 and map_offset_y==13 then
       level = "3b"
     end
-
+    -- if(btnp(5)) then
+    --   shake=true
+    -- end
     update_map_level3a_to_level3b()
     update_map_level3b_to_climax()
     
@@ -13,24 +15,24 @@ function _update()
       level3a()
       collisions_for_switch3_3()
       collisions_for_switch4_3()
+
     elseif level == "3b" then
       level3b()
       collisions_for_switch5_3b()
       collisions_for_switch6_3b()
     end
   
-    if reading then
-    else
-        player1_update()
-        player2_update()
-    end
-  
+
+    player1_update()
+    player2_update()
+    beginningtext()
   end
   
   function player1_update()
     player1.dy+=gravity
     player1.running=false
     --left
+    if (reading!=true and movement) then
     if btn(⬅️, 0) then
       player1.dx = -player1.speed
       player1.flip = true 
@@ -52,6 +54,7 @@ function _update()
       player1.dy-=player1.speed
       player1.landed=false
     end
+  end
   
     --from https://nerdyteachers.com/Explain/Platformer/
     --up down
@@ -219,6 +222,136 @@ function _update()
             player2.spz = 1
         end
         player2.frames = {8,10} -- Idle frame
+    end
+  end
+
+function beginningtext()
+  beginningtalk()
+  updatetocheetahtalk()
+  cheetahyell()
+  updatecheetah()
+  pipandpetewhat()
+  moveplayers()
+end
+
+function beginningtalk()
+  --pip and pete knck on percy's door.
+      if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+          tb_update() -- handle the text box on every frame update.
+      else
+              if textbox == "A" and checker==0 then
+
+              tb_init(map_offset_x-60,map_offset_y,0,{"pip: dang that was really hard. the sun's already coming down... did percy really think that side was easier?", "pete: i'm not sure but i was really struggling too!", "pip: well i guess we have to keep ging. we definitely can't go back..."})
+              checker+=1
+              part="A"
+      end
+  end
+end
+
+function updatetocheetahtalk()
+    if part =="A" and reading==false then
+      textbox="1"
+    end
+end
+
+
+function cheetahyell()
+    --pip and pete knck on percy's door.
+    if textbox == "1" and checker==1 then
+
+        if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+            tb_update() -- handle the text box on every frame update.
+        else
+
+                tb_init(map_offset_x-60,map_offset_y,0,{"cheetah yelling: im on my way pip and pete!!"})
+                checker+=1
+                part="2"
+                shake=true
+                p1jump=true
+                p2jump=true
+
+
+        end
+    end
+end
+
+
+
+function updatecheetah()
+    if part =="2" and reading == false then
+      if(p2jump==true) then
+        player2.dy-=player2.speed
+        player2.landed=false
+        p2jump=false
+        textbox="2"
+      end
+      if (p1jump==true) then
+        player1.dy-=player1.speed
+        player1.landed=false
+        p1jump=false
+      end
+    end
+end
+
+function pipandpetewhat()
+  --pip and pete knck on percy's door.
+  if textbox == "2" and checker==2 then
+
+    if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+          tb_update() -- handle the text box on every frame update.
+      else
+
+              tb_init(map_offset_x-60,map_offset_y,0,{"pip and pete: !!!! we have to go!!!"})
+              shake=true
+              p1jump=true
+              p2jump=true
+              part="3"
+              checker+=1
+
+      end
+  end
+end
+
+function moveplayers()
+  if part =="3" and reading==false then
+    movement=true
+    textbox="x"
+  end
+end
+
+
+
+-- function secondhalftext()
+--   --pip and pete knck on percy's door.
+--   if textbox == "x" and checker==3 then
+
+--     if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+--           tb_update() -- handle the text box on every frame update.
+--       else
+
+--               tb_init(map_offset_x-60,map_offset_y,0,{"pip and pete: !!!! we have to go!!!"})
+--               shake=true
+--               p1jump=true
+--               p2jump=true
+--               part="3"
+--               checker+=1
+
+--       end
+--   end
+-- end
+
+  function screen_shake()
+    local fade = 0.90
+    local offset_x=8-rnd(5)
+    local offset_y=0
+    offset_x*=offset
+    offset_y*=offset
+    
+    camera(map_offset_x -60+ offset_x,map_offset_y-15+offset_y)
+    offset*=fade
+    if offset<0.05 then
+      offset=0
+        shake=false
     end
   end
   

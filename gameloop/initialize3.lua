@@ -2,7 +2,15 @@ function _init()
     level = "3a"
     map_offset_x=60
     map_offset_y=15
-  
+    shake=false
+    offset=1.5
+    checker=0
+    textbox ="A"
+    part="1"
+    p1jump=false
+    p2jump=false
+    reading=false
+    movement=false
     player1 = {
       x = 0,    
       y = 12*8,    

@@ -1,12 +1,13 @@
 function _draw()
     cls()
-    -- tb_draw()
 
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     print("level 3",50,2,14)
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
-
+    if(shake==true)then
+      screen_shake()
+  end
     if level == "3a" then
       spr(switch1_3.sp, switch1_3.x, switch1_3.y, 1, 1, switch1_3.flip)
       spr(switch2_3.sp, switch2_3.x, switch2_3.y, 1, 1, switch2_3.flip)
@@ -50,6 +51,8 @@ function _draw()
       spr(box4_3.sp, box4_3.x, box4_3.y, 1, 1, box4_3.flip)
       
     end    
+    tb_draw()
+
     -- print("collision: "..tostring(check_collision2(player1, box3_3) and check_collision2(player2, box3_3)), 5, 20, 14)
 
   end
