@@ -6,6 +6,7 @@ __lua__
 #include gameloop/draw2.lua
 #include gameloop/collisions.lua
 #include gameloop/update2.lua
+
 #include gameloop/level2.lua
 #include gameloop/storyline.lua
 __gfx__

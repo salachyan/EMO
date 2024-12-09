@@ -16,6 +16,9 @@ function _update()
     collisions_for_switch1()
     collisions_for_switch2()
     -- question="q1"
+  if(currentQ==0 and question == "qx") then
+    question = "q0"
+  end
   if(currentQ==1 and question == "qx") then
     question = "q1"
   end

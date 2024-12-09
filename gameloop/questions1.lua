@@ -1,4 +1,19 @@
 function iquestion()
+    q0={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
+    voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
+    x=8, -- x coordinate
+    y=4, -- y coordginate
+    w=119, -- text box width
+    h=73, -- text box height
+    -- hint="don't forget that \npip learned \nsomething from \nthe rumors!",
+    hint="that was an incorrect \npopup. now try \nanswering letter a. \nthis will also \nbe incorrect. \n\nto answer again,\nclick b.",
+    answer="when you click on \nanother incorrect \nanswer, you get \nthis popup \nwhich will give you \nthe answer. now lets \ntry a real question! \nmake sure you choose \nthe right answer!\n\nclick a to go to \nthe next question",
+    question="question 0: welcome to a \nquestion! i'll be explaining \nhow to answer a question",
+    qa={'player1 can click ⬆️ or \n⬇️ to go between answers.','you will be using the \nb button for questions. \nyou cannot go to the \nmenu while answering \na question.','you have two chances \nto answer a question!','try answering letter c. \nthis will be purposely \nincorrect.'},
+    rowsa= {3,2,5,2,3},
+    qn = 0
+    }
     q1={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
@@ -11,7 +26,7 @@ function iquestion()
     answer="remember: pip ran to\npete because pip\nwanted to warn pete \nabout the \napproaching cheetah",
     question="question 1: what is the \n main reason pip runs to\n talk to pete?",
     qa={'to tell pete a secret','to warn pete about\nthe approaching cheetah','to ask pete for some food','to plan a party for percy'},
-    rowsa= {3,1,2,1,1},
+    rowsa= {3,1,2,1,2},
     qn = 1
     }
     q2={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
@@ -57,14 +72,14 @@ function iquestion()
 
     answers = {"a. ","b. ","c. ","d. "}
     answersel=1
-    qamaster = {2,3,2,3}
+    qamaster = {4,2,3,2,3}
     question="qx"
     viewhint1checker=false 
     correct=false
     answernumber=0
     viewhint=false
     level = "1a"
-    currentQ=1
+    currentQ=0
     questionAns=1
 end
 
@@ -97,7 +112,7 @@ function uquestion()
             end
         end
         if(btnp(5))then
-            if(answersel == qamaster[questionAns])then
+            if(answersel == questionAns)then
                 correct=true
                 answered=true
                 answernumber+=1
@@ -180,7 +195,7 @@ end
 -- end
 function dincorrect1(q)
     if answered and (correct != true) then
-        local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint."
+        local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint. \n\nclick a to continue"
         local lines = split(text, "\n")
         local line_count = #lines
         local rect_height = line_count * 8 + 4 -- 8 pixels per line + 4 for padding
@@ -223,7 +238,7 @@ function dincorrect2(q)
         end
 
         for line in all(answer_lines) do
-            print(line, q.x+13, y_offset, 8)
+            print(line, q.x+15, y_offset, 8)
             y_offset += 8 -- Move down for the next line
         end
     end

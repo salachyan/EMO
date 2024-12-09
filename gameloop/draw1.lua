@@ -28,9 +28,17 @@ function _draw()
       spr(box2.sp, box2.x, box2.y, 1, 1, box2.flip)
       -- dquestion(q2)
     end
-    
+    if question == "q0" then
+      questionAns=2
+      dquestion(q0)
+      checkquestion(q0)
+      if viewhint then
+        dhint(q0)
+        viewhintfalselogic(q0)
+      end
+    end
     if question == "q1" then
-      questionAns=1
+      questionAns=2
       dquestion(q1)
       checkquestion(q1)
       if viewhint then
@@ -39,7 +47,7 @@ function _draw()
       end
     end
     if question == "q2" then
-      questionAns=2
+      questionAns=3
       dquestion(q2)
       checkquestion(q2)
       if viewhint then
@@ -48,7 +56,7 @@ function _draw()
       end
     end
     if question == "q3" then
-      questionAns=1
+      questionAns=2
       dquestion(q3)
       checkquestion(q3)
       if viewhint then
@@ -57,7 +65,7 @@ function _draw()
       end
     end
     if question == "q4" then
-      questionAns=2
+      questionAns=3
       dquestion(q4)
       checkquestion(q4)
       if viewhint then
