@@ -85,6 +85,9 @@ function level2()
         platform_mover.y -= 1
     end
     
+    if((check_collision(player1,sign) ==true or check_collision(player2,sign) == true) and btnp(5)) then
+        hoversign=true
+    end
     if check_collision1(player1, platform1) then
         if player1.y + player1.h <= platform1.y + platform1.h and player1.dy > 0 then
         player1.y = platform1.y - player1.h 

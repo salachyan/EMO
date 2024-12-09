@@ -7,7 +7,6 @@ __lua__
 #include gameloop/collisions.lua
 #include gameloop/update2.lua
 #include gameloop/level2.lua
-#include gameloop/questions2.lua
 #include gameloop/storyline.lua
 __gfx__
 00000000000000000000000000000000000002222220000000000888888000000000088888800000000000000000000000000222222000000000000000000000

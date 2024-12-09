@@ -4,6 +4,7 @@ function _update()
   elseif map_offset_x==44 and map_offset_y==12 then
     level = "2b"
   end
+  -- storylinetext()
 
   update_map_level2a_to_level2b()
   update_map_level2b_to_level3a()
@@ -17,11 +18,12 @@ function _update()
     collisions_for_switch1_2b()
     collisions_for_switch2_2b()
   end
+  
 
-  if reading then
-  else
       player1_update()
       player2_update()
+      if reading then
+      else
       if show_popup==true then
         btn_option()
       end
@@ -34,9 +36,10 @@ function _update()
         show_popup = true
       end
   end
-
   -- update_camera()
-
+  if hoversign then
+    showsign()
+  end
 end
 
 function update_camera()
@@ -67,6 +70,7 @@ function player1_update()
   player1.dy+=gravity
   player1.running=false
   --left
+  if reading!= true then
   if btn(⬅️, 0) then
     player1.dx = -player1.speed
     player1.flip = true 
@@ -88,7 +92,7 @@ function player1_update()
     player1.dy-=player1.speed
     player1.landed=false
   end
-
+end
   --from https://nerdyteachers.com/Explain/Platformer/
   --up down
   if player1.dy>0 then
@@ -141,6 +145,7 @@ function player2_update()
   player2.dy+=gravity
   --left
   -- if btn(⬆️, 0) then
+  if reading != true then
   player2.running=false
   if btn(⬅️, 1) then
     player2.dx = -player2.speed
@@ -166,7 +171,7 @@ elseif btn(➡️, 1) then
     player2.dy-=player2.speed
     player2.landed=false
   end
-
+end
   --from https://nerdyteachers.com/Explain/Platformer/
   --up down
   if player2.dy>0 then
@@ -298,3 +303,17 @@ function btn_option()
   end
 end
 
+
+function showsign()
+
+    if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
+          tb_update() -- handle the text box on every frame update.
+      else
+        if textbox == "0" and checker==0 then
+
+              tb_init(map_offset_x-30,map_offset_y,0,{"`be careful were you step! go to the right side, you'll reach the top faster and it's more safe. -percy`"})
+              checker+=1
+
+      end
+  end
+end
