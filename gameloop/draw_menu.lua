@@ -32,10 +32,10 @@ function _draw()
     end
     
 
-    -- print("color_outline_prologue: "..tostring(color_outline_prologue), map_offset_x,  map_offset_y+30, 10)
-    -- print("lvl_condition: "..tostring(lvl_condition), map_offset_x,  map_offset_y+40, 10)
-    -- print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+50, 10)
-    -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+60, 10)
+    -- print("screen: "..tostring(screen), map_offset_x,  map_offset_y+30, 10)
+    -- print("btnp(❎, 0): "..tostring(btnp(❎, 0)), map_offset_x,  map_offset_y+40, 10)
+    -- print("menu_condition: "..tostring(menu_condition), map_offset_x,  map_offset_y+50, 10)
+    -- print("inst_condition: "..tostring(inst_condition), map_offset_x,  map_offset_y+60, 10)
     -- print("menu_cond: "..tostring(color_outline_menu_lvl==8 and btn(❎, 0)), map_offset_x,  map_offset_y+70, 10)
     
     
@@ -232,4 +232,12 @@ function instructions_print()
     local tb_h4 = 8.5
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
     print("exit questions",tb_x4+2,tb_y4+2,0)
+
+    local tb_x4 = 11.8*8
+    local tb_y4 = (30-17)*8
+    local tb_w4 = 3*8  
+    local tb_h4 = 8.5
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
+    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 8)
+    print("menu",12.4*8,(30.3-17)*8,1)
 end

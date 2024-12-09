@@ -15,6 +15,11 @@ function _init()
   gameover_condition=false
   ending_condition=false
   thanks_condition=false
+  ending_condition2=false
+  questions_condition=false
+  gameover_time1=0
+  gameover_time2=0
+  gameover_time3=0
 
   checker=0
   sprite_loop_timer = 0 

@@ -9,7 +9,7 @@ function _update()
   
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  if question then
+  if question != "qx" then
     uquestion()
   end
   if level == "1a" then
