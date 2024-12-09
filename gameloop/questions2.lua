@@ -1,5 +1,5 @@
 function iquestion()
-    q1={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q5={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
@@ -12,9 +12,9 @@ function iquestion()
     question="question 1: what is the \n main reason pip runs to\n talk to pete?",
     qa={'to tell pete a secret','to warn pete about\nthe approaching cheetah','to ask pete for some food','to plan a party for percy'},
     rowsa= {3,1,2,1,1},
-    qn = 1
+    qn = 5
     }
-    q2={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q6={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     str=string, -- the strings. remember: this is the table of strings you passed to this function when you called on _update()
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
@@ -26,9 +26,9 @@ function iquestion()
     question="question 2: why do pip and \n pete knock on percy's door\n harder the second time?",
     qa={'they forgot to knock the \nfirst time','they want to see if \nanyone else is home',"percy didn't answer \nwith the first knock",'they are playing\na game with percy'},
     rowsa= {3,2,2,2,2},
-    qn=2
+    qn=6
     }
-    q3={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q7={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
     y=14, -- y coordginate
@@ -39,9 +39,9 @@ function iquestion()
     question = "question 3: what can the \n reader infer from pete's \n statement, \"he never \n leaves his doorunlocked\"?",
     qa={'percy likes to keep his\nhouse neat', 'percy is usually very \ncareful about \nlocking his door', 'percy often forgets \nto close his door', 'percy does not\n like visitors'},
     rowsa= {4,2,3,2,2},
-    qn = 3
+    qn = 7
     }
-    q4={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
+    q8={ -- table containing all properties of a text box. i like to work with tables, but you could use global variables if you preffer.
     voice=voice, -- the voice. again, this was passed to this function when you called it on _update()
     x=8, -- x coordinate
     y=14, -- y coordginate
@@ -52,16 +52,19 @@ function iquestion()
     question = "question 4: based on the \n events in the prologue,\n what is most likely\n to happen next?",
     qa={'the brothers will return \nhome and forget about \nthe cheetah', 'percy will greet them \nat the door with a gift', 'the brothers will leave\nthe village immediately.', "the cheetah will arrive\nbefore they leave"},
     rowsa= {4,3,2,2,2},
-    qn = 4
+    qn = 8
     }
 
     answers = {"a. ","b. ","c. ","d. "}
     answersel=1
     qamaster = {2,3,2,3}
-    -- q1ca=2
-    -- q2ca=3
-    -- q3ca=2
-    qtoggle=true
+    question="q5"
+    viewhint1checker=false 
+    correct=false
+    answernumber=0
+    viewhint=false
+    currentQ=5
+    questionAns=1
 end
 
 function resetquestion()
@@ -157,8 +160,6 @@ function viewhintfalselogic(q)
     end
 end
 
-
--- rectfill(tb.x, tb.y, tb.x + tb.w, tb.y + tb.h, tb.col1)
 function dcorrect(q)
     if correct and answered then
         rectfill(q.x+20,q.y+12,q.w-20, q.y+28,15)
@@ -167,13 +168,6 @@ function dcorrect(q)
     end
 end
 
--- function dincorrect1(q)
---     if answered and (correct != true) then
---         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---         print("that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint.",q.x+15,q.y+18,8) 
---     end
--- end
 function dincorrect1(q)
     if answered and (correct != true) then
         local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint."
@@ -192,16 +186,6 @@ function dincorrect1(q)
     end
 end
 
-
-
--- function dincorrect2(q)
---     if answered and (correct != true) then
---         rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---         rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---         print("that was incorrect.",q.x+15,q.y+18,8) 
---         print(q.answer, q.x+15, q.y+25,8)
---     end
--- end
 function dincorrect2(q)
     if answered and (correct != true) then
         local text = "that was incorrect."
@@ -227,13 +211,6 @@ end
 
 
 
--- function dhint(q)
---     if viewhint==true then
---     rectfill(q.x+12,q.y+12,q.w-12, q.y+48,15)
---     rect(q.x+12,q.y+12,q.w-12, q.y+48,0)
---     print(q.hint, q.x+15, q.y+16,8)
---     end
--- end
 function dhint(q)
     if viewhint == true then
         local hint_lines = split(q.hint, "\n")

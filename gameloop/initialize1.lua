@@ -1,17 +1,10 @@
 function _init()
   reading=false
-  question="qx"
-  viewhint1checker=false 
-  correct=false
-  answernumber=0
-  viewhint=false
-  checker=0
   level = "1a"
   storylinestage="1a"
-  questionAns=1
+  checker=0
   map_offset_y=14
   map_offset_x=0
-  currentQ=1
 
   both_player1_left=false
   both_player2_left=false

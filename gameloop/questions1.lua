@@ -58,10 +58,14 @@ function iquestion()
     answers = {"a. ","b. ","c. ","d. "}
     answersel=1
     qamaster = {2,3,2,3}
-    -- q1ca=2
-    -- q2ca=3
-    -- q3ca=2
-    qtoggle=true
+    question="qx"
+    viewhint1checker=false 
+    correct=false
+    answernumber=0
+    viewhint=false
+    level = "1a"
+    currentQ=1
+    questionAns=1
 end
 
 function resetquestion()
@@ -298,3 +302,4 @@ function dquestion(q)
         print(q.qa[i], q.x + 12, answer_y, 0) -- Print the answer text
     end
 end
+

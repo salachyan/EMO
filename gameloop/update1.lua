@@ -34,7 +34,7 @@ function _update()
     collisions_for_switch3()
     collisions_for_switch4()
   end
-  if reading or question then
+  if reading or question != "qx" then
   else
       player1_update()
       player2_update()

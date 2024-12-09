@@ -9,7 +9,6 @@ function _init()
     knock=1
     knock2=1
     doorstate="closed"
-    -- question=true 
     part="1a"
     correct=false
     answernumber=0
@@ -126,10 +125,7 @@ function _init()
         frames = {4,6},
         spz = 1,
       }
-    -- switches()
-    -- boxes()
-    -- seesaws()
-  
+
     gravity = 0.08
   
     map_start = 0
