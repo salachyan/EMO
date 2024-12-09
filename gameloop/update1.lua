@@ -9,7 +9,7 @@ function _update()
   
   update_map_level1a_to_level1b()
   update_map_level1_to_level2()
-  if question then
+  if question != "qx" then
     uquestion()
   end
   if level == "1a" then
@@ -34,7 +34,7 @@ function _update()
     collisions_for_switch3()
     collisions_for_switch4()
   end
-  if reading or question then
+  if reading or question!="qx" then
   else
       player1_update()
       player2_update()

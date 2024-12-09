@@ -33,18 +33,51 @@ function _draw()
       spr(percy.sp, percy.x, percy.y, 2, 2, percy.flip)
       spr(cheetah.sp, cheetah.x, cheetah.y, 4, 4, cheetah.flip)  
     else
-      if gameover_time<=1 then
+      if gameover_time<=17 then
         gameover_time+=0.1
         ending_condition=true
+      else
+        ending_condition=false
       end
-      if gameover_time<=4 then
-        gameover_time+=0.1
+      if gameover_time1<=17 and ending_condition==false then
+        gameover_time1+=0.1
+        ending_condition2=true
+      else
+        ending_condition2=false
+      end
+      if gameover_time2<=26 and ending_condition2==false then
+        gameover_time2+=0.1
         thanks_condition=true
+      else
+        thanks_condition=false
       end
-      if ending_condition then
-        print("the three brothers then head back down the mountain together, healing their relationship with each other.", camera_x, camera_y+50, 7)
+      if thanks_condition==false then
+        -- gameover_time3+=0.1
+        questions_condition=true
+      else
+        questions_condition=false
+      end
+
+      if questions_condition==true then
+        -- if btn(❎, 0) then
+        --   load("menu.p8")
+        -- end
+      end
+      if ending_condition==true then
+        print("the three brothers then headed", camera_x+1, camera_y+40, 7)
+        print("back down the mountain together,", camera_x+1, camera_y+50, 7)
+        print("starting a new adventure.", camera_x+1, camera_y+60, 7)
+        -- print("together.", camera_x+1, camera_y+70, 7)
+      elseif ending_condition2 then
+        print("their relationship was soon ", camera_x+3, camera_y+40, 7)
+        print("healed, and the brothers  ", camera_x+3, camera_y+50, 7)  
+        print("couldn't be any happier.", camera_x+3, camera_y+60, 7)  
       elseif thanks_condition then
-      print("thanks for playing!", camera_x, camera_y+50, 7)     
+        print("thanks for playing!", camera_x+22, camera_y+50, 7)
+      elseif questions_condition then
+        print("please press ''a'' to answer", camera_x+1, camera_y+40, 7)
+        print("the remaiming 6 questions.", camera_x+1, camera_y+50, 7)
+        
       end
     end
     spr(boulder.sp, boulder.x, boulder.y, 4, 4, boulder.flip)
@@ -63,12 +96,12 @@ function _draw()
     -- end 
 
     
-    -- print("camera_x: "..tostring(camera_x ), camera_x,  camera_y+50, 14)
-    -- print("camera_y: "..tostring(camera_y), camera_x, camera_y+60, 14)
+    -- print("gameover_time: "..tostring(gameover_time ), camera_x,  camera_y+70, 14)
+    -- print("gameover_time1: "..tostring(gameover_time1), camera_x, camera_y+80, 14)
     
-    -- print("current_message_index>=24: "..tostring(current_message_index>=24), camera_x, camera_y+70, 14)
-    -- print("gameover_condition==true "..tostring(gameover_condition==true), camera_x, camera_y+80, 14)
-    -- print("fading==0: "..tostring(fading==0),camera_x, camera_y+60, 0)
+    -- print("thanks_condition: "..tostring(thanks_condition), camera_x, camera_y+90, 14)
+    -- -- print("gameover_condition==true "..tostring(gameover_condition==true), camera_x, camera_y+80, 14)
+    -- print("ending_condition: "..tostring(ending_condition),camera_x, camera_y+100, 14)
     -- print("condition: "..tostring(current_message_index==2), camera_x, camera_y+70, 0)
     -- print("current_message_index : "..tostring(current_message_index), camera_x, camera_y + 80, 0)
     -- print("player1.y: "..tostring(player1.y), camera_x, camera_y + 90, 0)
