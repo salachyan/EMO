@@ -101,19 +101,19 @@ function _draw()
       rect(popup_x, popup_y, popup_x + 100, popup_y + 40, 7) -- White border
 
       -- Popup text
-      print("Are you sure you want", popup_x + 4, popup_y + 4, 7)
+      print("are you sure you want", popup_x + 4, popup_y + 4, 7)
       print("to go back to the menu?", popup_x + 4, popup_y + 12, 7)
 
       local yes_x = popup_x + 27  -- Adjusted position for Yes
       rectfill(yes_x, popup_y + 24, yes_x + 20, popup_y + 34, 7)
       rect(yes_x, popup_y + 24, yes_x + 20, popup_y + 34, yes_color)
-      print("Yes", yes_x + 5, popup_y + 26, 0)
+      print("yes", yes_x + 5, popup_y + 26, 0)
 
       -- No button (move to the right)
       local no_x = popup_x + 51  -- Adjusted position for No
       rectfill(no_x, popup_y + 24, no_x + 20, popup_y + 34, 7)
       rect(no_x, popup_y + 24, no_x + 20, popup_y + 34, no_color)
-      print("No", no_x + 5, popup_y + 26, 0)
+      print("no", no_x + 5, popup_y + 26, 0)
   end
 
 
