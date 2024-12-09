@@ -54,7 +54,7 @@ function _init()
   message18="percy: i forgive you guys and i'm really sorry for what i did. i'm glad we can work together again."
   message19="cheetah: percy, i knew you felt left out. that's why i used you."
   message20="cheetah: i figured you'd be willing to help me take them down, just to feel like you finally mattered."
-  message21="cheetah: but it's clear now... whatever you three have, it's not something I can break."
+  message21="cheetah: but it's clear now... whatever you three have, it's not something i can break."
   message22="pip: it's over! the cheetah won't bother us anymore"
   message23="percy: i'm so happy we're brothers!" 
   message24="pete: we did it as a team! we're so happy to have you back percy!"

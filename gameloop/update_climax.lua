@@ -111,10 +111,10 @@ function _update()
           end
         end
     end
-  else
+  elseif btn(➡️, 0) or btn(⬅️, 0) or btn(❎, 0) then
     sprite_loop_timer = sprite_loop_timer + 1
     -- Change sprite at intervals controlled by sprite_change_speed
-    if sprite_loop_timer >= sprite_change_speed then
+    if sprite_loop_timer >= 5.5 then
         if player1.sp == 0 then
             player1.sp = 32
         elseif player1.sp == 32 then
@@ -151,10 +151,10 @@ function _update()
         player2.y=6*8
       end
     end
-  else
+  elseif btn(➡️, 1) or btn(⬅️, 1) or btn(❎, 1) then
     sprite_loop_timer2 = sprite_loop_timer2 + 1
     -- Change sprite at intervals controlled by sprite_change_speed
-    if sprite_loop_timer2 >= 23 then
+    if sprite_loop_timer2 >= 5.5 then
         if player2.sp == 8 then
           player2.sp = 40
         elseif player2.sp == 40 then
