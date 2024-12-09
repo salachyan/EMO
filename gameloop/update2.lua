@@ -147,6 +147,7 @@ function player2_update()
   -- if btn(⬆️, 0) then
   if reading != true then
   player2.running=false
+  -- if btn(⬆️, 0) then
   if btn(⬅️, 1) then
     player2.dx = -player2.speed
     player2.flip = true 

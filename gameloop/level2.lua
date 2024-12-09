@@ -258,6 +258,7 @@ function update_map_level2a_to_level2b()
         platform3.y=100 * 8
         platform4.y=100 * 8
         platform5.y=100 * 8
+        sign.y=100*8
         platform_mover.y=100*8
         wall_level2.y=100*8
         wall_player2.y=100*8

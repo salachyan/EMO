@@ -200,7 +200,7 @@ function instructions_print()
     print("basic controls",36,9,3)
 
     local tb_x1 = (19-17)*8
-    local tb_y1 = (20-16)*8
+    local tb_y1 = (19-16)*8
     local tb_w1 = 3*8  
     local tb_h1 = 8.5*2
     rectfill(tb_x1, tb_y1, tb_x1 + tb_w1, tb_y1 + tb_h1, 15)
@@ -208,7 +208,7 @@ function instructions_print()
     print("left",tb_x1+4,tb_y1+10,0)
 
     local tb_x2 = (28-17)*8
-    local tb_y2 = (20-16)*8
+    local tb_y2 = (19-16)*8
     local tb_w2 = 3*8  
     local tb_h2 = 8.5*2
     rectfill(tb_x2, tb_y2, tb_x2 + tb_w2, tb_y2 + tb_h2, 15)
@@ -219,7 +219,7 @@ function instructions_print()
     print("b",(19.1-17)*8,(27.7-16)*8,0)
 
     local tb_x3 = (22.5-17)*8
-    local tb_y3 = (23.5-16)*8
+    local tb_y3 = (22.5-16)*8
     local tb_w3 = 9*8  
     local tb_h3 = 8.5*3
     rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 15)
@@ -228,7 +228,7 @@ function instructions_print()
     print("select answers",tb_x3+2,tb_y3+18,0)
 
     local tb_x4 = (22.5-17)*8
-    local tb_y4 = (27.5-16)*8
+    local tb_y4 = (26.5-16)*8
     local tb_w4 = 8*8  
     local tb_h4 = 8.5*3
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
