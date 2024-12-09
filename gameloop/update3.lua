@@ -293,7 +293,7 @@ function beginningtalk()
       else
               if textbox == "A" and checker==0 then
 
-              tb_init(map_offset_x-60,map_offset_y,0,{"pip: dang that was really hard. the sun's already coming down... did percy really think that side was easier?", "pete: i'm not sure but i was really struggling too!", "pip: well i guess we have to keep ging. we definitely can't go back..."})
+              tb_init(map_offset_x-60,map_offset_y,0,{"pip: dang that was really hard. the sun's already coming down... did percy really think that side was easier?", "pete: i'm not sure but i was really struggling too!", "pip: well i guess we have to keep going. we definitely can't go back..."})
               checker+=1
               part="A"
       end

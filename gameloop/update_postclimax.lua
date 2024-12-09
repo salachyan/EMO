@@ -29,7 +29,7 @@ function _update()
         if reading then -- if tb_init has been called, reading will be true and a text box is being displayed to the player. it is important to do this check here because that way you can easily separete normal game actions to text box inputs.
             tb_update() -- handle the text box on every frame update.
         else
-            tb_init(map_offset_x-30,map_offset_y,0,{"you have completed the game. click a to return to the main menu! thank you for playing!"})
+            tb_init(map_offset_x-30,map_offset_y,0,{"you have completed the game. click ''a'' to return to the main menu! thank you for playing!"})
         end
         if reading == false then
             if btnp(5) then
