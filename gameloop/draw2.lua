@@ -43,6 +43,8 @@ function _draw()
     rect(70, 65, 90, 75, no_color)
     print("no", 75, 68, 0)
   end
-
+  if hoversign then
+      print("click a to see \nwhat the sign says!", map_offset_x,  map_offset_y+10, 0)
+  end
 end
 

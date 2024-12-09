@@ -37,7 +37,9 @@ function _update()
       end
   end
   -- update_camera()
-  if hoversign then
+  if clicksign then
+    hoversign=false
+
     showsign()
   end
 end

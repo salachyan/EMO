@@ -8,6 +8,8 @@ function _init()
     textbox='0'
     btn_count_lvl=1
     hoversign=false
+    clicksign=false
+
   local show_popup = false
   local popup_selection = 1
   yes_color=7
