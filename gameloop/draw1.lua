@@ -2,6 +2,14 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     tb_draw()
+
+    local tb_x4 = 12.8*8
+    local tb_y4 = (31.8-17)*8
+    local tb_w4 = 3*8  
+    local tb_h4 = 8.5
+    rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
+    rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_menu)
+    print("menu",13.4*8,(32-17)*8,1)
     
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
@@ -57,12 +65,25 @@ function _draw()
         viewhintfalselogic(q4)
       end
     end
-    -- print("question: "..tostring(question), map_offset_x,  map_offset_y+10, 14)
-    -- print("currentQ "..tostring(currentQ), map_offset_x,  map_offset_y+20, 14)
+    print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+10, 14)
+    print("color_menu "..tostring(color_menu), map_offset_x,  map_offset_y+20, 14)
     -- print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
     -- print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
     -- print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
     
+    if show_popup then
+      -- Popup background
+      rectfill(20, 40, 108, 80, 0) -- Black box
+      rect(20, 40, 108, 80, 7) -- White border
+
+      -- Popup text
+      print("Are you sure you want", 30, 45, 7)
+      print("to go back to the menu?", 30, 53, 7)
+
+      -- Options
+      print("Yes", 50, 65, popup_selection == 1 and 8 or 7)
+      print("No", 80, 65, popup_selection == 2 and 8 or 7)
+    end
   end
 
 
