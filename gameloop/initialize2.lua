@@ -2,8 +2,12 @@ function _init()
     level = "2a"
     map_offset_x=30
     map_offset_y=14
-
+    reading=false
+    part='1'
+    checker=0
+    textbox='0'
     btn_count_lvl=1
+    hoversign=false
   local show_popup = false
   local popup_selection = 1
   yes_color=7
@@ -74,6 +78,7 @@ function _init()
     boxes()
     platforms()
     walls()
+    sign()
 
     gravity = 0.08
 
@@ -85,7 +90,16 @@ function _init()
     easing = 0.1
     
   end
-  
+  function sign()
+    sign = {
+      x = (41-31)*8,
+      y = (20-12)*8,
+      sp = 218,
+      w = 1,
+      h = 1,
+      flip = false
+  }
+  end
   function switches()
       switch1_2 = {
         x = (44-30)*8,
@@ -107,7 +121,7 @@ function _init()
     }
   
     switch3_2 = {
-        x = (41-30)*8,
+        x = (41-28)*8,
         y = (20-12)*8,
         sp = 244,
         w = 1,
@@ -116,7 +130,7 @@ function _init()
     }
   
     switch4_2 = {
-        x = (43-30)*8,
+        x = (43-28)*8 -2,
         y = (20-12)*8,
         sp = 212,
         w = 1,

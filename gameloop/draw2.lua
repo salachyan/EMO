@@ -1,7 +1,5 @@
 function _draw()
   cls()
-  tb_draw()
-
   map(map_offset_x, map_offset_y, 0, 0, 32, 64)  
   print("level 2",50,2,14)
   spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
@@ -18,6 +16,7 @@ function _draw()
     spr(platform3.sp, platform3.x, platform3.y, 1, 1)
     spr(platform4.sp, platform4.x, platform4.y, 1, 1)
     spr(platform5.sp, platform5.x, platform5.y, 1, 1)
+    spr(sign.sp,sign.x,sign.y,1,1)
     -- spr(platform6.sp, platform6.x, platform6.y, 1, 1)
     spr(platform_mover.sp, platform_mover.x, platform_mover.y, 1, 1)
     spr(wall_level2.sp, wall_level2.x, wall_level2.y, 1, 1)
@@ -26,6 +25,7 @@ function _draw()
     spr(switch1_2b.sp, switch1_2b.x, switch1_2b.y, 1, 1, switch1_2b.flip)
     spr(switch2_2b.sp, switch2_2b.x, switch2_2b.y, 1, 1, switch2_2b.flip)
   end
+  tb_draw()
 
   if show_popup then
     rectfill(17, 40, 116, 80, 0) 
