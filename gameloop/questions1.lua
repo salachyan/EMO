@@ -8,7 +8,7 @@ function iquestion()
     h=73, -- text box height
     -- hint="don't forget that \npip learned \nsomething from \nthe rumors!",
     hint="that was an incorrect \npopup. now try \nanswering letter a. \nthis will also \nbe incorrect. \n\nto answer again,\nclick b.",
-    answer="when you click on \nanother incorrect \nanswer, you get \nthis popup \nwhich will give you \nthe answer. now lets \ntry a real question! \nmake sure you choose \nthe right answer!\n\nclick a to go to \nthe next question",
+    answer="when you click on \nanother incorrect \nanswer, you get \nthis popup \nwhich will give you \nthe answer. now lets \ntry a real question! \nmake sure you choose \nthe right answer!\n\nclick b to go to \nthe next question",
     question="question 0: welcome to a \nquestion! i'll be explaining \nhow to answer a question",
     qa={'player1 can click ⬆️ or \n⬇️ to go between answers.','you will be using the \nb button for questions. \nyou cannot go to the \nmenu while answering \na question.','you have two chances \nto answer a question!','try answering letter c. \nthis will be purposely \nincorrect.'},
     rowsa= {3,2,5,2,3},
