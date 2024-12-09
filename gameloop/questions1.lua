@@ -195,7 +195,7 @@ end
 -- end
 function dincorrect1(q)
     if answered and (correct != true) then
-        local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint. \n\nclick a to continue"
+        local text = "that was incorrect.\nyou can answer it \none more time! ^-^\nlets look at a hint. \n\nclick b to continue"
         local lines = split(text, "\n")
         local line_count = #lines
         local rect_height = line_count * 8 + 4 -- 8 pixels per line + 4 for padding
