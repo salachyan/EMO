@@ -221,23 +221,26 @@ function instructions_print()
     local tb_x3 = (22.5-17)*8
     local tb_y3 = (23.5-16)*8
     local tb_w3 = 9*8  
-    local tb_h3 = 8.5*2
+    local tb_h3 = 8.5*3
     rectfill(tb_x3, tb_y3, tb_x3 + tb_w3, tb_y3 + tb_h3, 15)
-    print("jump or",tb_x3+3,tb_y3+2,0)
-    print("continue dialogue",tb_x3+2,tb_y3+10,0)
+    print("jump, continue",tb_x3+3,tb_y3+2,0)
+    print("dialogue, or",tb_x3+2,tb_y3+10,0)
+    print("select answers",tb_x3+2,tb_y3+18,0)
 
     local tb_x4 = (22.5-17)*8
     local tb_y4 = (27.5-16)*8
     local tb_w4 = 8*8  
-    local tb_h4 = 8.5
+    local tb_h4 = 8.5*3
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 15)
-    print("exit questions",tb_x4+2,tb_y4+2,0)
+    print("acknowledge ",tb_x4+2,tb_y4+2,0)
+    print("feedback",tb_x4+2,tb_y4+10,0)
+    print("from questions",tb_x4+2,tb_y4+18,0)
 
     local tb_x4 = 11.8*8
-    local tb_y4 = (30-17)*8
+    local tb_y4 = (31.8-17)*8
     local tb_w4 = 3*8  
     local tb_h4 = 8.5
     rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
     rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 8)
-    print("menu",12.4*8,(30.3-17)*8,1)
+    print("menu",12.4*8,(32-17)*8,color_menu)
 end

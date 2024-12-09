@@ -2,6 +2,15 @@ function _init()
     level = "2a"
     map_offset_x=30
     map_offset_y=14
+
+    btn_count_lvl=1
+  local show_popup = false
+  local popup_selection = 1
+  yes_color=7
+  no_color=7
+  last_btn_state_down_lvl = false
+  last_btn_state_up_lvl = false
+  
     player1 = {
       x = 2,    
       y = 13*8,    

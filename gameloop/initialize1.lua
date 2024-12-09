@@ -9,6 +9,15 @@ function _init()
   both_player1_left=false
   both_player2_left=false
 
+  color_menu=7
+  btn_count_lvl=1
+  local show_popup = false
+  local popup_selection = 1
+  yes_color=7
+  no_color=7
+  last_btn_state_down_lvl = false
+  last_btn_state_up_lvl = false
+
   player1 = {
     x = 2,    
     y = 13*8,    

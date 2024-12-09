@@ -55,6 +55,28 @@ function _draw()
 
     -- print("collision: "..tostring(check_collision2(player1, box3_3) and check_collision2(player2, box3_3)), 5, 20, 14)
 
+    if show_popup then
+      rectfill(17, 40, 116, 80, 0)
+      rect(17, 40, 116, 80, 7)
+
+
+      -- Popup text
+      print("are you sure you want", 20, 45, 7)
+      print("to go back to the menu?", 20, 53, 7)
+
+
+      rectfill(40, 65, 60, 75, 7)
+      rect(40, 65, 60, 75, yes_color)
+      print("yes", 45, 68, 0)
+
+
+      rectfill(70, 65, 90, 75, 7)
+      rect(70, 65, 90, 75, no_color)
+      print("no", 75, 68, 0)
+    end
+    print("speed "..tostring(player1.speed), map_offset_x,  map_offset_y+10, 14)
+
+
   end
 
 

@@ -2,6 +2,14 @@ function _draw()
     cls()
     map(map_offset_x, map_offset_y, 0, 0, 32, 32)
     tb_draw()
+
+    -- local tb_x4 = 12.8*8
+    -- local tb_y4 = (31.8-17)*8
+    -- local tb_w4 = 3*8  
+    -- local tb_h4 = 8.5
+    -- rectfill(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, 11)
+    -- rect(tb_x4, tb_y4, tb_x4 + tb_w4, tb_y4 + tb_h4, color_menu)
+    -- print("menu",13.4*8,(32-17)*8,1)
     
     spr(player1.frames[flr(player1.spz)], player1.x, player1.y, 2, 2, player1.flp)
     spr(player2.frames[flr(player2.spz)], player2.x, player2.y, 2, 2, player2.flip)
@@ -57,12 +65,28 @@ function _draw()
         viewhintfalselogic(q4)
       end
     end
-    -- print("question: "..tostring(question), map_offset_x,  map_offset_y+10, 14)
-    -- print("currentQ "..tostring(currentQ), map_offset_x,  map_offset_y+20, 14)
-    -- print("player1.x: "..tostring(player1.x), map_offset_x,  map_offset_y+30, 14)
-    -- print("player2.y: "..tostring(player1.y), map_offset_x,  map_offset_y+40, 14)
+    -- print("btn_count_lvl: "..tostring(btn_count_lvl), map_offset_x,  map_offset_y+70, 14)
+    -- print("yes_color "..tostring(yes_color), map_offset_x,  map_offset_y+80, 14)
+    -- print("no_color: "..tostring(no_color), map_offset_x,  map_offset_y+90, 14)
+    -- print("cond: "..tostring(btn(⬇️, 0) and not last_btn_state_down_lvl), map_offset_x,  map_offset_y+100, 14)
     -- print("player2.x: "..tostring(player1.x), map_offset_x,  map_offset_y+50, 14)
     
+    if show_popup then
+      rectfill(17, 40, 116, 80, 0) 
+      rect(17, 40, 116, 80, 7) 
+
+      -- Popup text
+      print("are you sure you want", 20, 45, 7)
+      print("to go back to the menu?", 20, 53, 7)
+
+      rectfill(40, 65, 60, 75, 7) 
+      rect(40, 65, 60, 75, yes_color) 
+      print("yes", 45, 68, 0) 
+
+      rectfill(70, 65, 90, 75, 7) 
+      rect(70, 65, 90, 75, no_color)
+      print("no", 75, 68, 0)
+    end
   end
 
 
