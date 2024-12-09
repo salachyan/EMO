@@ -38,7 +38,14 @@ function _update()
   else
       player1_update()
       player2_update()
-      btn_option()
+      if show_popup==true then
+        btn_option()
+      end
+      
+      if show_popup==false then
+        yes_color=7
+        no_color=7
+      end
       if btnp(🅾️,0) then
         show_popup = true
       end
@@ -265,11 +272,11 @@ function btn_option()
 
     --set button outline colors based on button selection
     if btn_count_lvl == 1 then
-      yes_color=8
-      no_color=7
-    elseif btn_count_lvl == 2 then
       yes_color=7
       no_color=8
+    elseif btn_count_lvl == 2 then
+      yes_color=8
+      no_color=7
     end
     if yes_color==8 and btn(❎, 0) then
       load("menu.p8")
