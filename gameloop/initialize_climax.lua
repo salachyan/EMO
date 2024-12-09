@@ -10,6 +10,15 @@ function _init()
   pal()
   fading=0
   fadespeed=5
+
+  btn_count_lvl=1
+  local show_popup = false
+  local popup_selection = 1
+  yes_color=7
+  no_color=7
+  last_btn_state_down_lvl = false
+  last_btn_state_up_lvl = false
+
   
   gameover_time=0
   gameover_condition=false
